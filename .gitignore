@@ -18,3 +18,15 @@ email_agent/downloads/
 *.log
 
 *.glb
+
+*.xlsx
+*.pdf
+*.ipynb
+*.jfif
+*.png
+!frontend/public/logo.png
+
+/distances.py
+/localisation.py
+/rename.py
+/test_google_sheets.py
