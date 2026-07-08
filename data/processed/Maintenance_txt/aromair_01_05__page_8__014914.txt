@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: Armani Tunisia Mall
+Adresse: Lac 2
+
+Intervention
+============
+Date: 2025-01-28
+Reference / numero: 014914
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: Salle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 154
+  - Programme frequence: 5/10
+  - Programme plage horaire: 10-16 / 15-19
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

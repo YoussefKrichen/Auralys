@@ -1,0 +1,30 @@
+Client
+======
+Nom du client: CASSINE D'OR
+Adresse: SOUKRA
+
+Intervention
+============
+Date: 2025-02-17
+Reference / numero: 014772
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: RETOUR DIFFUSEUR APRES DIAGNOSTIC
+Diffuseur 2:
+  - Modele: POMPE DEFECTUEUSE / PAS DE REPARATION
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

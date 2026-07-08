@@ -1,0 +1,39 @@
+Client
+======
+Nom du client: Zitona Takaful
+Adresse: Lac 3
+Correspondance client: Zitouna Takaful Lac3
+
+Intervention
+============
+Date: 2025-01-29
+Reference / numero: 014908
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: CPM
+  - Emplacement: bureau
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 164
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Programme / plage horaire: bureau
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml
+Anomalies: LIV

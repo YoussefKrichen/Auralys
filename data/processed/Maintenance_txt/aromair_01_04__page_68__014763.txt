@@ -1,0 +1,30 @@
+Client
+======
+Nom du client: SPECTRA
+Adresse: KRAM
+Correspondance client: Spectra Kram
+
+Intervention
+============
+Date: 2025-02-14
+Reference / numero: 014763
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: non
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Aucun controle diffuseur mentionne.
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV Zee 300 + 900ML RG DEMO FONCTIONNEMENT
+Anomalies: LIV
+Recommandations: FCT à envoyer par mail

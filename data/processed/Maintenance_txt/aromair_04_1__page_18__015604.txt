@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: Burrour hotel
+Adresse: Haplin
+
+Intervention
+============
+Date: 2025-04-05
+Reference / numero: 015604
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FO
+  - CAB bouteille: S
+  - Quantite existante: 196
+  - Programme frequence: 4/12
+  - Programme plage horaire: 7-12 / 15-20
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: EL OPHANDS
+Adresse: SAHLIN
+Telephone: 73 342 890 | 99 289 544
+
+Intervention
+============
+Date: 2025-02-05
+Reference / numero: 014953
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: AROMAIR
+  - CAB diffuseur: Wifi
+  - Emplacement: entrée Villa
+  - CAB bouteille: S
+Diffuseur 2:
+  - Modele: AROMAIR
+  - CAB diffuseur: Wifi
+  - Emplacement: +1
+  - CAB bouteille: S
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Bouteilles vides (parfum de luxe)

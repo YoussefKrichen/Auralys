@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: EDWARDS
+Adresse: SOUICRA
+Telephone: 71 890 240 | 71 890 543 336
+
+Intervention
+============
+Date: 2025-01-18
+Reference / numero: 014815
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: B.P
+  - Emplacement: COC
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: COC
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: LIV STOCK ECT 300ML
+Anomalies: LIV

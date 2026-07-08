@@ -1,0 +1,264 @@
+{
+  "fiche_id": "Aromair_01_07:page_133:015007",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_07.json",
+  "page_key": "page_133",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Palma Soukra",
+    "address": "Megrine",
+    "date_raw": "27.02.25",
+    "time_raw": "16H30",
+    "technician_name": null,
+    "client_maintenance_number": "015007",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-27",
+    "service_time": "16:30:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR300",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "ACCAL",
+      "reference_diffuseur_raw": "AFF",
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "189",
+      "qte_parfum_existante": 189,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5-60",
+      "plage_horaire_diffusion": "8-22H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "AR300 WC",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WC",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "169",
+      "qte_parfum_existante": 169,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "3-8",
+      "plage_horaire_diffusion": "08-22H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "ZEE300",
+      "model_diffuseur": "Zee300",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "59",
+      "qte_parfum_existante": 59,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "3-8",
+      "plage_horaire_diffusion": "11H30-18H",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "3-2",
+      "plage_horaire_fonctionnement": "9H-17H / 11H30-22H",
+      "emplacement": "ENTREE"
+    },
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "3-2",
+      "plage_horaire_fonctionnement": "9H-17H / 11H30-22H",
+      "emplacement": "ENTREE"
+    },
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "3-2",
+      "plage_horaire_fonctionnement": "9H-17H / 11H30-22H",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison Zee 300 + AR300",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "M.FOOD & DRINKS\n03 Avenue de la République\nMegrine"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Palma Soukra",
+      "address": "Megrine",
+      "date_raw": "27.02.25",
+      "time_raw": "16H30",
+      "technician_name": null,
+      "client_maintenance_number": "015007",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR300",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "ACCAL",
+        "reference_diffuseur_raw": "AFF",
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "189",
+        "qte_parfum_existante": 189,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5-60",
+        "plage_horaire_diffusion": "8-22H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR300 WC",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "169",
+        "qte_parfum_existante": 169,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "3-8",
+        "plage_horaire_diffusion": "08-22H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "ZEE300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "59",
+        "qte_parfum_existante": 59,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "3-8",
+        "plage_horaire_diffusion": "11H30-18H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "3-2",
+        "plage_horaire_fonctionnement": "9H-17H / 11H30-22H",
+        "emplacement": "ENTREE"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "3-2",
+        "plage_horaire_fonctionnement": "9H-17H / 11H30-22H",
+        "emplacement": "ENTREE"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "3-2",
+        "plage_horaire_fonctionnement": "9H-17H / 11H30-22H",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison Zee 300 + AR300",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "M.FOOD & DRINKS\n03 Avenue de la République\nMegrine"
+    }
+  }
+}

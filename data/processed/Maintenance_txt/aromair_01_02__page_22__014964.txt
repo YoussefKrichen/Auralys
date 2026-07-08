@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: DT ELLOWS
+Adresse: Menzeh 6
+Telephone: 71 237 715 | 1111111
+
+Intervention
+============
+Date: 2025-02-07
+Reference / numero: 014964
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 12/16
+  - Programme plage horaire: 9-13 / 16-19
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 2-4
+  - Programme / plage horaire: 8H-17H
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml DR ELLOWS
+Anomalies: LIV

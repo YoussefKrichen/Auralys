@@ -1,0 +1,33 @@
+Client
+======
+Nom du client: MANDHOUK CUN
+Adresse: CUN
+
+Intervention
+============
+Date: 2025-01-30
+Reference / numero: 014961
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: non
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Aucun controle diffuseur mentionne.
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: étage
+  - Recharge / remplacement: 2-4
+  - Programme / plage horaire: 09-10H
+
+Problemes et recommandations
+============================
+Problemes: Livraison Diffuseur et 300ml
+Anomalies: LIV

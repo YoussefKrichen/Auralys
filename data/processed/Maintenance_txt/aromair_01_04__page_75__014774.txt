@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: BERNANDO
+Adresse: SOUKRA
+Telephone: 1211543
+
+Intervention
+============
+Date: 2025-02-17
+Reference / numero: 014774
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: ACCAL
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 20
+  - Programme frequence: 8-17
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: ACCAL
+  - Recharge / remplacement: 5/10
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FDE3
+Anomalies: LIV

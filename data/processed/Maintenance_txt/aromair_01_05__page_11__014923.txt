@@ -1,0 +1,32 @@
+Client
+======
+Nom du client: DAR SAID
+Adresse: SIDI BOUSAID
+Correspondance client: Dar Said Sidi Bou Said
+
+Intervention
+============
+Date: 2025-01-30
+Reference / numero: 014923
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: CPM
+  - Emplacement: SALON
+  - CAB bouteille: S
+  - Quantite existante: 179
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: PROBLEME DE FONCTIONNEMENT récupération du Diffuseur

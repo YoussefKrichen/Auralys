@@ -1,0 +1,54 @@
+Client
+======
+Nom du client: Audi Goulette
+Adresse: Goulette
+Correspondance client: Audi La Goulette
+Adresse correspondante: Carrefour Marsa
+Parfum reference: MR
+
+Intervention
+============
+Date: 2025-04-12
+Technicien: Bilel
+Reference / numero: 015429
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: V
+  - CAB bouteille: V
+  - Quantite existante: 250
+  - Programme frequence: 10-300
+  - Programme plage horaire: 08-14h
+Diffuseur 2:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: V
+  - CAB bouteille: V
+  - Quantite existante: 257
+  - Programme frequence: 10-300
+  - Programme plage horaire: 08-14h
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Modification frequence 5-500 S. Les diffuseurs sont débranchés.

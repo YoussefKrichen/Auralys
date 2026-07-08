@@ -1,0 +1,49 @@
+Client
+======
+Nom du client: VOLKSWAGEN
+Adresse: CHARGUIA
+Correspondance client: Volkswagen Charguia
+
+Intervention
+============
+Date: 2025-02-10
+Reference / numero: 014753
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: FOND DROIT
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 83
+  - Programme frequence: 5-10
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: FOND GAUCHE
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 59
+  - Programme frequence: 5-10
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite 2 Diffuseurs

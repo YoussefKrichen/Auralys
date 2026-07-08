@@ -1,0 +1,38 @@
+Client
+======
+Nom du client: Haut bon amaden
+
+Intervention
+============
+Date: 2025-04-04
+Reference / numero: 015607
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Ambar
+  - CAB diffuseur: CPM
+  - Emplacement: Cave
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RU
+  - CAB bouteille: S
+  - Quantite existante: 200
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: TH
+  - Quantite: 300 ml
+
+Problemes et recommandations
+============================
+Problemes: Visite

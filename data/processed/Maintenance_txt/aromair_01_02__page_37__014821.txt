@@ -1,0 +1,70 @@
+Client
+======
+Nom du client: 416 CUN
+Adresse: CUN
+Correspondance client: 716 CUN
+Adresse correspondante: Ennasr
+Parfum reference: MEL
+Modele diffuseur reference: Wifi
+Reference diffuseur: CPM
+Emplacement reference: +2
+Reference bouteille: Simple (S)
+Technicien reference: Ahmed
+
+Intervention
+============
+Date: 2024-01-12
+Reference / numero: 014821
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: R
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 120/180
+  - Programme plage horaire: 7H/12H
+Diffuseur 2:
+  - Modele: Top 300 Cavelle
+  - CAB diffuseur: BT
+  - Emplacement: Cavelle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: S
+  - Programme frequence: 11H/21H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 900 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 120/180
+  - Programme / plage horaire: 7-21
+Bouteille 2:
+  - CAB bouteille: V
+  - Quantite: 900 ml
+  - Emplacement: CAVELLE
+  - Recharge / remplacement: 11H
+  - Programme / plage horaire: 7-21
+
+Problemes et recommandations
+============================
+Problemes: LIV 900ML x2 / DIFFUSEUR 900
+GAUCHE de frequence 110 pour ESSAI
+Anomalies: LIV
+Recommandations: Changer frequence pré 120/180
+gauche à 71.900.543 ou du 180/170

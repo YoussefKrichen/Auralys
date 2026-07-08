@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: CENTURY 21
+Adresse: BEN AROUS
+Correspondance client: Century 21 Ain Zaghouen Nord
+Adresse correspondante: Marsa
+
+Intervention
+============
+Date: 2025-02-10
+Reference / numero: 014984
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 21
+  - Programme frequence: 5/6
+  - Programme plage horaire: 9-13 / 13-18
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: TH
+  - Quantite: 350 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: 9-13 / 13-18
+
+Problemes et recommandations
+============================
+Problemes: LIV 350ML TH
+Anomalies: LIV
+Recommandations: MAJ PDS

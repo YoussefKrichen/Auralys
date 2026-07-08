@@ -1,0 +1,33 @@
+Client
+======
+Nom du client: Dramati
+Adresse: lac 1
+
+Intervention
+============
+Date: 2025-04-02
+Reference / numero: 015500
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: non
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Aucun controle diffuseur mentionne.
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDC
+  - Quantite: 300 ml
+  - Emplacement: Entrée
+  - Recharge / remplacement: 10h-15h
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml
+Anomalies: LIV

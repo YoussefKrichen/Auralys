@@ -1,0 +1,193 @@
+{
+  "fiche_id": "Aromair_04_4:page_71:015413",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_4.json",
+  "page_key": "page_71",
+  "source_image": "page_71.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Edward's",
+    "address": "Sfax",
+    "date_raw": "11.04.25",
+    "time_raw": "13h20",
+    "technician_name": "Ahmed",
+    "client_maintenance_number": "015413",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-11",
+    "service_time": "13:20:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Iceberg RDC",
+      "model_diffuseur": "Iceberg",
+      "emplacement": "RDC",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": "MY (M)",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "62",
+      "qte_parfum_existante": 62,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/8",
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Iceberg au fond",
+      "model_diffuseur": "Iceberg",
+      "emplacement": "au fond",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "189",
+      "qte_parfum_existante": 189,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/8",
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "MY (M)",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/8",
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "RDC"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "2ml (spray) Livraison 300ml RDC\n300 ml en stack",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": "elle a demandé un diffuseur"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "Edward's\nMF: 1234431A/B/M/000"
+  },
+  "raw_payload": {
+    "source_image": "page_71.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Edward's",
+      "address": "Sfax",
+      "date_raw": "11.04.25",
+      "time_raw": "13h20",
+      "technician_name": "Ahmed",
+      "client_maintenance_number": "015413",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Iceberg RDC",
+        "model_diffuseur": "Iceberg",
+        "emplacement": "RDC",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "MY (M)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "62",
+        "qte_parfum_existante": 62,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/8",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Iceberg au fond",
+        "model_diffuseur": "Iceberg",
+        "emplacement": "au fond",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "189",
+        "qte_parfum_existante": 189,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/8",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "MY (M)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/8",
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "RDC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "2ml (spray) Livraison 300ml RDC\n300 ml en stack",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": "elle a demandé un diffuseur"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "Edward's\nMF: 1234431A/B/M/000"
+    }
+  }
+}

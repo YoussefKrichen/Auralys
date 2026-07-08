@@ -1,0 +1,97 @@
+Client
+======
+Nom du client: MALL SOUSSE
+Adresse: SOUSSE
+Correspondance client: Barista's Sousse
+Adresse correspondante: Hammam Sousse
+
+Intervention
+============
+Date: 2025-02-26
+Reference / numero: 015014
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: reception
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 176
+  - Programme frequence: 5/11
+  - Programme plage horaire: 9-16H
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: CANTIN
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 193
+  - Programme frequence: 5/10
+Diffuseur 3:
+  - Modele: HALL B
+  - Emplacement: HALL B
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 60
+Diffuseur 4:
+  - Modele: WC B
+  - Emplacement: WC B
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 15
+Diffuseur 5:
+  - Modele: WC F B
+  - Emplacement: WC F B
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 6:
+  - Modele: HALL RDC
+  - Emplacement: HALL RDC
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 0
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: RG
+  - Recharge / remplacement: 5/11
+  - Programme / plage horaire: 9-14H
+Bouteille 2:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: RG
+  - Programme / plage horaire: 16-20
+Bouteille 3:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: LINA
+Bouteille 4:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: LINA
+Bouteille 5:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: RG
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML x5
+Anomalies: LIV

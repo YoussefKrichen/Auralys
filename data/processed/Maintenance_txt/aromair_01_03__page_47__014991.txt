@@ -1,0 +1,38 @@
+Client
+======
+Nom du client: LE SPORTIF
+Adresse: SOUKRA
+Correspondance client: Le Sportif Soukra
+
+Intervention
+============
+Date: 2025-02-11
+Reference / numero: 014991
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 121
+  - Programme frequence: 5/8
+  - Programme plage horaire: 10/17
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: VISITE

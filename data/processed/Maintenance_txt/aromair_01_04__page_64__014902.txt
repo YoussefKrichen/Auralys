@@ -1,0 +1,41 @@
+Client
+======
+Nom du client: BARISTAS
+Adresse: DENNECH
+Telephone: 70 011 100 | 70 837 844
+Correspondance client: Barista's CUN
+Adresse correspondante: La Goulette
+
+Intervention
+============
+Date: 2025-01-24
+Reference / numero: 014902
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: WC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 271
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8H/16H
+  - Remarques: BT ON OFF
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

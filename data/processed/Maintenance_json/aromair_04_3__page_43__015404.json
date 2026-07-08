@@ -1,0 +1,157 @@
+{
+  "fiche_id": "Aromair_04_3:page_43:015404",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_3.json",
+  "page_key": "page_43",
+  "source_image": "page_43.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Floralis",
+    "address": null,
+    "date_raw": "09.04.25",
+    "time_raw": "15h30",
+    "technician_name": "Bilel",
+    "client_maintenance_number": "015404",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-09",
+    "service_time": "15:30:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee Entree",
+      "model_diffuseur": "Zee300",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "D",
+      "qte_parfum_existante": null,
+      "qualite_diffusion": "P",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": "3-20H",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 500,
+      "parfum": "FF",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "5-10",
+      "plage_horaire_fonctionnement": "09-16",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison 500ml Fthel",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "STÉ FLORALIES\nA. Kheireddine\nLAC 3"
+  },
+  "raw_payload": {
+    "source_image": "page_43.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Floralis",
+      "address": null,
+      "date_raw": "09.04.25",
+      "time_raw": "15h30",
+      "technician_name": "Bilel",
+      "client_maintenance_number": "015404",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee Entree",
+        "model_diffuseur": "Zee300",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "D",
+        "qte_parfum_existante": "V",
+        "qualite_diffusion": "P",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": "3-20H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 500,
+        "parfum": "FF",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "5-10",
+        "plage_horaire_fonctionnement": "09-16",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 500ml Fthel",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "STÉ FLORALIES\nA. Kheireddine\nLAC 3"
+    }
+  }
+}

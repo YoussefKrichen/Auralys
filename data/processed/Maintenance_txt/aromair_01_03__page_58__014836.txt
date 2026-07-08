@@ -1,0 +1,55 @@
+Client
+======
+Nom du client: GATLI PRODUCTION
+Adresse: GP1
+Correspondance client: Game Production
+
+Intervention
+============
+Date: 2025-01-27
+Reference / numero: 014836
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Mirai
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 594
+  - Programme frequence: 40
+  - Programme plage horaire: 17H/23H
+Diffuseur 2:
+  - Modele: AR500
+  - CAB diffuseur: BT
+  - Emplacement: Salle
+  - Statut: M
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 40
+  - Programme plage horaire: 17H/23H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Recharge / remplacement: 100-300
+Bouteille 2:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+
+Problemes et recommandations
+============================
+Problemes: Livraison 2x300ML PB + FK
+Anomalies: LIV

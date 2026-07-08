@@ -1,0 +1,156 @@
+{
+  "fiche_id": "Aromair_01_04:page_80:014767",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_04.json",
+  "page_key": "page_80",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "KHALED FAGHA",
+    "address": "Hammamet",
+    "date_raw": "10.02.25",
+    "time_raw": "09H.15",
+    "technician_name": null,
+    "client_maintenance_number": "014767",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-10",
+    "service_time": null
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "ASTREE SALON",
+      "model_diffuseur": "Astree",
+      "emplacement": "Salon",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "156",
+      "qte_parfum_existante": 156,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "9-15",
+      "plage_horaire_diffusion": "7H-20H30",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "9-15",
+      "plage_horaire_fonctionnement": "7H30-20H30",
+      "emplacement": "Salon"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison 300ml",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "KHALED FAGHA",
+      "address": "Hammamet",
+      "date_raw": "10.02.25",
+      "time_raw": "09H.15",
+      "technician_name": null,
+      "client_maintenance_number": "014767",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ASTREE SALON",
+        "model_diffuseur": "Astree",
+        "emplacement": "Salon",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "156",
+        "qte_parfum_existante": 156,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "9-15",
+        "plage_horaire_diffusion": "7H-20H30",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "9-15",
+        "plage_horaire_fonctionnement": "7H30-20H30",
+        "emplacement": "Salon"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 300ml",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

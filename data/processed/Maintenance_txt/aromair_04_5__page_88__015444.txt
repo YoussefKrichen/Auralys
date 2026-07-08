@@ -1,0 +1,40 @@
+Client
+======
+Nom du client: Pharmacie Naffouri
+Adresse: Marsa
+Correspondance client: Pharmacie Neffousi Marsa
+
+Intervention
+============
+Date: 2025-04-15
+Technicien: Ahmed
+Reference / numero: 015444
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDC
+  - CAB bouteille: S
+  - Quantite existante: 91
+  - Programme frequence: 3/8
+  - Programme plage horaire: 8h-17h / 19h-0h
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

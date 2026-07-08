@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: Tuniscount
+Adresse: Gabes
+Correspondance client: Tuniscount Nabeul
+
+Intervention
+============
+Date: 2025-04-15
+Technicien: Bilel
+Reference / numero: 015446
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE2
+  - CAB bouteille: S
+  - Quantite existante: 164
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: 1er
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE2
+  - CAB bouteille: S
+  - Quantite existante: 215
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite deux diffuseurs (1er etage bouton off)

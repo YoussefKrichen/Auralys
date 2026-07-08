@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: PADEL CAMOUCH
+Telephone: 29 460 000
+
+Intervention
+============
+Date: 2025-02-27
+Reference / numero: 014799
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: PADEL
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 283
+  - Programme frequence: 5-6
+  - Programme plage horaire: 8H-18H
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: fond
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 147
+  - Programme frequence: 5-10
+  - Programme plage horaire: 8H-18H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

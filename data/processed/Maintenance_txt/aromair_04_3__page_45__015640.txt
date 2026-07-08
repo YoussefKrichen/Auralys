@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: BARISTAS
+Adresse: JC
+Correspondance client: Barista's CUN
+Adresse correspondante: La Goulette
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015640
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: Y
+  - Parfum: NDP(C
+  - CAB bouteille: S
+  - Programme frequence: 1/10
+  - Programme plage horaire: 04:30/12H30
+16H30/20H30
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: NDP(C
+  - Quantite: 300 ml
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 04h30-12H30
+16H30-20H30
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ml PC
+Anomalies: LIV

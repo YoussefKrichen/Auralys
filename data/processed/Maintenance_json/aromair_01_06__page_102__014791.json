@@ -1,0 +1,210 @@
+{
+  "fiche_id": "Aromair_01_06:page_102:014791",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_06.json",
+  "page_key": "page_102",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "ENZO",
+    "address": "D6",
+    "date_raw": "07/02/25",
+    "time_raw": "11H",
+    "technician_name": "Bilel",
+    "client_maintenance_number": "014791",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-07",
+    "service_time": "11:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR300 entrée",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FE3",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "30/20",
+      "plage_horaire_diffusion": "8H/12H",
+      "motif_arret": "VIDE"
+    },
+    {
+      "model_diffuseur_raw": "AR100 étage",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "étage",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": "FE3",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": null,
+      "motif_arret": "VIDE"
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "FE3",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "30/20",
+      "plage_horaire_fonctionnement": "8H/12H",
+      "emplacement": "ENTREE"
+    },
+    {
+      "ml": 300,
+      "parfum": "FE3",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "entrée",
+      "emplacement": "étage"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 300ML FDE3 x 2 TUNIS AR100",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "ENZO",
+      "address": "D6",
+      "date_raw": "07/02/25",
+      "time_raw": "11H",
+      "technician_name": "Bilel",
+      "client_maintenance_number": "014791",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR300 entrée",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FE3",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "30/20",
+        "plage_horaire_diffusion": "8H/12H",
+        "motif_arret": "VIDE"
+      },
+      {
+        "model_diffuseur_raw": "AR100 étage",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "étage",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "FE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": null,
+        "motif_arret": "VIDE"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "FE3",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "30/20",
+        "plage_horaire_fonctionnement": "8H/12H",
+        "emplacement": "ENTREE"
+      },
+      {
+        "ml": 300,
+        "parfum": "FE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "entrée",
+        "emplacement": "étage"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300ML FDE3 x 2 TUNIS AR100",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

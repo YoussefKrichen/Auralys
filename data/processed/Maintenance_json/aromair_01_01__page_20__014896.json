@@ -1,0 +1,372 @@
+{
+  "fiche_id": "Aromair_01_01:page_20:014896",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_01.json",
+  "page_key": "page_20",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Business Hotel",
+    "address": null,
+    "date_raw": "9/11/2023",
+    "time_raw": null,
+    "technician_name": null,
+    "client_maintenance_number": "014896",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2023-11-09",
+    "service_time": null
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": null,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zoephine",
+      "model_diffuseur": null,
+      "emplacement": "reception",
+      "reference_diffuseur_raw": "Bleu",
+      "reference_diffuseur": null,
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "7H/17H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Nitree",
+      "model_diffuseur": "Astree",
+      "emplacement": "\"+2\"",
+      "reference_diffuseur_raw": "Bleu",
+      "reference_diffuseur": null,
+      "nom_parfum": "FW",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "35",
+      "qte_parfum_existante": 35,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "12H/19H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "+3",
+      "model_diffuseur": null,
+      "emplacement": "+3",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "N",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "+4",
+      "model_diffuseur": null,
+      "emplacement": "+4",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "N",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "+5",
+      "model_diffuseur": null,
+      "emplacement": "+5",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "N",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "7H -> 17H",
+      "emplacement": "reception"
+    },
+    {
+      "ml": 200,
+      "parfum": "FW",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "\"+2\""
+    },
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "+3"
+    },
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "+4"
+    },
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "+5"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 5 x 300ml / changer fan reception",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "BUSSINESS HOTEL MANAGER\n+ BHM TUNIS\nGouvernorat Sousse\n4, Rue Ibn Nadim Monastir Plage\nTél: 71 900 555 - Fax:..."
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Business Hotel",
+      "address": null,
+      "date_raw": "9/11/2023",
+      "time_raw": null,
+      "technician_name": null,
+      "client_maintenance_number": "014896",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zoephine",
+        "model_diffuseur": null,
+        "emplacement": "reception",
+        "reference_diffuseur_raw": "Bleu",
+        "reference_diffuseur": null,
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "7H/17H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Nitree",
+        "model_diffuseur": "Astree",
+        "emplacement": "\"+2\"",
+        "reference_diffuseur_raw": "Bleu",
+        "reference_diffuseur": null,
+        "nom_parfum": "FW",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "35",
+        "qte_parfum_existante": 35,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "12H/19H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "+3",
+        "model_diffuseur": null,
+        "emplacement": "+3",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "+4",
+        "model_diffuseur": null,
+        "emplacement": "+4",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "+5",
+        "model_diffuseur": null,
+        "emplacement": "+5",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "7H -> 17H",
+        "emplacement": "reception"
+      },
+      {
+        "ml": 200,
+        "parfum": "FW",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "\"+2\""
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "+3"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "+4"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "+5"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 5 x 300ml / changer fan reception",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "BUSSINESS HOTEL MANAGER\n+ BHM TUNIS\nGouvernorat Sousse\n4, Rue Ibn Nadim Monastir Plage\nTél: 71 900 555 - Fax:..."
+    }
+  }
+}

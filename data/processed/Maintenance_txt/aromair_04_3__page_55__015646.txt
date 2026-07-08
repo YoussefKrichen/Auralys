@@ -1,0 +1,28 @@
+Client
+======
+Nom du client: EDWARD IS
+Adresse: Soukra
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015646
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Livraison diffuseur 9 étage entrée avec sa bouteille
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

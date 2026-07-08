@@ -1,0 +1,209 @@
+{
+  "fiche_id": "Aromair_04_2:page_7:015634",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_2.json",
+  "page_key": "page_7",
+  "source_image": "page_7.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Hanil Oliven",
+    "address": "Soukra",
+    "date_raw": "07.04.24",
+    "time_raw": "11H00",
+    "technician_name": null,
+    "client_maintenance_number": "015634",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2024-04-07",
+    "service_time": "11:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Astree",
+      "model_diffuseur": "Astree",
+      "emplacement": "Panel",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "AROMAIR MAXI_CPM",
+      "nom_parfum": "FE2",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "288",
+      "qte_parfum_existante": 288,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree",
+      "model_diffuseur": "Astree",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": "FE2",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "244",
+      "qte_parfum_existante": 244,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree",
+      "model_diffuseur": "Astree",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": "FE2",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "229",
+      "qte_parfum_existante": 229,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "diffuseur mal placé \"fumeuse\" entree noire",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": false,
+    "parfum_bien_diffuse": false
+  },
+  "signature_cachet": {
+    "text": "Hanil Oliven"
+  },
+  "raw_payload": {
+    "source_image": "page_7.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Hanil Oliven",
+      "address": "Soukra",
+      "date_raw": "07.04.24",
+      "time_raw": "11H00",
+      "technician_name": null,
+      "client_maintenance_number": "015634",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Astree",
+        "model_diffuseur": "Astree",
+        "emplacement": "Panel",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "AROMAIR MAXI_CPM",
+        "nom_parfum": "FE2",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "288",
+        "qte_parfum_existante": 288,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree",
+        "model_diffuseur": "Astree",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "FE2",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "244",
+        "qte_parfum_existante": 244,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree",
+        "model_diffuseur": "Astree",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "FE2",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "229",
+        "qte_parfum_existante": 229,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "diffuseur mal placé \"fumeuse\" entree noire",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": false,
+      "parfum_bien_diffuse": false
+    },
+    "signature_cachet": {
+      "text": "Hanil Oliven"
+    }
+  }
+}

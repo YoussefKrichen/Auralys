@@ -1,0 +1,58 @@
+Client
+======
+Nom du client: EdWards
+Adresse: Sfax
+
+Intervention
+============
+Date: 2024-04-07
+Reference / numero: 015631
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: Wifi
+  - Emplacement: Wifi
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 193
+Diffuseur 2:
+  - Modele: Aromair100
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 178
+Diffuseur 3:
+  - Modele: Recuperation diffuseur + 2 Cartes
+  - Statut: M
+  - Qualite diffusion: A
+  - Fuite: N
+  - Quantite existante: 249
+Diffuseur 4:
+  - Modele: Aromair100
+  - Emplacement: Entree
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 162
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: Standard
+  - Quantite: 300 ml
+
+Problemes et recommandations
+============================
+Problemes: Livraison EdWards Premier Etage
+Anomalies: LIV

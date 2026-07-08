@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: Lake Tonde
+Adresse: Marsa
+
+Intervention
+============
+Date: 2025-04-03
+Reference / numero: 015612
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: S
+  - Emplacement: Entrée
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 400
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8h
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

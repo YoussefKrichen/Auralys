@@ -1,0 +1,43 @@
+Client
+======
+Nom du client: SAVEURS CARTHAGE
+
+Intervention
+============
+Date: 2025-01-17
+Technicien: ROURTA
+Reference / numero: 014808
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: LM
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 8/5
+  - Programme plage horaire: 9-11H30
+  - Remarques: 15H30/17H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Recharge / remplacement: 2/5
+  - Programme / plage horaire: 9-11H30 MM-M-F
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML Mel SC
+Anomalies: LIV

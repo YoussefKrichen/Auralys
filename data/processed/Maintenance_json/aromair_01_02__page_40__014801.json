@@ -1,0 +1,336 @@
+{
+  "fiche_id": "Aromair_01_02:page_40:014801",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_02.json",
+  "page_key": "page_40",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "716 Menzah6",
+    "address": "P.B",
+    "date_raw": "17/01/25",
+    "time_raw": "11H48",
+    "technician_name": null,
+    "client_maintenance_number": "014801",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-01-17",
+    "service_time": "11:48:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR100 WH",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WH",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "97",
+      "qte_parfum_existante": 97,
+      "qualite_diffusion": "B",
+      "fuite": null,
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/6",
+      "plage_horaire_diffusion": "8-22",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "AR100 WEF",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WEF",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "S",
+      "qte_parfum_existante": null,
+      "qualite_diffusion": "B",
+      "fuite": null,
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Zee 600 entrée",
+      "model_diffuseur": "Zee600",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": "FM",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "660",
+      "qte_parfum_existante": 660,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "23H/33H",
+      "motif_arret": "2 PDS"
+    },
+    {
+      "model_diffuseur_raw": "Zee 600 etage",
+      "model_diffuseur": "Zee600",
+      "emplacement": "etage",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": null,
+      "motif_arret": "PROGRAME"
+    },
+    {
+      "model_diffuseur_raw": "AR 100 Cuisine",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "Cuisine",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "8/6",
+      "plage_horaire_diffusion": null,
+      "motif_arret": "NON CONFORME"
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 900,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "8/6",
+      "plage_horaire_fonctionnement": "8-22",
+      "emplacement": "Cuisine"
+    },
+    {
+      "ml": 900,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "8-19",
+      "emplacement": "ENTREE"
+    },
+    {
+      "ml": 900,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "8-19",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "DLR M.M.ED\nLIV 900 ML LUS 7.ee\n900 ML x 2 entrée 2+3 frequence",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": "changement frequence de 5-10"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "MORAT\n050-900ML"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "716 Menzah6",
+      "address": "P.B",
+      "date_raw": "17/01/25",
+      "time_raw": "11H48",
+      "technician_name": null,
+      "client_maintenance_number": "014801",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100 WH",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WH",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "97",
+        "qte_parfum_existante": 97,
+        "qualite_diffusion": "B",
+        "fuite": null,
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/6",
+        "plage_horaire_diffusion": "8-22",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100 WEF",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WEF",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "S",
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": null,
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Zee 600 entrée",
+        "model_diffuseur": "Zee600",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "660",
+        "qte_parfum_existante": 660,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": null,
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "23H/33H",
+        "motif_arret": "2 PDS"
+      },
+      {
+        "model_diffuseur_raw": "Zee 600 etage",
+        "model_diffuseur": "Zee600",
+        "emplacement": "etage",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": null,
+        "motif_arret": "PROGRAME"
+      },
+      {
+        "model_diffuseur_raw": "AR 100 Cuisine",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "Cuisine",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "8/6",
+        "plage_horaire_diffusion": null,
+        "motif_arret": "NON CONFORME"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 900,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "8/6",
+        "plage_horaire_fonctionnement": "8-22",
+        "emplacement": "Cuisine"
+      },
+      {
+        "ml": 900,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "8-19",
+        "emplacement": "ENTREE"
+      },
+      {
+        "ml": 900,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "8-19",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "DLR M.M.ED\nLIV 900 ML LUS 7.ee\n900 ML x 2 entrée 2+3 frequence",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": "changement frequence de 5-10"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "MORAT\n050-900ML"
+    }
+  }
+}

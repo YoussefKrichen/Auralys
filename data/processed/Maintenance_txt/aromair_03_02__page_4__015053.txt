@@ -1,0 +1,45 @@
+Client
+======
+Nom du client: ALEXANDRIA BOUTIQUE
+Adresse: LAC 9
+
+Intervention
+============
+Date: 2025-03-10
+Reference / numero: 015053
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 117
+  - Programme frequence: 15-30
+  - Programme plage horaire: 07-17H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: FM
+  - Quantite: 300 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 8H-30
+  - Programme / plage horaire: 07H-17H
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FM
+Anomalies: LIV

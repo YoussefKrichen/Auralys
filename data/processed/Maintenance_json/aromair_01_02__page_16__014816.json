@@ -1,0 +1,192 @@
+{
+  "fiche_id": "Aromair_01_02:page_16:014816",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_02.json",
+  "page_key": "page_16",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "DAR ZARROUK",
+    "address": "SIDI DOUSATIO",
+    "date_raw": "16/01/25",
+    "time_raw": "12H21",
+    "technician_name": null,
+    "client_maintenance_number": "014816",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-01-16",
+    "service_time": "12:21:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zeephir entrée",
+      "model_diffuseur": null,
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "12-15/18-22",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "AR100 S/G",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "ENTREE(G)",
+      "reference_diffuseur_raw": "AFE",
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "98",
+      "qte_parfum_existante": 98,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "8/8",
+      "plage_horaire_fonctionnement": "12-15",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 300ML JB / ZEEPHIR",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": "diag 039/698 /495-636 / 786-688"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "Dar ZATROUK\nHotel\n(800-474) (703-010)\nTél: 23 234 333"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "DAR ZARROUK",
+      "address": "SIDI DOUSATIO",
+      "date_raw": "16/01/25",
+      "time_raw": "12H21",
+      "technician_name": null,
+      "client_maintenance_number": "014816",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zeephir entrée",
+        "model_diffuseur": null,
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "12-15/18-22",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100 S/G",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "ENTREE(G)",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "98",
+        "qte_parfum_existante": 98,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "8/8",
+        "plage_horaire_fonctionnement": "12-15",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300ML JB / ZEEPHIR",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": "diag 039/698 /495-636 / 786-688"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Dar ZATROUK\nHotel\n(800-474) (703-010)\nTél: 23 234 333"
+    }
+  }
+}

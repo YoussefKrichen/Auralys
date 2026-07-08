@@ -1,0 +1,34 @@
+Client
+======
+Nom du client: STIA
+Adresse: Ben Arous
+Telephone: 12902364
+Correspondance client: Stia Ben Arous
+
+Intervention
+============
+Date: 2025-02-06
+Reference / numero: 014957
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FC
+Anomalies: LIV

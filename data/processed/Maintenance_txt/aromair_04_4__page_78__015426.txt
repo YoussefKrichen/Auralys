@@ -1,0 +1,49 @@
+Client
+======
+Nom du client: Le Monde est Petit
+Adresse: Jardin el Manzeh
+Telephone: 98 003 300
+Correspondance client: Le Monde est Petit Jardin d'El Menzah
+
+Intervention
+============
+Date: 2025-04-12
+Technicien: Bilel
+Reference / numero: 015426
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: Wifi
+  - Emplacement: Entrée
+  - Statut: A
+  - Qualite diffusion: P
+  - Fuite: N
+  - Parfum: FO
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 11h-17h
+  - Remarques: Temps Arrêt
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FO
+  - Quantite: 300 ml
+  - Emplacement: Entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 11h-17h
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FO. Bouton ON
+Anomalies: LIV

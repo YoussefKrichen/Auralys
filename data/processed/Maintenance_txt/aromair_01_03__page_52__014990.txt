@@ -1,0 +1,43 @@
+Client
+======
+Nom du client: FLORALIES
+Adresse: LAC 3
+
+Intervention
+============
+Date: 2025-02-10
+Reference / numero: 014990
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee600
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 600
+  - Programme frequence: 5/6
+  - Programme plage horaire: 9-19
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 600 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 2/6
+  - Programme / plage horaire: 9-19
+
+Problemes et recommandations
+============================
+Problemes: LIV + MISE en marche Zee 600 + 600ML FT
+Anomalies: LIV

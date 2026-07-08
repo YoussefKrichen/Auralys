@@ -1,0 +1,58 @@
+Client
+======
+Nom du client: Edward's
+Adresse: Sfax
+Telephone: 1234431
+Correspondance client: Edward's Foire Kram
+
+Intervention
+============
+Date: 2025-04-11
+Technicien: Ahmed
+Reference / numero: 015413
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: CPM
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: MY (M)
+  - CAB bouteille: S
+  - Quantite existante: 62
+  - Programme frequence: 5/8
+Diffuseur 2:
+  - Modele: Iceberg
+  - CAB diffuseur: CPM
+  - Emplacement: au fond
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 189
+  - Programme frequence: 5/8
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: MY (M)
+  - Quantite: 300 ml
+  - Emplacement: RDC
+  - Recharge / remplacement: 5/8
+
+Problemes et recommandations
+============================
+Problemes: 2ml (spray) Livraison 300ml RDC
+300 ml en stack
+Anomalies: LIV
+Recommandations: elle a demandé un diffuseur

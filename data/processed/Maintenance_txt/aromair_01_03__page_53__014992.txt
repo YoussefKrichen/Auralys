@@ -1,0 +1,60 @@
+Client
+======
+Nom du client: PATRICK OLIVIER
+Adresse: SOUKRA
+Correspondance client: MarkOlivier
+
+Intervention
+============
+Date: 2024-02-11
+Reference / numero: 014992
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: G
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 99
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+Diffuseur 2:
+  - Modele: Astree
+  - Emplacement: D
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 87
+  - Programme frequence: 5/10
+Diffuseur 3:
+  - Modele: Astree
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: P.D
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: VIDE
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: VISITE

@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: DR ADEL SOUKNI
+Adresse: ARSA
+Telephone: 71 729 700 | 71 729 720 | 0759155
+
+Intervention
+============
+Date: 2025-01-24
+Reference / numero: 014846
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BPA
+  - Emplacement: Salle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 67
+  - Programme frequence: 5-10
+  - Programme plage horaire: 10/18H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: TH
+  - Quantite: 300 ml
+  - Emplacement: Salle
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 10-18H
+
+Problemes et recommandations
+============================
+Problemes: LIV 300 ML TH
+Anomalies: LIV

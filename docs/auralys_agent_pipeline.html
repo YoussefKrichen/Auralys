@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auralys Agent Pipeline</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #132033;
+      --muted: #5f6b7b;
+      --line: #d7dde5;
+      --surface: #ffffff;
+      --surface-soft: #f5f7fa;
+      --navy: #0a2558;
+      --accent: #2257b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Aptos, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #eef2f6;
+    }
+    .page {
+      width: min(1320px, calc(100% - 40px));
+      margin: 24px auto 40px;
+      padding: 36px 42px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(20, 32, 51, 0.08);
+    }
+    h1, h2, h3 {
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      break-after: avoid-page;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 18px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--line);
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      margin-bottom: 12px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p, li {
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    code {
+      padding: 0.12rem 0.35rem;
+      border-radius: 6px;
+      background: var(--surface-soft);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    .code-block {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #0f1724;
+      color: #f0f5ff;
+    }
+    .diagram-shell {
+      overflow-x: auto;
+      padding: 18px 20px;
+      margin: 20px 0 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fcfdff 0%, #f4f7fb 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      break-inside: avoid-page;
+    }
+    .mermaid {
+      min-width: max-content;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      text-align: center;
+    }
+    .diagram-shell .mermaid svg {
+      display: block;
+      width: auto !important;
+      max-width: none !important;
+      height: auto;
+      margin: 0 auto;
+      overflow: visible;
+    }
+    .diagram-shell .label,
+    .diagram-shell .nodeLabel,
+    .diagram-shell .edgeLabel {
+      line-height: 1.35;
+    }
+    .diagram-shell .edgeLabel > foreignObject > div,
+    .diagram-shell .label foreignObject > div {
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 1px 4px rgba(19, 32, 51, 0.08);
+    }
+    .diagram-shell .cluster rect,
+    .diagram-shell .node rect,
+    .diagram-shell .node polygon,
+    .diagram-shell .node path {
+      filter: drop-shadow(0 6px 14px rgba(19, 32, 51, 0.08));
+    }
+    .diagram-shell .flowchart-link,
+    .diagram-shell .messageLine0,
+    .diagram-shell .messageLine1 {
+      stroke-width: 2.2px;
+    }
+    .diagram-shell .arrowheadPath {
+      stroke-width: 1.4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+    }
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-soft);
+    }
+    @media print {
+      body {
+        background: white;
+      }
+      .page {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .diagram-shell {
+        overflow: visible;
+        padding: 12px 0;
+        border-color: #d8dee8;
+        box-shadow: none;
+      }
+      .diagram-shell .mermaid svg {
+        max-width: 100% !important;
+      }
+      h1, h2, h3, .diagram-shell {
+        break-inside: avoid-page;
+      }
+    }
+    @media (max-width: 820px) {
+      .page {
+        width: calc(100% - 24px);
+        padding: 22px 16px;
+      }
+      .diagram-shell {
+        padding: 14px 12px;
+        margin: 16px 0 20px;
+      }
+    }
+  </style>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: "loose",
+      deterministicIds: true,
+      theme: "base",
+      themeVariables: {
+        primaryColor: "#e8f0ff",
+        primaryTextColor: "#132033",
+        primaryBorderColor: "#2854a0",
+        lineColor: "#4c6387",
+        secondaryColor: "#f5f7fa",
+        tertiaryColor: "#ffffff",
+        fontFamily: "Aptos, Segoe UI, sans-serif"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "monotoneX",
+        nodeSpacing: 42,
+        rankSpacing: 68,
+        padding: 18,
+        diagramPadding: 16,
+        wrappingWidth: 180
+      },
+      sequence: {
+        useMaxWidth: false,
+        actorMargin: 60,
+        width: 240,
+        height: 80,
+        boxMargin: 16,
+        boxTextMargin: 8,
+        noteMargin: 18,
+        messageMargin: 44,
+        mirrorActors: false
+      }
+    });
+  </script>
+</head>
+<body>
+  <main class="page">
+    <h1>Auralys Agent Pipeline</h1>
+<p>This document focuses on the <strong>Auralys agent layer</strong>: how a message enters the agent, how intent is routed, which skills and tools are used, where approval applies, and how memory and persistence fit into the architecture.</p>
+<p>It complements the broader system view in <a href="C:/Users/Youss/OneDrive/Bureau/auralys/docs/architecture_diagram.md">architecture_diagram.md</a>.</p>
+<h2>1. Agent At A Glance</h2>
+<section class="diagram-shell"><pre class="mermaid">flowchart LR
+    classDef ui fill:#eaf2ff,stroke:#315ea8,color:#13233e,stroke-width:1px
+    classDef app fill:#eaf5ee,stroke:#2f6d4f,color:#112218,stroke-width:1px
+    classDef tool fill:#fff3de,stroke:#9a6a1f,color:#312208,stroke-width:1px
+    classDef data fill:#edf0f5,stroke:#556070,color:#17202a,stroke-width:1px
+    classDef policy fill:#fce9ea,stroke:#a24a52,color:#351419,stroke-width:1px
+
+    User[User / Frontend]
+    API[POST /agent/chat&lt;br/&gt;app/api.py]
+    Orchestrator[AgentOrchestrator]
+    Router[IntentRouter]
+    Skill[Selected Skill]
+    Tools[ERP / RAG / Maps / Memory]
+    Policy[Action Policy Check]
+    Synthesis[LLM Final Synthesis]
+    Response[AgentChatResponse]
+    Store[(AgentStore / Postgres)]
+
+    User --&gt; API
+    API --&gt; Orchestrator
+    Orchestrator --&gt; Router
+    Router --&gt; Skill
+    Skill --&gt; Tools
+    Skill --&gt; Policy
+    Policy --&gt; Synthesis
+    Skill --&gt; Synthesis
+    Synthesis --&gt; Response
+    Response --&gt; User
+
+    Orchestrator --&gt; Store
+    Policy --&gt; Store
+    Tools --&gt; Store
+
+    class User,API,Response ui
+    class Orchestrator,Router,Skill,Synthesis app
+    class Tools tool
+    class Store data
+    class Policy policy</pre></section>
+<h2>2. Main Runtime Flow</h2>
+<section class="diagram-shell"><pre class="mermaid">sequenceDiagram
+    autonumber
+    participant U as User / Vue Frontend
+    participant API as FastAPI /agent/chat
+    participant ORCH as AgentOrchestrator
+    participant IR as IntentRouter
+    participant SK as Skill
+    participant TP as Tools
+    participant AP as Action Policy
+    participant LLM as LLMService
+    participant DB as AgentStore / Postgres
+
+    U-&gt;&gt;API: POST /agent/chat {message, role, context}
+    API-&gt;&gt;ORCH: handle_chat(request)
+    ORCH-&gt;&gt;IR: detect_intent(message)
+    IR--&gt;&gt;ORCH: AgentIntent
+    ORCH-&gt;&gt;SK: run(request)
+    SK-&gt;&gt;TP: call ERP / RAG / Maps as needed
+    TP--&gt;&gt;SK: business payload
+    SK--&gt;&gt;ORCH: SkillResult(answer, actions, sources, payload)
+
+    loop for each proposed action
+        ORCH-&gt;&gt;AP: check_action_policy(action, role)
+        AP--&gt;&gt;ORCH: allowed / pending approval / blocked
+    end
+
+    ORCH-&gt;&gt;LLM: synthesize final answer from skill draft + payload + actions
+    LLM--&gt;&gt;ORCH: final answer
+
+    ORCH-&gt;&gt;DB: save conversation
+    ORCH-&gt;&gt;DB: save checked actions
+    ORCH--&gt;&gt;API: AgentChatResponse
+    API--&gt;&gt;U: final answer + sources + actions + approval flags</pre></section>
+<h2>3. Intent Routing</h2>
+<p>The agent entrypoint is <a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/core/orchestrator.py">AgentOrchestrator</a>, but the first decision is made by <a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/core/intent_router.py">IntentRouter</a>.</p>
+<p>Routing works in two stages:</p>
+<ol>
+<li>Try LLM intent classification.</li>
+<li>Fall back to keyword heuristics if the LLM classifier fails.</li>
+</ol>
+<p>Current intents:</p>
+<ul>
+<li><code>ASK_CLIENT_HISTORY</code></li>
+<li><code>ASK_NEXT_SAV_DESTINATION</code></li>
+<li><code>ASK_ALERTS</code></li>
+<li><code>ASK_MAINTENANCE_PROBLEM</code></li>
+<li><code>ASK_DAILY_REPORT</code></li>
+<li><code>ASK_STOCK_STATUS</code></li>
+<li><code>GENERAL_QUESTION</code></li>
+</ul>
+<section class="diagram-shell"><pre class="mermaid">flowchart TD
+    A[Incoming message] --&gt; B[IntentRouter.detect_intent]
+    B --&gt; C{LLM intent available?}
+    C --&gt;|Yes| D[Return LLM-picked AgentIntent]
+    C --&gt;|No| E[Keyword fallback routing]
+    E --&gt; F[Client history]
+    E --&gt; G[SAV planning]
+    E --&gt; H[Alerts]
+    E --&gt; I[Maintenance diagnosis]
+    E --&gt; J[Daily report]
+    E --&gt; K[Stock status]
+    E --&gt; L[General question]</pre></section>
+<h2>4. Skill Layer</h2>
+<p>Once the intent is known, the orchestrator selects one skill implementation.</p>
+<section class="diagram-shell"><pre class="mermaid">flowchart TB
+    Intent[AgentIntent] --&gt; H1[ClientHistorySkill]
+    Intent --&gt; H2[SAVPlanningSkill]
+    Intent --&gt; H3[AlertManagementSkill]
+    Intent --&gt; H4[MaintenanceDiagnosisSkill]
+    Intent --&gt; H5[CEOReportingSkill]
+    Intent --&gt; H6[GeneralQuestionSkill]</pre></section>
+<p>Current skill responsibilities:</p>
+<ul>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/skills/client_history.py">ClientHistorySkill</a>: ERP history + interventions + reclamations + RAG client docs.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/skills/sav_planning.py">SAVPlanningSkill</a>: route recommendation from interventions, priority, and travel duration.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/skills/alert_management.py">AlertManagementSkill</a>: delayed reclamations and low-stock style alerts.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/skills/maintenance_diagnosis.py">MaintenanceDiagnosisSkill</a>: similar cases from RAG plus latest intervention context.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/skills/ceo_reporting.py">CEOReportingSkill</a>: operational summary for leadership review.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/skills/general_question.py">GeneralQuestionSkill</a>: direct conversational answer or lightweight RAG only when needed.</li>
+</ul>
+<h2>5. Tooling Under The Skills</h2>
+<p>The agent does not talk directly to infrastructure. Skills call tool abstractions.</p>
+<section class="diagram-shell"><pre class="mermaid">flowchart LR
+    classDef skill fill:#eaf5ee,stroke:#2f6d4f,color:#112218,stroke-width:1px
+    classDef tool fill:#fff3de,stroke:#9a6a1f,color:#312208,stroke-width:1px
+    classDef infra fill:#edf0f5,stroke:#556070,color:#17202a,stroke-width:1px
+
+    CH[ClientHistorySkill] --&gt; ERP[ERPTool]
+    CH --&gt; RAG[RAGTool]
+
+    MD[MaintenanceDiagnosisSkill] --&gt; ERP
+    MD --&gt; RAG
+
+    SP[SAVPlanningSkill] --&gt; ERP
+    SP --&gt; MAPS[MapsTool]
+
+    AM[AlertManagementSkill] --&gt; ERP
+    CEO[CEOReportingSkill] --&gt; ERP
+    GQ[GeneralQuestionSkill] --&gt; RAG
+
+    ERP --&gt; Processed[Processed fiches / pseudo-ERP view]
+    RAG --&gt; Hybrid[HybridRetriever]
+    MAPS --&gt; RouteMath[Route matrix / travel scoring]
+
+    Hybrid --&gt; SQL[SQLRetriever]
+    Hybrid --&gt; QDR[QdrantRetriever]
+    Hybrid --&gt; Local[Local fallback]
+
+    SQL --&gt; PG[(Postgres)]
+    QDR --&gt; QD[(Qdrant)]
+    Local --&gt; JSON[(Processed JSON)]
+
+    class CH,MD,SP,AM,CEO,GQ skill
+    class ERP,RAG,MAPS tool
+    class Processed,Hybrid,SQL,QDR,Local,PG,QD,JSON,RouteMath infra</pre></section>
+<h3>ERPTool</h3>
+<p><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/tools/erp.py">ERPTool</a> is not an external ERP integration yet. It builds a business-facing operational view from processed maintenance fiches:</p>
+<ul>
+<li>client lookup</li>
+<li>client history</li>
+<li>interventions</li>
+<li>reclamations</li>
+<li>stock approximation</li>
+<li>opening-hours heuristics</li>
+<li>diffuser state</li>
+</ul>
+<h3>RAGTool</h3>
+<p><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/tools/rag.py">RAGTool</a> wraps the repository’s hybrid retrieval stack:</p>
+<ul>
+<li>SQL exact retrieval</li>
+<li>Qdrant semantic retrieval</li>
+<li>local JSON fallback</li>
+</ul>
+<h3>MapsTool</h3>
+<p><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/tools/maps.py">MapsTool</a> currently computes route duration/distance from coordinates using local math rather than a live external map API.</p>
+<h3>MemoryTool</h3>
+<p><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/tools/memory.py">MemoryTool</a> persists:</p>
+<ul>
+<li>feedback</li>
+<li>pending memory</li>
+<li>business rules</li>
+<li>user preferences</li>
+</ul>
+<h2>6. Action Policy And Approval Flow</h2>
+<p>Skills may propose actions, but those actions do not execute freely.</p>
+<p>The orchestrator applies:</p>
+<ul>
+<li><code>check_action_policy(...)</code></li>
+<li><code>apply_policy(...)</code></li>
+</ul>
+<p>This determines whether an action is:</p>
+<ul>
+<li>allowed</li>
+<li>blocked</li>
+<li>pending approval</li>
+</ul>
+<section class="diagram-shell"><pre class="mermaid">flowchart TD
+    A[SkillResult.proposed_actions] --&gt; B[Policy check per action]
+    B --&gt; C{Allowed?}
+    C --&gt;|No| D[Blocked action]
+    C --&gt;|Yes, low risk| E[Allowed action]
+    C --&gt;|Yes, but sensitive| F[Pending approval]
+    D --&gt; G[Included in response as blocked]
+    E --&gt; H[Included in response as allowed]
+    F --&gt; I[Persisted in agent_actions]
+    I --&gt; J[CEO/Admin review endpoints]
+    J --&gt; K[Approve or reject]</pre></section>
+<p>Relevant endpoints:</p>
+<ul>
+<li><code>GET /agent/actions/pending</code></li>
+<li><code>POST /agent/actions/{action_id}/approve</code></li>
+<li><code>POST /agent/actions/{action_id}/reject</code></li>
+</ul>
+<h2>7. Final Answer Synthesis</h2>
+<p>The skill does not always produce the final user-facing wording directly.</p>
+<p><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/core/orchestrator.py">AgentOrchestrator</a> takes:</p>
+<ul>
+<li>the detected intent</li>
+<li>the skill draft answer</li>
+<li>the sources</li>
+<li>the checked actions</li>
+<li>a compact payload excerpt</li>
+</ul>
+<p>and sends them to <code>LLMService.answer_details(...)</code> to produce the final response.</p>
+<p>This gives a two-layer agent response:</p>
+<ol>
+<li><strong>Business/tool layer</strong>: structured skill output.</li>
+<li><strong>Language layer</strong>: final concise natural-language answer.</li>
+</ol>
+<h2>8. Persistence Model</h2>
+<p>The agent persists multiple artifacts through <a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/store.py">AgentStore</a>.</p>
+<section class="diagram-shell"><pre class="mermaid">flowchart LR
+    Chat[Agent chat] --&gt; Conv[conversations]
+    Chat --&gt; Msg[messages]
+    Actions[Proposed actions] --&gt; Act[agent_actions]
+    ToolCalls[Tool usage] --&gt; Logs[agent_tool_logs]
+    Feedback[User feedback] --&gt; Fdbk[agent_feedback]
+    Memory[Business rules / preferences / corrections] --&gt; Mem[memories]</pre></section>
+<p>Persisted layers:</p>
+<ul>
+<li>conversation row</li>
+<li>user message</li>
+<li>assistant message</li>
+<li>proposed actions</li>
+<li>tool logs</li>
+<li>feedback</li>
+<li>active memory</li>
+</ul>
+<h2>9. Role Of The Frontend</h2>
+<p>The current Vue frontend mainly uses the agent through:</p>
+<ul>
+<li><code>POST /agent/chat</code></li>
+<li>review/admin endpoints for CEO space</li>
+<li>memory/conversation inspection endpoints</li>
+</ul>
+<p>So the frontend is not only a chat surface. It is also:</p>
+<ul>
+<li>an approval console</li>
+<li>a review queue</li>
+<li>a memory browser</li>
+<li>a conversation inspector</li>
+</ul>
+<h2>10. Agent Pipeline In One View</h2>
+<section class="diagram-shell"><pre class="mermaid">flowchart TD
+    U[User message] --&gt; API[FastAPI /agent/chat]
+    API --&gt; ORCH[AgentOrchestrator]
+    ORCH --&gt; INTENT[IntentRouter]
+    INTENT --&gt; SKILL[Selected skill]
+
+    SKILL --&gt; ERP[ERPTool]
+    SKILL --&gt; RAG[RAGTool]
+    SKILL --&gt; MAPS[MapsTool]
+
+    ERP --&gt; DATA1[Processed maintenance data]
+    RAG --&gt; DATA2[Hybrid retrieval]
+    MAPS --&gt; DATA3[Route scoring]
+
+    SKILL --&gt; ACTIONS[Proposed actions]
+    ACTIONS --&gt; POLICY[Policy + approval check]
+
+    SKILL --&gt; SYNTH[LLM final synthesis]
+    POLICY --&gt; SYNTH
+
+    SYNTH --&gt; RESP[AgentChatResponse]
+    RESP --&gt; UI[Frontend]
+
+    ORCH --&gt; STORE[Conversation + action persistence]
+    UI --&gt; FEEDBACK[Feedback / review / approval]
+    FEEDBACK --&gt; STORE
+    STORE --&gt; MEMORY[Active memory]</pre></section>
+<h2>11. Practical Reading Guide</h2>
+<p>If you want to understand the agent implementation quickly, read in this order:</p>
+<ol>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/api.py">app/api.py</a> for the HTTP entrypoints.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/bootstrap.py">app/bootstrap.py</a> for dependency wiring.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/core/orchestrator.py">app/agent/core/orchestrator.py</a> for the main control flow.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/core/intent_router.py">app/agent/core/intent_router.py</a> for routing decisions.</li>
+<li><code>app/agent/skills/*</code> for business behaviors by intent.</li>
+<li><code>app/agent/tools/*</code> for data/tool abstractions.</li>
+<li><a href="C:/Users/Youss/OneDrive/Bureau/auralys/app/agent/store.py">app/agent/store.py</a> for persistence and approval state.</li>
+</ol>
+  </main>
+</body>
+</html>

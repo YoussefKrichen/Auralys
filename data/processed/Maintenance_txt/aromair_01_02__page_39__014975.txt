@@ -1,0 +1,86 @@
+Client
+======
+Nom du client: CELLAR
+Adresse: 30/01/25
+
+Intervention
+============
+Date: 2025-01-30
+Reference / numero: 014975
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: RDC
+  - Statut: M
+  - Fuite: Y
+  - CAB bouteille: V
+  - Quantite existante: 67
+  - Programme frequence: 2-4
+  - Programme plage horaire: 09-17H
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: 1er
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 160
+  - Programme frequence: 5-10
+  - Programme plage horaire: 09-17H
+Diffuseur 3:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: 2ème
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 190
+  - Programme frequence: 5-10
+  - Programme plage horaire: 09-17H
+Diffuseur 4:
+  - Modele: ZEE CERAM
+  - Emplacement: RDC
+  - Statut: M
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+  - Programme plage horaire: 09-17H
+Diffuseur 5:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: +1
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+  - Programme plage horaire: 09-17H
+Diffuseur 6:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: +2
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 49
+  - Programme frequence: 5-10
+  - Programme plage horaire: 09-17H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Pb prise Cylone signalée vidéo
+Recommandations: N.Ravier

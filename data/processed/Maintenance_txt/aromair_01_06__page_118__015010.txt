@@ -1,0 +1,51 @@
+Client
+======
+Nom du client: CITY LOFT
+Adresse: LES BERGES DU LAC
+Correspondance client: City Loft Soukra
+Adresse correspondante: Hammamet
+
+Intervention
+============
+Date: 2025-02-25
+Reference / numero: 015010
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 81
+  - Programme frequence: 5-8
+  - Programme plage horaire: 9-13 / 19-30
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: 1er
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-8
+  - Programme plage horaire: 12-18 / 17-20
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Problème Bouton sur RDC + 1er vide
+Recommandations: Recuperation Diff RDC

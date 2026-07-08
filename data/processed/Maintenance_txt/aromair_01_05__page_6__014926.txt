@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: TURQUOISE
+Adresse: CUN
+Correspondance client: Turquoise CUN
+
+Intervention
+============
+Date: 2025-01-20
+Reference / numero: 014926
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 120/240
+  - Programme plage horaire: 6H15/21H30 - 12H/16H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: FM
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 120/240
+  - Programme / plage horaire: 6H15 / 12H / 16H
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML FM
+Anomalies: LIV

@@ -1,0 +1,49 @@
+Client
+======
+Nom du client: JASMINS
+Adresse: CUN
+Correspondance client: Polyclinique Les Jasmins CUN
+
+Intervention
+============
+Date: 2025-01-18
+Technicien: AMEL
+Reference / numero: 014812
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - Emplacement: Cantin
+  - Statut: M
+  - Qualite diffusion: PD
+  - Fuite: F
+  - Parfum: SB
+  - CAB bouteille: S
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: PDS
+  - Statut: A
+  - Qualite diffusion: D
+  - Fuite: M
+  - CAB bouteille: S
+  - Quantite existante: 61
+  - Programme frequence: 3/12
+  - Programme plage horaire: B.16
+  - Remarques: BT ON OF
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: TUYAU DIFFUSEUR cachoir à l'intérieur/FUITE a l'intérieur
+Recommandations: diffuseur / Pompe endommagée

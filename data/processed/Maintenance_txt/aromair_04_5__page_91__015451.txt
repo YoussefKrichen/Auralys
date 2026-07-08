@@ -1,0 +1,53 @@
+Client
+======
+Nom du client: Renault Parc
+Adresse: Changrin
+Correspondance client: Renault Trucks
+
+Intervention
+============
+Date: 2025-04-16
+Technicien: Bilel
+Reference / numero: 015451
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Bureau
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 30
+  - Programme frequence: 4-9
+  - Programme plage horaire: 4-9
+  - Remarques: bouton OFF
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Salle d'attente
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 40
+  - Programme frequence: 4-9
+  - Programme plage horaire: 4-9
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite les deux diffuseurs / bouton off

@@ -1,0 +1,82 @@
+[
+  {
+    "case_id": "support-001",
+    "category": "maintenance_issue",
+    "interaction_mode": "text",
+    "question": "Client: 716 Menzah6. Le diffuseur a une diffusion faible a l'entree, que faut-il verifier ?",
+    "ground_truth": "Il faut verifier en priorite la pompe et la frequence de diffusion. La fiche rattachee a 716 Menzah6 doit faire remonter l'incident de diffusion faible a l'entree et la recommandation de verifier la pompe puis d'augmenter la frequence.",
+    "notes": "Doit retrouver un chunk de type diffuser ou issue sur 716 Menzah6."
+  },
+  {
+    "case_id": "support-002",
+    "category": "maintenance_issue",
+    "interaction_mode": "text",
+    "question": "Client: Pharmacie Victoria. Le diffuseur ne fonctionne plus a l'accueil, que verifier ?",
+    "ground_truth": "Il faut verifier l'alimentation electrique. La fiche de Pharmacie Victoria indique un diffuseur a l'accueil a l'arret et recommande de verifier l'alimentation electrique.",
+    "notes": "Doit marcher avec le fallback local si SQL/Qdrant sont vides."
+  },
+  {
+    "case_id": "support-003",
+    "category": "exact_lookup",
+    "interaction_mode": "text",
+    "question": "Quelle fiche correspond au client 716 Menzah6 avec le numero de maintenance 014972 ?",
+    "ground_truth": "La fiche attendue est 014972 pour le client 716 Menzah6, datee du 2025-02-10 a 12:50.",
+    "notes": "Cas d'extraction exacte client + numero de maintenance."
+  },
+  {
+    "case_id": "support-004",
+    "category": "recharge",
+    "interaction_mode": "text",
+    "question": "Quelle recharge a ete effectuee pour 716 Menzah6 ?",
+    "ground_truth": "Une recharge de 300 ml avec parfum FM, reference bouteille Vrag (V), emplacement ENTREE et frequence 5/10 a ete effectuee.",
+    "notes": "Doit faire remonter un chunk de type recharge."
+  },
+  {
+    "case_id": "support-005",
+    "category": "knowledge_base",
+    "interaction_mode": "text",
+    "question": "Comment verifier une diffusion faible ?",
+    "ground_truth": "Il faut verifier la pompe, l'etat de la bouteille et la frequence avant de remplacer le diffuseur.",
+    "notes": "Doit pouvoir etre repondu a partir de la knowledge base."
+  },
+  {
+    "case_id": "support-006",
+    "category": "knowledge_base",
+    "interaction_mode": "text",
+    "question": "Que faire si le diffuseur fuit ?",
+    "ground_truth": "Il faut verifier le raccord, nettoyer la tete et confirmer le type de bouteille.",
+    "notes": "Provient du fixture form_responses."
+  },
+  {
+    "case_id": "catalog-001",
+    "category": "catalog_recommendation",
+    "interaction_mode": "text",
+    "question": "Quel diffuseur proposer pour un showroom ou un hotel lobby avec une couverture large ?",
+    "ground_truth": "Le diffuseur attendu est Zee600. Le catalogue de test indique une couverture de 120-240 m2, une programmation flexible, une couverture large et un usage adapte aux showrooms et hotel lobbies.",
+    "notes": "Doit matcher le catalogue diffuseur."
+  },
+  {
+    "case_id": "catalog-002",
+    "category": "catalog_recommendation",
+    "interaction_mode": "text",
+    "question": "Quel service recommander pour Zee600 ?",
+    "ground_truth": "Le service recommande est une maintenance trimestrielle.",
+    "notes": "Doit extraire la recommandation commerciale du catalogue."
+  },
+  {
+    "case_id": "support-007",
+    "category": "reference_values",
+    "interaction_mode": "text",
+    "question": "Quels clients doivent apparaitre dans les references de test ?",
+    "ground_truth": "Les references de test doivent inclure au minimum 716 Menzah6 et Pharmacie Victoria, ainsi que les clients derives des entrees knowledge et catalogue.",
+    "notes": "Cas de validation du jeu de donnees de reference."
+  },
+  {
+    "case_id": "support-008",
+    "category": "normalization",
+    "interaction_mode": "text",
+    "question": "Comment la quantite de parfum et le volume de recharge doivent-ils etre normalises dans la fixture 716 Menzah6 ?",
+    "ground_truth": "La quantite de parfum existante doit etre normalisee a 97 et le volume de recharge a 300 ml, meme si les valeurs sources sont des chaines comme 097 et 300ml.",
+    "notes": "Cas utile pour verifier normalize.py et fiche_schema.py."
+  }
+]

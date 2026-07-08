@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: SPA Mahaosen
+Adresse: Sfax
+Telephone: 1612030
+Correspondance client: SPA Mahassen Sfax
+
+Intervention
+============
+Date: 2025-04-11
+Technicien: Bilel
+Reference / numero: 015415
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Entrée
+  - Statut: A
+  - Qualite diffusion: P
+  - Fuite: YS
+  - Parfum: ML
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: ML
+  - Quantite: 300 ml
+  - Recharge / remplacement: 5-10
+
+Problemes et recommandations
+============================
+Problemes: Fuite bouteille. L'entretien de diffuseur est propre

@@ -1,0 +1,83 @@
+Client
+======
+Nom du client: F6
+Adresse: Manzah 6
+
+Intervention
+============
+Date: 2025-04-02
+Reference / numero: 015624
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 250
+  - Programme frequence: 2-6
+  - Programme plage horaire: 8h22h
+Diffuseur 2:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 250
+  - Programme frequence: 5-6
+  - Programme plage horaire: 08-22h
+Diffuseur 3:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Entre
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 250
+  - Programme frequence: 5-6
+  - Programme plage horaire: 08-22h
+Diffuseur 4:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Statut: -
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: S
+  - Quantite existante: 32
+  - Programme frequence: -
+  - Programme plage horaire: -
+Diffuseur 5:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Statut: -
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 37
+  - Programme frequence: -
+  - Programme plage horaire: -
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Répartition du parfum entre le diffuseur en egalité pour le 4 diffuseurs

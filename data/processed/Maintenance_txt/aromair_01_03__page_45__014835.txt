@@ -1,0 +1,41 @@
+Client
+======
+Nom du client: GLOBAL STUDIES
+Adresse: LAC
+Telephone: 70 753 953
+Correspondance client: Global Studies Lac2
+
+Intervention
+============
+Date: 2024-01-21
+Reference / numero: 014835
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: Wifi
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 68
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+  - Remarques: ODEUR FORTE
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: DIFF FERME / ODEUR FORTE

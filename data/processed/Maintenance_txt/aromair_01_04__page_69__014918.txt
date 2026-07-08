@@ -1,0 +1,75 @@
+Client
+======
+Nom du client: Slim Optic
+Adresse: Lac 1
+Correspondance client: Slim Optic Lac1
+
+Intervention
+============
+Date: 2025-01-27
+Reference / numero: 014918
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 59
+  - Programme frequence: 5-10
+  - Programme plage horaire: 7H30/16H
+  - Remarques: 17H/23H
+Diffuseur 2:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: modem VIP
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 173
+  - Programme frequence: 5-10
+  - Programme plage horaire: 7H30/16H
+  - Remarques: 17H/23H
+Diffuseur 3:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: fond
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 79
+  - Programme frequence: 5-10
+  - Programme plage horaire: 7H30/16H
+  - Remarques: 17H/23H
+Diffuseur 4:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: Modem
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 43
+  - Programme frequence: 5-10
+  - Programme plage horaire: 7H30/16H
+  - Remarques: 17H/23H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

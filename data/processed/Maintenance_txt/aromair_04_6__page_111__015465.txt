@@ -1,0 +1,31 @@
+Client
+======
+Nom du client: Vetra
+Adresse: Megrine
+Correspondance client: Ceram M
+Adresse correspondante: Megrine
+
+Intervention
+============
+Date: 2025-04-18
+Technicien: Bilel
+Reference / numero: 015465
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Livraison deux diffuseurs Smart + 12 bouteilles 300ml
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

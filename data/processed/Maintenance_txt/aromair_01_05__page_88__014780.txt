@@ -1,0 +1,60 @@
+Client
+======
+Nom du client: MOUENATEC
+Adresse: LAC 1
+Telephone: 1320371 | +216 71 890 240 | 56 311 111 | +216 71 890 543
+
+Intervention
+============
+Date: 2025-02-17
+Reference / numero: 014780
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: BUREAU
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 62
+  - Programme frequence: 5-6
+  - Programme plage horaire: 17H-20H
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: D
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 54
+  - Programme frequence: 5-6
+  - Programme plage horaire: 17H-20H
+Diffuseur 3:
+  - Modele: ZEE SPA
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 5-8
+  - Programme plage horaire: 11H50-20H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite 3 Diffuseurs SPA

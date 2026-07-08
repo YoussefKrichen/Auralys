@@ -1,0 +1,45 @@
+Client
+======
+Nom du client: FUTUR GENERATION
+Adresse: ARIANA
+Correspondance client: Future Generation Aouina
+
+Intervention
+============
+Date: 2025-03-12
+Reference / numero: 015063
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair300
+  - CAB diffuseur: BT
+  - Emplacement: Accal
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 13
+  - Programme frequence: 5/10
+  - Programme plage horaire: 2H0 / 12H30
+  - Remarques: 15H / 19H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 150 ml
+  - Emplacement: fond
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: Livraison 150ml Diffuseur fond
+Anomalies: LIV

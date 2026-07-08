@@ -1,0 +1,45 @@
+Client
+======
+Nom du client: PHARMACIE VICTORIA
+Correspondance client: Pharmacie Victoria Lac1
+
+Intervention
+============
+Date: 2025-01-18
+Reference / numero: 014805
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: vitrine
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 217
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8H30/12H45
+  - Remarques: 15H/19H45
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: 8H30/12H45
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML COLOGNE 217 RG 500 CK
+Anomalies: LIV

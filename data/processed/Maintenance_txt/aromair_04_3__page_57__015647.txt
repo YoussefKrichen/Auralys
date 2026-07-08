@@ -1,0 +1,33 @@
+Client
+======
+Nom du client: centre urbain Nord
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015647
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Livraison diffuseur WC
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: FF
+  - Quantite: 400 ml
+  - Emplacement: WC
+  - Recharge / remplacement: 2/4
+  - Programme / plage horaire: 09H-12H
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

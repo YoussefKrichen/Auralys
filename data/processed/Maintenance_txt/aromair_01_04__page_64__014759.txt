@@ -1,0 +1,63 @@
+Client
+======
+Nom du client: HENRI
+Adresse: MB
+Telephone: 1035219
+
+Intervention
+============
+Date: 2025-02-13
+Reference / numero: 014759
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 13-19
+Diffuseur 2:
+  - Modele: Aromair100
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 12-19
+Diffuseur 3:
+  - Modele: Aromair100
+  - Emplacement: Salle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 12-19
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 12/19
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML x 4 REL-HENRI RAS PROB Salon CONFORME au R-ALAA
+Anomalies: LIV

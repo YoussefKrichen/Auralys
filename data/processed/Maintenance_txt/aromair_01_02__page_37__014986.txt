@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: YCR STUDIO
+Adresse: GP9
+Telephone: 1627691
+Correspondance client: YCR Studio GP9
+
+Intervention
+============
+Date: 2025-02-06
+Reference / numero: 014986
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 20
+  - Programme plage horaire: 9H44 / 18H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 15-20
+  - Programme / plage horaire: 9H44 / 18H
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML TOBACO
+Anomalies: LIV

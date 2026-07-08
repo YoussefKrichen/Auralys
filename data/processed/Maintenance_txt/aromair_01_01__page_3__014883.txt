@@ -1,0 +1,27 @@
+Client
+======
+Nom du client: RENAULT TAPACKS
+Correspondance client: Renault Trucks
+
+Intervention
+============
+Date: 2023-11-06
+Reference / numero: 014883
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: non
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Aucun controle diffuseur mentionne.
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: AJOUT SILENCIEUX

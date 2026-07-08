@@ -1,0 +1,98 @@
+{
+  "fiche_id": "Aromair_01_05:page_3:014916",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_05.json",
+  "page_key": "page_3",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Kube Lac2",
+    "address": "Lac2",
+    "date_raw": "28.01.2025",
+    "time_raw": "12H00",
+    "technician_name": null,
+    "client_maintenance_number": "014916",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-01-28",
+    "service_time": "12:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": null,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Recup mation deux diffiseurs",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Kube Lac2",
+      "address": "Lac2",
+      "date_raw": "28.01.2025",
+      "time_raw": "12H00",
+      "technician_name": null,
+      "client_maintenance_number": "014916",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Recup mation deux diffiseurs",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

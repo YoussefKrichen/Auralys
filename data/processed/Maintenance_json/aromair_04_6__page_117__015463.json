@@ -1,0 +1,137 @@
+{
+  "fiche_id": "Aromair_04_6:page_117:015463",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_6.json",
+  "page_key": "page_117",
+  "source_image": "page_117.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Moustache",
+    "address": "Menzah5",
+    "date_raw": "17.04.25",
+    "time_raw": "16h55",
+    "technician_name": "Ahmed",
+    "client_maintenance_number": "015463",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-17",
+    "service_time": "16:55:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Iceberg Entrée",
+      "model_diffuseur": "Iceberg",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": "ML",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "220",
+      "qte_parfum_existante": 220,
+      "qualite_diffusion": "F",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": "4/7",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Tête bouteille bouchée",
+    "probleme_rencontree_code": null,
+    "solution_proposee": "changement Tête de bouteille"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "UNIVERS MODE STUDIO"
+  },
+  "raw_payload": {
+    "source_image": "page_117.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Moustache",
+      "address": "Menzah5",
+      "date_raw": "17.04.25",
+      "time_raw": "16h55",
+      "technician_name": "Ahmed",
+      "client_maintenance_number": "015463",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Iceberg Entrée",
+        "model_diffuseur": "Iceberg",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "ML",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "220",
+        "qte_parfum_existante": 220,
+        "qualite_diffusion": "F",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": "4/7",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Tête bouteille bouchée",
+      "probleme_rencontree_code": null,
+      "solution_proposee": "changement Tête de bouteille"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "UNIVERS MODE STUDIO"
+    }
+  }
+}

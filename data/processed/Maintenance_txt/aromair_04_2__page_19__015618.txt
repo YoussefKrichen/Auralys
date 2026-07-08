@@ -1,0 +1,38 @@
+Client
+======
+Nom du client: Imen Abhen
+Adresse: Ghafiana
+Correspondance client: Imen ABBES
+
+Intervention
+============
+Date: 2024-04-08
+Reference / numero: 015618
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: AROMAIR MAXI_CPM
+  - Emplacement: Salon
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 300
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Livraison pour Ph Abbes
+Anomalies: LIV

@@ -1,0 +1,316 @@
+{
+  "fiche_id": "Aromair_04_1:page_17:015610",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_1.json",
+  "page_key": "page_17",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "VERSION 15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra- 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Cenam",
+    "address": "grp Aquina",
+    "date_raw": "03/04/2025",
+    "time_raw": "13h 30",
+    "technician_name": null,
+    "client_maintenance_number": "015610",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-03",
+    "service_time": "13:30:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee",
+      "model_diffuseur": "Zee300",
+      "emplacement": "granden RdC",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "U",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "176",
+      "qte_parfum_existante": 176,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "H",
+      "frequence_diffusion_existante": "2-4",
+      "plage_horaire_diffusion": "08-17",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree granden",
+      "model_diffuseur": "Astree",
+      "emplacement": "RDC",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "10",
+      "qte_parfum_existante": 10,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5-10",
+      "plage_horaire_diffusion": "08-17",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree granden",
+      "model_diffuseur": "Astree",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "130",
+      "qte_parfum_existante": 130,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5-60",
+      "plage_horaire_diffusion": "09-17",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Zee square",
+      "model_diffuseur": "Zee300",
+      "emplacement": "RDC",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "332",
+      "qte_parfum_existante": 332,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "2-4",
+      "plage_horaire_diffusion": "08-17",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree square +1",
+      "model_diffuseur": "Astree",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "0",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5-10",
+      "plage_horaire_diffusion": "11",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree square +2",
+      "model_diffuseur": "Astree",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "190",
+      "qte_parfum_existante": 190,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "11",
+      "plage_horaire_diffusion": "11",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Visite",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "VERSION 15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra- 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Cenam",
+      "address": "grp Aquina",
+      "date_raw": "03/04/2025",
+      "time_raw": "13h 30",
+      "technician_name": null,
+      "client_maintenance_number": "015610",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee",
+        "model_diffuseur": "Zee300",
+        "emplacement": "granden RdC",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "U",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "176",
+        "qte_parfum_existante": 176,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "H",
+        "frequence_diffusion_existante": "2-4",
+        "plage_horaire_diffusion": "08-17",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree granden",
+        "model_diffuseur": "Astree",
+        "emplacement": "RDC",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "10",
+        "qte_parfum_existante": 10,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5-10",
+        "plage_horaire_diffusion": "08-17",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree granden",
+        "model_diffuseur": "Astree",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "130",
+        "qte_parfum_existante": 130,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5-60",
+        "plage_horaire_diffusion": "09-17",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Zee square",
+        "model_diffuseur": "Zee300",
+        "emplacement": "RDC",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "332",
+        "qte_parfum_existante": 332,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "2-4",
+        "plage_horaire_diffusion": "08-17",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree square +1",
+        "model_diffuseur": "Astree",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "0",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5-10",
+        "plage_horaire_diffusion": "11",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree square +2",
+        "model_diffuseur": "Astree",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "190",
+        "qte_parfum_existante": 190,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "11",
+        "plage_horaire_diffusion": "11",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Visite",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

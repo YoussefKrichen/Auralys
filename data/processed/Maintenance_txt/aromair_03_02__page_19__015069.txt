@@ -1,0 +1,50 @@
+Client
+======
+Nom du client: A. TABLE
+Adresse: LAC 1
+Correspondance client: A Table Lac1
+Adresse correspondante: Menzah8
+Parfum reference: FC
+Modele diffuseur reference: Iceberg
+Reference diffuseur: WIFI
+Emplacement reference: WCF
+Reference bouteille: Vrag (V)
+
+Intervention
+============
+Date: 2025-03-12
+Reference / numero: 015069
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: Y
+  - Fuite: Y
+  - CAB bouteille: S
+  - Quantite existante: 49
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml
+Anomalies: LIV

@@ -1,0 +1,1802 @@
+{
+  "page_41": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "MON COIN",
+      "address": "MANAR",
+      "date_raw": "17/01/25",
+      "time_raw": "11H23",
+      "technician_name": "BAHIA",
+      "client_maintenance_number": "014822",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "AFF",
+        "reference_diffuseur": null,
+        "nom_parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "39",
+        "qte_parfum_existante": 39,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "10/19",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "4/8",
+        "plage_horaire_fonctionnement": "10/19",
+        "emplacement": "entrée"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML FDE3/ MAJFrequence\n4/8 en live des 5/10",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "SACNAS TRADING\nMon Coin\nTel: 51212874"
+    }
+  },
+  "page_42": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "HAMDI WORKSHOP",
+      "address": "ENNASR",
+      "date_raw": "11/01/25",
+      "time_raw": "11H30",
+      "technician_name": "RIRI",
+      "client_maintenance_number": "014833",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": "JB",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "Manuel",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "s.pm",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "279",
+        "qte_parfum_existante": 279,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "s.pm",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "JB",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "Manuel",
+        "emplacement": "entrée"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML JB",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "HAMDI WORKSHOP\nRés: Salmar, Ettager 2 - Ariana\nTél: 31 300 916 / 58 990 023"
+    }
+  },
+  "page_43": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "BARISTAS",
+      "address": "AQUIM A",
+      "date_raw": "18/01/25",
+      "time_raw": "11H",
+      "technician_name": "B.BLA",
+      "client_maintenance_number": "014826",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "Salon",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": "CASH /C",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "17",
+        "qte_parfum_existante": 17,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "7H/19H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": "CASH /C",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "153",
+        "qte_parfum_existante": 153,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "7H/19H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "CASH /C",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/6",
+        "plage_horaire_fonctionnement": "7H/17H",
+        "emplacement": "Salon"
+      },
+      {
+        "ml": 300,
+        "parfum": "CASH /C",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "7H/19H",
+        "emplacement": "WC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 2x300ML CASH + PC",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  },
+  "page_44": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "GEOX",
+      "address": "UHD",
+      "date_raw": "20/01/25",
+      "time_raw": "16H",
+      "technician_name": "BAHI",
+      "client_maintenance_number": "014830",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "JB",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "9H30/13H30",
+        "motif_arret": "17H/20H"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "JB",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "9H30/13H30",
+        "emplacement": "entrée"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "INTERBRANDS"
+    }
+  },
+  "page_45": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "GLOBAL STUDIES",
+      "address": "LAC",
+      "date_raw": "21/01/24",
+      "time_raw": "16H13",
+      "technician_name": null,
+      "client_maintenance_number": "014835",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "R100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "WIFI",
+        "reference_diffuseur": "Wifi",
+        "nom_parfum": "LINA (L)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "68",
+        "qte_parfum_existante": 68,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "Manuel",
+        "motif_arret": "ODEUR FORTE"
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "DIFF FERME / ODEUR FORTE",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "GLOBAL STUDIES\nAdministration\nBureau d'Ordre\nTél: 70 753 953"
+    }
+  },
+  "page_46": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "TONY NASIL",
+      "address": "JM",
+      "date_raw": "18/01/24",
+      "time_raw": "14H00",
+      "technician_name": "PLASIR",
+      "client_maintenance_number": "014829",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "35",
+        "qte_parfum_existante": 35,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "10/19",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "10/19",
+        "emplacement": "entrée"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML FDE3",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": false,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Khaled Samira\nTONY NASIL\nSignature"
+    }
+  },
+  "page_47": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "PADEL",
+      "address": "BENS LOUTIN",
+      "date_raw": "18/01/24",
+      "time_raw": "15H",
+      "technician_name": "B.L.",
+      "client_maintenance_number": "014828",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/6",
+        "plage_horaire_diffusion": "8H/19H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "97",
+        "qte_parfum_existante": 97,
+        "qualite_diffusion": "D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "8H/19H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "LINA (L)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/6",
+        "plage_horaire_fonctionnement": "8H/19H",
+        "emplacement": "WC"
+      },
+      {
+        "ml": 300,
+        "parfum": "LINA (L)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "8H/19H",
+        "emplacement": "WC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 2 x 300 ML LINA",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Signature Client\nFax: 71890240"
+    }
+  },
+  "page_48": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "BAURAS",
+      "address": "Le Buroo",
+      "date_raw": "17.01.2025",
+      "time_raw": "15H",
+      "technician_name": "B.BLA",
+      "client_maintenance_number": "014824",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "X",
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": "X",
+        "en_marche_arret": "X",
+        "frequence_diffusion_existante": "X",
+        "plage_horaire_diffusion": "X",
+        "motif_arret": "X"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5-10",
+        "plage_horaire_fonctionnement": "7-12, 17-21",
+        "emplacement": "WC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 300ML",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "STE DUOSEMA\nRestaurant\n4, RUE BOURGUIBA\nMF: 10/240/2000"
+    }
+  },
+  "page_49": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "LAICO",
+      "address": "TUNIS",
+      "date_raw": "29/01/25",
+      "time_raw": "11H",
+      "technician_name": "B.L.",
+      "client_maintenance_number": "014837",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "Salon",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "Manuel",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "reception",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "Manuel",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": null,
+        "emplacement": null,
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "OVD",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "Manuel",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 2000,
+        "parfum": "OVD",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "frequence_diffusion": "Manuel",
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "cuisine"
+      },
+      {
+        "ml": 300,
+        "parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "Manuel",
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 200,
+        "parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "Manuel",
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 2x1L CENTRALE\n2x300ML FDE3",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Reçu"
+    }
+  },
+  "page_50": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "CENTURY 21",
+      "address": "LAC",
+      "date_raw": "21/01/25",
+      "time_raw": "16H45",
+      "technician_name": null,
+      "client_maintenance_number": "014831",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Iceberg",
+        "model_diffuseur": "Iceberg",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "116",
+        "qte_parfum_existante": 116,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "9H/13H",
+        "motif_arret": "15H/19H"
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": null,
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "RDC. DU CORAIL IMMO NOUR\nJARDINS-DU-LAC 1053\nMF: 1813572 / M / M / A / 000"
+    }
+  },
+  "page_51": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "CLINIQUE ALYSSA",
+      "address": null,
+      "date_raw": "17/01/24",
+      "time_raw": "18H20",
+      "technician_name": null,
+      "client_maintenance_number": "014820",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": "260",
+        "qte_parfum_existante": 260,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "8-14",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "7-14",
+        "emplacement": "entrée"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML FM",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "TUNISIAN CLINIC ALYSSA\n301 37 80 555"
+    }
+  },
+  "page_52": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "LV PROD Hamden Bourguiba",
+      "address": "Ben Arous",
+      "date_raw": "17/01/25",
+      "time_raw": "12H10",
+      "technician_name": "B.L.",
+      "client_maintenance_number": "014827",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee 300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": "289",
+        "qte_parfum_existante": 289,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "30",
+        "plage_horaire_diffusion": "7H/17H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "TH",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "frequence_diffusion": "30",
+        "plage_horaire_fonctionnement": "7H/17H",
+        "emplacement": "entrée"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML TH",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "LV PROD\n3034 Mornag 2034\nMF: 1391000"
+    }
+  },
+  "page_53": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "TCA",
+      "address": "TUNIS",
+      "date_raw": "21/1/25",
+      "time_raw": "16H30",
+      "technician_name": null,
+      "client_maintenance_number": "014834",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "Bureau",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "7H/11H30",
+        "motif_arret": "8H30/13H"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 260,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "5/10",
+        "emplacement": "Bureau"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML Cologne (X) Freq.",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Mohamed Amina Amir"
+    }
+  },
+  "page_54": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "LAC TOWER/MR KADRI",
+      "address": "LAC 1",
+      "date_raw": "17/01/25",
+      "time_raw": "17H",
+      "technician_name": null,
+      "client_maintenance_number": "014819",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "Mess",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "CASH /C",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "V",
+        "qte_parfum_existante": "V",
+        "qualite_diffusion": "V",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "8H/14H",
+        "motif_arret": "LUN-VEND"
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV DIFF BT + 300 ML CASH\nDEPOT FCT",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  },
+  "page_55": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "FARIA",
+      "address": "SOUKRA",
+      "date_raw": "18/01/25",
+      "time_raw": "13H18",
+      "technician_name": "B.L.",
+      "client_maintenance_number": "014825",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "Salon",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "133",
+        "qte_parfum_existante": 133,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "Manuel",
+        "motif_arret": "PRISE DEBRANCHÉE"
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "PRISE DEBRANCHÉE",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Golf Cenier\nSoukra\nTel: 569 010\nMF: 1320371A000"
+    }
+  },
+  "page_56": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "GEOX",
+      "address": "MARSA",
+      "date_raw": "28/01/25",
+      "time_raw": "13H43",
+      "technician_name": "RIRI",
+      "client_maintenance_number": "014838",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": true,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "FDE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "Manuel",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "TUYAU DIFFUSEUR COUPE\nDIFFUSEUR REPARER POUR réparation",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "INTERBRANDS"
+    }
+  },
+  "page_57": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "LABO FARAH",
+      "address": "RIADH ANDALOUS",
+      "date_raw": "21/01/25",
+      "time_raw": "13H45",
+      "technician_name": "B.L.",
+      "client_maintenance_number": "014832",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "NER (N)",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "8H/17H",
+        "motif_arret": "5/10: 7H45/13H"
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV DIFF + 300 ML NEROLI",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "LABORATOIRE D'ANALYSES MÉDICALES\nDOCTEUR FARAH AYARI\nPharmaciene-Biologiste\nCentre \"Echifa Médicale\" - Riadh Andalous\nTél: 70 135 748 - 20 408 508\nMF: 1061696/GPM/000"
+    }
+  },
+  "page_58": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "GATLI PRODUCTION",
+      "address": "GP1",
+      "date_raw": "27/01/25",
+      "time_raw": "10H45",
+      "technician_name": null,
+      "client_maintenance_number": "014836",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "Mirai",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": "594",
+        "qte_parfum_existante": 594,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "40",
+        "plage_horaire_diffusion": "17H/23H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR500",
+        "model_diffuseur": null,
+        "emplacement": "Salle",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": null,
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "40",
+        "plage_horaire_diffusion": "17H/23H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "frequence_diffusion": "100-300",
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 2x300ML PB + FK",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  },
+  "page_59": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "MOUENATEC",
+      "address": "LAC",
+      "date_raw": "27/01/25",
+      "time_raw": "12H40",
+      "technician_name": "B.L.",
+      "client_maintenance_number": "014839",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "entrée",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "PO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "11H/20H",
+        "motif_arret": "11H"
+      },
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "Salle",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "PO",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "Salle",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 600,
+        "parfum": "PO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "V",
+        "frequence_diffusion": "11H/20H",
+        "plage_horaire_fonctionnement": "11H/20H",
+        "emplacement": "entrée"
+      },
+      {
+        "ml": 300,
+        "parfum": "PO",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 600ML PO + 2x 300ML PO ASTREE x2",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "MOUENATEC\nTunis\nTel: 569 010\nMF: 1320371A/000"
+    }
+  },
+  "page_60": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "MALL SOUSSE",
+      "address": "SOUSSE",
+      "date_raw": "23/01/24",
+      "time_raw": "11H17",
+      "technician_name": null,
+      "client_maintenance_number": "014842",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "DT",
+        "reference_diffuseur": null,
+        "nom_parfum": "LINA (L)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "10/14",
+        "motif_arret": "16-20"
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": null,
+        "emplacement": "WC",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": null,
+        "emplacement": "WC",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": null,
+        "emplacement": "WC",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": null,
+        "emplacement": "WC",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": null,
+        "emplacement": "WC",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "N",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "LINA (L)",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": "6/10",
+        "plage_horaire_fonctionnement": "11H/14H",
+        "emplacement": "WC"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "WC"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "WC"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "WC"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "WC"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "S",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "WC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300 ML x 6",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Mall of Sousse\nReçu le 23"
+    }
+  }
+}

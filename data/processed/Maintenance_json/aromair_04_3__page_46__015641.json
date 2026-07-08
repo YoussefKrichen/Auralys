@@ -1,0 +1,137 @@
+{
+  "fiche_id": "Aromair_04_3:page_46:015641",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_3.json",
+  "page_key": "page_46",
+  "source_image": "page_46.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "RES. KHADIJA",
+    "address": null,
+    "date_raw": "09/04/25",
+    "time_raw": "15H30",
+    "technician_name": null,
+    "client_maintenance_number": "015641",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-09",
+    "service_time": "15:30:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": null,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Iceberg Cher",
+      "model_diffuseur": "Iceberg",
+      "emplacement": null,
+      "reference_diffuseur_raw": "Wifi",
+      "reference_diffuseur": "WIFI",
+      "nom_parfum": "FE2",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "136",
+      "qte_parfum_existante": 136,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "N",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Visite",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "source_image": "page_46.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "RES. KHADIJA",
+      "address": null,
+      "date_raw": "09/04/25",
+      "time_raw": "15H30",
+      "technician_name": null,
+      "client_maintenance_number": "015641",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Iceberg Cher",
+        "model_diffuseur": "Iceberg",
+        "emplacement": null,
+        "reference_diffuseur_raw": "Wifi",
+        "reference_diffuseur": "WIFI",
+        "nom_parfum": "FE2",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "136",
+        "qte_parfum_existante": 136,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "N",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Visite",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

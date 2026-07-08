@@ -1,0 +1,73 @@
+Client
+======
+Nom du client: MACHAOURI S*
+Adresse: MNIKLA
+
+Intervention
+============
+Date: 2025-01-29
+Reference / numero: 014922
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée Prkg
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 200/120
+  - Programme plage horaire: 11H -> 23H
+Diffuseur 2:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée Priciple
+  - CAB bouteille: V
+  - Quantite existante: 0
+Diffuseur 3:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée fond
+  - CAB bouteille: V
+  - Quantite existante: 0
+Diffuseur 4:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée vitrine
+  - CAB bouteille: V
+  - Quantite existante: 0
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 500 ml
+  - Emplacement: entrée Prkg
+  - Recharge / remplacement: 200/120
+  - Programme / plage horaire: 11H - 23H
+Bouteille 2:
+  - CAB bouteille: V
+  - Quantite: 500 ml
+  - Emplacement: entrée Priciple
+Bouteille 3:
+  - CAB bouteille: V
+  - Quantite: 500 ml
+  - Emplacement: entrée fond
+Bouteille 4:
+  - CAB bouteille: V
+  - Quantite: 500 ml
+  - Emplacement: entrée vitrine
+
+Problemes et recommandations
+============================
+Problemes: LIV 500ML x 4 MELANGE
+Anomalies: LIV

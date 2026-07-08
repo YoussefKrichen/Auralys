@@ -1,0 +1,32 @@
+Client
+======
+Nom du client: STTT
+Adresse: Ghazala
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015636
+Type de service: livraison, reparation
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - CAB bouteille: S
+  - Quantite existante: 250
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV DIFF POST REPARATION B34 + 1
+Anomalies: LIV

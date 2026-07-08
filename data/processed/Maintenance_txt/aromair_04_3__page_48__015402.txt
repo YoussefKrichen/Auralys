@@ -1,0 +1,33 @@
+Client
+======
+Nom du client: BARISTAS
+Adresse: Ariana
+Telephone: 1889953
+Correspondance client: Barista's Ariana
+Adresse correspondante: Ezzahra
+Parfum reference: OB
+
+Intervention
+============
+Date: 2025-04-10
+Technicien: bilel
+Reference / numero: 015402
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Recuperation diffuseur Baristas Ariana + Support
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Couple de diffuseurs + Support cassé

@@ -1,0 +1,40 @@
+Client
+======
+Nom du client: Mouradi Palace
+Adresse: Sousse
+Correspondance client: Mouradi Palace
+
+Intervention
+============
+Date: 2024-04-05
+Reference / numero: 015622
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: AROMAIR200
+  - CAB diffuseur: AROMAIR100_BT
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: Standard
+  - Quantite: 1000 ml
+  - Emplacement: CTA
+  - Recharge / remplacement: 10/5
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: LIV STOCK / JAL CHANGE
+Anomalies: LIV

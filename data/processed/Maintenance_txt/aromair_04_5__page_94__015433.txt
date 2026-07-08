@@ -1,0 +1,31 @@
+Client
+======
+Nom du client: Ceram
+Adresse: Manzelin
+Correspondance client: Ceram M
+Adresse correspondante: Megrine
+
+Intervention
+============
+Date: 2025-04-16
+Technicien: Bilel
+Reference / numero: 015433
+Type de service: livraison, reparation
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Recuperation diffuseur

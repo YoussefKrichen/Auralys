@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: Pharmacie victoria
+Adresse: Lac
+Correspondance client: Pharmacie Victoria Lac1
+
+Intervention
+============
+Date: 2024-11-09
+Reference / numero: 014899
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: Bleu
+  - Emplacement: vitrine
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 220
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8H30/12H45
+Diffuseur 2:
+  - Programme frequence: 5/10
+  - Programme plage horaire: 15H/19H15
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - Quantite: 300 ml
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ml cologne
+VISITE
+Anomalies: LIV

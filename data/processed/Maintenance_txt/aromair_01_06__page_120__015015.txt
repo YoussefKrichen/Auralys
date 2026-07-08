@@ -1,0 +1,96 @@
+Client
+======
+Nom du client: MALL OF SOUSSE
+Adresse: SOUSSE
+Correspondance client: Mall of Sousse
+
+Intervention
+============
+Date: 2025-02-26
+Reference / numero: 015015
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+Diffuseur 2:
+  - Modele: WC
+  - Emplacement: WC
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 3:
+  - Modele: WC
+  - Emplacement: WC
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 4:
+  - Modele: WC F
+  - Emplacement: WC F
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 5:
+  - Modele: WC H
+  - Emplacement: WC H
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 6:
+  - Modele: B.R.
+  - Emplacement: B.R.
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 0
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/11
+  - Programme / plage horaire: 9-14H
+Bouteille 2:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: WC
+  - Programme / plage horaire: 16-20H
+Bouteille 3:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: WC
+Bouteille 4:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: WC F
+Bouteille 5:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: WC H
+Bouteille 6:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: B.R.
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML x6
+Anomalies: LIV

@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: Barista 1
+Adresse: Ariana
+Correspondance client: Barista's Ariana
+Adresse correspondante: Ezzahra
+Parfum reference: OB
+
+Intervention
+============
+Date: 2025-04-12
+Technicien: Bilel
+Reference / numero: 015425
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Parfum: FDE3
+  - CAB bouteille: S
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 700 ml
+  - Emplacement: WC
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 14h->19
+
+Problemes et recommandations
+============================
+Problemes: Livraison diffuseur + 300ml FDE3
+Anomalies: LIV

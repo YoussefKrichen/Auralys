@@ -1,0 +1,43 @@
+Client
+======
+Nom du client: Arom Voyage
+Adresse: Lafaat
+
+Intervention
+============
+Date: 2025-04-15
+Technicien: Bilel
+Reference / numero: 015439
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: au fond
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE2
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDE2
+  - Quantite: 300 ml
+  - Emplacement: fond
+  - Recharge / remplacement: 5/10
+
+Problemes et recommandations
+============================
+Problemes: Visite / prise debranchée

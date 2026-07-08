@@ -1,0 +1,40 @@
+Client
+======
+Nom du client: CENTURY 21
+Adresse: SOUKRA
+Telephone: 71 393 431
+Correspondance client: Century 21 Ain Zaghouen Nord
+Adresse correspondante: Marsa
+
+Intervention
+============
+Date: 2025-02-13
+Reference / numero: 014754
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: Accueil
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 64
+  - Programme frequence: 5/10
+  - Programme plage horaire: 9H/14H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: RENAULT THAICS
+Adresse: CHARGUIA
+Correspondance client: Renault Trucks
+
+Intervention
+============
+Date: 2025-02-14
+Reference / numero: 014752
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: SALON
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 175
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: BUREAU
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 70
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite pour les deux diffuseurs

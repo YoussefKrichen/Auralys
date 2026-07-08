@@ -1,0 +1,67 @@
+Client
+======
+Nom du client: Boutiqua souKRA
+Adresse: SOUSSE
+Telephone: 73 342 890 | 99 289 544 | 1332734
+Correspondance client: Barista's Sousse
+Adresse correspondante: Hammam Sousse
+
+Intervention
+============
+Date: 2024-01-25
+Reference / numero: 014843
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee600
+  - CAB diffuseur: B
+  - Emplacement: Milk
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 4/10
+  - Programme plage horaire: 9H/22H
+Diffuseur 2:
+  - Modele: Zeephir
+  - CAB diffuseur: B
+  - Emplacement: WC
+  - Statut: M
+  - Qualite diffusion: D
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 4/10
+  - Programme plage horaire: 10/19H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 600 ml
+  - Emplacement: Salle
+  - Recharge / remplacement: 6/10
+  - Programme / plage horaire: 9-21
+Bouteille 2:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 300 ml
+  - Emplacement: WC
+  - Recharge / remplacement: 4/10
+  - Programme / plage horaire: 10-22
+
+Problemes et recommandations
+============================
+Problemes: LIV 600 ML Zeephir
+300 ML Zeephir WC
+Anomalies: LIV

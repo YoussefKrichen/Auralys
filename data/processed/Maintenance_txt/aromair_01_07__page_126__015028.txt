@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: GAME PRODUCTION
+Adresse: GP9
+Telephone: 1731673
+Correspondance client: Game Production
+
+Intervention
+============
+Date: 2025-02-28
+Reference / numero: 015028
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: CENTRAL
+  - CAB diffuseur: BT
+  - Emplacement: Salle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 180/240
+  - Programme plage horaire: 13H40-16H30
+  - Remarques: 16H-16H30 / 18-22
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: Salle
+  - Recharge / remplacement: 180/240
+  - Programme / plage horaire: 13H-16H30
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML PO
+Anomalies: LIV

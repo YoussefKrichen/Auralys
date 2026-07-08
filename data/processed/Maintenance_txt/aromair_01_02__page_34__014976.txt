@@ -1,0 +1,55 @@
+Client
+======
+Nom du client: BARISTAS
+Adresse: ARIANA
+Correspondance client: Barista's Ariana
+Adresse correspondante: Ezzahra
+Parfum reference: OB
+
+Intervention
+============
+Date: 2025-02-03
+Reference / numero: 014976
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: WC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 224
+  - Programme frequence: 5-10
+  - Programme plage horaire: 7H-19H
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: Salle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 150 ml
+  - Emplacement: Salle
+  - Recharge / remplacement: 5-10
+
+Problemes et recommandations
+============================
+Problemes: Livraison 2x150ml Salon + Visite Diff WC
+Anomalies: LIV

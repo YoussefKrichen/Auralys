@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: Pharmacie Victoria
+Adresse: Lac 1
+Correspondance client: Pharmacie Victoria Lac1
+
+Intervention
+============
+Date: 2025-04-18
+Technicien: Bilel
+Reference / numero: 015470
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 14
+  - Programme frequence: 8h-12h30
+  - Programme plage horaire: 15h->19h
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 300 ml
+  - Emplacement: Entrée
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 8h30-14h30
+15h-19h
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FDE3
+Anomalies: LIV

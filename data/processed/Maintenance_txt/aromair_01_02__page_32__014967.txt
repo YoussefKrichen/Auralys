@@ -1,0 +1,64 @@
+Client
+======
+Nom du client: HGY ZONE
+Adresse: LAC 1
+
+Intervention
+============
+Date: 2025-02-07
+Reference / numero: 014967
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: R
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: V
+  - Quantite existante: 250
+  - Programme frequence: 12-16
+  - Programme plage horaire: 9/18
+Diffuseur 2:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: 1er
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 12-16
+  - Programme plage horaire: 8/17
+Diffuseur 3:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: +1
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 12-16
+  - Programme plage horaire: 8/17
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV DIFFUSEUR post réparation ASTREE + 2 x 300 ML RG Free RDC/13 ASTREE / + 2 x 300 ML RG Free RDC/13
+Anomalies: LIV
+Recommandations: RESTE A LIVRER Salle de reunion

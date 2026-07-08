@@ -1,0 +1,41 @@
+Client
+======
+Nom du client: Dr Sallami
+Adresse: Tapis de Carthage
+
+Intervention
+============
+Date: 2025-04-16
+Technicien: Bilel
+Reference / numero: 015455
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: Salle d'attente
+  - Statut: M
+  - Qualite diffusion: M
+  - Fuite: N
+  - Parfum: NER (N)
+  - CAB bouteille: S
+  - Quantite existante: 165
+  - Programme frequence: 10/10
+  - Programme plage horaire: 9h-14h / 14h30-18h30
+Diffuseur 2:
+  - Modele: Astree
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite. Pas d'odeur au cabinet de Dr.Mme Sallami

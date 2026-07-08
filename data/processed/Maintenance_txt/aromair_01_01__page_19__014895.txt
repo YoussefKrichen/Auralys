@@ -1,0 +1,50 @@
+Client
+======
+Nom du client: JUN GENERATION
+Adresse: ARIANA
+
+Intervention
+============
+Date: 2023-11-09
+Reference / numero: 014895
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: DP 100 entrée
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: WJ
+  - CAB bouteille: S
+  - Quantite existante: 61
+  - Programme frequence: 5/10
+  - Programme plage horaire: 7H30/14H30
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: codon
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: WJ
+  - CAB bouteille: S
+  - Quantite existante: 150
+  - Programme frequence: 5/10
+  - Programme plage horaire: 15H/18H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: VISITE / PAIEMENT ESPECES

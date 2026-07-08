@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: DAR SOUIRA
+
+Intervention
+============
+Date: 2025-02-03
+Reference / numero: 014941
+Type de service: livraison, reparation
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Emplacement: WC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 179
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV DIFF après réparation - MERCI de veiller a ne plus ouvrir le diffuseur et enlever les autocollants
+Anomalies: LIV

@@ -1,0 +1,38 @@
+Client
+======
+Nom du client: Game Production
+Telephone: 1797309
+Correspondance client: Game Production
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015648
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: Entree
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 534
+  - Programme frequence: 15-300
+  - Programme plage horaire: 07-17
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite diffuseur Adorn rest Zee

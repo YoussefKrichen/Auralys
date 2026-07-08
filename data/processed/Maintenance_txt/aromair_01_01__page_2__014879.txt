@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: AMBIANCE D'ASTRE FOIS
+Adresse: SoukRA/SOFASAM (SoukRA)
+Telephone: 73 342 811 - 890 | 73 342 222
+Correspondance client: Ambiance D'Autrefois Sousse
+Adresse correspondante: Alain Savary
+Parfum reference: AMBER
+Emplacement reference: Boutique
+
+Intervention
+============
+Date: 2023-11-02
+Technicien: PENETRA
+Reference / numero: 014879
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/6
+  - Programme plage horaire: MANUEL
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: MANUEL
+
+Problemes et recommandations
+============================
+Problemes: LIV SOONE
+Anomalies: LIV

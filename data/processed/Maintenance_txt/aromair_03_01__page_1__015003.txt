@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: Le Sportif
+Adresse: La Soukra
+Correspondance client: Le Sportif Soukra
+
+Intervention
+============
+Date: 2025-03-06
+Reference / numero: 015003
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 168
+  - Programme frequence: 5-8
+  - Programme plage horaire: 10-17
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: RG
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 10H
+  - Programme / plage horaire: 7H
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ML RG
+Anomalies: LIV

@@ -1,0 +1,41 @@
+Client
+======
+Nom du client: GEOX
+Adresse: MARSA
+Correspondance client: Geox Carrefour Marsa
+
+Intervention
+============
+Date: 2025-01-28
+Technicien: RIRI
+Reference / numero: 014838
+Type de service: visite, reparation
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: D
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: TUYAU DIFFUSEUR COUPE
+DIFFUSEUR REPARER POUR réparation

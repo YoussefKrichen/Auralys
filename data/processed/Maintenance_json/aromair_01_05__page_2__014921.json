@@ -1,0 +1,156 @@
+{
+  "fiche_id": "Aromair_01_05:page_2:014921",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_05.json",
+  "page_key": "page_2",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "PORSCHE",
+    "address": "Kram",
+    "date_raw": "29/01/25",
+    "time_raw": "12H45",
+    "technician_name": null,
+    "client_maintenance_number": "014921",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-01-29",
+    "service_time": "12:45:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": null,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee 300",
+      "model_diffuseur": "Zee300",
+      "emplacement": "entrée Droite",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": "240/120",
+      "plage_horaire_diffusion": "8-13H30 / 17H30 19H30",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "RG",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "240/120",
+      "plage_horaire_fonctionnement": "8H/13H30 15H30/17H30",
+      "emplacement": "entrée Droite"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV DIFF Zee 300 / 6x300ML RG Mise en PLACE 300ML RG S en STOCK",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "PORSCHE",
+      "address": "Kram",
+      "date_raw": "29/01/25",
+      "time_raw": "12H45",
+      "technician_name": null,
+      "client_maintenance_number": "014921",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee 300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "entrée Droite",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": null,
+        "frequence_diffusion_existante": "240/120",
+        "plage_horaire_diffusion": "8-13H30 / 17H30 19H30",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "RG",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "240/120",
+        "plage_horaire_fonctionnement": "8H/13H30 15H30/17H30",
+        "emplacement": "entrée Droite"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV DIFF Zee 300 / 6x300ML RG Mise en PLACE 300ML RG S en STOCK",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

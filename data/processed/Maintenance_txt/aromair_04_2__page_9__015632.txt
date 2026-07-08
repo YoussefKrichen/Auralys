@@ -1,0 +1,40 @@
+Client
+======
+Nom du client: Century 21
+Adresse: Soukra
+Correspondance client: Century 21 Ain Zaghouen Nord
+Adresse correspondante: Marsa
+
+Intervention
+============
+Date: 2024-04-07
+Reference / numero: 015632
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: AROMAIR100_BT
+  - Emplacement: Entree
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: BT
+  - Quantite existante: 89
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9-14
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite
+Anomalies: VIS

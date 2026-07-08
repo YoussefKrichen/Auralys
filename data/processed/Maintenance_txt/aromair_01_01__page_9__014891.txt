@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: Labo Farah
+Adresse: Riaah Andalous
+
+Intervention
+============
+Date: 2023-11-08
+Reference / numero: 014891
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair50
+  - CAB diffuseur: Blun
+  - Emplacement: entrée
+  - Statut: M
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 4/8
+  - Programme plage horaire: 8H30/16H30
+Diffuseur 2:
+  - Modele: N
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: PEA (P)
+  - Quantite: 300 ml
+  - Recharge / remplacement: 4/8
+  - Programme / plage horaire: 8H30 / 16H30
+
+Problemes et recommandations
+============================
+Problemes: LIF diff parfum apres diag + 300ml peace

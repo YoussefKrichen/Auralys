@@ -1,0 +1,157 @@
+{
+  "fiche_id": "Aromair_04_6:page_112:015466",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_6.json",
+  "page_key": "page_112",
+  "source_image": "page_112.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "The Blue",
+    "address": "Megrine",
+    "date_raw": "18.04.25",
+    "time_raw": "10h40",
+    "technician_name": "Ahmed",
+    "client_maintenance_number": "015466",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-18",
+    "service_time": "10:40:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Livraison 1000 ml agrumes. Pour The Blue",
+      "model_diffuseur": null,
+      "emplacement": null,
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": null,
+      "reference_bouteille": null,
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 1000,
+      "parfum": "Agua",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Reste des diffuseurs en stock",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "M.FOOD & DRINKS\n03 Avenue de la République\nMegrine"
+  },
+  "raw_payload": {
+    "source_image": "page_112.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "The Blue",
+      "address": "Megrine",
+      "date_raw": "18.04.25",
+      "time_raw": "10h40",
+      "technician_name": "Ahmed",
+      "client_maintenance_number": "015466",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Livraison 1000 ml agrumes. Pour The Blue",
+        "model_diffuseur": null,
+        "emplacement": null,
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": null,
+        "reference_bouteille": null,
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": null,
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 1000,
+        "parfum": "Agua",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Reste des diffuseurs en stock",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "M.FOOD & DRINKS\n03 Avenue de la République\nMegrine"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+Client
+======
+Nom du client: GLOBAL STUDIES
+Adresse: MEGRINE
+Telephone: 70 753 953
+Correspondance client: Global Studies Lac2
+
+Intervention
+============
+Date: 2025-03-19
+Reference / numero: 015056
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: Wifi
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: P.D
+  - Fuite: N
+  - CAB bouteille: B
+  - Quantite existante: 28
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml
+Anomalies: LIV

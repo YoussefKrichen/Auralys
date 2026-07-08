@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: DR BEN SOUKRA
+Adresse: SOUKRA
+Correspondance client: AF Collection Soukra
+Adresse correspondante: Omrane
+Parfum reference: F.The
+Modele diffuseur reference: Zee
+Emplacement reference: +2
+
+Intervention
+============
+Date: 2025-02-27
+Reference / numero: 014797
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: M
+  - Fuite: Y
+  - CAB bouteille: S
+  - Quantite existante: 69
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml
+Anomalies: LIV

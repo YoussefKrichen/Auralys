@@ -1,0 +1,32 @@
+Client
+======
+Nom du client: SOGEPLAN
+Adresse: RADJED
+Telephone: 71 890 240 | 1332734
+Correspondance client: Sogeplan Raoued
+
+Intervention
+============
+Date: 2023-11-10
+Reference / numero: 014881
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: RECUPERATION diffuseur
+Diffuseur 2:
+  - Modele: Iceberg
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: ARRET CONTRAT

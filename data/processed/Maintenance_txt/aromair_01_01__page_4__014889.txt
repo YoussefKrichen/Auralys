@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: J.C ORI LEI
+Adresse: GP9
+Telephone: 08 23 8
+
+Intervention
+============
+Date: 2023-11-08
+Reference / numero: 014889
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - Emplacement: RCC
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 170
+  - Programme frequence: 5/10
+  - Programme plage horaire: 17/17/29
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: CHANGEMENT Tête

@@ -1,0 +1,39 @@
+Client
+======
+Nom du client: EPSILON
+Adresse: ENNASR
+Telephone: 1211543
+Correspondance client: Epsilon Ain Zaghouen
+
+Intervention
+============
+Date: 2025-02-19
+Reference / numero: 014784
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Salle
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 83
+  - Programme frequence: 5-10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite Epsilon

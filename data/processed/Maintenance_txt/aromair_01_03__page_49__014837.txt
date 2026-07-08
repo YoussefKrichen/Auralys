@@ -1,0 +1,72 @@
+Client
+======
+Nom du client: LAICO
+Adresse: TUNIS
+Correspondance client: Laico Tunis
+
+Intervention
+============
+Date: 2025-01-29
+Technicien: B.L.
+Reference / numero: 014837
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Salon
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: Manuel
+Diffuseur 2:
+  - Modele: Astree
+  - Emplacement: reception
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Programme frequence: Manuel
+Diffuseur 3:
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: OVD
+  - CAB bouteille: V
+  - Programme frequence: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: OVD
+  - Quantite: 2000 ml
+  - Emplacement: cuisine
+  - Recharge / remplacement: Manuel
+Bouteille 2:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 300 ml
+  - Recharge / remplacement: Manuel
+Bouteille 3:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 200 ml
+  - Recharge / remplacement: Manuel
+
+Problemes et recommandations
+============================
+Problemes: LIV 2x1L CENTRALE
+2x300ML FDE3
+Anomalies: LIV

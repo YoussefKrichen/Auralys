@@ -1,0 +1,40 @@
+Client
+======
+Nom du client: Dr.Soukni
+Adresse: Marsa
+Correspondance client: Dr Soukni Marsa
+
+Intervention
+============
+Date: 2025-04-15
+Technicien: Bilel
+Reference / numero: 015442
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: Cabinet
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 140
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9-19
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: GEOX
+Adresse: UHD
+Correspondance client: Geox Carrefour Marsa
+
+Intervention
+============
+Date: 2025-01-20
+Technicien: BAHI
+Reference / numero: 014830
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: JB
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 9H30/13H30
+  - Remarques: 17H/20H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: JB
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 9H30/13H30
+
+Problemes et recommandations
+============================
+Problemes: LIV 300 ML
+Anomalies: LIV

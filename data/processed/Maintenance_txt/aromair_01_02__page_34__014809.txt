@@ -1,0 +1,32 @@
+Client
+======
+Nom du client: ZAICO
+Adresse: TUNIS
+
+Intervention
+============
+Date: 2025-01-17
+Reference / numero: 014809
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: RECUPERATION 2 DIFFUSEURS
+Diffuseur 2:
+  - Modele: Aromair100
+  - Emplacement: WC
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV 600ML 2L BAN PRE
+Anomalies: LIV

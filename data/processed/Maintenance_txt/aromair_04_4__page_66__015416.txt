@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: Abi Meydith
+Adresse: Sfax
+
+Intervention
+============
+Date: 2025-04-11
+Technicien: Bilel
+Reference / numero: 015416
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: Entree
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 126
+  - Programme frequence: 5-10
+  - Programme plage horaire: 7-13H
+15H-19
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: RG
+  - Quantite: 300 ml
+  - Emplacement: Entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 09-13H (15H-19)
+
+Problemes et recommandations
+============================
+Problemes: Décalage horaire. Tete bouchée.

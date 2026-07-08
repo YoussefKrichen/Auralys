@@ -1,0 +1,73 @@
+Client
+======
+Nom du client: Padel
+Adresse: Soukra
+Correspondance client: Padel Borj Louzir
+
+Intervention
+============
+Date: 2025-04-10
+Technicien: Bilel
+Reference / numero: 015650
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: Y
+  - Parfum: LINA (L)
+  - CAB bouteille: S
+  - Quantite existante: 114
+  - Programme frequence: 5/1
+  - Programme plage horaire: 8->18
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: Y
+  - CAB bouteille: S
+  - Programme frequence: 5/1
+  - Programme plage horaire: 8->18
+Diffuseur 3:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: salle
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FF
+  - CAB bouteille: V
+  - Quantite existante: 84
+  - Programme frequence: 5/19
+  - Programme plage horaire: 09-21
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: LINA (L)
+  - Quantite: 187 ml
+  - Emplacement: WC F
+  - Recharge / remplacement: 5/16
+  - Programme / plage horaire: 8-19
+Bouteille 2:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: WC H
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: 8-18
+
+Problemes et recommandations
+============================
+Problemes: fuite bouteille WC femme
+Recommandations: changement de Btte WC femme / Installation diffuseur WC H

@@ -1,0 +1,22 @@
+{
+  "fiche_id": "list_diffusers:3:3",
+  "source_file": "data\\raw_json\\List_of_diffusers\\list_diffusers.json",
+  "page_key": "3",
+  "document_type": "diffuser_catalog_entry",
+  "produit": "Aromair500",
+  "couverture": "jusqu’à 500 m²",
+  "ideal_pour": [
+    "grandes boutiques",
+    "showrooms",
+    "restaurants",
+    "cliniques",
+    "bureaux ouverts"
+  ],
+  "avantages": [
+    "diffusion puissante",
+    "programmable",
+    "couverture olfactive stable"
+  ],
+  "service_recommande": "recharge mensuelle, maintenance et suivi de consommation",
+  "argument_commercial": "Idéal pour les grands espaces commerciaux qui ont besoin d’une diffusion parfumée forte et régulière."
+}

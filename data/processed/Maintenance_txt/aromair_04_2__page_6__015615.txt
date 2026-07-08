@@ -1,0 +1,38 @@
+Client
+======
+Nom du client: Souquibat
+
+Intervention
+============
+Date: 2024-04-04
+Reference / numero: 015615
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: AROMAIR100_BT
+  - Emplacement: Entree
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: Y
+  - Parfum: CASH /C
+  - CAB bouteille: S
+  - Quantite existante: 114
+  - Programme frequence: 5/10
+  - Programme plage horaire: 08->17H30
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite
+Anomalies: VIS

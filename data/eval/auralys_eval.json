@@ -1,0 +1,197 @@
+[
+  {
+    "case_id": "T01",
+    "question": "Quel diffuseur recommandez-vous pour un hotel de 500 m2 ?",
+    "ground_truth": "Auralys doit recommander Aromair500 comme premier choix, avec Aromair600 comme alternative selon la configuration exacte du lieu, car il faut confirmer la circulation de l'air, la hauteur sous plafond et l'intensite olfactive souhaitee.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T02",
+    "question": "Nous avons un showroom premium de 600 m2, quelle solution olfactive proposer ?",
+    "ground_truth": "Auralys doit orienter l'equipe SAV vers Aromair600 ou Iceberg selon le niveau de positionnement premium recherche, en demandant le type de parcours client, le niveau de personnalisation parfum et le besoin de suivi technique.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T03",
+    "question": "Un client cherche une solution simple pour un petit bureau de 40 m2.",
+    "ground_truth": "Auralys doit recommander Aromair50, car ce modele convient aux petits espaces et repond a un besoin simple avec faible consommation et maintenance reguliere.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T04",
+    "question": "Quelle machine proposer pour une boutique de 90 m2 qui veut une ambiance professionnelle ?",
+    "ground_truth": "Auralys doit recommander Aromair100, car il est adapte aux espaces petits a moyens et permet une diffusion programmable et discrete pour une boutique.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T05",
+    "question": "Quel diffuseur conviendrait a un salon de beaute de 300 m2 ?",
+    "ground_truth": "Auralys doit recommander Zee300, car ce modele est adapte aux espaces commerciaux moyens comme les salons de beaute et combine design moderne et consommation optimisee.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T06",
+    "question": "On cherche une solution parfumee pour un grand restaurant avec forte frequentation.",
+    "ground_truth": "Auralys doit proposer Aromair600 ou Zee600 selon la surface et le positionnement du lieu, puis demander la superficie exacte, les heures d'activite et l'intensite de diffusion souhaitee avant decision finale.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T07",
+    "question": "Le parfum est mal diffuse chez un client, quelle doit etre la premiere decision du SAV ?",
+    "ground_truth": "Auralys doit conseiller de verifier d'abord l'etat de marche, la frequence de diffusion, la quantite de parfum restante et la qualite de diffusion avant de recommander un reglage, une recharge ou une intervention technique.",
+    "category": "sav_troubleshooting",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T08",
+    "question": "Une fuite est signalee sur un diffuseur, que doit faire l'equipe SAV ?",
+    "ground_truth": "Auralys doit recommander une verification technique prioritaire, avec securisation de l'equipement, controle de l'etancheite et decision entre reparation, echange ou arret temporaire selon le risque et le cout.",
+    "category": "sav_troubleshooting",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T09",
+    "question": "Le client veut un devis rapide pour equiper un hotel de 600 m2.",
+    "ground_truth": "Auralys doit signaler une opportunite interne a verifier par l'administration, recommander une solution de type Aromair600 ou Iceberg selon le standing, puis lister les coordonnees, le planning et les contraintes d'installation a confirmer pour preparer un devis.",
+    "category": "admin_verification",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T10",
+    "question": "Comment decider entre reparation et echange d'un diffuseur en panne ?",
+    "ground_truth": "Auralys doit guider le SAV en comparant l'impact sur la continuite de service, le cout de remise en etat, la frequence des incidents et la valeur commerciale du client afin de choisir l'option la plus fiable et economiquement positive.",
+    "category": "decision_support",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T11",
+    "question": "Un bureau ouvert de grande taille veut une diffusion stable toute la journee.",
+    "ground_truth": "Auralys doit recommander Aromair500, car il convient aux grands bureaux ouverts et offre une diffusion puissante et programmable avec stabilite olfactive.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T12",
+    "question": "Quel produit proposer pour un espace d'accueil luxueux ?",
+    "ground_truth": "Auralys doit recommander Iceberg en priorite, car son positionnement premium et son design elegant conviennent aux espaces d'accueil haut de gamme.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T13",
+    "question": "Un client demande seulement je veux un diffuseur, que faut-il demander avant de decider ?",
+    "ground_truth": "Auralys doit demander au minimum la surface a couvrir, le type de lieu, le niveau d'intensite souhaite, le budget, le delai du projet et les coordonnees de suivi avant de recommander un diffuseur.",
+    "category": "missing_information",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T14",
+    "question": "Quelle orientation donner si un client veut ameliorer son image de marque avec une signature olfactive ?",
+    "ground_truth": "Auralys doit proposer une approche orientee identite olfactive, avec selection du diffuseur selon la surface et choix du parfum selon l'experience recherchee, tout en coordonnant le SAV et l'objectif commercial.",
+    "category": "decision_support",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T15",
+    "question": "Le diffuseur fonctionne, mais le rendu olfactif est juge trop faible.",
+    "ground_truth": "Auralys doit recommander d'examiner le reglage de frequence, la plage horaire, le niveau de parfum restant et l'adequation du modele a la surface avant de conclure a une panne.",
+    "category": "sav_troubleshooting",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T16",
+    "question": "Quel modele recommander pour plusieurs toilettes et petites zones d'accueil ?",
+    "ground_truth": "Auralys doit recommander Aromair50, car il est concu pour les petites pieces, toilettes et petites zones d'accueil avec installation simple et consommation reduite.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T17",
+    "question": "Un client veut une solution pour un grand magasin avec usage professionnel intensif.",
+    "ground_truth": "Auralys doit recommander Zee600, car ce modele est adapte aux grands etablissements a forte frequentation et a une utilisation professionnelle intensive.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T18",
+    "question": "Le SAV doit-il pousser une maintenance mensuelle quand le client hesite ?",
+    "ground_truth": "Auralys doit expliquer que la maintenance mensuelle protege la qualite de diffusion, reduit les pannes, securise l'experience client et soutient un bilan positif pour la societe si elle est reellement adaptee au besoin.",
+    "category": "decision_support",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T19",
+    "question": "Comment Auralys doit reagir quand il manque trop d'informations pour choisir une solution ?",
+    "ground_truth": "Auralys doit le dire clairement, eviter une recommandation fragile et poser des questions de qualification ciblees pour permettre une decision SAV fiable et utile.",
+    "category": "missing_information",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T20",
+    "question": "Un etablissement a forte frequentation veut creer une identite olfactive forte et premium.",
+    "ground_truth": "Auralys doit recommander Zee600 ou Iceberg selon la surface et le niveau de prestige recherche, puis demander les details d'implantation et le besoin de personnalisation parfum avant validation.",
+    "category": "product_recommendation",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "T21",
+    "question": "L'administration veut verifier si une intervention doit etre escaladee apres plusieurs incidents repetes.",
+    "ground_truth": "Auralys doit recommander de verifier l'historique des incidents, la frequence des pannes, le cout cumule des interventions et l'impact sur la continuite de service avant d'escalader vers remplacement, suivi prioritaire ou validation manageriale.",
+    "category": "admin_verification",
+    "interaction_mode": "text"
+  },
+  {
+    "case_id": "V01",
+    "question": "En vocal, un technicien dit: j'ai un client hotel environ 500 metres carres, il veut une solution vite, tu proposes quoi ?",
+    "ground_truth": "Auralys doit repondre de facon naturelle et breve a l'oral, proposer Aromair500 comme base, mentionner Aromair600 si la configuration est plus exigeante, puis demander la configuration precise du lieu et le delai souhaite.",
+    "category": "product_recommendation",
+    "interaction_mode": "voice",
+    "notes": "Expected to sound natural when spoken aloud."
+  },
+  {
+    "case_id": "V02",
+    "question": "En vocal, le SAV dit: le client se plaint d'une fuite sur la machine, quelle premiere action ?",
+    "ground_truth": "Auralys doit donner une consigne vocale claire et immediate: securiser l'appareil, couper son utilisation si necessaire, verifier l'etancheite et prioriser une intervention technique avant toute autre recommandation.",
+    "category": "sav_troubleshooting",
+    "interaction_mode": "voice",
+    "notes": "Should prioritize clarity and urgency in spoken form."
+  },
+  {
+    "case_id": "V03",
+    "question": "En vocal, l'administration dit: on doit verifier une demande pour une boutique, qu'est-ce qu'il manque avant validation ?",
+    "ground_truth": "Auralys doit formuler une reponse orale concise en listant la surface, le type de boutique, le budget, le delai et l'intensite de diffusion souhaitee comme points a verifier avant validation.",
+    "category": "missing_information",
+    "interaction_mode": "voice",
+    "notes": "Should ask for a short spoken list of internal verification points."
+  },
+  {
+    "case_id": "V04",
+    "question": "En vocal, un technicien demande: le parfum est trop faible mais la machine tourne, je fais quoi ?",
+    "ground_truth": "Auralys doit repondre oralement avec une sequence simple: verifier le niveau de parfum, la frequence, la plage horaire et l'adequation du modele a la surface avant de conclure a une panne.",
+    "category": "sav_troubleshooting",
+    "interaction_mode": "voice",
+    "notes": "Should sound like spoken operational guidance."
+  },
+  {
+    "case_id": "V05",
+    "question": "En vocal, l'administration dit qu'il faut verifier un devis rapide pour un grand espace premium.",
+    "ground_truth": "Auralys doit identifier une opportunite interne a verifier, proposer une piste de solution premium adaptee a la surface, puis demander oralement les coordonnees, le planning et les contraintes d'installation a confirmer avant lancement du devis.",
+    "category": "admin_verification",
+    "interaction_mode": "voice",
+    "notes": "Should combine spoken verification points with internal escalation."
+  },
+  {
+    "case_id": "V06",
+    "question": "En vocal, le SAV dit: avant de cloturer, quels points l'administration doit verifier ?",
+    "ground_truth": "Auralys doit repondre oralement avec une liste breve des points a verifier: historique du client, cout de l'intervention, besoin de suivi, risque de recidive et necessite d'un devis ou d'une escalation interne.",
+    "category": "admin_verification",
+    "interaction_mode": "voice",
+    "notes": "Should sound like a short spoken checklist for admin verification."
+  }
+]

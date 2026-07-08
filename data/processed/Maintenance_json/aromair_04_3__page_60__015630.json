@@ -1,0 +1,137 @@
+{
+  "fiche_id": "Aromair_04_3:page_60:015630",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_3.json",
+  "page_key": "page_60",
+  "source_image": "page_60.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Noua Official",
+    "address": "Soukra",
+    "date_raw": "09.04.25",
+    "time_raw": "14h 06",
+    "technician_name": null,
+    "client_maintenance_number": "015630",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-09",
+    "service_time": "14:06:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "FO",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "RDC"
+    },
+    {
+      "ml": 300,
+      "parfum": "FO",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "\"-1\""
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "STÉ MANORAMIE"
+  },
+  "raw_payload": {
+    "source_image": "page_60.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Noua Official",
+      "address": "Soukra",
+      "date_raw": "09.04.25",
+      "time_raw": "14h 06",
+      "technician_name": null,
+      "client_maintenance_number": "015630",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "FO",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "RDC"
+      },
+      {
+        "ml": 300,
+        "parfum": "FO",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "\"-1\""
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "STÉ MANORAMIE"
+    }
+  }
+}

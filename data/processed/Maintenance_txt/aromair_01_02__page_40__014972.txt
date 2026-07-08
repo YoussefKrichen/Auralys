@@ -1,0 +1,83 @@
+Client
+======
+Nom du client: 416
+Adresse: 416
+
+Intervention
+============
+Date: 2025-02-10
+Reference / numero: 014972
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee600
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 132
+  - Programme frequence: 5/6
+  - Programme plage horaire: 8-17H
+Diffuseur 2:
+  - Modele: Zee600
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 346
+Diffuseur 3:
+  - Modele: Zee600
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: P.D
+  - Fuite: A
+  - CAB bouteille: V
+  - Quantite existante: 200
+Diffuseur 4:
+  - Modele: Aromair100
+  - Emplacement: WC F
+  - Statut: M
+  - Qualite diffusion: P.D
+  - Fuite: M
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 5:
+  - Modele: Aromair100
+  - Emplacement: WC H
+  - Statut: M
+  - Qualite diffusion: P.D
+  - Fuite: M
+  - CAB bouteille: S
+  - Quantite existante: 0
+Diffuseur 6:
+  - Modele: Aromair50
+  - CAB diffuseur: BG
+  - Emplacement: boutique
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: M
+  - CAB bouteille: S
+  - Quantite existante: 0
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Zee 600 entrée 3 / PROBLÈME CARTE / nouvelle
+Zee 600 entrée 2 / à récupérer pour réparation
+Recommandations: Zee 600 - Zee 600 - Zee 600
+Zee 600 - Zee 600

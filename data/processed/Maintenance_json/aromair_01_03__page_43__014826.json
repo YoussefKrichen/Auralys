@@ -1,0 +1,210 @@
+{
+  "fiche_id": "Aromair_01_03:page_43:014826",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_03.json",
+  "page_key": "page_43",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "716 CUN",
+    "address": "AQUIM A",
+    "date_raw": "18/01/25",
+    "time_raw": "11H",
+    "technician_name": "B.BLA",
+    "client_maintenance_number": "014826",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-01-18",
+    "service_time": "11:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR100",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "Salon",
+      "reference_diffuseur_raw": "AFE",
+      "reference_diffuseur": null,
+      "nom_parfum": "CASH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "17",
+      "qte_parfum_existante": 17,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "7H/19H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "AR100",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WC",
+      "reference_diffuseur_raw": "AFE",
+      "reference_diffuseur": null,
+      "nom_parfum": "CASH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "153",
+      "qte_parfum_existante": 153,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "7H/19H",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "CASH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/6",
+      "plage_horaire_fonctionnement": "7H/17H",
+      "emplacement": "Salon"
+    },
+    {
+      "ml": 300,
+      "parfum": "CASH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "7H/19H",
+      "emplacement": "WC"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 2x300ML CASH + PC",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "716 CUN",
+      "address": "AQUIM A",
+      "date_raw": "18/01/25",
+      "time_raw": "11H",
+      "technician_name": "B.BLA",
+      "client_maintenance_number": "014826",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "Salon",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": "CASH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "17",
+        "qte_parfum_existante": 17,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "7H/19H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "AFE",
+        "reference_diffuseur": null,
+        "nom_parfum": "CASH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "153",
+        "qte_parfum_existante": 153,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "7H/19H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "CASH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/6",
+        "plage_horaire_fonctionnement": "7H/17H",
+        "emplacement": "Salon"
+      },
+      {
+        "ml": 300,
+        "parfum": "CASH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "7H/19H",
+        "emplacement": "WC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 2x300ML CASH + PC",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

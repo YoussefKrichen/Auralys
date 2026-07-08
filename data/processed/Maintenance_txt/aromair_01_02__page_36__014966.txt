@@ -1,0 +1,91 @@
+Client
+======
+Nom du client: CELUI
+Adresse: ALAIN SOUIRY
+
+Intervention
+============
+Reference / numero: 014966
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: Pallier
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FC
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+Diffuseur 3:
+  - Modele: Aromair100
+  - CAB diffuseur: AFF
+  - Emplacement: -1
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+Diffuseur 4:
+  - Modele: Iceberg
+  - CAB diffuseur: AFF
+  - Emplacement: PDS
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 29
+Diffuseur 5:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: entrée
+  - CAB bouteille: S
+  - Quantite existante: 0
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: RDC
+  - Recharge / remplacement: 5-10
+Bouteille 2:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: RDC
+  - Recharge / remplacement: 5-10
+Bouteille 3:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 300 ml
+Bouteille 4:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+Bouteille 5:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML x4 / 1 en STOCK PDS
+Anomalies: LIV

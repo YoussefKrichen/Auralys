@@ -1,0 +1,58 @@
+Client
+======
+Nom du client: BARISTAS
+Adresse: AOUNA
+Correspondance client: Barista's CUN
+Adresse correspondante: La Goulette
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015642
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FF
+  - CAB bouteille: S
+  - Programme frequence: 5/10
+  - Programme plage horaire: 7-17
+  - Remarques: N
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: N
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FF
+  - CAB bouteille: S
+  - Quantite existante: 182
+  - Programme frequence: 5/10
+  - Programme plage horaire: 7h-22h
+  - Remarques: N
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: CASH /C
+  - Quantite: 150 ml
+  - Emplacement: Comptoir
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 2/12H
+
+Problemes et recommandations
+============================
+Problemes: LIV 150ml Café Comptoir
+Anomalies: LIV

@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: AGRO SERVICE
+Adresse: SFAX
+
+Intervention
+============
+Date: 2025-04-11
+Technicien: Bilel
+Reference / numero: 015414
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Entrée cable
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: CASH /C
+  - CAB bouteille: S
+  - Quantite existante: 16
+  - Programme frequence: 5-10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: CASH /C
+  - Quantite: 300 ml
+  - Emplacement: Entrée
+  - Recharge / remplacement: 5-10
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300 ml cash. Diffuseur pas branché
+Anomalies: LIV

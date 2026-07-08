@@ -1,0 +1,41 @@
+Client
+======
+Nom du client: CABINET DR KHALIDI
+Adresse: ARIANA
+
+Intervention
+============
+Date: 2025-02-05
+Reference / numero: 014951
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: CPM
+  - Emplacement: Salle D'attente
+  - Statut: M
+  - Qualite diffusion: R
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 29
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 600 ml
+  - Emplacement: Salle D'attente
+
+Problemes et recommandations
+============================
+Problemes: Livraison 600ml
+Anomalies: LIV

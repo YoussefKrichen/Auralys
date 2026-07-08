@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: CLINIQUE ALYSSA
+Telephone: 301 37 80 555
+Correspondance client: Clinique Alyssa Lac1
+Adresse correspondante: Menzah5
+
+Intervention
+============
+Date: 2024-01-17
+Reference / numero: 014820
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FM
+  - CAB bouteille: V
+  - Quantite existante: 260
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8-14
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: FM
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 7-14
+
+Problemes et recommandations
+============================
+Problemes: LIV 300 ML FM
+Anomalies: LIV

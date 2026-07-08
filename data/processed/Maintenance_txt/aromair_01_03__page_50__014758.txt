@@ -1,0 +1,29 @@
+Client
+======
+Nom du client: 416
+Adresse: MENZAH 6
+Telephone: 70 860 040 | 1111111
+
+Intervention
+============
+Date: 2025-02-10
+Reference / numero: 014758
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: RECUPERATION DE DIFFUSEUR ZEE
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

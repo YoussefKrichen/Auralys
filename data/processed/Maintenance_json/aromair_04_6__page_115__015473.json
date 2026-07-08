@@ -1,0 +1,137 @@
+{
+  "fiche_id": "Aromair_04_6:page_115:015473",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_6.json",
+  "page_key": "page_115",
+  "source_image": "page_115.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Salon de Coiffure",
+    "address": "Jardin Carthage",
+    "date_raw": "19.04.25",
+    "time_raw": "11h00",
+    "technician_name": null,
+    "client_maintenance_number": "015473",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-19",
+    "service_time": "11:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Aromair Entrée",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FE3",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "66",
+      "qte_parfum_existante": 66,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "2-5",
+      "plage_horaire_diffusion": "9-17h\n19h-20h",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Visite. Bouton ON. En marche",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "DCH Coiffure\nDe Carthage"
+  },
+  "raw_payload": {
+    "source_image": "page_115.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Salon de Coiffure",
+      "address": "Jardin Carthage",
+      "date_raw": "19.04.25",
+      "time_raw": "11h00",
+      "technician_name": null,
+      "client_maintenance_number": "015473",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Aromair Entrée",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "66",
+        "qte_parfum_existante": 66,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "2-5",
+        "plage_horaire_diffusion": "9-17h\n19h-20h",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Visite. Bouton ON. En marche",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "DCH Coiffure\nDe Carthage"
+    }
+  }
+}

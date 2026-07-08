@@ -1,0 +1,156 @@
+{
+  "fiche_id": "Aromair_01_07:page_123:015022",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_07.json",
+  "page_key": "page_123",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "VILLA DIDON",
+    "address": null,
+    "date_raw": "27.02.25",
+    "time_raw": "11H",
+    "technician_name": null,
+    "client_maintenance_number": "015022",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-27",
+    "service_time": "11:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "ZEE300 entrée",
+      "model_diffuseur": "Zee300",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "79",
+      "qte_parfum_existante": 79,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5-8",
+      "plage_horaire_diffusion": "9-17H / 17H-22H",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 600,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "5-8",
+      "plage_horaire_fonctionnement": "9-17H / 17H-22H",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison 600ml pour Villa Didon",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "Société Villa Didon\n01, Route Carthage Byrsa\nMF: 1512879/P/A/000\nTél: 71 733 043"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "VILLA DIDON",
+      "address": null,
+      "date_raw": "27.02.25",
+      "time_raw": "11H",
+      "technician_name": null,
+      "client_maintenance_number": "015022",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ZEE300 entrée",
+        "model_diffuseur": "Zee300",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "79",
+        "qte_parfum_existante": 79,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5-8",
+        "plage_horaire_diffusion": "9-17H / 17H-22H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 600,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "5-8",
+        "plage_horaire_fonctionnement": "9-17H / 17H-22H",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 600ml pour Villa Didon",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Société Villa Didon\n01, Route Carthage Byrsa\nMF: 1512879/P/A/000\nTél: 71 733 043"
+    }
+  }
+}

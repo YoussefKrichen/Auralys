@@ -1,0 +1,31 @@
+Client
+======
+Nom du client: P.H. TABICl
+Adresse: OMRANE
+
+Intervention
+============
+Date: 2023-11-06
+Technicien: BERHARI
+Reference / numero: 014882
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: RECUPERATION DIFFUSEUR
+Diffuseur 2:
+  - Modele: FIN DE CONTRAT
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

@@ -1,0 +1,41 @@
+Client
+======
+Nom du client: Century 21 N
+Correspondance client: Century 21 CUN
+Adresse correspondante: Carthage
+
+Intervention
+============
+Date: 2025-04-10
+Technicien: Bilel
+Reference / numero: 015408
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: Bureau
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 53
+  - Programme frequence: 5/10
+  - Programme plage horaire: 9->13
+14h->17
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

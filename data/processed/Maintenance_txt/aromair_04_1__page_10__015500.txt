@@ -1,0 +1,50 @@
+Client
+======
+Nom du client: CHANGSSA
+
+Intervention
+============
+Date: 2025-04-01
+Reference / numero: 015500
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Statut: A
+  - Qualite diffusion: D
+  - Fuite: O
+  - Parfum: RG
+  - CAB bouteille: S
+  - Programme frequence: 5/10
+  - Remarques: DEBRANCHE
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: O
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Remarques: DEBRANCHE
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: JB
+  - Quantite: 300 ml
+  - Recharge / remplacement: 5/10
+
+Problemes et recommandations
+============================
+Problemes: ASTree E.D DEFECTUEUX à récupérer pour DIAGNOSTIC
+Recommandations: LIV 300 JB

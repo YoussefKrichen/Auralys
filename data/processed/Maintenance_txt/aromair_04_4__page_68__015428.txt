@@ -1,0 +1,46 @@
+Client
+======
+Nom du client: Tony Ham
+Adresse: Jardin d'el Manzeh
+
+Intervention
+============
+Date: 2025-04-12
+Technicien: BIlel
+Reference / numero: 015428
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: Patio
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 47
+  - Programme frequence: 5/10
+  - Programme plage horaire: 10/18
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 300 ml
+  - Emplacement: Entree
+  - Recharge / remplacement: 5/100
+  - Programme / plage horaire: 10/18
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300 ml Fe2
+Anomalies: LIV

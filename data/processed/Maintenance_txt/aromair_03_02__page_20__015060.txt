@@ -1,0 +1,79 @@
+Client
+======
+Nom du client: INNOV8
+Adresse: 11.03.2025
+Telephone: 1512879
+Correspondance client: Innov8 Ariana
+
+Intervention
+============
+Date: 2025-03-11
+Reference / numero: 015060
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 1-6
+  - Programme plage horaire: 08-18
+Diffuseur 2:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: +1
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 77
+  - Programme frequence: 5-10
+  - Programme plage horaire: 08-18
+Diffuseur 3:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: +1
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 58
+  - Programme frequence: 5-10
+  - Programme plage horaire: 08-17
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: RDC
+  - Recharge / remplacement: 1-6
+  - Programme / plage horaire: 08-18
+Bouteille 2:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: +1
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 08-18
+Bouteille 3:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: +1
+  - Recharge / remplacement: 5-6
+  - Programme / plage horaire: 08-17
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ML x 3
+Anomalies: LIV

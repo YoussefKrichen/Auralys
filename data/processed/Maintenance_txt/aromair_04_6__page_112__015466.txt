@@ -1,0 +1,33 @@
+Client
+======
+Nom du client: The Blue
+Adresse: Megrine
+Correspondance client: The Blue Megrine
+
+Intervention
+============
+Date: 2025-04-18
+Technicien: Ahmed
+Reference / numero: 015466
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Livraison 1000 ml agrumes. Pour The Blue
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: Agua
+  - Quantite: 1000 ml
+
+Problemes et recommandations
+============================
+Problemes: Reste des diffuseurs en stock

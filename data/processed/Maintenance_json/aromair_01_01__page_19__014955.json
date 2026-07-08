@@ -1,0 +1,210 @@
+{
+  "fiche_id": "Aromair_01_01:page_19:014955",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_01.json",
+  "page_key": "page_19",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Meuble Kamoun",
+    "address": "Soukra",
+    "date_raw": "06.02.2025",
+    "time_raw": "10H50",
+    "technician_name": null,
+    "client_maintenance_number": "014955",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-06",
+    "service_time": "10:50:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": null,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "ASTREE RDC",
+      "model_diffuseur": "Astree",
+      "emplacement": "RDC",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "ASTREE 2ème étage",
+      "model_diffuseur": "Astree",
+      "emplacement": "2ème étage",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "RDC"
+    },
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": "2ème étage"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison 300ml RDC et 300ml 2ème étage",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "Kamoun Industrie\nTél: 70.837.844\nMF: 1380758"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Meuble Kamoun",
+      "address": "Soukra",
+      "date_raw": "06.02.2025",
+      "time_raw": "10H50",
+      "technician_name": null,
+      "client_maintenance_number": "014955",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "ASTREE RDC",
+        "model_diffuseur": "Astree",
+        "emplacement": "RDC",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": null,
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "ASTREE 2ème étage",
+        "model_diffuseur": "Astree",
+        "emplacement": "2ème étage",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": null,
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "RDC"
+      },
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": "2ème étage"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 300ml RDC et 300ml 2ème étage",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Kamoun Industrie\nTél: 70.837.844\nMF: 1380758"
+    }
+  }
+}

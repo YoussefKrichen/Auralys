@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: Barista's
+Adresse: Ain Zaghouan
+Correspondance client: Barista's CUN
+Adresse correspondante: La Goulette
+
+Intervention
+============
+Date: 2025-03-06
+Reference / numero: 015052
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair150
+  - CAB diffuseur: AST
+  - Emplacement: Salon
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-6
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 150 ml
+  - Recharge / remplacement: 2-10
+
+Problemes et recommandations
+============================
+Problemes: Livraison 150ml Barista
+Anomalies: LIV

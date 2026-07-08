@@ -1,0 +1,30 @@
+Client
+======
+Nom du client: Menbb Fekih
+Adresse: Soukna
+
+Intervention
+============
+Date: 2023-11-13
+Technicien: A. CHAMMOUN
+Reference / numero: 014897
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: non
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Aucun controle diffuseur mentionne.
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - Quantite: 300 ml
+
+Problemes et recommandations
+============================
+Problemes: LIV M. CHAMMOUN
+Anomalies: LIV

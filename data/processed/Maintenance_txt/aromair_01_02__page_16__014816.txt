@@ -1,0 +1,56 @@
+Client
+======
+Nom du client: DAR ZARROUK
+Adresse: SIDI DOUSATIO
+Telephone: 800-474 | 703-010 | 23 234 333
+Correspondance client: Dar Zarrouk Sidi Bou Said
+
+Intervention
+============
+Date: 2025-01-16
+Reference / numero: 014816
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zeephir entrée
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 12-15/18-22
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: AFE
+  - Emplacement: S/G
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 98
+  - Programme frequence: 5/10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 8/8
+  - Programme / plage horaire: 12-15
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML JB / ZEEPHIR
+Anomalies: LIV
+Recommandations: diag 039/698 /495-636 / 786-688

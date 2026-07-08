@@ -1,0 +1,37 @@
+Client
+======
+Nom du client: MEUBLE FRIKHA
+Adresse: FOIRE KRAM
+
+Intervention
+============
+Date: 2025-01-27
+Reference / numero: 014920
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Tour
+  - CAB diffuseur: BT
+  - Emplacement: STAND
+  - CAB bouteille: V
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: STAND
+  - Recharge / remplacement: 120/240
+  - Programme / plage horaire: 9H45 / 13H
+
+Problemes et recommandations
+============================
+Problemes: Mise A DISPOSITION DIFFUSEUR + LIV 300ML MYR
+Anomalies: LIV

@@ -1,0 +1,71 @@
+Client
+======
+Nom du client: Ooredoo CDS
+Correspondance client: Ooredoo
+
+Intervention
+============
+Date: 2025-02-27
+Reference / numero: 015029
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: CENTRAL
+  - CAB diffuseur: AFF
+  - Emplacement: 9ème
+  - Statut: M
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+Diffuseur 2:
+  - Modele: 11
+  - CAB diffuseur: AFF
+  - Emplacement: 2ème
+  - Statut: M
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+Diffuseur 3:
+  - Modele: CENTRAL
+  - CAB diffuseur: AFF
+  - Emplacement: 10ème
+  - Statut: M
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: 9ème
+  - Recharge / remplacement: 6/14
+  - Programme / plage horaire: 7-16
+Bouteille 2:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: 2ème
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 7-16
+Bouteille 3:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: 10ème
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 7-16
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ML x3
+Anomalies: LIV

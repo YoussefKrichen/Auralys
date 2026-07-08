@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: HALA CLINIQUE
+Adresse: MENZEH
+Telephone: 1697554
+Correspondance client: Clinique Alyssa Lac1
+Adresse correspondante: Menzah5
+
+Intervention
+============
+Date: 2025-01-31
+Reference / numero: 014919
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 109
+  - Programme frequence: 5-10
+  - Programme plage horaire: 8H/12H
+  - Remarques: 8H/17H
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite

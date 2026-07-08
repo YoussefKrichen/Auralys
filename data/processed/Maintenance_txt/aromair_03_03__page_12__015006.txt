@@ -1,0 +1,55 @@
+Client
+======
+Nom du client: TUNIS CENTRAL
+Adresse: LAC 2
+Telephone: +216 71 76 36 32 | +216 71 76 36 65
+
+Intervention
+============
+Date: 2025-02-28
+Reference / numero: 015006
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9-13H / 14-18H
+Diffuseur 2:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 253
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9-13H / 14-18H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 150 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 9-13H / 14-18H
+
+Problemes et recommandations
+============================
+Problemes: Livraison 150ml mélange
+Anomalies: LIV

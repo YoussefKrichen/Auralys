@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: SC PC
+Adresse: Monastir
+
+Intervention
+============
+Date: 2025-04-14
+Technicien: Bilel
+Reference / numero: 015432
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: Comptoir
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDE3
+  - CAB bouteille: S
+  - Quantite existante: 39
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9-13 / 14-17
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDE3
+  - Quantite: 300 ml
+  - Emplacement: Comptoir
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 7-13 / 14-17
+
+Problemes et recommandations
+============================
+Problemes: off mon propre diffuseur debranché. fuite bouteille. pas de diffuseur
+Anomalies: LIV
+Recommandations: Changer né d'étanche

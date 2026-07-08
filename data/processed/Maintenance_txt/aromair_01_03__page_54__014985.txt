@@ -1,0 +1,83 @@
+Client
+======
+Nom du client: CERAM
+Adresse: GP9
+Correspondance client: Arco Cerame Sfax
+Adresse correspondante: Gremda
+Parfum reference: FIG
+Emplacement reference: +1
+
+Intervention
+============
+Date: 2025-02-12
+Reference / numero: 014985
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: V
+  - Quantite existante: 50
+  - Programme frequence: 12/16
+  - Programme plage horaire: 9-17
+Diffuseur 2:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: RDC
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 12/16
+  - Programme plage horaire: 9-17
+Diffuseur 3:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Emplacement: BUREAU
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 100
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: TH
+  - Quantite: 300 ml
+  - Emplacement: RDC
+  - Recharge / remplacement: 12/16
+  - Programme / plage horaire: 9-17
+Bouteille 2:
+  - CAB bouteille: V
+  - Parfum: TH
+  - Quantite: 300 ml
+  - Emplacement: RDC
+  - Recharge / remplacement: 12/16
+  - Programme / plage horaire: 9-17
+Bouteille 3:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: BUREAU
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: Manuel
+
+Problemes et recommandations
+============================
+Problemes: CS RDC ADJIN Changement tête ASTREE --> ZEE 300 RDC CH

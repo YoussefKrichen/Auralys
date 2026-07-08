@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: auralys-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-auralys}
+      POSTGRES_USER: ${POSTGRES_USER:-auralys}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-auralys}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-auralys} -d ${POSTGRES_DB:-auralys}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - auralys_postgres_data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    container_name: auralys-qdrant
+    platform: linux/amd64
+    restart: unless-stopped
+    volumes:
+      - auralys_qdrant_data:/qdrant/storage
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: auralys-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DSN: ${POSTGRES_DSN:-postgresql://auralys:auralys@postgres:5432/auralys}
+      QDRANT_URL: ${QDRANT_URL:-http://qdrant:6333}
+      BACKEND_PUBLIC_URL: ${BACKEND_PUBLIC_URL:-https://api.example.com}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL:-https://app.example.com}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8000/health || exit 1"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./data:/app/data
+      - ./out:/app/out
+
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_API_BASE_URL: /api
+    container_name: auralys-web
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "80:80"
+
+volumes:
+  auralys_postgres_data:
+  auralys_qdrant_data:
+

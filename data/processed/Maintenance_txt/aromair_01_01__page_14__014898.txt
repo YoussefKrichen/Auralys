@@ -1,0 +1,58 @@
+Client
+======
+Nom du client: P.B Dama
+
+Intervention
+============
+Date: 2023-11-09
+Reference / numero: 014898
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BB
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: V
+  - Programme frequence: 5/6
+  - Programme plage horaire: 8H30-15H
+Diffuseur 2:
+  - Modele: An 50
+  - CAB diffuseur: Blen
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: B
+  - Programme frequence: 5/6
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: 7H -> 24H
+Bouteille 2:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: WC
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: 7H -> 24H
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ml x 2
+-Demo de commande débrouillée
+par 2ee diff.
+-et bouteille de grande qualité
+Anomalies: LIV

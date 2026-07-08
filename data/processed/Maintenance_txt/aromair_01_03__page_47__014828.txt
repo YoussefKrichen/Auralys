@@ -1,0 +1,65 @@
+Client
+======
+Nom du client: PADEL
+Adresse: BENS LOUTIN
+Telephone: 71890240
+Correspondance client: Padel Borj Louzir
+
+Intervention
+============
+Date: 2024-01-18
+Technicien: B.L.
+Reference / numero: 014828
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: D
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/6
+  - Programme plage horaire: 8H/19H
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: AFE
+  - Emplacement: WC
+  - Statut: M
+  - Qualite diffusion: D
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 97
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8H/19H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: LINA (L)
+  - Quantite: 300 ml
+  - Emplacement: WC
+  - Recharge / remplacement: 5/6
+  - Programme / plage horaire: 8H/19H
+Bouteille 2:
+  - CAB bouteille: S
+  - Parfum: LINA (L)
+  - Quantite: 300 ml
+  - Emplacement: WC
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 8H/19H
+
+Problemes et recommandations
+============================
+Problemes: LIV 2 x 300 ML LINA
+Anomalies: LIV

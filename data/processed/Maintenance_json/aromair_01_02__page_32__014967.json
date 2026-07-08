@@ -1,0 +1,208 @@
+{
+  "fiche_id": "Aromair_01_02:page_32:014967",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_02.json",
+  "page_key": "page_32",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "HGY ZONE",
+    "address": "Lac1",
+    "date_raw": "07/02/25",
+    "time_raw": "11H",
+    "technician_name": null,
+    "client_maintenance_number": "014967",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-07",
+    "service_time": "11:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee300",
+      "model_diffuseur": "Zee300",
+      "emplacement": "RDC",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "250",
+      "qte_parfum_existante": 250,
+      "qualite_diffusion": "R",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "12-16",
+      "plage_horaire_diffusion": "9/18",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Zee300",
+      "model_diffuseur": "Zee300",
+      "emplacement": "1er",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "12-16",
+      "plage_horaire_diffusion": "8/17",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "ASTREE",
+      "model_diffuseur": "Astree",
+      "emplacement": "\"-1\"",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "12-16",
+      "plage_horaire_diffusion": "8/17",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV DIFFUSEUR post réparation ASTREE + 2 x 300 ML RG Free RDC/13 ASTREE / + 2 x 300 ML RG Free RDC/13",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": "RESTE A LIVRER Salle de reunion"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "07 FEV. 2025\nArrivée\nSous réserve d'acceptation"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "HGY ZONE",
+      "address": "Lac1",
+      "date_raw": "07/02/25",
+      "time_raw": "11H",
+      "technician_name": null,
+      "client_maintenance_number": "014967",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "RDC",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "250",
+        "qte_parfum_existante": 250,
+        "qualite_diffusion": "R",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "12-16",
+        "plage_horaire_diffusion": "9/18",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Zee300",
+        "model_diffuseur": "Zee300",
+        "emplacement": "1er",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "12-16",
+        "plage_horaire_diffusion": "8/17",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "ASTREE",
+        "model_diffuseur": "Astree",
+        "emplacement": "\"-1\"",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "12-16",
+        "plage_horaire_diffusion": "8/17",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV DIFFUSEUR post réparation ASTREE + 2 x 300 ML RG Free RDC/13 ASTREE / + 2 x 300 ML RG Free RDC/13",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": "RESTE A LIVRER Salle de reunion"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "07 FEV. 2025\nArrivée\nSous réserve d'acceptation"
+    }
+  }
+}

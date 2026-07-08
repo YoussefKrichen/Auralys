@@ -1,0 +1,34 @@
+Client
+======
+Nom du client: plae aut
+Adresse: Soukra
+
+Intervention
+============
+Date: 2023-11-08
+Reference / numero: 014887
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Entree
+  - CAB bouteille: S
+  - Programme frequence: 5/10
+  - Programme plage horaire: Manuel
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV diff Astree apres renovation
+Anomalies: LIV

@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: LAC TOWER/MR KADRI
+Adresse: LAC 1
+Correspondance client: Lac Tower
+
+Intervention
+============
+Date: 2025-01-17
+Reference / numero: 014819
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: Mess
+  - Statut: M
+  - Qualite diffusion: V
+  - Fuite: N
+  - Parfum: CASH /C
+  - CAB bouteille: S
+  - Quantite existante: V
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8H/14H
+  - Remarques: LUN-VEND
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: LIV DIFF BT + 300 ML CASH
+DEPOT FCT
+Anomalies: LIV

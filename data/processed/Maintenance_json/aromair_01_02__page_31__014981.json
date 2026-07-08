@@ -1,0 +1,156 @@
+{
+  "fiche_id": "Aromair_01_02:page_31:014981",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_02.json",
+  "page_key": "page_31",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "DIESEL",
+    "address": "Lac2",
+    "date_raw": "10.02.25",
+    "time_raw": "13H15",
+    "technician_name": null,
+    "client_maintenance_number": "014981",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-10",
+    "service_time": "13:15:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR300",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "AFF",
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "192",
+      "qte_parfum_existante": 192,
+      "qualite_diffusion": "B",
+      "fuite": "Y",
+      "en_marche_arret": "N",
+      "frequence_diffusion_existante": "5-10",
+      "plage_horaire_diffusion": "10-16H",
+      "motif_arret": "16-19H"
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5-10",
+      "plage_horaire_fonctionnement": "6-14 / 15-19",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Fuite de bouteille de Diesel",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "TEXNOR SA"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "DIESEL",
+      "address": "Lac2",
+      "date_raw": "10.02.25",
+      "time_raw": "13H15",
+      "technician_name": null,
+      "client_maintenance_number": "014981",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR300",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "AFF",
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "192",
+        "qte_parfum_existante": 192,
+        "qualite_diffusion": "B",
+        "fuite": "Y",
+        "en_marche_arret": "N",
+        "frequence_diffusion_existante": "5-10",
+        "plage_horaire_diffusion": "10-16H",
+        "motif_arret": "16-19H"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5-10",
+        "plage_horaire_fonctionnement": "6-14 / 15-19",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Fuite de bouteille de Diesel",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "TEXNOR SA"
+    }
+  }
+}

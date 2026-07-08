@@ -1,0 +1,28 @@
+Client
+======
+Nom du client: Oreedoo
+Correspondance client: Ooredoo
+
+Intervention
+============
+Date: 2025-02-08
+Reference / numero: 014973
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Recuperation de deux diffuseurs
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

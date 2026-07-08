@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: Game Production
+Adresse: GPJ
+Telephone: 1797309
+Correspondance client: Game Production
+
+Intervention
+============
+Date: 2025-04-12
+Technicien: Bilel
+Reference / numero: 015419
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: NO
+  - Parfum: FO
+  - CAB bouteille: V
+  - Quantite existante: 0
+  - Programme frequence: 100-150
+  - Programme plage horaire: 15-17H30
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: FO
+  - Quantite: 300 ml
+  - Emplacement: Entree
+  - Recharge / remplacement: 200-250
+  - Programme / plage horaire: 15-19h
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FO
+Anomalies: LIV

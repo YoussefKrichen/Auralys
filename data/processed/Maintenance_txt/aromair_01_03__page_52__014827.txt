@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: LV PROD Hamden Bourguiba
+Adresse: Ben Arous
+Telephone: 1391000
+
+Intervention
+============
+Date: 2025-01-17
+Technicien: B.L.
+Reference / numero: 014827
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: V
+  - Quantite existante: 289
+  - Programme frequence: 30
+  - Programme plage horaire: 7H/17H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: TH
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 30
+  - Programme / plage horaire: 7H/17H
+
+Problemes et recommandations
+============================
+Problemes: LIV 300 ML TH
+Anomalies: LIV

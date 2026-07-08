@@ -1,0 +1,45 @@
+Client
+======
+Nom du client: SEAT
+Adresse: CHARGUIA
+Correspondance client: Seat Charguia
+
+Intervention
+============
+Date: 2024-01-31
+Reference / numero: 014938
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: V
+  - Programme frequence: 120/240
+  - Programme plage horaire: 8-17
+  - Remarques: 8H13 SALON
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 120/240
+  - Programme / plage horaire: 8-17
+
+Problemes et recommandations
+============================
+Problemes: LIV Zee 300 + 300ML FM
+Anomalies: LIV

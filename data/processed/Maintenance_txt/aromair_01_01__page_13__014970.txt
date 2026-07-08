@@ -1,0 +1,43 @@
+Client
+======
+Nom du client: DR FAVES
+Adresse: LAC
+
+Intervention
+============
+Date: 2025-02-07
+Reference / numero: 014970
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: ACCAL
+  - Statut: M
+  - Qualite diffusion: N
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 28
+  - Programme frequence: 07-07
+  - Programme plage horaire: 10H-17H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: BT
+  - Quantite: 300 ml
+  - Emplacement: ACCAL
+  - Recharge / remplacement: 07-07
+  - Programme / plage horaire: 10H-17H
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml et changer le diffuseur
+Anomalies: LIV

@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: PATRICK OLIVIER
+Adresse: LA SOUKRA
+Correspondance client: MarkOlivier
+
+Intervention
+============
+Date: 2025-02-17
+Reference / numero: 014778
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 5-10
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml FDE2
+Anomalies: LIV

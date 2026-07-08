@@ -1,0 +1,39 @@
+Client
+======
+Nom du client: Villa Milk
+
+Intervention
+============
+Date: 2025-04-09
+Reference / numero: 015645
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 220
+  - Programme frequence: 5-6
+  - Programme plage horaire: 8-15H
+  - Remarques: zak
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: on a appelé l'Aromair pour céder le bruit
+on a change le filtre
+on a comprte le tuyau

@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: Lord
+Adresse: Soukra
+Correspondance client: Lord Soukra
+
+Intervention
+============
+Date: 2024-04-07
+Reference / numero: 015629
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: AROMAIR MAXI_CPM
+  - Statut: H
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: RG
+  - CAB bouteille: S
+  - Quantite existante: 223
+Diffuseur 2:
+  - Modele: Aromair150
+  - Statut: H
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 46
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite
+Anomalies: VIS

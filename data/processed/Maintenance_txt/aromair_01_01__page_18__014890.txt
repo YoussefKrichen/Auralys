@@ -1,0 +1,45 @@
+Client
+======
+Nom du client: L'Ocean Square
+Adresse: Manar
+
+Intervention
+============
+Date: 2025-11-08
+Reference / numero: 014890
+Type de service: visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: Blun
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: P
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 4/8
+  - Programme plage horaire: 8H -> 17H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: TH
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 4/8
+  - Programme / plage horaire: 8H -> 17H
+
+Problemes et recommandations
+============================
+Problemes: LIV 600ml TH
+Anomalies: LIV

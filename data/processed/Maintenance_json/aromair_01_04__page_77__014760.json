@@ -1,0 +1,210 @@
+{
+  "fiche_id": "Aromair_01_04:page_77:014760",
+  "source_file": "data\\raw_json\\Aromair_02\\Aromair_01_04.json",
+  "page_key": "page_77",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "LE GOLF",
+    "address": "Marsa",
+    "date_raw": "10/02/25",
+    "time_raw": "11H30",
+    "technician_name": null,
+    "client_maintenance_number": "014760",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-02-10",
+    "service_time": "11:30:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR100 WC F",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WCF",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "P.D",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "4/6",
+      "plage_horaire_diffusion": "13/19H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "AR100 WC H",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WCH",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "P.D",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "4/6",
+      "plage_horaire_diffusion": "13/19H",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 50,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "4/6",
+      "plage_horaire_fonctionnement": "13/19H",
+      "emplacement": "WCF"
+    },
+    {
+      "ml": 50,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "4/6",
+      "plage_horaire_fonctionnement": "13/19H",
+      "emplacement": "WCH"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "DECALAGE HORAIRE BT",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "RESTAURANT LE GOLF"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "LE GOLF",
+      "address": "Marsa",
+      "date_raw": "10/02/25",
+      "time_raw": "11H30",
+      "technician_name": null,
+      "client_maintenance_number": "014760",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100 WC F",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WCF",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "P.D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "4/6",
+        "plage_horaire_diffusion": "13/19H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100 WC H",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WCH",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "P.D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "4/6",
+        "plage_horaire_diffusion": "13/19H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 50,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "4/6",
+        "plage_horaire_fonctionnement": "13/19H",
+        "emplacement": "WCF"
+      },
+      {
+        "ml": 50,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "4/6",
+        "plage_horaire_fonctionnement": "13/19H",
+        "emplacement": "WCH"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "DECALAGE HORAIRE BT",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "RESTAURANT LE GOLF"
+    }
+  }
+}

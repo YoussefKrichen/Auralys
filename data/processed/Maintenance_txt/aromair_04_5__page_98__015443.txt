@@ -1,0 +1,44 @@
+Client
+======
+Nom du client: A Table
+Adresse: Marsa
+Correspondance client: A Table Lac1
+Adresse correspondante: Menzah8
+Parfum reference: FC
+Modele diffuseur reference: Iceberg
+Reference diffuseur: WIFI
+Emplacement reference: WCF
+Reference bouteille: Vrag (V)
+
+Intervention
+============
+Date: 2025-04-15
+Technicien: Bilel
+Reference / numero: 015443
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: CPM
+  - Emplacement: Boutique
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: FDC
+  - CAB bouteille: S
+  - Quantite existante: 118
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite bouton off

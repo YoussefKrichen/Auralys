@@ -1,0 +1,47 @@
+Client
+======
+Nom du client: VIOLETTE
+Telephone: 71 978 444 - 71 978 820
+Correspondance client: Violette Kram
+
+Intervention
+============
+Date: 2025-01-24
+Reference / numero: 014903
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TB
+  - CAB bouteille: S
+  - Quantite existante: V
+  - Programme frequence: 5/10
+  - Programme plage horaire: 9H/13H
+  - Remarques: 15H/19H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: TB
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5/10
+  - Programme / plage horaire: 9H/13H
+
+Problemes et recommandations
+============================
+Problemes: LIV DIFFUSEUR 2059 réparation
+Anomalies: LIV

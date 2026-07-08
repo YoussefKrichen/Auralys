@@ -1,0 +1,60 @@
+Client
+======
+Nom du client: SLIM OPTIC
+Adresse: LAC 1
+Telephone: 73 129 000
+Correspondance client: Slim Optic Lac1
+
+Intervention
+============
+Date: 2025-02-28
+Reference / numero: 015027
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: FOND
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 72
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9H30-17H / 17H-20H
+Diffuseur 2:
+  - Modele: Iceberg
+  - CAB diffuseur: BT
+  - Emplacement: VITRINE
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-10
+  - Programme plage horaire: 9H30-17H / 17H-20H
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: FOND
+  - Recharge / remplacement: 5-10
+Bouteille 2:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: VITRINE
+  - Recharge / remplacement: 5-10
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ML FOND / VITRINE
+Anomalies: LIV

@@ -1,0 +1,17 @@
+pydantic>=2.7.0
+google-genai>=1.0.0
+psycopg[binary]>=3.1.18
+qdrant-client>=1.9.0
+python-dotenv>=1.0.1
+datasets>=2.18.0
+ragas>=0.2.0
+langsmith>=0.3.13
+faster-whisper>=1.1.1
+pyttsx3>=2.98
+piper-tts>=1.4.2
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+langgraph>=0.2.34
+pytest>=8.2.0
+bcrypt>=4.0.0

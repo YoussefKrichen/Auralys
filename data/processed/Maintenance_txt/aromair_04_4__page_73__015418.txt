@@ -1,0 +1,48 @@
+Client
+======
+Nom du client: Tarassoud
+Adresse: Zone Industrielle
+
+Intervention
+============
+Date: 2025-04-12
+Technicien: Bilel
+Reference / numero: 015418
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Zee300
+  - CAB diffuseur: BT
+  - Emplacement: estree
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: V
+  - Quantite existante: 498
+  - Programme frequence: 5-16
+  - Programme plage horaire: 7h00-19h00
+19h-23h
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: V
+  - Parfum: TH
+  - Quantite: 600 ml
+  - Emplacement: Entree
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 7h30-12h
+19h-23h
+
+Problemes et recommandations
+============================
+Problemes: Programme 1 day off. Livraison 600ml TH
+Anomalies: LIV
+Recommandations: Activer les jours de programme 1

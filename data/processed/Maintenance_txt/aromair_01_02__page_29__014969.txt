@@ -1,0 +1,40 @@
+Client
+======
+Nom du client: The Corner
+Adresse: Cité El Khadra
+Correspondance client: The Corner
+
+Intervention
+============
+Date: 2025-02-08
+Reference / numero: 014969
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: CPM
+  - Emplacement: reception
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Quantite existante: 0
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+
+Problemes et recommandations
+============================
+Problemes: Livraison 300ml SM
+Anomalies: LIV

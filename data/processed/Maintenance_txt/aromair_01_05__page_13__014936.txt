@@ -1,0 +1,42 @@
+Client
+======
+Nom du client: LES JASMINS
+Adresse: Centre Urbain Nord
+Correspondance client: Polyclinique Les Jasmins CUN
+
+Intervention
+============
+Date: 2025-01-31
+Reference / numero: 014936
+Type de service: reparation
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - Emplacement: entrée
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - CAB bouteille: S
+  - Programme frequence: 5-10
+  - Programme plage horaire: 08h-16h
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Quantite: 300 ml
+  - Emplacement: entrée
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 08h-16h
+
+Problemes et recommandations
+============================
+Problemes: réparation et livraison diffuseur
+Anomalies: LIV

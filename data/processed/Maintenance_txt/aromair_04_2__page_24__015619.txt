@@ -1,0 +1,80 @@
+Client
+======
+Nom du client: Chams
+Adresse: Sfax
+
+Intervention
+============
+Date: 2024-04-04
+Reference / numero: 015619
+Type de service: livraison, echange
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: AROMAIR MAXI
+  - CAB diffuseur: AROMAIR100_BT
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 163
+Diffuseur 2:
+  - Modele: AROMAIR MAXI
+  - CAB diffuseur: AROMAIR100_BT
+  - Statut: M
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TH
+  - CAB bouteille: S
+Diffuseur 3:
+  - Modele: Astree
+  - CAB diffuseur: AROMAIR100_BT
+  - Emplacement: bouche
+  - CAB bouteille: S
+  - Quantite existante: 130
+Diffuseur 4:
+  - Modele: AROMAIR MAXI
+  - CAB diffuseur: AROMAIR100_BT
+  - Parfum: TH
+  - CAB bouteille: S
+Diffuseur 5:
+  - Modele: Astree
+  - CAB diffuseur: AROMAIR100_BT
+  - Parfum: TH
+  - CAB bouteille: S
+  - Quantite existante: 90
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: Standard
+  - Parfum: TH
+  - Quantite: 937 ml
+Bouteille 2:
+  - CAB bouteille: Standard
+  - Parfum: TH
+  - Quantite: 253 ml
+Bouteille 3:
+  - CAB bouteille: Standard
+  - Parfum: TH
+  - Quantite: 960 ml
+Bouteille 4:
+  - CAB bouteille: Standard
+  - Parfum: TH
+  - Quantite: 270 ml
+Bouteille 5:
+  - CAB bouteille: Standard
+  - Parfum: TH
+  - Quantite: 90 ml
+
+Problemes et recommandations
+============================
+Problemes: livraison 900ml parfum pour 5 diffuseurs
+Anomalies: LIV

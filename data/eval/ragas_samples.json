@@ -1,0 +1,58 @@
+[
+  {
+    "question": "Quel diffuseur recommander pour des toilettes et de petites zones d'accueil ?",
+    "ground_truth": "Le bon choix est Aromair50, car ce modèle couvre jusqu'à 50 m² et il est indiqué pour les petites pièces, bureaux, toilettes et petites zones d'accueil."
+  },
+  {
+    "question": "Quel modèle est adapté à un espace d'environ 100 m² comme une boutique ou une salle d'attente ?",
+    "ground_truth": "Le modèle attendu est Aromair100, car il couvre jusqu'à 100 m² et il est prévu pour les boutiques, bureaux, salles d'attente et petits cafés."
+  },
+  {
+    "question": "Quel diffuseur convient à un showroom ou à un grand bureau ouvert de 500 m² ?",
+    "ground_truth": "Le modèle attendu est Aromair500, car il couvre jusqu'à 500 m² et il est indiqué pour les showrooms, restaurants, cliniques et bureaux ouverts."
+  },
+  {
+    "question": "Quel diffuseur proposer pour un hôtel ou un grand restaurant de 600 m² ?",
+    "ground_truth": "Le modèle attendu est Aromair600, car il couvre jusqu'à 600 m² et il est recommandé pour les hôtels, grands halls, grands showrooms, espaces événementiels et grands restaurants."
+  },
+  {
+    "question": "Quel diffuseur est adapté à un salon de beauté ou à un espace commercial moyen de 300 m² ?",
+    "ground_truth": "Le modèle attendu est Zee300, car il couvre jusqu'à 300 m² et il est indiqué pour les boutiques, bureaux, salons de beauté, cafés et zones d'accueil."
+  },
+  {
+    "question": "Quel diffuseur recommander pour un grand magasin ou un hôtel à forte fréquentation ?",
+    "ground_truth": "Le bon choix est Zee600, car il couvre jusqu'à 600 m² et il est adapté aux grands magasins, hôtels, grands bureaux, restaurants et halls commerciaux, avec un positionnement professionnel intensif."
+  },
+  {
+    "question": "Quel produit proposer pour un espace d'accueil luxueux ou une boutique premium ?",
+    "ground_truth": "Le modèle attendu est Iceberg, car il a un positionnement premium, adapté aux boutiques premium, hôtels, espaces d'accueil luxueux et showrooms."
+  },
+  {
+    "question": "Que faire lorsqu'il n'y a aucun affichage sur la partie logicielle ?",
+    "ground_truth": "La réponse attendue est qu'il faut programmer une réparation du diffuseur sur place ou l'apporter à l'atelier pour réparation."
+  },
+  {
+    "question": "Quel est le délai normal pour traiter une panne ou une demande de recharge ?",
+    "ground_truth": "Le délai attendu est de 24 heures et au maximum 72 heures."
+  },
+  {
+    "question": "Que faire lorsque la bouteille est bouchée ?",
+    "ground_truth": "La réponse attendue est qu'il faut la déboucher ou la changer, puis vérifier s'il y a de la poussière à l'intérieur du diffuseur."
+  },
+  {
+    "question": "Quel client a eu une visite le 6 novembre 2023 avec un diffuseur Astree en salon, référence CPM, quantité 80 et motif de bouchage ?",
+    "ground_truth": "Le client attendu est Mare DRIPI. La fiche indique une visite le 2023-11-06 à 11:45, le technicien BAMI, un diffuseur Astree en emplacement Salon, référence diffuseur CPM, référence bouteille S, quantité existante 80 et motif d'arrêt BOUCILLAGE."
+  },
+  {
+    "question": "Quelle fiche mentionne une livraison pour MEUBLE FRIKHA à FOIRE KRAM avec une recharge de 300 ml et une bouteille référence V ?",
+    "ground_truth": "La fiche attendue est celle de MEUBLE FRIKHA, numéro 014920, datée du 2025-01-27. Elle indique une livraison, un diffuseur Tour en emplacement STAND, une recharge de 300 ml, une référence bouteille V et une fréquence 120/240 avec plage horaire 9H45 / 13H."
+  },
+  {
+    "question": "De quoi parle l'introduction du rapport détaillé confusion ?",
+    "ground_truth": "L'introduction indique qu'il s'agit d'un rapport effectué par ILYES CHAKROUN, gérant AROMAIR."
+  },
+  {
+    "question": "Si un client a un petit espace mais veut une solution simple et continue avec faible consommation, quel diffuseur recommander et quel service associer ?",
+    "ground_truth": "La recommandation attendue est Aromair50 avec recharge mensuelle et maintenance, car il est compact, facile à installer, à faible consommation et adapté aux petits espaces."
+  }
+]

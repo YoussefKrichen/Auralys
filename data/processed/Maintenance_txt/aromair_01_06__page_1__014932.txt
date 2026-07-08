@@ -1,0 +1,31 @@
+Client
+======
+Nom du client: ORIFLAME
+Adresse: KRAM
+Correspondance client: Oriflame Kram
+
+Intervention
+============
+Date: 2025-01-31
+Reference / numero: 014932
+Type de service: livraison, visite
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: RECUPERATION DIFFUSEUR
+Diffuseur 2:
+  - Modele: Astree
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Aucun probleme ou recommandation mentionne.

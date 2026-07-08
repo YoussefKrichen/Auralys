@@ -1,0 +1,65 @@
+Client
+======
+Nom du client: Pharmacie Haban Guiga
+Adresse: Bardo
+
+Intervention
+============
+Date: 2025-04-15
+Technicien: Bilel
+Reference / numero: 015440
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: oui
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: Caisse
+  - Statut: A
+  - Qualite diffusion: N
+  - Fuite: N
+  - Parfum: FDE2
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5-15
+  - Programme plage horaire: 14h-17 / 8
+Diffuseur 2:
+  - Modele: Aromair100
+  - CAB diffuseur: BT
+  - Emplacement: Rana
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: Y
+  - Parfum: FDE2
+  - CAB bouteille: S
+  - Quantite existante: 0
+  - Programme frequence: 5/10
+  - Programme plage horaire: 12-17
+
+Recharge bouteille effectuee
+============================
+Bouteille 1:
+  - CAB bouteille: S
+  - Parfum: FDE2
+  - Quantite: 300 ml
+  - Emplacement: Caisse
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 6h-8 / 9-13h
+Bouteille 2:
+  - CAB bouteille: S
+  - Parfum: FDE2
+  - Quantite: 300 ml
+  - Emplacement: Rana
+  - Recharge / remplacement: 5-10
+  - Programme / plage horaire: 12-17
+
+Problemes et recommandations
+============================
+Problemes: LIV 300ml Pharmacie + Rana (bouton ON). Fuite bouteille Rana
+Anomalies: LIV

@@ -1,0 +1,39 @@
+Client
+======
+Nom du client: Chapelle Les Jasmina
+Adresse: Centre Urbain Nord
+
+Intervention
+============
+Date: 2025-04-14
+Technicien: Bilel
+Reference / numero: 015436
+Type de service: livraison
+
+Presence des sections
+=====================
+Contient controle_diffuseur_recharge: oui
+Contient recharge_bouteille_effectuee: non
+
+Controle diffuseur recharge
+===========================
+Diffuseur 1:
+  - Modele: Astree
+  - CAB diffuseur: BT
+  - Emplacement: Entrée
+  - Statut: A
+  - Qualite diffusion: B
+  - Fuite: N
+  - Parfum: TB
+  - CAB bouteille: S
+  - Quantite existante: 288
+  - Programme frequence: 5/10
+  - Programme plage horaire: 8-16
+
+Recharge bouteille effectuee
+============================
+Aucune recharge bouteille mentionnee.
+
+Problemes et recommandations
+============================
+Problemes: Visite diffuseur (diffuseur non accessible)
