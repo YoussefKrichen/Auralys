@@ -20,13 +20,17 @@ email_agent/downloads/
 *.glb
 
 *.xlsx
+*.xls
 *.pdf
 *.ipynb
 *.jfif
 *.png
+*.jpg
+*.JPG
 !frontend/public/logo.png
 
 /distances.py
 /localisation.py
 /rename.py
 /test_google_sheets.py
+/Thinkair/
