@@ -33,8 +33,20 @@ export function buildApiUrl(path, base = getApiBase()) {
   return `${base.replace(/\/+$/, "")}${path}`;
 }
 
+function getAuthHeaders() {
+  try {
+    const session = JSON.parse(localStorage.getItem("auralys_session") || "null");
+    return session?.token ? { Authorization: `Bearer ${session.token}` } : {};
+  } catch {
+    return {};
+  }
+}
+
 export async function fetchJson(path, init = {}, base) {
-  const response = await fetch(buildApiUrl(path, base), init);
+  const response = await fetch(buildApiUrl(path, base), {
+    ...init,
+    headers: { ...getAuthHeaders(), ...(init.headers || {}) },
+  });
   if (!response.ok) {
     let detail = `HTTP ${response.status}`;
     try {

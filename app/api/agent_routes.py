@@ -11,7 +11,9 @@ from fastapi.responses import FileResponse, RedirectResponse
 from pydantic import BaseModel
 from starlette.background import BackgroundTask
 
+from app.auth.dependencies import get_current_user, require_ceo
 from app.auth.oauth_service import OAuthService
+from app.auth.session_token import create_session_token
 from app.bootstrap import AppContainer
 from app.config import settings
 from schemas.agent_schema import (
@@ -68,6 +70,12 @@ def auth_login(request: LocalLoginRequest, container: AppContainer = Depends(get
     session = LocalAuthService(database=container.database).authenticate(request.username, request.password)
     if session is None:
         raise HTTPException(status_code=401, detail="Identifiants invalides.")
+    session["token"] = create_session_token(
+        user_id=session["id"],
+        username=session["username"],
+        role=session["role"],
+        display_name=session["display_name"],
+    )
     return session
 
 
@@ -100,17 +108,31 @@ def auth_callback(provider: str, code: str = Query(...), state: str = Query(...)
 
 
 @router.post("/agent/chat", response_model=AgentChatResponse)
-def agent_chat(request: AgentChatRequest, container: AppContainer = Depends(get_container)) -> AgentChatResponse:
+def agent_chat(
+    request: AgentChatRequest,
+    container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> AgentChatResponse:
+    request.user_id = current_user["id"]
+    request.role = current_user["role"]
     return container.build_agent_orchestrator().handle_chat(request)
 
 
 @router.post("/agent/feedback")
-def agent_feedback(request: AgentFeedbackRequest, container: AppContainer = Depends(get_container)) -> dict[str, int]:
+def agent_feedback(
+    request: AgentFeedbackRequest,
+    container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> dict[str, int]:
+    request.user_id = current_user["id"]
     return container.build_agent_orchestrator().save_feedback(**request.model_dump())
 
 
 @router.get("/agent/actions/pending")
-def agent_actions_pending(container: AppContainer = Depends(get_container)) -> dict[str, Any]:
+def agent_actions_pending(
+    container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
+) -> dict[str, Any]:
     return {"rows": container.build_agent_orchestrator().list_pending_actions()}
 
 
@@ -119,6 +141,7 @@ def approve_action(
     action_id: int,
     request: AgentActionDecisionRequest,
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
 ) -> dict[str, Any]:
     return container.build_agent_orchestrator().approve_action(action_id, request.approved_by, request.review_note)
 
@@ -128,6 +151,7 @@ def reject_action(
     action_id: int,
     request: AgentActionDecisionRequest,
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
 ) -> dict[str, Any]:
     return container.build_agent_orchestrator().reject_action(action_id, request.approved_by, request.review_note)
 
@@ -142,7 +166,11 @@ def list_conversations(
     user_id: int | None = None,
     channel: str | None = None,
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, Any]:
+    if current_user["role"] != "ceo":
+        role = current_user["role"]
+        user_id = current_user["id"]
     rows = container.build_history_service().list_conversations(
         limit=limit, channel=channel, role=role, user_id=user_id
     )
@@ -154,6 +182,7 @@ def list_conversation_messages(
     conversation_key: str,
     limit: int = Query(default=200),
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, Any]:
     rows = container.build_history_service().list_messages(conversation_key=conversation_key, limit=limit)
     return {"rows": rows}
@@ -164,6 +193,7 @@ def list_history(
     conversation_id: str | None = None,
     limit: int = Query(default=100),
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, Any]:
     rows = container.build_history_service().list_history(conversation_id=conversation_id, limit=limit)
     return {"rows": rows}
@@ -177,6 +207,7 @@ def list_admin_reviews(
     limit: int = Query(default=48),
     status: str | None = Query(default="all"),
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
 ) -> dict[str, Any]:
     review_service = container.build_review_service()
     return {
@@ -190,6 +221,7 @@ def submit_review_decision(
     history_id: int,
     request: ReviewDecisionRequest,
     container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
 ) -> dict[str, Any]:
     try:
         row = container.build_review_service().save_decision(history_id=history_id, **request.model_dump())
@@ -202,7 +234,10 @@ def submit_review_decision(
 
 
 @router.get("/memories/active")
-def list_active_memories(container: AppContainer = Depends(get_container)) -> dict[str, Any]:
+def list_active_memories(
+    container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
+) -> dict[str, Any]:
     return {"rows": container.build_agent_orchestrator().get_active_memory()}
 
 

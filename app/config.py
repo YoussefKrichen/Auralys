@@ -160,6 +160,8 @@ class Settings:
     embedding_backend: str = os.getenv("EMBEDDING_BACKEND", "gemini").strip().lower()
     embedding_model_name: str = os.getenv("EMBEDDING_MODEL_NAME", "text-embedding-004")
     embedding_dimension: int = int(os.getenv("EMBEDDING_DIMENSION", "768"))
+    session_secret: str = os.getenv("SESSION_SECRET", "dev-insecure-session-secret-change-me")
+    session_ttl_seconds: int = int(os.getenv("SESSION_TTL_SECONDS", str(60 * 60 * 12)))
     google_oauth_client_id: str | None = os.getenv("GOOGLE_OAUTH_CLIENT_ID") or None
     google_oauth_client_secret: str | None = os.getenv("GOOGLE_OAUTH_CLIENT_SECRET") or None
     facebook_oauth_client_id: str | None = os.getenv("FACEBOOK_OAUTH_CLIENT_ID") or None

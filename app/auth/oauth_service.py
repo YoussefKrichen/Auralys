@@ -9,6 +9,7 @@ from typing import Any
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from app.auth.session_token import create_session_token
 from app.config import settings
 
 
@@ -81,6 +82,12 @@ class OAuthService:
             return f"{base_url}?auth_error={urlencode({'message': error})[8:]}"
         if session is None:
             return base_url
+        token = create_session_token(
+            user_id=0,
+            username=session.username,
+            role=session.role,
+            display_name=session.display_name,
+        )
         payload = base64.urlsafe_b64encode(
             json.dumps(
                 {
@@ -89,6 +96,7 @@ class OAuthService:
                     "display_name": session.display_name,
                     "provider": session.provider,
                     "email": session.email,
+                    "token": token,
                 },
                 separators=(",", ":"),
             ).encode("utf-8")

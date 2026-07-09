@@ -1,7 +1,13 @@
 from fastapi.testclient import TestClient
 
 from app.api import create_app
+from app.auth.session_token import create_session_token
 from schemas.agent_schema import AgentChatResponse, AgentIntent
+
+
+def _auth_headers(role: str = "ceo") -> dict[str, str]:
+    token = create_session_token(user_id=1, username="test-user", role=role, display_name="Test User")
+    return {"Authorization": f"Bearer {token}"}
 
 
 class _FakeAgentOrchestrator:
@@ -51,13 +57,14 @@ def test_agent_chat_endpoint_returns_pdf_shape():
         "/agent/chat",
         json={
             "user_id": 1,
-            "role": "CEO",
+            "role": "ceo",
             "message": "Ou doit aller l'equipe SAV maintenant ?",
             "context": {
                 "team_id": 3,
                 "current_location": {"lat": 36.8065, "lng": 10.1815},
             },
         },
+        headers=_auth_headers("ceo"),
     )
 
     assert response.status_code == 200
@@ -65,6 +72,34 @@ def test_agent_chat_endpoint_returns_pdf_shape():
     assert payload["intent"] == "ASK_NEXT_SAV_DESTINATION"
     assert payload["requires_approval"] is True
     assert payload["confidence"] == 0.82
+
+
+def test_agent_chat_endpoint_requires_authentication():
+    client = TestClient(create_app(_FakeContainer()))
+
+    response = client.post(
+        "/agent/chat",
+        json={"user_id": 1, "role": "ceo", "message": "Bonjour"},
+    )
+
+    assert response.status_code == 401
+
+
+def test_ceo_only_route_rejects_sav_role():
+    client = TestClient(create_app(_FakeContainer()))
+
+    response = client.get("/agent/actions/pending", headers=_auth_headers("sav"))
+
+    assert response.status_code == 403
+
+
+def test_ceo_only_route_accepts_ceo_role():
+    client = TestClient(create_app(_FakeContainer()))
+
+    response = client.get("/agent/actions/pending", headers=_auth_headers("ceo"))
+
+    assert response.status_code == 200
+    assert response.json()["rows"][0]["action_type"] == "UPDATE_SAV_PLANNING"
 
 
 def test_missing_browser_pages_return_404():
