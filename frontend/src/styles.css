@@ -110,6 +110,13 @@ p {
   margin: 20px auto;
 }
 
+.app-shell:not(.app-shell-auth) {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .app-shell-auth {
   min-height: calc(100vh - 32px);
   display: grid;
@@ -404,11 +411,11 @@ p {
 }
 
 .login-hero {
-  width: min(440px, 100%);
+  width: min(560px, 100%);
   margin: 0 auto;
-  padding: 36px 32px;
+  padding: 40px 36px;
   display: grid;
-  gap: 22px;
+  gap: 20px;
 }
 
 .login-copy {
@@ -418,13 +425,18 @@ p {
   gap: 9px;
 }
 
+.login-copy .brand-mark-image {
+  height: 88px;
+}
+
 .login-copy h1 {
   max-width: none;
-  font-size: 1.6rem;
+  font-family: "Sora", "Segoe UI", sans-serif;
+  font-size: 2rem;
   line-height: 1.15;
-  margin-top: 2px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  margin-top: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .login-copy p {
@@ -441,6 +453,10 @@ p {
 
 .login-grid-simple {
   max-width: 100%;
+}
+
+.login-panel.login-panel-simple {
+  padding: 26px 30px;
 }
 
 .login-panel,
@@ -485,7 +501,7 @@ p {
 .login-panel-head {
   display: grid;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .login-panel-title {
@@ -2093,6 +2109,10 @@ p {
   gap: 8px;
 }
 
+.search-field + .search-field {
+  margin-top: 18px;
+}
+
 .composer-field textarea,
 .composer-field input,
 .search-field input {
@@ -2150,7 +2170,7 @@ p {
 
 .login-divider {
   position: relative;
-  margin: 16px 0;
+  margin: 18px 0;
   text-align: center;
 }
 

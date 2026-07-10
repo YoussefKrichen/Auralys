@@ -74,19 +74,12 @@ onMounted(async () => {
   <section class="login-hero">
     <div class="login-copy">
       <BrandMark variant="dark" />
-      <span class="eyebrow">Auralys Workspace</span>
-      <h1>Connexion</h1>
+      <span class="eyebrow">Espace Auralys</span>
+      <h1>Bienvenue sur Auralys</h1>
     </div>
 
     <div class="login-grid login-grid-simple">
       <article class="panel login-panel login-panel-simple">
-        <div class="login-panel-head login-panel-head-simple">
-          <div class="login-panel-title">
-            <span class="meta-chip login-product-chip">Secure access</span>
-          </div>
-          <span class="meta-chip login-status-chip" :class="backendStatus">{{ statusLabel }}</span>
-        </div>
-
         <label class="search-field">
           <span>Identifiant</span>
           <input v-model="loginUsername" type="text" placeholder="Votre username" @keydown.enter="submitLogin" />
