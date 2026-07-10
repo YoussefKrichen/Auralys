@@ -5,7 +5,30 @@ import re
 
 from app.config import settings
 from schemas.chunk_schema import ChunkSchema, ChunkType
-from schemas.fiche_schema import FicheSchema
+from schemas.fiche_schema import FicheSchema, PROBLEM_CODE_LABELS
+
+
+def _visit_date(fiche: FicheSchema) -> str:
+    service_date = fiche.maintenance_details.service_date
+    if service_date:
+        return service_date.isoformat()
+    return fiche.maintenance_details.date_raw or "date inconnue"
+
+
+def _visit_context(fiche: FicheSchema) -> str:
+    client = fiche.client or "client inconnu"
+    maintenance_number = fiche.maintenance_number or "numero inconnu"
+    return f"{client}, intervention {maintenance_number} du {_visit_date(fiche)}"
+
+
+def _entity_context(fiche: FicheSchema) -> str:
+    """Framing phrase for a diffuser/recharge/issue chunk, adapted to the document
+    kind: only real maintenance visits have an intervention number/date to report."""
+    if fiche.document_type == "client_maintenance_form":
+        return f"chez {_visit_context(fiche)}"
+    if fiche.document_type == "diffuser_catalog_entry":
+        return f"pour {fiche.client or 'produit inconnu'}"
+    return f"pour {fiche.client or 'source inconnue'}"
 
 
 def _base_metadata(fiche: FicheSchema) -> dict:
@@ -68,7 +91,7 @@ def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
                 page_key=fiche.page_key,
                 chunk_type=ChunkType.diffuser,
                 ordinal=index,
-                content=f"Diffuser {index} for {fiche.client or 'unknown client'}: {summary}",
+                content=f"Diffuseur {index} {_entity_context(fiche)} : {summary}.",
                 metadata={
                     **base_metadata,
                     "emplacement": diffuser.emplacement,
@@ -94,7 +117,7 @@ def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
                 page_key=fiche.page_key,
                 chunk_type=ChunkType.recharge,
                 ordinal=index,
-                content=f"Recharge {index} for {fiche.client or 'unknown client'}: {summary}",
+                content=f"Recharge {index} {_entity_context(fiche)} : {summary}.",
                 metadata={
                     **base_metadata,
                     "emplacement": recharge.emplacement,
@@ -107,7 +130,25 @@ def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
         )
     issue = fiche.probleme_recommandation.probleme_rencontree_raw
     solution = fiche.probleme_recommandation.solution_proposee
+    problem_code = fiche.probleme_recommandation.probleme_rencontree_code
     if issue or solution:
+        if fiche.document_type == "client_maintenance_form":
+            content = f"Intervention chez {_visit_context(fiche)}."
+            motif_label = PROBLEM_CODE_LABELS.get((problem_code or "").strip().upper())
+            if motif_label:
+                content += f" Motif : {motif_label}."
+            content += f" Probleme signale : {issue or 'aucun'}."
+            if solution:
+                content += f" Solution proposee : {solution}."
+        elif fiche.document_type == "knowledge_base_entry":
+            content = f"Question : {issue or 'inconnue'}."
+            if solution:
+                content += f" Reponse : {solution}."
+        else:
+            content = f"Fiche produit {fiche.client or 'produit inconnu'}."
+            content += f" Details : {issue or 'aucun'}."
+            if solution:
+                content += f" Recommandation : {solution}."
         chunks.append(
             ChunkSchema(
                 chunk_id=f"{fiche.fiche_id}:issue:0",
@@ -116,13 +157,10 @@ def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
                 page_key=fiche.page_key,
                 chunk_type=ChunkType.issue,
                 ordinal=0,
-                content=(
-                    f"Issue for {fiche.client or 'unknown client'}: {issue or 'none'}. "
-                    f"Proposed solution: {solution or 'none'}."
-                ),
+                content=content,
                 metadata={
                     **base_metadata,
-                    "problem_code": fiche.probleme_recommandation.probleme_rencontree_code,
+                    "problem_code": problem_code,
                     "issue": issue,
                     "solution": solution,
                 },

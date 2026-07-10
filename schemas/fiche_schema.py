@@ -6,6 +6,29 @@ from typing import Any
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
+# Codes decoded here are grounded either in the field name itself (plain French
+# abbreviations, e.g. running/stopped) or in matching raw text observed in the
+# dataset (e.g. "LIV" co-occurring with free-text mentioning "Livraison"/delivery).
+# Other single-letter codes on the source forms (e.g. qualite_diffusion values
+# like B/N/P/D/F/M/R) have no confirmed legend anywhere in this codebase, so they
+# are intentionally left as raw codes rather than guessed at.
+RUNNING_STATE_LABELS = {
+    "M": "en marche",
+    "A": "a l'arret",
+}
+
+LEAK_LABELS = {
+    "N": "sans fuite",
+    "O": "avec fuite",
+    "Y": "avec fuite",
+}
+
+PROBLEM_CODE_LABELS = {
+    "LIV": "livraison",
+    "VIS": "visite",
+}
+
+
 class CompanyAddress(BaseModel):
     residence: str | None = None
     street: str | None = None
@@ -73,15 +96,33 @@ class DiffuserControl(BaseModel):
         return None
 
     def compact_summary(self) -> str:
-        parts = [
-            self.model_diffuseur or self.model_diffuseur_raw,
-            self.emplacement,
-            self.nom_parfum,
-            f"qty={self.qte_parfum_existante}" if self.qte_parfum_existante is not None else None,
-            f"state={self.en_marche_arret}" if self.en_marche_arret else None,
-            f"quality={self.qualite_diffusion}" if self.qualite_diffusion else None,
-        ]
-        return " | ".join(part for part in parts if part)
+        model = self.model_diffuseur or self.model_diffuseur_raw
+        details: list[str] = []
+        if model:
+            details.append(f"modele {model}")
+        if self.emplacement:
+            details.append(f"emplacement {self.emplacement}")
+        if self.nom_parfum:
+            details.append(f"parfum {self.nom_parfum}")
+        if self.qte_parfum_existante is not None:
+            details.append(f"quantite de parfum restante {self.qte_parfum_existante} ml")
+        if self.en_marche_arret:
+            state = RUNNING_STATE_LABELS.get(self.en_marche_arret.strip().upper())
+            details.append(f"etat {state}" if state else f"etat (code {self.en_marche_arret})")
+        if self.qualite_diffusion:
+            details.append(f"indicateur qualite/couverture : {self.qualite_diffusion}")
+        if self.fuite:
+            leak = LEAK_LABELS.get(self.fuite.strip().upper())
+            details.append(leak if leak else f"fuite (code {self.fuite})")
+        if self.frequence_diffusion_existante:
+            details.append(f"frequence {self.frequence_diffusion_existante}")
+        if self.plage_horaire_diffusion:
+            details.append(f"plage horaire {self.plage_horaire_diffusion}")
+        if self.motif_arret:
+            details.append(f"motif d'arret {self.motif_arret}")
+        if not details:
+            return ""
+        return ", ".join(details)
 
 
 class BottleRecharge(BaseModel):
@@ -106,14 +147,22 @@ class BottleRecharge(BaseModel):
         return None
 
     def compact_summary(self) -> str:
-        parts = [
-            f"{self.ml}ml" if self.ml is not None else None,
-            self.parfum,
-            self.reference_bouteille,
-            self.emplacement,
-            self.frequence_diffusion,
-        ]
-        return " | ".join(part for part in parts if part)
+        details: list[str] = []
+        if self.ml is not None:
+            details.append(f"{self.ml} ml")
+        if self.parfum:
+            details.append(f"parfum {self.parfum}")
+        if self.reference_bouteille:
+            details.append(f"bouteille {self.reference_bouteille}")
+        if self.emplacement:
+            details.append(f"emplacement {self.emplacement}")
+        if self.frequence_diffusion:
+            details.append(f"frequence {self.frequence_diffusion}")
+        if self.plage_horaire_fonctionnement:
+            details.append(f"plage horaire {self.plage_horaire_fonctionnement}")
+        if not details:
+            return ""
+        return ", ".join(details)
 
 
 class ProblemRecommendation(BaseModel):
@@ -183,30 +232,17 @@ class FicheSchema(BaseModel):
             ]
             return "\n".join(lines)
 
-        service_labels = ", ".join(self.service_type.active_labels()) or "unknown service"
-        diffusers = "; ".join(
-            diffuser.compact_summary()
-            for diffuser in self.controle_diffuseur_recharge
-            if diffuser.compact_summary()
-        )
-        recharges = "; ".join(
-            recharge.compact_summary()
-            for recharge in self.recharge_bouteille_effectuee
-            if recharge.compact_summary()
-        )
-        issue = self.probleme_recommandation.probleme_rencontree_raw
-        solution = self.probleme_recommandation.solution_proposee
+        # Deliberately excludes per-diffuser/per-recharge/issue detail: that content
+        # already lives in its own dedicated chunk (see build_chunks.py). Repeating
+        # it here would create near-duplicate chunks competing for the same rank.
+        service_labels = ", ".join(self.service_type.active_labels()) or "service non precise"
         lines = [
-            f"Client: {self.client or 'unknown'}",
-            f"Maintenance number: {self.maintenance_number or 'unknown'}",
-            f"Address: {self.maintenance_details.address or 'unknown'}",
-            f"Date: {self.maintenance_details.service_date or self.maintenance_details.date_raw or 'unknown'}",
-            f"Time: {self.maintenance_details.service_time or self.maintenance_details.time_raw or 'unknown'}",
-            f"Service type: {service_labels}",
-            f"Diffusers: {diffusers or 'none'}",
-            f"Recharges: {recharges or 'none'}",
-            f"Issue: {issue or 'none'}",
-            f"Recommendation: {solution or 'none'}",
-            f"Signature: {self.signature_cachet.text or 'none'}",
+            f"Client: {self.client or 'inconnu'}",
+            f"Numero de maintenance: {self.maintenance_number or 'inconnu'}",
+            f"Adresse: {self.maintenance_details.address or 'inconnue'}",
+            f"Date: {self.maintenance_details.service_date or self.maintenance_details.date_raw or 'inconnue'}",
+            f"Type de service: {service_labels}",
+            f"Diffuseurs suivis: {len(self.controle_diffuseur_recharge)}",
+            f"Recharges effectuees: {len(self.recharge_bouteille_effectuee)}",
         ]
         return "\n".join(lines)
