@@ -11,12 +11,16 @@ from app.agent.skills.ceo_reporting import CEOReportingSkill
 from app.agent.skills.client_history import ClientHistorySkill
 from app.agent.skills.general_question import GeneralQuestionSkill
 from app.agent.skills.maintenance_diagnosis import MaintenanceDiagnosisSkill
+from app.agent.skills.maintenance_fiche_intake import MaintenanceFicheIntakeSkill
+from app.agent.skills.route_optimization import RouteOptimizationSkill
 from app.agent.skills.sav_planning import SAVPlanningSkill
 from app.agent.store import AgentStore
+from app.agent.tools.fiche_extraction import FicheExtractionTool
 from app.agent.tools.maps import MapsTool
 from app.agent.tools.memory import MemoryTool
 from app.agent.tools.operations_data import OperationsDataTool
 from app.agent.tools.rag import RAGTool
+from app.agent.tools.routing import RouteOptimizationTool
 from app.commercial.opportunity_logger import OpportunityLogger
 from app.db import Database, default_database
 from app.embeddings.embedding_service import EmbeddingService
@@ -86,12 +90,20 @@ class AppContainer:
     def build_maps_tool(self) -> MapsTool:
         return MapsTool(store=self.build_agent_store())
 
+    def build_route_optimization_tool(self) -> RouteOptimizationTool:
+        return RouteOptimizationTool(store=self.build_agent_store())
+
+    def build_fiche_extraction_tool(self) -> FicheExtractionTool:
+        return FicheExtractionTool(llm_service=self.build_llm_service())
+
     def build_agent_orchestrator(self) -> AgentOrchestrator:
         store = self.build_agent_store()
         memory_tool = self.build_memory_tool()
         operations_data_tool = self.build_operations_data_tool()
         rag_tool = self.build_rag_tool()
         maps_tool = self.build_maps_tool()
+        route_optimization_tool = self.build_route_optimization_tool()
+        fiche_extraction_tool = self.build_fiche_extraction_tool()
         return AgentOrchestrator(
             intent_router=IntentRouter(llm_service=self.build_llm_service()),
             session_manager=SessionManager(store),
@@ -100,10 +112,14 @@ class AppContainer:
             llm_service=self.build_llm_service(),
             client_history_skill=ClientHistorySkill(operations_data_tool=operations_data_tool, rag_tool=rag_tool),
             sav_planning_skill=SAVPlanningSkill(operations_data_tool=operations_data_tool, maps_tool=maps_tool),
+            route_optimization_skill=RouteOptimizationSkill(
+                operations_data_tool=operations_data_tool, routing_tool=route_optimization_tool
+            ),
             alert_management_skill=AlertManagementSkill(operations_data_tool=operations_data_tool),
             maintenance_diagnosis_skill=MaintenanceDiagnosisSkill(operations_data_tool=operations_data_tool, rag_tool=rag_tool),
             ceo_reporting_skill=CEOReportingSkill(operations_data_tool=operations_data_tool),
             general_question_skill=GeneralQuestionSkill(rag_tool=rag_tool),
+            maintenance_fiche_intake_skill=MaintenanceFicheIntakeSkill(fiche_extraction_tool=fiche_extraction_tool),
         )
 
     def build_answer_service(self) -> AnswerService:

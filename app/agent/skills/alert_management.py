@@ -13,13 +13,14 @@ class AlertManagementSkill(Skill):
         reclamations = self.operations_data_tool.get_open_reclamations()["reclamations"]
         alerts = []
         for item in reclamations:
+            fiche_number = item.get("maintenance_number") or "non identifie"
             if item.get("age_hours", 0) > 48:
-                alerts.append(f"Reclamation depassee 48h pour {item['client_name']}")
+                alerts.append(f"Reclamation depassee 48h pour {item['client_name']} (fiche {fiche_number})")
             if item.get("status") == "EN_RETARD":
-                alerts.append(f"Intervention en retard pour {item['client_name']}")
+                alerts.append(f"Intervention en retard pour {item['client_name']} (fiche {fiche_number})")
             stock = self.operations_data_tool.get_client_stock(item["client_id"])
             if stock["status"] == "LOW":
-                alerts.append(f"Bouteille bientot vide chez {item['client_name']}")
+                alerts.append(f"Bouteille bientot vide chez {item['client_name']} (fiche {fiche_number})")
         if not alerts:
             alerts.append("Aucune alerte prioritaire detectee.")
         return SkillResult(

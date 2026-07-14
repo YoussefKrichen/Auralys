@@ -9,10 +9,12 @@ from pydantic import BaseModel, Field
 class AgentIntent(str, Enum):
     ASK_CLIENT_HISTORY = "ASK_CLIENT_HISTORY"
     ASK_NEXT_SAV_DESTINATION = "ASK_NEXT_SAV_DESTINATION"
+    ASK_ROUTE_OPTIMIZATION = "ASK_ROUTE_OPTIMIZATION"
     ASK_ALERTS = "ASK_ALERTS"
     ASK_MAINTENANCE_PROBLEM = "ASK_MAINTENANCE_PROBLEM"
     ASK_DAILY_REPORT = "ASK_DAILY_REPORT"
     ASK_STOCK_STATUS = "ASK_STOCK_STATUS"
+    SUBMIT_MAINTENANCE_FICHE = "SUBMIT_MAINTENANCE_FICHE"
     GENERAL_QUESTION = "GENERAL_QUESTION"
 
 
@@ -40,7 +42,7 @@ class AgentChatRequest(BaseModel):
 
 
 class AgentFeedbackRequest(BaseModel):
-    conversation_id: int
+    conversation_key: str
     user_id: int | None = None
     rating: str
     correction: str | None = None

@@ -62,10 +62,28 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+    expose:
+      - "80"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: auralys-caddy
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      - web
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - auralys_caddy_data:/data
+      - auralys_caddy_config:/config
 
 volumes:
   auralys_postgres_data:
   auralys_qdrant_data:
+  auralys_caddy_data:
+  auralys_caddy_config:
 

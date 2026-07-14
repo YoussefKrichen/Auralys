@@ -30,7 +30,9 @@ class ClientHistorySkill(Skill):
             f"Derniere visite {latest.get('service_date') if latest else 'indisponible'}."
         )
         if reclamations:
-            answer += f" Reclamation principale : {reclamations[0].get('issue')}."
+            top_reclamation = reclamations[0]
+            fiche_number = top_reclamation.get("maintenance_number") or "non identifie"
+            answer += f" Reclamation principale (fiche {fiche_number}) : {top_reclamation.get('issue')}."
         return SkillResult(
             answer=answer,
             proposed_actions=[

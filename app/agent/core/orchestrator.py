@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 
 from app.agent.core.intent_router import IntentRouter
 from app.agent.core.response_builder import build_agent_response
@@ -11,10 +12,13 @@ from app.agent.skills.ceo_reporting import CEOReportingSkill
 from app.agent.skills.client_history import ClientHistorySkill
 from app.agent.skills.general_question import GeneralQuestionSkill
 from app.agent.skills.maintenance_diagnosis import MaintenanceDiagnosisSkill
+from app.agent.skills.maintenance_fiche_intake import MaintenanceFicheIntakeSkill
+from app.agent.skills.route_optimization import RouteOptimizationSkill
 from app.agent.skills.sav_planning import SAVPlanningSkill
 from app.agent.store import AgentStore
 from app.agent.tools.memory import MemoryTool
 from app.config import settings
+from app.ingestion.fiche_writer import commit_agent_captured_fiche
 from app.llm.reasoning import (
     build_agent_reasoning_signals,
     build_agent_reasoning_summary,
@@ -22,6 +26,8 @@ from app.llm.reasoning import (
 )
 from app.llm.llm_service import LLMService
 from schemas.agent_schema import AgentActionStatus, AgentChatRequest, AgentChatResponse, AgentIntent, ImageAttachment
+
+logger = logging.getLogger(__name__)
 
 
 class AgentOrchestrator:
@@ -35,10 +41,12 @@ class AgentOrchestrator:
         llm_service: LLMService,
         client_history_skill: ClientHistorySkill,
         sav_planning_skill: SAVPlanningSkill,
+        route_optimization_skill: RouteOptimizationSkill,
         alert_management_skill: AlertManagementSkill,
         maintenance_diagnosis_skill: MaintenanceDiagnosisSkill,
         ceo_reporting_skill: CEOReportingSkill,
         general_question_skill: GeneralQuestionSkill,
+        maintenance_fiche_intake_skill: MaintenanceFicheIntakeSkill,
     ) -> None:
         self.intent_router = intent_router
         self.session_manager = session_manager
@@ -48,11 +56,13 @@ class AgentOrchestrator:
         self.skills = {
             AgentIntent.ASK_CLIENT_HISTORY: client_history_skill,
             AgentIntent.ASK_NEXT_SAV_DESTINATION: sav_planning_skill,
+            AgentIntent.ASK_ROUTE_OPTIMIZATION: route_optimization_skill,
             AgentIntent.ASK_ALERTS: alert_management_skill,
             AgentIntent.ASK_MAINTENANCE_PROBLEM: maintenance_diagnosis_skill,
             AgentIntent.ASK_DAILY_REPORT: ceo_reporting_skill,
             AgentIntent.ASK_STOCK_STATUS: alert_management_skill,
             AgentIntent.GENERAL_QUESTION: general_question_skill,
+            AgentIntent.SUBMIT_MAINTENANCE_FICHE: maintenance_fiche_intake_skill,
         }
 
     def handle_chat(self, request: AgentChatRequest) -> AgentChatResponse:
@@ -88,6 +98,7 @@ class AgentOrchestrator:
             )
         except Exception:
             # Agent persistence is optional at runtime; keep answering even if storage is unavailable.
+            logger.exception("Failed to persist conversation for conversation_key=%r", conversation_key)
             conversation_id = None
             conversation_key = None
         persisted_actions = []
@@ -97,6 +108,11 @@ class AgentOrchestrator:
                     action_id = self.store.save_action(conversation_id, action)
                     persisted_actions.append(action.model_copy(update={"id": action_id}))
                 except Exception:
+                    logger.exception(
+                        "Failed to persist proposed action %r for conversation_id=%s",
+                        action.action_type,
+                        conversation_id,
+                    )
                     persisted_actions.append(action)
         else:
             persisted_actions = checked_actions
@@ -206,12 +222,15 @@ class AgentOrchestrator:
     def save_feedback(
         self,
         *,
-        conversation_id: int,
+        conversation_key: str,
         user_id: int | None,
         rating: str,
         correction: str | None,
         should_remember: bool,
     ) -> dict[str, int]:
+        conversation_id = self.store.resolve_conversation_id(conversation_key)
+        if conversation_id is None:
+            raise ValueError(f"Unknown conversation_key: {conversation_key!r}")
         feedback_id = self.memory_tool.save_feedback(
             conversation_id=conversation_id,
             user_id=user_id,
@@ -232,7 +251,19 @@ class AgentOrchestrator:
         return self.store.list_pending_actions()
 
     def approve_action(self, action_id: int, approved_by: int | None, review_note: str | None = None) -> dict:
+        action = self.store.get_action(action_id)
+        if action is None:
+            raise ValueError(f"Unknown action_id: {action_id!r}")
         payload = {"review_note": review_note} if review_note else {"status": "approved"}
+        if action["action_type"] == "CREATE_MAINTENANCE_FICHE":
+            fiche_payload = (action["input_json"] or {}).get("fiche")
+            if not fiche_payload:
+                raise ValueError(f"Action {action_id} has no staged fiche payload.")
+            # Executed here rather than at proposal time: approval is the point at
+            # which a human confirms the vision extraction is correct, so this is
+            # the first moment it's safe to write into the source-of-truth tables.
+            write_stats = commit_agent_captured_fiche(fiche_payload)
+            payload = {**payload, **write_stats}
         return self.store.update_action_status(
             action_id=action_id,
             status=AgentActionStatus.APPROVED.value,

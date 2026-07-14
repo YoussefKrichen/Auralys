@@ -95,6 +95,10 @@ class AgentStore:
             )
         return conversation_id, resolved_conversation_key
 
+    def resolve_conversation_id(self, conversation_key: str) -> int | None:
+        self.ensure_schema()
+        return self.database.fetch_conversation_id_by_key(conversation_key)
+
     def save_feedback(
         self,
         *,
@@ -252,6 +256,22 @@ class AgentStore:
                 )
                 rows = cursor.fetchall()
         return [self._row_to_action_dict(row) for row in rows]
+
+    def get_action(self, action_id: int) -> dict[str, Any] | None:
+        self.ensure_schema()
+        with self.database.connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    """
+                    SELECT id, conversation_id, action_type, status, input_json, output_json,
+                           requires_approval, approved_by, created_at
+                    FROM agent_actions
+                    WHERE id = %s
+                    """,
+                    (action_id,),
+                )
+                row = cursor.fetchone()
+        return self._row_to_action_dict(row) if row is not None else None
 
     def update_action_status(
         self,

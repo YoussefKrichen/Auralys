@@ -22,11 +22,15 @@ class IntentRouter:
             "Tu es un routeur d'intention pour un assistant interne SAV/administration.\n"
             "Choisis exactement une intention dans cette liste et retourne uniquement son nom, sans phrase additionnelle:\n"
             "- ASK_CLIENT_HISTORY : historique client, interventions precedentes, reclamations, contexte client\n"
-            "- ASK_NEXT_SAV_DESTINATION : prochaine destination SAV, planning, ordre de visite, route terrain\n"
+            "- ASK_NEXT_SAV_DESTINATION : prochaine destination SAV a privilegier maintenant, une seule destination\n"
+            "- ASK_ROUTE_OPTIMIZATION : optimiser l'ordre de tout un planning/tournee de plusieurs visites, eviter les "
+            "embouteillages/trafic, reduire la consommation de carburant, meilleur itineraire\n"
             "- ASK_ALERTS : alertes, urgences, retards, incidents prioritaires, stock faible critique\n"
             "- ASK_MAINTENANCE_PROBLEM : panne, probleme diffuseur, diagnostic, maintenance, verification technique\n"
             "- ASK_DAILY_REPORT : rapport, bilan, synthese de journee, reporting SAV ou direction\n"
             "- ASK_STOCK_STATUS : stock, bouteille, niveau, rupture, disponibilite materiel\n"
+            "- SUBMIT_MAINTENANCE_FICHE : l'utilisateur envoie une photo d'une fiche de maintenance papier "
+            "a numeriser et enregistrer dans la base\n"
             "- GENERAL_QUESTION : toute autre demande\n\n"
             f"Message utilisateur:\n{message}\n\n"
             "Retourne uniquement une valeur exacte de la liste."
@@ -44,8 +48,37 @@ class IntentRouter:
     def _detect_intent_with_keywords(self, message: str) -> AgentIntent:
         normalized = _normalize(message)
 
+        if self._matches(
+            normalized,
+            (
+                "nouvelle fiche",
+                "ajouter cette fiche",
+                "ajoute cette fiche",
+                "enregistrer cette intervention",
+                "enregistrer cette fiche",
+                "scanner cette fiche",
+                "numeriser cette fiche",
+            ),
+        ):
+            return AgentIntent.SUBMIT_MAINTENANCE_FICHE
         if self._matches(normalized, ("historique", "client", "reclamation", "intervention precedente")):
             return AgentIntent.ASK_CLIENT_HISTORY
+        if self._matches(
+            normalized,
+            (
+                "optimiser",
+                "optimise",
+                "embouteillage",
+                "trafic",
+                "carburant",
+                "consommation",
+                "meilleur itineraire",
+                "meilleur trajet",
+                "ordre des visites",
+                "tournee",
+            ),
+        ):
+            return AgentIntent.ASK_ROUTE_OPTIMIZATION
         if self._matches(normalized, ("ou doit aller", "prochaine destination", "planning sav", "equipe sav")):
             return AgentIntent.ASK_NEXT_SAV_DESTINATION
         if self._matches(normalized, ("alertes", "alerte", "urgent", "retard", "stock faible")):

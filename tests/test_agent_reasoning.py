@@ -64,10 +64,12 @@ def test_agent_chat_returns_structured_reasoning_metadata():
         llm_service=_FakeLLMService(),
         client_history_skill=skill,
         sav_planning_skill=skill,
+        route_optimization_skill=skill,
         alert_management_skill=skill,
         maintenance_diagnosis_skill=skill,
         ceo_reporting_skill=skill,
         general_question_skill=skill,
+        maintenance_fiche_intake_skill=skill,
     )
 
     response = orchestrator.handle_chat(
