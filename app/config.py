@@ -80,6 +80,9 @@ class Settings:
     speech_tts_gender_preference: str = os.getenv("SPEECH_TTS_GENDER_PREFERENCE", "female")
     google_api_key: str | None = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
     google_routes_api_key: str | None = os.getenv("GOOGLE_ROUTES_API_KEY")
+    vehicle_fuel_consumption_l_per_100km: float = float(
+        os.getenv("VEHICLE_FUEL_CONSUMPTION_L_PER_100KM", "8.0")
+    )
     speech_gemini_tts_model: str = os.getenv(
         "SPEECH_GEMINI_TTS_MODEL",
         "gemini-2.5-flash-preview-tts",
@@ -158,7 +161,7 @@ class Settings:
         "on",
     }
     embedding_backend: str = os.getenv("EMBEDDING_BACKEND", "gemini").strip().lower()
-    embedding_model_name: str = os.getenv("EMBEDDING_MODEL_NAME", "text-embedding-004")
+    embedding_model_name: str = os.getenv("EMBEDDING_MODEL_NAME", "gemini-embedding-001")
     embedding_dimension: int = int(os.getenv("EMBEDDING_DIMENSION", "768"))
     session_secret: str = os.getenv("SESSION_SECRET", "dev-insecure-session-secret-change-me")
     session_ttl_seconds: int = int(os.getenv("SESSION_TTL_SECONDS", str(60 * 60 * 12)))

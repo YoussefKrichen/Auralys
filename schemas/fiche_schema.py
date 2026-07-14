@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from datetime import date, time
 from typing import Any
 
@@ -27,6 +28,24 @@ PROBLEM_CODE_LABELS = {
     "LIV": "livraison",
     "VIS": "visite",
 }
+
+# Real Aromair diffuser models (from data/diffuser_catalog_entry + the reference
+# CSV). Some source fiches have non-model text OCR'd into model_diffuseur_raw
+# (e.g. "FIN DE CONTRAT", "RECUPERATION", contract/status notes rather than a
+# device model), which previously produced nonsensical chunk sentences like
+# "modele FIN DE CONTRAT". Values that don't match this list are treated as
+# suspect and labelled as such instead of being asserted as a model name.
+KNOWN_DIFFUSER_MODELS = {
+    "ASTREE", "ICEBERG", "AROMAIR100", "AROMAIR50", "AROMAIR500", "AROMAIR600",
+    "ZEE300", "ZEE600", "ZEPHYR", "A150",
+}
+
+
+def _is_plausible_diffuser_model(value: str) -> bool:
+    normalized = re.sub(r"[^A-Z0-9]", "", value.upper())
+    if not normalized:
+        return False
+    return any(normalized == model or model in normalized for model in KNOWN_DIFFUSER_MODELS)
 
 
 class CompanyAddress(BaseModel):
@@ -98,8 +117,10 @@ class DiffuserControl(BaseModel):
     def compact_summary(self) -> str:
         model = self.model_diffuseur or self.model_diffuseur_raw
         details: list[str] = []
-        if model:
+        if model and _is_plausible_diffuser_model(model):
             details.append(f"modele {model}")
+        elif model:
+            details.append(f"champ modele porteur d'une valeur non reconnue : {model}")
         if self.emplacement:
             details.append(f"emplacement {self.emplacement}")
         if self.nom_parfum:

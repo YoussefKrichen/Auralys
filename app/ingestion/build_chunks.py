@@ -5,7 +5,7 @@ import re
 
 from app.config import settings
 from schemas.chunk_schema import ChunkSchema, ChunkType
-from schemas.fiche_schema import FicheSchema, PROBLEM_CODE_LABELS
+from schemas.fiche_schema import FicheSchema, PROBLEM_CODE_LABELS, _is_plausible_diffuser_model
 
 
 def _visit_date(fiche: FicheSchema) -> str:
@@ -58,6 +58,7 @@ def _base_metadata(fiche: FicheSchema) -> dict:
             {
                 "knowledge_category": fiche.raw_payload.get("category"),
                 "question": fiche.raw_payload.get("question"),
+                "parent_section": fiche.raw_payload.get("parent_section"),
             }
         )
     return metadata
@@ -96,6 +97,12 @@ def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
                     **base_metadata,
                     "emplacement": diffuser.emplacement,
                     "model_diffuseur": diffuser.model_diffuseur,
+                    "model_diffuseur_suspect": bool(
+                        (diffuser.model_diffuseur or diffuser.model_diffuseur_raw)
+                        and not _is_plausible_diffuser_model(
+                            diffuser.model_diffuseur or diffuser.model_diffuseur_raw
+                        )
+                    ),
                     "reference_diffuseur": diffuser.reference_diffuseur,
                     "nom_parfum": diffuser.nom_parfum,
                     "qte_parfum_existante": diffuser.qte_parfum_existante,

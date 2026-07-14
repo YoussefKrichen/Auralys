@@ -10,6 +10,14 @@ def test_intent_router_detects_sav_destination_question():
     assert intent == AgentIntent.ASK_NEXT_SAV_DESTINATION
 
 
+def test_intent_router_detects_route_optimization_question():
+    router = IntentRouter()
+
+    intent = router.detect_intent("Optimise l'ordre de la tournee pour eviter les embouteillages")
+
+    assert intent == AgentIntent.ASK_ROUTE_OPTIMIZATION
+
+
 def test_intent_router_detects_client_history_question():
     router = IntentRouter()
 

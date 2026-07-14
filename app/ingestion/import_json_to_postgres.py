@@ -1,38 +1,28 @@
 from __future__ import annotations
 
 from app.db import Database, default_database
-from app.ingestion.build_chunks import build_chunks
-from app.ingestion.normalize import fiches_to_rows, load_fiches_from_directory
-from app.config import settings
+from app.embeddings.index_qdrant import resolve_embedding_source_dir
 
 
 def ingest_raw_json(
     raw_data_dir: str | None = None,
     database: Database | None = None,
 ) -> dict[str, int]:
-    data_dir = raw_data_dir or settings.raw_data_dir
+    """Postgres-only ingestion. Prefer `app.ingestion.reindex.reindex_all` for
+    routine use so Postgres and Qdrant stay in sync — this is kept for
+    Postgres-only maintenance runs, and reuses the same directory-resolution
+    rule as Qdrant indexing so a standalone run can't silently target a
+    different source directory than the vector store."""
+    from app.ingestion.reindex import _write_postgres
+    from app.ingestion.build_chunks import build_chunks
+    from app.ingestion.normalize import load_fiches_from_directory
+
+    data_dir = resolve_embedding_source_dir(raw_data_dir)
     database = database or default_database
     fiches = load_fiches_from_directory(data_dir)
     chunks = build_chunks(fiches)
-    database.init_schema()
-    with database.connection() as connection:
-        for fiche_row in fiches_to_rows(fiches):
-            database.upsert_fiche(connection, fiche_row)
-        for chunk in chunks:
-            database.upsert_chunk(
-                connection,
-                {
-                    "chunk_id": chunk.chunk_id,
-                    "fiche_id": chunk.fiche_id,
-                    "source_file": chunk.source_file,
-                    "page_key": chunk.page_key,
-                    "chunk_type": chunk.chunk_type.value,
-                    "ordinal": chunk.ordinal,
-                    "content": chunk.content,
-                    "metadata": chunk.metadata,
-                },
-            )
-    return {"fiches": len(fiches), "chunks": len(chunks)}
+    stats = _write_postgres(fiches, chunks, database)
+    return {"fiches": len(fiches), "chunks": len(chunks), **stats}
 
 
 if __name__ == "__main__":

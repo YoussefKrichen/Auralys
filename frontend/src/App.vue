@@ -5,6 +5,7 @@ import SavSpace from "./components/SavSpace.vue";
 import CeoSpace from "./components/CeoSpace.vue";
 import BrandMark from "./components/BrandMark.vue";
 import { fetchJson, getApiBase } from "./lib/api";
+import { STORAGE_KEYS } from "./lib/storageKeys";
 
 function decodeAuthSession(value) {
   try {
@@ -29,13 +30,13 @@ const apiBase = ref(getApiBase());
 const urlParams = new URLSearchParams(window.location.search);
 const callbackSession = urlParams.get("auth_session");
 const callbackError = urlParams.get("auth_error");
-const storedSession = JSON.parse(localStorage.getItem("auralys_session") || "null");
+const storedSession = JSON.parse(localStorage.getItem(STORAGE_KEYS.session) || "null");
 const currentSession = ref(callbackSession ? decodeAuthSession(callbackSession) : storedSession);
 const authError = ref(callbackError || "");
 const activeSection = ref("");
 const savConversationHistory = ref([]);
 const loadingSavConversationHistory = ref(false);
-const selectedSavConversationKey = ref(localStorage.getItem("auralys_conversation_id") || "");
+const selectedSavConversationKey = ref(localStorage.getItem(STORAGE_KEYS.savConversationId) || "");
 const savHistoryExpanded = ref(false);
 
 const SAV_VISIBLE_HISTORY_COUNT = 5;
@@ -80,15 +81,17 @@ const savHasHiddenHistory = computed(() => (
 
 const welcomeTitle = computed(() => {
   if (!currentSession.value) return "";
-  const displayName = currentSession.value.display_name || currentSession.value.username || "there";
-  return `Hello ${displayName}`;
+  return currentSession.value.role === "sav" ? "Espace SAV" : "Espace Direction";
 });
 
 const welcomeSubtitle = computed(() => {
   if (!currentSession.value) return "";
-  return currentSession.value.role === "sav"
-    ? "Auralys is ready for support, diagnosis, voice input, and client context."
-    : "Review queue and decisions.";
+  const today = new Date().toLocaleDateString("fr-FR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+  return today.charAt(0).toUpperCase() + today.slice(1);
 });
 
 watch(
@@ -103,7 +106,7 @@ watch(
     }
     activeSection.value = session.role === "sav" ? "sav-assistant" : "ceo-workspace";
     if (session.role === "sav") {
-      selectedSavConversationKey.value = localStorage.getItem("auralys_conversation_id") || "";
+      selectedSavConversationKey.value = localStorage.getItem(STORAGE_KEYS.savConversationId) || "";
       await loadSavConversationHistory();
     }
   },
@@ -111,7 +114,7 @@ watch(
 );
 
 if (callbackSession && currentSession.value) {
-  localStorage.setItem("auralys_session", JSON.stringify(currentSession.value));
+  localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(currentSession.value));
 }
 if (callbackSession || callbackError) {
   window.history.replaceState({}, "", window.location.pathname);
@@ -121,13 +124,13 @@ function handleLogin(session) {
   currentSession.value = session;
   authError.value = "";
   savHistoryExpanded.value = false;
-  localStorage.setItem("auralys_session", JSON.stringify(session));
+  localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(session));
 }
 
 function handleLogout() {
   currentSession.value = null;
   savHistoryExpanded.value = false;
-  localStorage.removeItem("auralys_session");
+  localStorage.removeItem(STORAGE_KEYS.session);
 }
 
 async function handleNavigation(sectionKey) {

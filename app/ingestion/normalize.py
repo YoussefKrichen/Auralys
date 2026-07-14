@@ -1,13 +1,15 @@
 from __future__ import annotations
 
+import csv
 import json
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable
-from xml.etree import ElementTree as ET
-from zipfile import ZipFile
+
+import docx as docx_lib
 
 from app.ingestion.client_reference_matcher import match_client_reference
+from app.ingestion.gold_overrides import get_gold_client_address
 from schemas.fiche_schema import (
     BottleRecharge,
     CompanyInfo,
@@ -239,12 +241,28 @@ def _looks_like_clean_diffuser_catalog_entry(payload: dict[str, Any]) -> bool:
     return payload.get("document_type") == "diffuser_catalog_entry" and required_keys.issubset(payload.keys())
 
 
+def _apply_gold_override(fiche: FicheSchema) -> None:
+    """Overwrite client/address with the human-reviewed value from the
+    client_address_gold layer (data/gold/), when this fiche has been through
+    that review. Takes priority over the automatic fuzzy matcher below since
+    it reflects a validated decision rather than a heuristic guess."""
+    gold = get_gold_client_address(fiche.fiche_id)
+    if not gold:
+        return
+    client_gold, address_gold = gold
+    if client_gold:
+        fiche.maintenance_details.client = client_gold
+    if address_gold:
+        fiche.maintenance_details.address = address_gold
+
+
 def _load_normalized_fiche(source_file: Path, payload: dict[str, Any]) -> list[FicheSchema]:
     normalized = normalize_scalar(payload)
     fiche = FicheSchema(**normalized)
     if fiche.document_type == "client_maintenance_form":
         fiche.maintenance_details.service_date = parse_service_date(fiche.maintenance_details.date_raw)
         fiche.maintenance_details.service_time = parse_service_time(fiche.maintenance_details.time_raw)
+        _apply_gold_override(fiche)
     fiche.source_file = str(Path(fiche.source_file))
     if not fiche.raw_payload:
         fiche.raw_payload = normalized.get("raw_payload", {})
@@ -319,54 +337,44 @@ def _load_form_response_export(source_file: Path, payload: dict[str, Any]) -> li
     return fiches
 
 
-def _extract_docx_paragraphs(source_file: Path) -> list[str]:
-    with ZipFile(source_file) as archive:
-        xml = archive.read("word/document.xml")
-    root = ET.fromstring(xml)
-    namespace = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-    paragraphs: list[str] = []
-    for paragraph in root.findall(".//w:p", namespace):
-        parts = [node.text for node in paragraph.findall(".//w:t", namespace) if node.text]
-        line = "".join(parts).strip()
-        if line:
-            paragraphs.append(maybe_fix_text(line) or line)
-    return paragraphs
-
-
-def _is_heading_candidate(text: str) -> bool:
-    stripped = text.strip()
-    if not stripped:
-        return False
-    if stripped.isupper() and len(stripped) >= 8:
-        return True
-    if stripped[:1].isdigit() and any(character.isalpha() for character in stripped):
-        return True
-    return False
-
-
 def _load_docx_knowledge(source_file: Path) -> list[FicheSchema]:
-    paragraphs = _extract_docx_paragraphs(source_file)
-    if not paragraphs:
-        return []
+    """Split a .docx report into one fiche per section, using the document's
+    actual Heading 1/Heading 2 styles rather than guessing from raw text (the
+    previous approach re-parsed document.xml and flagged a paragraph as a
+    heading if it was all-uppercase or started with a digit -- fragile on any
+    document that doesn't happen to follow that convention)."""
+    document = docx_lib.Document(str(source_file))
 
-    sections: list[tuple[str, list[str]]] = []
+    sections: list[tuple[str | None, str, list[str]]] = []
+    current_h1: str | None = None
     current_title = "Introduction"
     current_lines: list[str] = []
 
-    for paragraph in paragraphs:
-        if _is_heading_candidate(paragraph):
-            if current_lines:
-                sections.append((current_title, current_lines))
-            current_title = paragraph
-            current_lines = []
-            continue
-        current_lines.append(paragraph)
+    def flush() -> None:
+        if current_lines:
+            sections.append((current_h1, current_title, current_lines))
 
-    if current_lines:
-        sections.append((current_title, current_lines))
+    for paragraph in document.paragraphs:
+        text = (paragraph.text or "").strip()
+        if not text:
+            continue
+        text = maybe_fix_text(text) or text
+        style = paragraph.style.name if paragraph.style else ""
+        if style == "Heading 1":
+            flush()
+            current_h1 = text
+            current_title = text
+            current_lines = []
+        elif style == "Heading 2":
+            flush()
+            current_title = text
+            current_lines = []
+        else:
+            current_lines.append(text)
+    flush()
 
     fiches: list[FicheSchema] = []
-    for index, (title, lines) in enumerate(sections, start=1):
+    for index, (parent, title, lines) in enumerate(sections, start=1):
         answer = "\n".join(lines).strip()
         if not answer:
             continue
@@ -377,7 +385,11 @@ def _load_docx_knowledge(source_file: Path) -> list[FicheSchema]:
                 question=title,
                 answer=answer,
                 category="docx_report",
-                metadata={"source_format": "docx", "section_index": index},
+                metadata={
+                    "source_format": "docx",
+                    "section_index": index,
+                    "parent_section": parent if parent and parent != title else None,
+                },
             )
         )
     return fiches
@@ -388,8 +400,14 @@ def load_fiches_from_file(file_path: str | Path) -> list[FicheSchema]:
     if source_file.suffix.lower() == ".docx":
         return _load_docx_knowledge(source_file)
     if source_file.suffix.lower() == ".csv":
-        from app.ingestion.csv_intervention_loader import load_fiches_from_csv
+        from app.ingestion.csv_intervention_loader import EXPECTED_HEADER, load_fiches_from_csv
 
+        with source_file.open("r", encoding="utf-8-sig", newline="") as handle:
+            header = next(csv.reader(handle), [])
+        if [cell.strip() for cell in header[: len(EXPECTED_HEADER)]] != EXPECTED_HEADER:
+            # Not an intervention export (e.g. the client/address reference
+            # registry) -- skip rather than misparse its columns positionally.
+            raise ValueError(f"Unrecognized CSV header in {source_file}")
         return load_fiches_from_csv(source_file)
 
     payload = json.loads(source_file.read_text(encoding="utf-8"))
@@ -408,16 +426,36 @@ def load_fiches_from_file(file_path: str | Path) -> list[FicheSchema]:
             if isinstance(page_payload, dict)
         ]
     if isinstance(payload, list):
+        entries = [
+            entry for entry in payload if isinstance(entry, dict) and "produit" in entry
+        ]
+        if not entries:
+            raise ValueError(f"Unsupported JSON payload in {source_file}")
         return [
             normalize_diffuser_catalog_entry(
                 source_file=source_file,
                 page_key=str(index),
                 payload=entry,
             )
-            for index, entry in enumerate(payload, start=1)
-            if isinstance(entry, dict)
+            for index, entry in enumerate(entries, start=1)
         ]
     raise ValueError(f"Unsupported JSON payload in {source_file}")
+
+
+def _dedupe_by_maintenance_number(fiches: list[FicheSchema]) -> list[FicheSchema]:
+    """Some source pages were ingested twice under different batch folders
+    (e.g. the same maintenance_number appears under both Aromair_01_06 and
+    Aromair_03_01), producing byte-identical fiches/chunks that compete for
+    the same rank at retrieval time. Keep the first occurrence only."""
+    seen_numbers: set[str] = set()
+    deduped: list[FicheSchema] = []
+    for fiche in fiches:
+        if fiche.document_type == "client_maintenance_form" and fiche.maintenance_number:
+            if fiche.maintenance_number in seen_numbers:
+                continue
+            seen_numbers.add(fiche.maintenance_number)
+        deduped.append(fiche)
+    return deduped
 
 
 def load_fiches_from_directory(directory: str | Path) -> list[FicheSchema]:
@@ -429,11 +467,13 @@ def load_fiches_from_directory(directory: str | Path) -> list[FicheSchema]:
         + sorted(data_dir.rglob("*.csv"))
     )
     for file_path in candidates:
+        if file_path.name.startswith("~$") or file_path.name.startswith("."):
+            continue  # editor lock/temp files (e.g. Word leaves ~$name.docx while open)
         try:
             fiches.extend(load_fiches_from_file(file_path))
         except ValueError:
             continue
-    return fiches
+    return _dedupe_by_maintenance_number(fiches)
 
 
 def fiches_to_rows(fiches: Iterable[FicheSchema]) -> list[dict[str, Any]]:

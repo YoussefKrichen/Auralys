@@ -1,3 +1,5 @@
+import { STORAGE_KEYS } from "./storageKeys";
+
 const DEV_PROXY_BASE = "/api";
 
 function getDefaultApiBase() {
@@ -16,16 +18,16 @@ function getDefaultApiBase() {
 }
 
 export function getApiBase() {
-  return localStorage.getItem("auralys_api_base") || getDefaultApiBase();
+  return localStorage.getItem(STORAGE_KEYS.apiBase) || getDefaultApiBase();
 }
 
 export function setApiBase(nextBase) {
   const normalizedBase = (nextBase || "").trim().replace(/\/+$/, "");
   if (!normalizedBase) {
-    localStorage.removeItem("auralys_api_base");
+    localStorage.removeItem(STORAGE_KEYS.apiBase);
     return getDefaultApiBase();
   }
-  localStorage.setItem("auralys_api_base", normalizedBase);
+  localStorage.setItem(STORAGE_KEYS.apiBase, normalizedBase);
   return normalizedBase;
 }
 
@@ -35,7 +37,7 @@ export function buildApiUrl(path, base = getApiBase()) {
 
 function getAuthHeaders() {
   try {
-    const session = JSON.parse(localStorage.getItem("auralys_session") || "null");
+    const session = JSON.parse(localStorage.getItem(STORAGE_KEYS.session) || "null");
     return session?.token ? { Authorization: `Bearer ${session.token}` } : {};
   } catch {
     return {};

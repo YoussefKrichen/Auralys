@@ -2,7 +2,41 @@
 
 Ce fichier suit l'état d'avancement des corrections identifiées lors de l'audit complet du projet. Il est organisé par priorité (urgent / important / futur), avec en tête les tâches de la session en cours.
 
-Dernière mise à jour : 2026-07-07.
+Dernière mise à jour : 2026-07-11.
+
+## Session — Réparation du pipeline RAG (ingestion/indexation/retrieval cassés)
+
+**Contexte** : audit complet du pipeline RAG demandé par l'utilisateur (ingestion → chunking → embedding → indexation → retrieval → génération), avec correction des points de rupture trouvés.
+
+- [x] **Constat critique #2 résolu** : `text-embedding-004` n'existe plus pour cette clé API (confirmé par appel direct à `client.models.list()` — seuls `gemini-embedding-001`/`gemini-embedding-2-preview`/`gemini-embedding-2` supportent `embedContent`). Défaut changé vers `gemini-embedding-001` dans `app/config.py`, vérifié en conditions réelles (embedding 768-dim retourné).
+- [x] **Constat critique #1 résolu** : `PostgresDatabase.upsert_fiche`/`upsert_chunk`/`delete_orphan_chunks` ajoutées (`app/db/postgres.py`), idempotentes (`ON CONFLICT DO UPDATE`). `import_json_to_postgres.py::ingest_raw_json()` fonctionne réellement maintenant (testé en conditions réelles).
+- [x] **Constat critique #3 résolu** : collection Qdrant recréée en dim=768 avec le modèle corrigé, avec confirmation explicite de l'utilisateur avant l'opération destructive (3763 anciens points supprimés).
+- [x] **Nouveau bug découvert et corrigé pendant la réindexation** : `resolve_embedding_source_dir()` préfère `data/processed/` s'il contient des JSON, ce qui excluait silencieusement `AROMAIR_Rapport_Detaille_Confusion.docx` et `output_json.json` (33 fiches `knowledge_base_entry`, contenu FAQ/reconnaissance officielle) — présents uniquement dans `data/raw_json/`, sans équivalent dans `data/processed/`. Déplacés vers `data/processed/knowledge_base/` (`git mv`, `fiche_id` stable car dérivé du nom de fichier seul) pour qu'ils soient indexés par défaut. Sans ce déplacement, la réindexation aurait fait régresser silencieusement la couverture de contenu (33 fiches en moins par rapport à l'état précédent).
+- [x] **Double pipeline d'ingestion non synchronisé corrigé** : `ingest_raw_json()` et `index_chunks()` rechargeaient chacun le répertoire source indépendamment (avec des règles de résolution différentes). Nouveau point d'entrée unique `app/ingestion/reindex.py::reindex_all()` qui charge les fiches une seule fois et écrit dans Postgres et Qdrant dans le même run — ne peut plus diverger. `ingest_raw_json()` réutilise désormais la même règle de résolution de répertoire que Qdrant.
+- [x] **Index manquants ajoutés** : GIN full-text sur `chunks.content` (recherche SQL faisait un scan complet + calcul `to_tsvector` à la volée sur chaque requête), index Qdrant `maintenance_number` (absent), et `client_name`/`source_file` migrés de `KEYWORD` vers `TEXT` (étaient interrogés via `MatchText`, qui nécessite un index texte, pas keyword).
+- [x] Réindexation complète exécutée en conditions réelles (validée par l'utilisateur) : **451 fiches / 1926 chunks**, parité exacte Postgres/Qdrant confirmée. Testé de bout en bout : retrieval sémantique pertinent (scores 0.79-0.85 sur une requête fuite/pharmacie), contenu knowledge_base récupéré, génération LLM réelle (`response_source=gemini`, pas de fallback) avec réponse grounded cohérente.
+- [x] Suite de tests complète relancée avant/après (via `git stash`) : les 16 échecs sont confirmés préexistants et non liés à ces changements (fixtures manquantes dans `data/test_fixtures/pipeline/`, hors périmètre de cette session).
+
+### Points restants non traités (hors périmètre de cette session, notés pour la suite)
+
+- [ ] Le chunking utilise un tokenizer approximatif (split sur les espaces) au lieu d'un vrai tokenizer — déjà noté plus bas dans "Important pour stabiliser le projet".
+- [ ] `LocalRetriever._load_cached_chunks()` utilise `@lru_cache(maxsize=1)` sans invalidation — dans un process long-lived, le retriever de dernier recours ne verra pas les nouvelles données tant que le process ne redémarre pas. Impact limité (fallback de dernier recours seulement), non corrigé.
+- [ ] `reindex_all()` ne supprime pas les fiches Postgres dont le fichier source a disparu du répertoire (seuls les chunks orphelins d'une fiche encore présente sont nettoyés) — à traiter si des documents sources sont un jour retirés de `data/processed/`.
+- [ ] Fixtures de test manquantes : `data/test_fixtures/pipeline/maintenance_pages.json` et les fixtures CSV référencées par `tests/test_csv_intervention_loader.py`/`tests/test_pipeline_dataset.py` (16 tests en échec, préexistant, non lié au pipeline RAG lui-même).
+
+## Session — Nettoyage redondance et code mort
+
+**Contexte** : utilisateur a signalé beaucoup de redondance/mauvaises habitudes dans l'implémentation, a demandé une correction + un rapport détaillé.
+
+- [x] Suppression complète de la pile mock morte (~2350 lignes) : `app/main.py` (AuralysContainer/build_container), `app/api/routes.py`, `app/agents/`, `app/graph/`, `app/rag/`, `app/services/`, `app/vectorstore/`, `app/core/`, `app/db/seed.py`, `app/db/models.py`, `tests/test_api.py`, `tests/test_graph.py` — vérifiée exhaustivement par grep des imports avant suppression (rien d'autre n'y référait). Confirmée avec l'utilisateur avant exécution vu la taille.
+- [x] `app/db/postgres.py::PostgresDatabase.__init__` corrigé : sourçait son DSN via `app.core.config.get_settings()` (config mock) au lieu de `app.config.settings` (config réelle) — fonctionnait par coïncidence (même nom de variable d'env des deux côtés), maintenant découplé proprement. 4 méthodes legacy retirées (`initialize_schema`, `fetch_records`, `upsert_records`, `count_rows`) ; `healthcheck()` conservée (utilisée réellement par `tests/test_agent_persistence.py`).
+- [x] `app/embeddings/test_embedding_service.py` et `app/retrieval/test_retriever.py` déplacés vers `tests/` (étaient dans `app/` par erreur).
+- [x] Logging ajouté sur 3 `except Exception:` qui avalaient silencieusement les erreurs sans trace : `app/retrieval/hybrid_retriever.py` (échec SQL/Qdrant/local retriever), `app/agent/core/orchestrator.py` (échec de persistance de conversation/action), `app/agent/tools/base.py` (échec de `save_tool_log`). Comportement best-effort inchangé, seule la visibilité change.
+- [x] Frontend : duplication `checkBackend`/`statusLabel` (identique dans `LoginPage.vue`, `CeoSpace.vue`, `SavSpace.vue`) extraite en composable `frontend/src/lib/backendStatus.js`. Cinq clés `localStorage` dupliquées en chaînes littérales dans 4 fichiers regroupées dans `frontend/src/lib/storageKeys.js`.
+- [x] Vérifié : suite de tests complète (35 passent, 16 échecs pré-existants inchangés confirmés via `git stash`), build frontend, et parcours réel navigateur (login CEO + SAV, chat SAV bout-en-bout avec réponse RAG reçue).
+- [ ] **Reporté, non exécuté** : duplication voix/audio dans `CeoSpace.vue`/`SavSpace.vue` (~400-500 lignes quasi identiques par fichier — permissions micro, enregistrement, reconnaissance vocale, lecture audio). Forte valeur mais refactor de taille, non testable sans micro réel en environnement automatisé.
+- [ ] **Reporté, non exécuté** : fichiers isolés à la racine (notebooks, PDF, `.glb` de 33 Mo, scripts ponctuels) — déjà noté comme amélioration future, hors périmètre "redondance de code".
+- [ ] Changements de cette session **non commités** — en attente de validation utilisateur.
 
 ## Session — Reconnexion frontend/backend + authentification locale
 
@@ -42,6 +76,8 @@ Docker a pu être démarré et les conteneurs `auralys-postgres`/`auralys-qdrant
 
 ## Nouveaux constats critiques (découverts pendant cette session, à traiter en urgence)
 
+**Les 3 points ci-dessous sont résolus — voir "Session — Réparation du pipeline RAG" en tête de fichier (2026-07-11).**
+
 1. **`app/ingestion/import_json_to_postgres.py` est actuellement du code mort — il ne peut pas s'exécuter.**
    `ingest_raw_json()` appelle `database.init_schema()`, `database.upsert_fiche(...)`, `database.upsert_chunk(...)`. Or `app/db/__init__.py` définit `Database = PostgresDatabase` et `default_database = PostgresDatabase()`, où `PostgresDatabase` (`app/db/postgres.py`) n'expose que `initialize_schema()`, `upsert_records()`, `fetch_records()`, `count_rows()` — et est branché sur `app.core.config.get_settings()` (la stack mock), pas sur le schéma `fiches`/`chunks` de `scripts/sql/001_init_core_schema.sql`. Aucune méthode `upsert_fiche`, `upsert_chunk` ou `init_schema` n'existe nulle part dans le code actuel (vérifié par recherche globale). **Conséquence : le pipeline d'ingestion réel vers Postgres est actuellement cassé pour tout le monde, pas seulement pour ce nouveau CSV.** Les 451 fiches/1925 chunks déjà présents en base ont dû être insérés par un autre moyen (script ponctuel, ancienne version du code, insertion manuelle) — l'origine exacte n'a pas été investiguée, hors périmètre de cette session.
    - **Action requise** : soit ajouter les méthodes manquantes à une classe `Database` correctement branchée sur `app.config.settings` et le schéma `fiches`/`chunks`, soit clarifier quelle classe est censée servir ce pipeline.
@@ -57,9 +93,9 @@ Docker a pu être démarré et les conteneurs `auralys-postgres`/`auralys-qdrant
 
 - [x] ~~Décider de la stack canonique et migrer `app/main.py`~~ — fait cette session (`app/main.py` sert maintenant la vraie app).
 - [x] ~~Réparer `tests/test_agent_api.py`~~ — fait cette session (2/2 passent).
-- [ ] **Nouveau, critique** : réparer le branchement `Database`/`default_database` pour que `import_json_to_postgres.py` fonctionne réellement (voir constat #1 ci-dessous — toujours pas fait, distinct des méthodes ajoutées cette session qui couvrent conversations/messages/reviews/memories/users, pas fiches/chunks).
-- [ ] **Nouveau, critique** : résoudre l'erreur 404 sur le modèle d'embedding Gemini avant toute tentative de réindexation Qdrant (voir constat #2).
-- [ ] Décider du sort de la collection Qdrant existante (3763 points, dim=1024) avant toute réindexation (voir constat #3) — vérifier d'abord si ce sont de vrais embeddings sémantiques ou des vecteurs de fallback.
+- [x] ~~**Nouveau, critique** : réparer le branchement `Database`/`default_database` pour que `import_json_to_postgres.py` fonctionne réellement~~ — fait le 2026-07-11 (voir constat #1, résolu).
+- [x] ~~**Nouveau, critique** : résoudre l'erreur 404 sur le modèle d'embedding Gemini avant toute tentative de réindexation Qdrant~~ — fait le 2026-07-11 (voir constat #2, résolu : `gemini-embedding-001`).
+- [x] ~~Décider du sort de la collection Qdrant existante (3763 points, dim=1024) avant toute réindexation~~ — fait le 2026-07-11, avec confirmation explicite de l'utilisateur : recréée en dim=768, 451 fiches/1926 chunks réindexés (voir constat #3, résolu).
 - [x] ~~Les routes `app/api/agent_routes.py` ne vérifient pas le rôle/la session côté serveur~~ — fait le 2026-07-09 : `app/auth/session_token.py` (token signé HMAC-SHA256, `SESSION_SECRET`) + `app/auth/dependencies.py` (`get_current_user`, `require_ceo`). `/auth/login` et le callback OAuth renvoient désormais un `token` ; le frontend (`frontend/src/lib/api.js`) l'attache en `Authorization: Bearer` sur chaque appel. Les routes `/agent/chat`, `/agent/feedback`, `/conversations`, `/conversations/{key}/messages`, `/history` exigent une session valide et **ignorent le `user_id`/`role` envoyé dans le corps de la requête au profit de celui du token vérifié** (empêche l'usurpation CEO/SAV constatée). `/admin/reviews*`, `/agent/actions/pending|approve|reject`, `/memories/active` exigent en plus `role == "ceo"` (403 sinon). Vérifié par test (`tests/test_agent_api.py` : 401 sans token, 403 SAV sur route CEO, corps falsifié `role=ceo` avec un token SAV → le serveur utilise bien `role=sav`).
 - [ ] Monter l'authentification (`OAuthService`) sur toutes les routes sensibles ; fail-closed si allowlist vide (le login local + OAuth émettent maintenant un token signé, mais `OAuthService._resolve_role` reste fail-open : si aucune allowlist n'est configurée, n'importe quel email obtient `oauth_default_role` — distinct du point ci-dessus, toujours à traiter).
 - [ ] Les comptes OAuth ne sont pas persistés dans `users` (pas d'`id` réel, le token OAuth utilise `user_id=0`) — à corriger si le login social doit devenir utilisable au-delà d'un test ponctuel.

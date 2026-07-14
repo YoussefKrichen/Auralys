@@ -125,7 +125,10 @@ def agent_feedback(
     current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, int]:
     request.user_id = current_user["id"]
-    return container.build_agent_orchestrator().save_feedback(**request.model_dump())
+    try:
+        return container.build_agent_orchestrator().save_feedback(**request.model_dump())
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
 @router.get("/agent/actions/pending")

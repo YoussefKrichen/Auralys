@@ -7,8 +7,7 @@ from typing import Any, Iterator
 import psycopg
 from psycopg.rows import dict_row
 
-from app.core.config import get_settings
-from app.db.models import SCHEMA_STATEMENTS, TABLE_COLUMNS
+from app.config import settings
 
 
 CORE_SCHEMA_STATEMENTS: list[str] = [
@@ -42,6 +41,7 @@ CORE_SCHEMA_STATEMENTS: list[str] = [
     "CREATE INDEX IF NOT EXISTS idx_fiches_maintenance_number ON fiches (maintenance_number)",
     "CREATE INDEX IF NOT EXISTS idx_chunks_fiche_id ON chunks (fiche_id)",
     "CREATE INDEX IF NOT EXISTS idx_chunks_chunk_type ON chunks (chunk_type)",
+    "CREATE INDEX IF NOT EXISTS idx_chunks_content_fts ON chunks USING GIN (to_tsvector('simple', content))",
     """
     CREATE TABLE IF NOT EXISTS conversations (
         id BIGSERIAL PRIMARY KEY,
@@ -188,7 +188,6 @@ _DISCUSSION_HISTORY_JSON_COLUMNS = {
 
 class PostgresDatabase:
     def __init__(self, dsn: str | None = None) -> None:
-        settings = get_settings()
         self.dsn = dsn or settings.postgres_dsn
 
     @contextmanager
@@ -203,17 +202,109 @@ class PostgresDatabase:
         finally:
             connection.close()
 
-    def initialize_schema(self) -> None:
-        with self.connection() as connection:
-            with connection.cursor() as cursor:
-                for statement in SCHEMA_STATEMENTS:
-                    cursor.execute(statement)
-
     def init_schema(self) -> None:
         with self.connection() as connection:
             with connection.cursor() as cursor:
                 for statement in CORE_SCHEMA_STATEMENTS:
                     cursor.execute(statement)
+
+    def upsert_fiche(self, connection: psycopg.Connection, fiche_row: dict[str, Any]) -> None:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                INSERT INTO fiches (
+                    fiche_id, source_file, page_key, client, maintenance_number,
+                    service_date, service_time, service_types, searchable_text, payload
+                )
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s::jsonb, %s, %s::jsonb)
+                ON CONFLICT (fiche_id) DO UPDATE SET
+                    source_file = EXCLUDED.source_file,
+                    page_key = EXCLUDED.page_key,
+                    client = EXCLUDED.client,
+                    maintenance_number = EXCLUDED.maintenance_number,
+                    service_date = EXCLUDED.service_date,
+                    service_time = EXCLUDED.service_time,
+                    service_types = EXCLUDED.service_types,
+                    searchable_text = EXCLUDED.searchable_text,
+                    payload = EXCLUDED.payload
+                """,
+                (
+                    fiche_row["fiche_id"],
+                    fiche_row["source_file"],
+                    fiche_row["page_key"],
+                    fiche_row.get("client"),
+                    fiche_row.get("maintenance_number"),
+                    fiche_row.get("service_date"),
+                    fiche_row.get("service_time"),
+                    json.dumps(fiche_row.get("service_types") or []),
+                    fiche_row["searchable_text"],
+                    json.dumps(fiche_row.get("payload") or {}),
+                ),
+            )
+
+    def upsert_chunk(self, connection: psycopg.Connection, chunk_row: dict[str, Any]) -> None:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                INSERT INTO chunks (
+                    chunk_id, fiche_id, source_file, page_key, chunk_type, ordinal, content, metadata
+                )
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s::jsonb)
+                ON CONFLICT (chunk_id) DO UPDATE SET
+                    fiche_id = EXCLUDED.fiche_id,
+                    source_file = EXCLUDED.source_file,
+                    page_key = EXCLUDED.page_key,
+                    chunk_type = EXCLUDED.chunk_type,
+                    ordinal = EXCLUDED.ordinal,
+                    content = EXCLUDED.content,
+                    metadata = EXCLUDED.metadata
+                """,
+                (
+                    chunk_row["chunk_id"],
+                    chunk_row["fiche_id"],
+                    chunk_row["source_file"],
+                    chunk_row["page_key"],
+                    chunk_row["chunk_type"],
+                    chunk_row.get("ordinal", 0),
+                    chunk_row["content"],
+                    json.dumps(chunk_row.get("metadata") or {}),
+                ),
+            )
+
+    def delete_orphan_chunks(
+        self,
+        connection: psycopg.Connection,
+        fiche_ids: list[str],
+        keep_chunk_ids: list[str],
+    ) -> int:
+        if not fiche_ids:
+            return 0
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "DELETE FROM chunks WHERE fiche_id = ANY(%s) AND NOT (chunk_id = ANY(%s))",
+                (fiche_ids, keep_chunk_ids),
+            )
+            return cursor.rowcount
+
+    def delete_orphan_fiches(
+        self,
+        connection: psycopg.Connection,
+        keep_fiche_ids: list[str],
+    ) -> int:
+        """Remove fiches (and their chunks, via ON DELETE CASCADE) that no longer
+        appear in the current ingestion run -- e.g. a source page that was
+        deduplicated away, renamed, or deleted from data/. Without this, a
+        fiche_id dropped between two reindex runs lingers in Postgres forever,
+        since upsert only ever adds/updates rows for the current fiche set."""
+        with connection.cursor() as cursor:
+            if not keep_fiche_ids:
+                cursor.execute("DELETE FROM fiches")
+            else:
+                cursor.execute(
+                    "DELETE FROM fiches WHERE NOT (fiche_id = ANY(%s))",
+                    (keep_fiche_ids,),
+                )
+            return cursor.rowcount
 
     def upsert_conversation(
         self,
@@ -275,6 +366,16 @@ class PostgresDatabase:
             )
             row = cursor.fetchone()
         return int(row[0])
+
+    def fetch_conversation_id_by_key(self, conversation_key: str) -> int | None:
+        with self.connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    "SELECT id FROM conversations WHERE conversation_key = %s",
+                    (conversation_key,),
+                )
+                row = cursor.fetchone()
+        return int(row[0]) if row else None
 
     def fetch_conversations(
         self,
@@ -496,60 +597,3 @@ class PostgresDatabase:
             "database": database_name,
             "user": database_user,
         }
-
-    def fetch_records(
-        self,
-        table_name: str,
-        *,
-        filters: dict[str, Any] | None = None,
-        limit: int = 5,
-        order_by: str = "id ASC",
-    ) -> list[dict[str, Any]]:
-        allowed_columns = TABLE_COLUMNS[table_name]
-        clauses: list[str] = []
-        params: list[Any] = []
-        if filters:
-            for key, value in filters.items():
-                if key not in allowed_columns or value is None:
-                    continue
-                clauses.append(f"{key} = %s")
-                params.append(value)
-
-        sql = f"SELECT {', '.join(allowed_columns)} FROM {table_name}"
-        if clauses:
-            sql += f" WHERE {' AND '.join(clauses)}"
-        sql += f" ORDER BY {order_by} LIMIT %s"
-        params.append(max(limit, 1))
-
-        with self.connection() as connection:
-            with connection.cursor() as cursor:
-                cursor.execute(sql, params)
-                rows = cursor.fetchall()
-
-        return [dict(zip(allowed_columns, row, strict=False)) for row in rows]
-
-    def upsert_records(self, table_name: str, records: list[dict[str, Any]]) -> None:
-        if not records:
-            return
-
-        columns = TABLE_COLUMNS[table_name]
-        placeholders = ", ".join(["%s"] * len(columns))
-        update_columns = [column for column in columns if column != "id"]
-        updates = ", ".join(f"{column} = EXCLUDED.{column}" for column in update_columns)
-        sql = (
-            f"INSERT INTO {table_name} ({', '.join(columns)}) "
-            f"VALUES ({placeholders}) "
-            f"ON CONFLICT (id) DO UPDATE SET {updates}"
-        )
-
-        rows = [tuple(record.get(column) for column in columns) for record in records]
-        with self.connection() as connection:
-            with connection.cursor() as cursor:
-                cursor.executemany(sql, rows)
-
-    def count_rows(self, table_name: str) -> int:
-        with self.connection() as connection:
-            with connection.cursor() as cursor:
-                cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
-                row = cursor.fetchone()
-        return int(row[0])

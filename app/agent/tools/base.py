@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import logging
 from typing import Any, Callable
 
 from app.agent.store import AgentStore
+
+logger = logging.getLogger(__name__)
 
 
 class LoggedTool:
@@ -55,4 +58,4 @@ class LoggedTool:
             )
         except Exception:
             # Tool logging is best-effort and must not break agent execution.
-            return
+            logger.exception("Failed to persist tool log for tool_name=%r", tool_name)

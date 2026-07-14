@@ -1,6 +1,9 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { buildApiUrl, fetchJson, getApiBase, postJson } from "../lib/api";
+import { useBackendStatus } from "../lib/backendStatus";
+import { formatMessage } from "../lib/formatMessage";
+import { STORAGE_KEYS } from "../lib/storageKeys";
 
 const props = defineProps({
   user: {
@@ -15,8 +18,8 @@ const props = defineProps({
 defineEmits(["logout"]);
 
 const apiBase = ref(getApiBase());
-const VOICE_AUTOPLAY_STORAGE_KEY = "auralys_voice_autoplay";
-const backendStatus = ref("pending");
+const VOICE_AUTOPLAY_STORAGE_KEY = STORAGE_KEYS.voiceAutoplay;
+const { backendStatus, statusLabel, checkBackend } = useBackendStatus(apiBase);
 const reviewRows = ref([]);
 const reviewSummary = ref({
   total: 0,
@@ -61,9 +64,10 @@ const voiceStatusDetail = ref("Micro non accessible");
 const audioUploadInput = ref(null);
 const imageUploadInput = ref(null);
 const selectedImageAttachment = ref(null);
+const imageLightboxOpen = ref(false);
 const holdToTalkActive = ref(false);
 const liveTranscriptSupported = ref(false);
-const ceoConversationId = ref(localStorage.getItem("auralys_ceo_conversation_id") || "");
+const ceoConversationId = ref(localStorage.getItem(STORAGE_KEYS.ceoConversationId) || "");
 const ceoChatFeed = ref([]);
 const ceoChatViewport = ref(null);
 const ceoPromptInput = ref(null);
@@ -89,31 +93,32 @@ const STREAMING_SILENCE_MS = 1200;
 const STREAMING_MIN_SPEECH_MS = 400;
 const STREAMING_RMS_THRESHOLD = 0.018;
 
-const statusLabel = computed(() => {
-  if (backendStatus.value === "online") return "Connecte";
-  if (backendStatus.value === "offline") return "Hors ligne";
-  return "Verification...";
-});
-
 const emptyStateGreeting = computed(() => {
   const hour = new Date().getHours();
-  const greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
-  const rawName = String(props.user?.display_name || props.user?.username || "Elyes").trim();
-  const normalizedName = /^mr\.?\s+/i.test(rawName) ? rawName : `Mr ${rawName}`;
-  return `${greeting}, ${normalizedName}. How can I assist you?`;
+  const greeting = hour < 12 ? "Bonjour" : hour < 18 ? "Bon apres-midi" : "Bonsoir";
+  const rawName = String(props.user?.display_name || props.user?.username || "").trim();
+  const firstName = rawName.split(/\s+/)[0] || "";
+  return firstName ? `${greeting}, ${firstName}` : greeting;
 });
 
 const emptyStateHint = computed(() => {
-  if (backendStatus.value !== "online") return "Backend offline.";
-  if (reviewSummary.value.pending) return `${reviewSummary.value.pending} reviews are waiting.`;
-  if (reviewSummary.value.with_alert) return `${reviewSummary.value.with_alert} alerts need attention.`;
+  if (backendStatus.value !== "online") return "Le serveur est hors ligne pour le moment.";
+  if (reviewSummary.value.pending) return `${reviewSummary.value.pending} revision(s) en attente.`;
+  if (reviewSummary.value.with_alert) return `${reviewSummary.value.with_alert} alerte(s) a traiter.`;
   const variants = [
-    "Review the next priority.",
-    "Ask for a concise executive read.",
-    "Open a decision or summary.",
+    "Consultez la prochaine priorite.",
+    "Demandez une synthese executive.",
+    "Ouvrez une decision ou un rapport.",
   ];
   return variants[new Date().getDate() % variants.length];
 });
+
+const suggestionChips = [
+  "Rapport du jour",
+  "File d'attente de revision",
+  "Alertes prioritaires",
+  "Synthese de la semaine",
+];
 
 const pendingReviews = computed(() => reviewRows.value.filter((row) => row.review_status === "pending"));
 const activeReview = computed(() => {
@@ -187,16 +192,6 @@ watch(ceoConversationId, saveCeoConversationState);
 watch(ceoDiscussionQuery, () => {
   void resizeCeoPromptInput();
 });
-
-async function checkBackend() {
-  backendStatus.value = "pending";
-  try {
-    const payload = await fetchJson("/health", {}, apiBase.value);
-    backendStatus.value = payload.status === "ok" ? "online" : "offline";
-  } catch {
-    backendStatus.value = "offline";
-  }
-}
 
 async function loadReviews() {
   loadingReviews.value = true;
@@ -362,9 +357,9 @@ async function submitDecision(decision) {
 
 function saveCeoConversationState() {
   if (ceoConversationId.value) {
-    localStorage.setItem("auralys_ceo_conversation_id", ceoConversationId.value);
+    localStorage.setItem(STORAGE_KEYS.ceoConversationId, ceoConversationId.value);
   } else {
-    localStorage.removeItem("auralys_ceo_conversation_id");
+    localStorage.removeItem(STORAGE_KEYS.ceoConversationId);
   }
 }
 
@@ -417,8 +412,9 @@ function createPendingCeoEntry() {
   return {
     id: `ceo-assistant-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     role: "assistant",
-    text: "Auralys is preparing a response...",
+    text: "Auralys prepare une reponse...",
     status: "pending",
+    feedback: null,
   };
 }
 
@@ -443,6 +439,43 @@ function resolveCeoDiscussionTurn(entryId, answer, fallbackError = "") {
   if (!target) return;
   target.text = answer || fallbackError || "No response available.";
   target.status = answer ? "done" : "error";
+}
+
+function sendSuggestion(text) {
+  if (ceoDiscussionLoading.value) return;
+  ceoDiscussionQuery.value = text;
+  void runCeoDiscussionQuery();
+}
+
+async function copyMessageText(text) {
+  try {
+    await navigator.clipboard.writeText(text || "");
+  } catch {
+    // Clipboard access can be denied by the browser; ignore silently.
+  }
+}
+
+function speakMessage(entry) {
+  void speakAnswer({ answer: entry.text }, { forcePlayback: true });
+}
+
+async function sendMessageFeedback(entry, rating) {
+  if (!ceoConversationId.value || entry.feedback) return;
+  entry.feedback = rating;
+  try {
+    await postJson(
+      "/agent/feedback",
+      {
+        conversation_key: ceoConversationId.value,
+        user_id: Number(props.user?.id || 1),
+        rating,
+      },
+      {},
+      apiBase.value,
+    );
+  } catch {
+    entry.feedback = null;
+  }
 }
 
 async function submitCeoDiscussion(message) {
@@ -520,11 +553,21 @@ async function handleImageFileSelection(event) {
 
 function clearSelectedImageAttachment() {
   selectedImageAttachment.value = null;
+  imageLightboxOpen.value = false;
+}
+
+function openImageLightbox() {
+  imageLightboxOpen.value = true;
+}
+
+function closeImageLightbox() {
+  imageLightboxOpen.value = false;
 }
 
 function consumeSelectedImageAttachment() {
   const attachment = selectedImageAttachment.value;
   selectedImageAttachment.value = null;
+  imageLightboxOpen.value = false;
   return attachment;
 }
 
@@ -1251,23 +1294,43 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div class="assistant-panel-actions assistant-panel-actions-stacked">
-            <button
-              class="ghost-button header-mini-button"
-              type="button"
-              :disabled="!voicePlaybackSupported"
-              :class="{ active: voiceAutoplayEnabled }"
-              @click="toggleVoiceAutoplay"
-            >
-              Voice
-            </button>
-            <button
-              class="ghost-button header-mini-button"
-              type="button"
-              :disabled="!canReplayLatestAnswer || voicePlaybackPending"
-              @click="playLatestAnswer"
-            >
-              {{ voicePlaybackPending ? "..." : "Play" }}
-            </button>
+            <div class="audio-controls">
+              <button
+                type="button"
+                class="audio-control-btn"
+                :class="{ active: voiceAutoplayEnabled }"
+                :disabled="!voicePlaybackSupported"
+                :aria-label="voiceAutoplayEnabled ? 'Desactiver la lecture automatique' : 'Activer la lecture automatique'"
+                :title="voiceAutoplayEnabled ? 'Lecture automatique activee' : 'Lecture automatique desactivee'"
+                @click="toggleVoiceAutoplay"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 10v4h4l5 5V5L8 10H4z" />
+                  <path v-if="voiceAutoplayEnabled" d="M16.5 8.5a5 5 0 0 1 0 7" />
+                  <template v-else>
+                    <line x1="16" y1="9" x2="21" y2="15" />
+                    <line x1="21" y1="9" x2="16" y2="15" />
+                  </template>
+                </svg>
+              </button>
+              <span class="audio-controls-divider" aria-hidden="true"></span>
+              <button
+                type="button"
+                class="audio-control-btn"
+                :disabled="!canReplayLatestAnswer || voicePlaybackPending"
+                aria-label="Reecouter la derniere reponse"
+                title="Reecouter la derniere reponse"
+                @click="playLatestAnswer"
+              >
+                <svg v-if="!voicePlaybackPending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 12a9 9 0 1 0 2.6-6.3" />
+                  <path d="M3 4v5h5" />
+                </svg>
+                <svg v-else class="audio-control-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                  <path d="M12 3a9 9 0 1 1-9 9" />
+                </svg>
+              </button>
+            </div>
             <span class="brand-state" :class="backendStatus">{{ statusLabel }}</span>
           </div>
         </div>
@@ -1284,10 +1347,53 @@ onBeforeUnmount(() => {
               :class="[`role-${entry.role}`, `status-${entry.status}`]"
             >
               <span class="chat-feed-role">{{ entry.role === "user" ? "CEO" : "AURALYS" }}</span>
-              <p>{{ entry.text }}</p>
+              <div class="chat-feed-text" v-html="formatMessage(entry.text)"></div>
               <div v-if="entry.imageAttachment" class="chat-image-card">
                 <img :src="entry.imageAttachment.dataUrl" :alt="entry.imageAttachment.name" class="chat-image-preview" >
                 <small>{{ entry.imageAttachment.name }}</small>
+              </div>
+              <div v-if="entry.role === 'assistant' && entry.status === 'done'" class="message-action-row">
+                <button class="message-action-button" type="button" aria-label="Copier" @click="copyMessageText(entry.text)">
+                  <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <rect x="8" y="8" width="12" height="12" rx="2" />
+                    <path d="M5 15.5A2 2 0 0 1 4 13.7V6a2 2 0 0 1 2-2h7.7a2 2 0 0 1 1.8 1" />
+                  </svg>
+                </button>
+                <button
+                  class="message-action-button"
+                  type="button"
+                  :disabled="!voicePlaybackSupported"
+                  aria-label="Ecouter"
+                  @click="speakMessage(entry)"
+                >
+                  <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M4 10v4h4l5 5V5L8 10H4z" />
+                    <path d="M16.5 8.5a5 5 0 0 1 0 7" />
+                    <path d="M19 6a8.5 8.5 0 0 1 0 12" />
+                  </svg>
+                </button>
+                <button
+                  class="message-action-button"
+                  type="button"
+                  :class="{ active: entry.feedback === 'up' }"
+                  aria-label="Reponse utile"
+                  @click="sendMessageFeedback(entry, 'up')"
+                >
+                  <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M7 11v9H4v-9h3zm0 0 4-7a2 2 0 0 1 3.6 1.4L13.7 10H18a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 16.8 20H7" />
+                  </svg>
+                </button>
+                <button
+                  class="message-action-button"
+                  type="button"
+                  :class="{ active: entry.feedback === 'down' }"
+                  aria-label="Reponse pas utile"
+                  @click="sendMessageFeedback(entry, 'down')"
+                >
+                  <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M7 13V4H4v9h3zm0 0-4 7a2 2 0 0 0 3.6-1.4l.9-3.6H18a2 2 0 0 0 2-2.3l-1.2-6A2 2 0 0 0 16.8 4H7" />
+                  </svg>
+                </button>
               </div>
             </article>
           </div>
@@ -1295,6 +1401,17 @@ onBeforeUnmount(() => {
             <div class="chat-feed-empty-copy">
               <h3>{{ emptyStateGreeting }}</h3>
               <p>{{ emptyStateHint }}</p>
+            </div>
+            <div class="prompt-chip-row home-suggestion-row">
+              <button
+                v-for="chip in suggestionChips"
+                :key="chip"
+                class="prompt-chip"
+                type="button"
+                @click="sendSuggestion(chip)"
+              >
+                {{ chip }}
+              </button>
             </div>
           </div>
         </div>
@@ -1316,76 +1433,99 @@ onBeforeUnmount(() => {
             @change="handleImageFileSelection"
           />
 
-          <div class="prompt-stage-main">
-            <button
-              class="plus-activator"
-              type="button"
-              :disabled="ceoDiscussionLoading"
-              aria-label="Import image"
-              @click="openImageUploadPicker"
-            >
-              <span class="plus-icon" aria-hidden="true"></span>
+          <div v-if="selectedImageAttachment" class="composer-image-chip">
+            <button type="button" class="composer-image-thumb" aria-label="Agrandir l'image" @click="openImageLightbox">
+              <img :src="selectedImageAttachment.dataUrl" :alt="selectedImageAttachment.name" >
             </button>
+            <button type="button" class="composer-image-remove" aria-label="Retirer l'image" @click="clearSelectedImageAttachment">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
 
+          <div class="prompt-stage-main">
             <textarea
               ref="ceoPromptInput"
               v-model="ceoDiscussionQuery"
               class="prompt-stage-input"
-              placeholder="Ask"
+              placeholder="Ecrire ton message..."
               rows="1"
               @keydown.enter.exact.prevent="runCeoDiscussionQuery"
             ></textarea>
 
-            <div class="prompt-stage-actions">
+            <div class="prompt-toolbar">
               <button
-                class="voice-activator"
-                :class="{ 'is-listening': voiceListening || holdToTalkActive }"
+                class="plus-activator"
                 type="button"
-                :disabled="(!voiceSupported && microphonePermission === 'unsupported') || ceoDiscussionLoading || requestingMicrophone"
-                :aria-label="voiceListening ? 'Stop voice input' : 'Start voice input'"
-                @click="toggleVoiceInput"
+                :disabled="ceoDiscussionLoading"
+                aria-label="Import image"
+                title="Joindre une image"
+                @click="openImageUploadPicker"
               >
-                <span class="mic-icon" aria-hidden="true">
-                  <span class="mic-icon-head"></span>
-                  <span class="mic-icon-stem"></span>
-                  <span class="mic-icon-base"></span>
-                </span>
+                <span class="plus-icon" aria-hidden="true"></span>
               </button>
-              <button
-                class="send-button"
-                type="button"
-                :disabled="ceoDiscussionLoading || (!ceoDiscussionQuery.trim() && !selectedImageAttachment)"
-                @click="runCeoDiscussionQuery"
-              >
-                Send
-              </button>
-            </div>
-          </div>
 
-          <div v-if="selectedImageAttachment" class="selected-image-attachment">
-            <img
-              :src="selectedImageAttachment.dataUrl"
-              :alt="selectedImageAttachment.name"
-              class="selected-image-preview"
-          >
-            <div class="selected-image-copy">
-              <strong>{{ selectedImageAttachment.name }}</strong>
+              <div class="prompt-stage-actions">
+                <button
+                  class="voice-activator"
+                  :class="{ 'is-listening': voiceListening || holdToTalkActive }"
+                  type="button"
+                  :disabled="(!voiceSupported && microphonePermission === 'unsupported') || ceoDiscussionLoading || requestingMicrophone"
+                  :aria-label="voiceListening ? 'Stop voice input' : 'Start voice input'"
+                  title="Dicter la question"
+                  @click="toggleVoiceInput"
+                >
+                  <svg class="mic-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                  </svg>
+                </button>
+                <button
+                  class="send-button"
+                  type="button"
+                  :disabled="ceoDiscussionLoading || (!ceoDiscussionQuery.trim() && !selectedImageAttachment)"
+                  aria-label="Envoyer"
+                  title="Envoyer"
+                  @click="runCeoDiscussionQuery"
+                >
+                  <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 19V5" />
+                    <path d="M6 11l6-6 6 6" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <button class="text-button" type="button" @click="clearSelectedImageAttachment">Remove</button>
           </div>
 
           <div
-            v-if="voiceTranscriptPreview || voiceListening || voiceError || microphonePermission === 'denied' || ceoDiscussionLoading"
+            v-if="voiceTranscriptPreview || voiceListening || voiceError || ceoDiscussionLoading"
             class="prompt-stage-status"
           >
-            <small v-if="voiceTranscriptPreview">{{ voiceTranscriptPreview }}</small>
-            <small v-else-if="voiceListening">Listening...</small>
-            <small v-else-if="voiceError">{{ voiceError }}</small>
-            <small v-else-if="microphonePermission === 'denied'">Enable microphone.</small>
-            <small v-else>{{ ceoDiscussionLoading ? "Thinking..." : "" }}</small>
+            <span class="status-pill" :class="{ live: voiceListening, warn: !voiceListening && voiceError }">
+              <span class="status-pill-dot" aria-hidden="true"></span>
+              <small v-if="voiceTranscriptPreview">{{ voiceTranscriptPreview }}</small>
+              <small v-else-if="voiceListening">Listening...</small>
+              <small v-else-if="voiceError">{{ voiceError }}</small>
+              <small v-else>{{ ceoDiscussionLoading ? "Thinking..." : "" }}</small>
+            </span>
           </div>
         </section>
       </section>
+
+      <div v-if="selectedImageAttachment && imageLightboxOpen" class="image-lightbox-overlay" @click.self="closeImageLightbox">
+        <div class="image-lightbox-panel">
+          <img :src="selectedImageAttachment.dataUrl" :alt="selectedImageAttachment.name" >
+          <button type="button" class="image-lightbox-close" aria-label="Fermer" @click="closeImageLightbox">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
   </main>
 </template>

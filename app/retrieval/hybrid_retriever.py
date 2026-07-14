@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import re
 import unicodedata
 
@@ -8,6 +9,8 @@ from app.retrieval.qdrant_retriever import QdrantRetriever
 from app.retrieval.query_router import route_query
 from app.retrieval.sql_retriever import SQLRetriever
 from schemas.retrieval_schema import RetrievalHit, RetrievalResult, RetrievalRoute
+
+logger = logging.getLogger(__name__)
 
 
 class HybridRetriever:
@@ -54,6 +57,7 @@ class HybridRetriever:
             try:
                 sql_hits = self.sql_retriever.search(routed_query.normalized_query, routed_query.filters)
             except Exception:
+                logger.exception("SQL retriever failed for query %r", routed_query.normalized_query)
                 sql_hits = []
             merge_hits(sql_hits, "sql")
         if routed_query.route in {RetrievalRoute.qdrant, RetrievalRoute.hybrid}:
@@ -63,6 +67,7 @@ class HybridRetriever:
                     routed_query.filters,
                 )
             except Exception:
+                logger.exception("Qdrant retriever failed for query %r", routed_query.normalized_query)
                 semantic_hits = []
             merge_hits(semantic_hits, "qdrant")
         if not ranked:
@@ -72,6 +77,7 @@ class HybridRetriever:
                     routed_query.filters,
                 )
             except Exception:
+                logger.exception("Local retriever failed for query %r", routed_query.normalized_query)
                 local_hits = []
             merge_hits(local_hits, "local")
         hits = sorted(ranked.values(), key=lambda item: item.score, reverse=True)
