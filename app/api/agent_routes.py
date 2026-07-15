@@ -309,7 +309,11 @@ def speak_audio(request: SpeakRequest, container: AppContainer = Depends(get_con
     if not text:
         raise HTTPException(status_code=400, detail="`text` is required.")
     tmp_path = Path(tempfile.gettempdir()) / f"auralys-speak-{uuid.uuid4().hex}.wav"
-    output_path = container.build_speech_service().synthesize(text, tmp_path)
+    try:
+        output_path = container.build_speech_service().synthesize(text, tmp_path)
+    except Exception as exc:
+        tmp_path.unlink(missing_ok=True)
+        raise HTTPException(status_code=503, detail=f"La synthese vocale a echoue: {exc}") from exc
     return FileResponse(
         output_path,
         media_type="audio/wav",

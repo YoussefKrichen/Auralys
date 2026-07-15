@@ -187,7 +187,7 @@ class Settings:
     )
     chunk_target_tokens: int = int(os.getenv("CHUNK_TARGET_TOKENS", "600"))
     raw_data_dir: str = os.getenv("RAW_DATA_DIR", "data/raw_json")
-    processed_data_dir: str = os.getenv("PROCESSED_DATA_DIR", "data/processed")
+    processed_data_dir: str = os.getenv("PROCESSED_DATA_DIR", "data")
     processed_maintenance_dir: str = os.getenv(
         "PROCESSED_MAINTENANCE_DIR",
         "data/processed/maintenance",

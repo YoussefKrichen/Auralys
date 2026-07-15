@@ -14,7 +14,18 @@ class ClientHistorySkill(Skill):
 
     def run(self, request: AgentChatRequest) -> SkillResult:
         client_name = request.context.get("client_name") or IntentRouter.extract_client_name(request.message) or request.message
-        client = self.operations_data_tool.get_client_by_name(client_name)
+        try:
+            client = self.operations_data_tool.get_client_by_name(client_name)
+        except ValueError:
+            return SkillResult(
+                answer=(
+                    f"Je ne trouve pas de client correspondant a \"{client_name}\". "
+                    "Merci de preciser le nom exact du client, par exemple : \"historique du client: Nom Exact\"."
+                ),
+                sources=[],
+                confidence=0.2,
+                justification="Aucun client ne correspond au nom fourni.",
+            )
         history = self.operations_data_tool.get_client_history(client["client_id"])["history"]
         interventions = self.operations_data_tool.get_client_interventions(client["client_id"])["interventions"]
         reclamations = self.operations_data_tool.get_client_reclamations(client["client_id"])["reclamations"]
