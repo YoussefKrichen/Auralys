@@ -19,6 +19,7 @@ from app.agent.store import AgentStore
 from app.agent.tools.memory import MemoryTool
 from app.config import settings
 from app.ingestion.fiche_writer import commit_agent_captured_fiche
+from app.llm.citations import build_sources_prompt_block, extract_cited_sources, extract_citable_sources
 from app.llm.reasoning import (
     build_agent_reasoning_signals,
     build_agent_reasoning_summary,
@@ -124,6 +125,7 @@ class AgentOrchestrator:
             checked_actions=persisted_actions,
             reasoning_signals=synthesized["reasoning_signals"],
             reasoning_summary=synthesized["reasoning_summary"],
+            citations=synthesized["citations"],
         )
 
     def _augment_request_with_images(self, request: AgentChatRequest) -> AgentChatRequest:
@@ -181,12 +183,20 @@ class AgentOrchestrator:
         payload_excerpt = json.dumps(skill_result.payload or {}, ensure_ascii=False, default=str)
         if len(payload_excerpt) > 2500:
             payload_excerpt = payload_excerpt[:2500] + "..."
+        citable_sources = extract_citable_sources(skill_result.payload or {})
+        sources_block = build_sources_prompt_block(citable_sources)
+        citation_rule = (
+            "\n11. Cite le numero de source entre crochets juste apres une affirmation qui s'appuie dessus "
+            "(ex: ... [2]), uniquement parmi les numeros listes ci-dessous. N'en invente aucun."
+            if citable_sources
+            else ""
+        )
         prompt = (
             f"Tu es {settings.agent_name}, l'assistante interne d'Aromair.\n"
             "Tu rediges la reponse finale d'un agent interne apres execution d'outils metier.\n"
             "La reponse doit etre en francais, concise, utile, naturelle, sans exposer la chaine de pensee complete.\n"
             "Tu peux t'appuyer sur le brouillon du skill, les sources, les actions proposees et le payload collecte.\n"
-            "Ne fabrique pas de faits absents. Si l'information manque, dis-le clairement.\n\n"
+            f"Ne fabrique pas de faits absents. Si l'information manque, dis-le clairement.{citation_rule}\n\n"
             f"{build_internal_reasoning_protocol(mode='agent')}\n\n"
             f"Message utilisateur:\n{request.message}\n\n"
             f"Intent detectee:\n{intent.value}\n\n"
@@ -195,7 +205,8 @@ class AgentOrchestrator:
             f"Justification:\n{skill_result.justification or 'aucune'}\n\n"
             f"Actions proposees:\n{action_lines}\n\n"
             f"Payload utile:\n{payload_excerpt}\n\n"
-            "Redige uniquement la meilleure reponse finale pour l'utilisateur."
+            + (f"{sources_block}\n\n" if sources_block else "")
+            + "Redige uniquement la meilleure reponse finale pour l'utilisateur."
         )
         details = self.llm_service.answer_details(
             prompt=prompt,
@@ -205,6 +216,7 @@ class AgentOrchestrator:
         )
         answer = str(details.get("answer") or "").strip()
         final_answer = answer or skill_result.answer
+        citations = extract_cited_sources(final_answer, citable_sources)
         reasoning_signals = build_agent_reasoning_signals(
             request=request,
             intent=intent,
@@ -215,6 +227,7 @@ class AgentOrchestrator:
         reasoning_summary = build_agent_reasoning_summary(reasoning_signals)
         return {
             "answer": final_answer,
+            "citations": citations,
             "reasoning_signals": reasoning_signals,
             "reasoning_summary": reasoning_summary,
         }

@@ -4,7 +4,7 @@ import re
 import unicodedata
 
 from app.config import settings
-from schemas.agent_schema import AgentChatResponse, AgentIntent, ProposedAction, SkillResult
+from schemas.agent_schema import AgentChatResponse, AgentIntent, Citation, ProposedAction, SkillResult
 
 
 def build_agent_response(
@@ -16,6 +16,7 @@ def build_agent_response(
     checked_actions: list[ProposedAction],
     reasoning_signals: dict | None = None,
     reasoning_summary: str | None = None,
+    citations: list[Citation] | None = None,
 ) -> AgentChatResponse:
     sources: list[str] = []
     for source in skill_result.sources:
@@ -30,6 +31,7 @@ def build_agent_response(
         requires_approval=any(action.requires_approval and action.allowed for action in checked_actions),
         proposed_actions=checked_actions,
         sources=sources,
+        citations=citations or [],
         confidence=max(0.0, min(skill_result.confidence, 1.0)),
         justification=skill_result.justification,
         reasoning_signals=reasoning_signals or {},

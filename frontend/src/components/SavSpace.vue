@@ -321,11 +321,12 @@ async function beginChatTurn(message, imageAttachment = null) {
   return pending.id;
 }
 
-function resolveChatTurn(entryId, answer, fallbackError = "") {
+function resolveChatTurn(entryId, answer, fallbackError = "", citations = []) {
   const target = chatFeed.value.find((item) => item.id === entryId);
   if (!target) return;
   target.text = answer || fallbackError || "No response available.";
   target.status = answer ? "done" : "error";
+  target.citations = answer ? citations || [] : [];
 }
 
 const suggestionChips = [
@@ -449,7 +450,7 @@ async function submitRagQuery(message) {
       apiBase.value,
     );
     ragResponse.value = normalizeAgentResponse(payload);
-    resolveChatTurn(pendingEntryId, ragResponse.value.answer);
+    resolveChatTurn(pendingEntryId, ragResponse.value.answer, "", ragResponse.value.citations);
     void speakAnswer(ragResponse.value);
     if (payload.conversation_id) {
       currentConversationId.value = String(payload.conversation_id);
@@ -1209,6 +1210,13 @@ onBeforeUnmount(() => {
               <img :src="entry.imageAttachment.dataUrl" :alt="entry.imageAttachment.name" class="chat-image-preview" >
               <small>{{ entry.imageAttachment.name }}</small>
             </div>
+            <ul v-if="entry.citations && entry.citations.length" class="chat-citations">
+              <li v-for="citation in entry.citations" :key="citation.index">
+                <span class="chat-citation-marker">[{{ citation.index }}]</span>
+                {{ citation.client || "Client inconnu" }}
+                <template v-if="citation.maintenance_number">— fiche {{ citation.maintenance_number }}</template>
+              </li>
+            </ul>
             <div v-if="entry.role === 'assistant' && entry.status === 'done'" class="message-action-row">
               <button class="message-action-button" type="button" aria-label="Copier" @click="copyMessageText(entry.text)">
                 <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">

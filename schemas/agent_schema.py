@@ -71,6 +71,14 @@ class ProposedAction(BaseModel):
     output_json: dict[str, Any] = Field(default_factory=dict)
 
 
+class Citation(BaseModel):
+    index: int
+    fiche_id: str | None = None
+    maintenance_number: str | None = None
+    client: str | None = None
+    chunk_type: str | None = None
+
+
 class SkillResult(BaseModel):
     answer: str
     proposed_actions: list[ProposedAction] = Field(default_factory=list)
@@ -88,6 +96,7 @@ class AgentChatResponse(BaseModel):
     requires_approval: bool
     proposed_actions: list[ProposedAction] = Field(default_factory=list)
     sources: list[str] = Field(default_factory=list)
+    citations: list[Citation] = Field(default_factory=list)
     confidence: float
     justification: str | None = None
     reasoning_signals: dict[str, Any] = Field(default_factory=dict)
