@@ -1,0 +1,137 @@
+{
+  "fiche_id": "Aromair_04_5:page_88:015444",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_5.json",
+  "page_key": "page_88",
+  "source_image": "page_88.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Pharmacie Naffouri",
+    "address": "Marsa",
+    "date_raw": "15.04.25",
+    "time_raw": "15h45",
+    "technician_name": "Ahmed",
+    "client_maintenance_number": "015444",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-15",
+    "service_time": "15:45:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Aromair Entrée",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "AFF",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FDC",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "91",
+      "qte_parfum_existante": 91,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "3/8",
+      "plage_horaire_diffusion": "8h-17h / 19h-0h",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Visite",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "PHARMACIE\nHouyem CHINE NEFOUSSI"
+  },
+  "raw_payload": {
+    "source_image": "page_88.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Pharmacie Naffouri",
+      "address": "Marsa",
+      "date_raw": "15.04.25",
+      "time_raw": "15h45",
+      "technician_name": "Ahmed",
+      "client_maintenance_number": "015444",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Aromair Entrée",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "AFF",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FDC",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "91",
+        "qte_parfum_existante": 91,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "3/8",
+        "plage_horaire_diffusion": "8h-17h / 19h-0h",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Visite",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "PHARMACIE\nHouyem CHINE NEFOUSSI"
+    }
+  }
+}

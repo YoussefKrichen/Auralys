@@ -1,0 +1,210 @@
+{
+  "fiche_id": "Aromair_01_02:page_25:014806",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_02.json",
+  "page_key": "page_25",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "LE GOLF",
+    "address": "BARSA",
+    "date_raw": "19/01/23",
+    "time_raw": "14H15",
+    "technician_name": null,
+    "client_maintenance_number": "014806",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2023-01-19",
+    "service_time": "14:15:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "AR100",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "VCR",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "45",
+      "qte_parfum_existante": 45,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "3/5",
+      "plage_horaire_diffusion": "Manuel",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "AR100 VCH",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "VCH",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "D",
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": "Y",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "3/5",
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 250,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "4/6",
+      "plage_horaire_fonctionnement": "9-13",
+      "emplacement": "VCR"
+    },
+    {
+      "ml": 250,
+      "parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "4/6",
+      "plage_horaire_fonctionnement": "9-13",
+      "emplacement": "VCR"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 250 ML x2 FT\nRECUP VIDE",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "RESTAURANT LE GOLFE\n5, Rue A. Zarouk - 2078 La Marsa\nTél: 71 748 219 / Fax: 71 747 165\nIVA. 012271/V/A/M/000"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "LE GOLF",
+      "address": "BARSA",
+      "date_raw": "19/01/23",
+      "time_raw": "14H15",
+      "technician_name": null,
+      "client_maintenance_number": "014806",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "AR100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "VCR",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "45",
+        "qte_parfum_existante": 45,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "3/5",
+        "plage_horaire_diffusion": "Manuel",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "AR100 VCH",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "VCH",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "D",
+        "qte_parfum_existante": null,
+        "qualite_diffusion": null,
+        "fuite": "Y",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "3/5",
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 250,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "4/6",
+        "plage_horaire_fonctionnement": "9-13",
+        "emplacement": "VCR"
+      },
+      {
+        "ml": 250,
+        "parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "4/6",
+        "plage_horaire_fonctionnement": "9-13",
+        "emplacement": "VCR"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 250 ML x2 FT\nRECUP VIDE",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "RESTAURANT LE GOLFE\n5, Rue A. Zarouk - 2078 La Marsa\nTél: 71 748 219 / Fax: 71 747 165\nIVA. 012271/V/A/M/000"
+    }
+  }
+}

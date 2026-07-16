@@ -1,0 +1,98 @@
+{
+  "fiche_id": "Aromair_04_1:page_5:015623",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_1.json",
+  "page_key": "page_5",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "VERSION 15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra- 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Kantaoui BEY",
+    "address": "Sousse",
+    "date_raw": "05/04/25",
+    "time_raw": null,
+    "technician_name": null,
+    "client_maintenance_number": "015623",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-05",
+    "service_time": null
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 2 x 1000 CTA1 + CTA2, 600 ml NEROLI SPA Ssox.",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": "SPA DEBRANCHE / + Puge CTA 1+2"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "Ibnoukan Kantanj Bay"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "VERSION 15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra- 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Kantaoui BEY",
+      "address": "Sousse",
+      "date_raw": "05/04/25",
+      "time_raw": null,
+      "technician_name": null,
+      "client_maintenance_number": "015623",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 2 x 1000 CTA1 + CTA2, 600 ml NEROLI SPA Ssox.",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": "SPA DEBRANCHE / + Puge CTA 1+2"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Ibnoukan Kantanj Bay"
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "fiche_id": "Aromair_04_3:page_44:015403",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_3.json",
+  "page_key": "page_44",
+  "source_image": "page_44.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "JT Dev",
+    "address": "Lac3",
+    "date_raw": "09.04.25",
+    "time_raw": "15h 15",
+    "technician_name": "Bilel",
+    "client_maintenance_number": "015403",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-09",
+    "service_time": "15:15:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee cuisine",
+      "model_diffuseur": "Zee300",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "112",
+      "qte_parfum_existante": 112,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "1-150",
+      "plage_horaire_diffusion": "14h-16h30",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "RG",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "15-150",
+      "plage_horaire_fonctionnement": "10h30-14h30\n14h->16h",
+      "emplacement": "ENTREE"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Liv 300ml RG IDEV Kroun",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "Mohamed\nEllouze\nIT DEV TEAM"
+  },
+  "raw_payload": {
+    "source_image": "page_44.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "JT Dev",
+      "address": "Lac3",
+      "date_raw": "09.04.25",
+      "time_raw": "15h 15",
+      "technician_name": "Bilel",
+      "client_maintenance_number": "015403",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee cuisine",
+        "model_diffuseur": "Zee300",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "112",
+        "qte_parfum_existante": 112,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "1-150",
+        "plage_horaire_diffusion": "14h-16h30",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "RG",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "15-150",
+        "plage_horaire_fonctionnement": "10h30-14h30\n14h->16h",
+        "emplacement": "ENTREE"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Liv 300ml RG IDEV Kroun",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "Mohamed\nEllouze\nIT DEV TEAM"
+    }
+  }
+}

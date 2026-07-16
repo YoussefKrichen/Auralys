@@ -1,0 +1,409 @@
+{
+  "fiche_id": "Aromair_04_6:page_120:015468",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_6.json",
+  "page_key": "page_120",
+  "source_image": "page_120.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "716 Menzah6",
+    "address": "Menzah6",
+    "date_raw": "18.04.25",
+    "time_raw": "12h15",
+    "technician_name": "Bilel",
+    "client_maintenance_number": "015468",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-18",
+    "service_time": "12:15:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee Entrée",
+      "model_diffuseur": "Zee300",
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FM",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "138",
+      "qte_parfum_existante": 138,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "2/10",
+      "plage_horaire_diffusion": "9-22h",
+      "motif_arret": "Prise débranchée"
+    },
+    {
+      "model_diffuseur_raw": "1er Etage 2",
+      "model_diffuseur": null,
+      "emplacement": "1er Etage",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FM",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "48",
+      "qte_parfum_existante": 48,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "2/10",
+      "plage_horaire_diffusion": "7-19",
+      "motif_arret": "Temps d'arrêt"
+    },
+    {
+      "model_diffuseur_raw": "Entrée 3",
+      "model_diffuseur": null,
+      "emplacement": "ENTREE",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FM",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "21",
+      "qte_parfum_existante": 21,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "2/10",
+      "plage_horaire_diffusion": "8-22",
+      "motif_arret": "Temps d'arrêt"
+    },
+    {
+      "model_diffuseur_raw": "Aromair Hall",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "Hall",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FM",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "H",
+      "frequence_diffusion_existante": "2/10",
+      "plage_horaire_diffusion": "8-22",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Aromair WC H",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "WCH",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FIG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "6",
+      "qte_parfum_existante": 6,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5/16",
+      "plage_horaire_diffusion": "8-22",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "1. WC F",
+      "model_diffuseur": null,
+      "emplacement": "WCF",
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": "FIG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "33",
+      "qte_parfum_existante": 33,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5/16",
+      "plage_horaire_diffusion": "8-22",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": "FIG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/6",
+      "plage_horaire_fonctionnement": "8-22",
+      "emplacement": "WCH"
+    },
+    {
+      "ml": 300,
+      "parfum": "FIG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "8-22",
+      "emplacement": "WCF"
+    },
+    {
+      "ml": 900,
+      "parfum": "RU",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "2/10",
+      "plage_horaire_fonctionnement": "7-22",
+      "emplacement": "ENTREE"
+    },
+    {
+      "ml": 300,
+      "parfum": "RU",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "2/10",
+      "plage_horaire_fonctionnement": "7-22",
+      "emplacement": "ENTREE"
+    },
+    {
+      "ml": 900,
+      "parfum": "RU",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "2/10",
+      "plage_horaire_fonctionnement": "7-22",
+      "emplacement": "Hall"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Livraison 2 WC (300ml x 2) RU. Livraison 300ml Zee (900 x 3) RU. Livraison 300ml Zee",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": "Zakkouk responsable"
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "source_image": "page_120.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "716 Menzah6",
+      "address": "Menzah6",
+      "date_raw": "18.04.25",
+      "time_raw": "12h15",
+      "technician_name": "Bilel",
+      "client_maintenance_number": "015468",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee Entrée",
+        "model_diffuseur": "Zee300",
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "138",
+        "qte_parfum_existante": 138,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "2/10",
+        "plage_horaire_diffusion": "9-22h",
+        "motif_arret": "Prise débranchée"
+      },
+      {
+        "model_diffuseur_raw": "1er Etage 2",
+        "model_diffuseur": null,
+        "emplacement": "1er Etage",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "48",
+        "qte_parfum_existante": 48,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "2/10",
+        "plage_horaire_diffusion": "7-19",
+        "motif_arret": "Temps d'arrêt"
+      },
+      {
+        "model_diffuseur_raw": "Entrée 3",
+        "model_diffuseur": null,
+        "emplacement": "ENTREE",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "21",
+        "qte_parfum_existante": 21,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "2/10",
+        "plage_horaire_diffusion": "8-22",
+        "motif_arret": "Temps d'arrêt"
+      },
+      {
+        "model_diffuseur_raw": "Aromair Hall",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "Hall",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FM",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "H",
+        "frequence_diffusion_existante": "2/10",
+        "plage_horaire_diffusion": "8-22",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Aromair WC H",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "WCH",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FIG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "6",
+        "qte_parfum_existante": 6,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/16",
+        "plage_horaire_diffusion": "8-22",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "1. WC F",
+        "model_diffuseur": null,
+        "emplacement": "WCF",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": null,
+        "nom_parfum": "FIG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "33",
+        "qte_parfum_existante": 33,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/16",
+        "plage_horaire_diffusion": "8-22",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "FIG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/6",
+        "plage_horaire_fonctionnement": "8-22",
+        "emplacement": "WCH"
+      },
+      {
+        "ml": 300,
+        "parfum": "FIG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "8-22",
+        "emplacement": "WCF"
+      },
+      {
+        "ml": 900,
+        "parfum": "RU",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "2/10",
+        "plage_horaire_fonctionnement": "7-22",
+        "emplacement": "ENTREE"
+      },
+      {
+        "ml": 300,
+        "parfum": "RU",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "2/10",
+        "plage_horaire_fonctionnement": "7-22",
+        "emplacement": "ENTREE"
+      },
+      {
+        "ml": 900,
+        "parfum": "RU",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "2/10",
+        "plage_horaire_fonctionnement": "7-22",
+        "emplacement": "Hall"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Livraison 2 WC (300ml x 2) RU. Livraison 300ml Zee (900 x 3) RU. Livraison 300ml Zee",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": "Zakkouk responsable"
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "fiche_id": "Aromair_01_01:page_15:014899",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_01.json",
+  "page_key": "page_15",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Pharmacie Victoria Lac1",
+    "address": "Lac1",
+    "date_raw": "9/11/2024",
+    "time_raw": "15H15",
+    "technician_name": null,
+    "client_maintenance_number": "014899",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2024-11-09",
+    "service_time": "15:15:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": null,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "R100",
+      "model_diffuseur": "Aromair100",
+      "emplacement": "vitrine",
+      "reference_diffuseur_raw": "Bleu",
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "220",
+      "qte_parfum_existante": 220,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "8H30/12H45",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": null,
+      "model_diffuseur": null,
+      "emplacement": null,
+      "reference_diffuseur_raw": null,
+      "reference_diffuseur": null,
+      "nom_parfum": null,
+      "reference_bouteille_raw": null,
+      "reference_bouteille": null,
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "15H/19H15",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 300,
+      "parfum": null,
+      "reference_bouteille_raw": null,
+      "reference_bouteille": null,
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 300ml cologne\nVISITE",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "Pharmacie victoria"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Pharmacie Victoria Lac1",
+      "address": "Lac1",
+      "date_raw": "9/11/2024",
+      "time_raw": "15H15",
+      "technician_name": null,
+      "client_maintenance_number": "014899",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": null,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "R100",
+        "model_diffuseur": "Aromair100",
+        "emplacement": "vitrine",
+        "reference_diffuseur_raw": "Bleu",
+        "reference_diffuseur": null,
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "220",
+        "qte_parfum_existante": 220,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "8H30/12H45",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": null,
+        "model_diffuseur": "Aromair100",
+        "emplacement": "vitrine",
+        "reference_diffuseur_raw": null,
+        "reference_diffuseur": "Simple (S)",
+        "nom_parfum": null,
+        "reference_bouteille_raw": null,
+        "reference_bouteille": null,
+        "qte_parfum_existante_raw": "220",
+        "qte_parfum_existante": 220,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "15H/19H15",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 300,
+        "parfum": "Cologne",
+        "reference_bouteille_raw": null,
+        "reference_bouteille": null,
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 300ml cologne\nVISITE",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "Pharmacie victoria"
+    }
+  }
+}

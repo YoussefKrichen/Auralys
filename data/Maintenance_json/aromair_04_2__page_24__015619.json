@@ -1,0 +1,373 @@
+{
+  "fiche_id": "Aromair_04_2:page_24:015619",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_2.json",
+  "page_key": "page_24",
+  "source_image": "page_24.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Chams",
+    "address": "Sfax",
+    "date_raw": "04.04.24",
+    "time_raw": "17H5",
+    "technician_name": null,
+    "client_maintenance_number": "015619",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2024-04-04",
+    "service_time": "17:05:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": true
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee Garland",
+      "model_diffuseur": "AROMAIR MAXI",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "AROMAIR100_BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "163",
+      "qte_parfum_existante": 163,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Acro Gardia",
+      "model_diffuseur": "AROMAIR MAXI",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "AROMAIR100_BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree",
+      "model_diffuseur": "Astree",
+      "emplacement": "bouche",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "AROMAIR100_BT",
+      "nom_parfum": null,
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "130",
+      "qte_parfum_existante": 130,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Atice Square",
+      "model_diffuseur": "AROMAIR MAXI",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "AROMAIR100_BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": null,
+      "qte_parfum_existante": null,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree Square",
+      "model_diffuseur": "Astree",
+      "emplacement": null,
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "AROMAIR100_BT",
+      "nom_parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "90",
+      "qte_parfum_existante": 90,
+      "qualite_diffusion": null,
+      "fuite": null,
+      "en_marche_arret": null,
+      "frequence_diffusion_existante": null,
+      "plage_horaire_diffusion": null,
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 937,
+      "parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Standard",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    },
+    {
+      "ml": 253,
+      "parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Standard",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    },
+    {
+      "ml": 960,
+      "parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Standard",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    },
+    {
+      "ml": 270,
+      "parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Standard",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    },
+    {
+      "ml": 90,
+      "parfum": "TH",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Standard",
+      "frequence_diffusion": null,
+      "plage_horaire_fonctionnement": null,
+      "emplacement": null
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "livraison 900ml parfum pour 5 diffuseurs",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "source_image": "page_24.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Chams",
+      "address": "Sfax",
+      "date_raw": "04.04.24",
+      "time_raw": "17H5",
+      "technician_name": null,
+      "client_maintenance_number": "015619",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": true
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee Garland",
+        "model_diffuseur": "AROMAIR MAXI",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "AROMAIR100_BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "163",
+        "qte_parfum_existante": 163,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Acro Gardia",
+        "model_diffuseur": "AROMAIR MAXI",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "AROMAIR100_BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree",
+        "model_diffuseur": "Astree",
+        "emplacement": "bouche",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "AROMAIR100_BT",
+        "nom_parfum": null,
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "130",
+        "qte_parfum_existante": 130,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": null,
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Atice Square",
+        "model_diffuseur": "AROMAIR MAXI",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "AROMAIR100_BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": null,
+        "qte_parfum_existante": null,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": null,
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree Square",
+        "model_diffuseur": "Astree",
+        "emplacement": null,
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "AROMAIR100_BT",
+        "nom_parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "90",
+        "qte_parfum_existante": 90,
+        "qualite_diffusion": null,
+        "fuite": null,
+        "en_marche_arret": null,
+        "frequence_diffusion_existante": null,
+        "plage_horaire_diffusion": null,
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 937,
+        "parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Standard",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 253,
+        "parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Standard",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 960,
+        "parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Standard",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 270,
+        "parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Standard",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      },
+      {
+        "ml": 90,
+        "parfum": "TH",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Standard",
+        "frequence_diffusion": null,
+        "plage_horaire_fonctionnement": null,
+        "emplacement": null
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "livraison 900ml parfum pour 5 diffuseurs",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

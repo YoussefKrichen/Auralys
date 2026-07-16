@@ -1,0 +1,247 @@
+{
+  "fiche_id": "Aromair_04_6:page_104:015469",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_6.json",
+  "page_key": "page_104",
+  "source_image": "page_104.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Halfan Dick",
+    "address": "Lac2",
+    "date_raw": "17.04.25",
+    "time_raw": "15h00",
+    "technician_name": "Bilel",
+    "client_maintenance_number": "015469",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-17",
+    "service_time": "15:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee St.Cen",
+      "model_diffuseur": "Zee300",
+      "emplacement": "St.Cen",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FO",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "341",
+      "qte_parfum_existante": 341,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5-8",
+      "plage_horaire_diffusion": "9h-15h",
+      "motif_arret": "décalage horaire"
+    },
+    {
+      "model_diffuseur_raw": "Astree S.A D",
+      "model_diffuseur": "Astree",
+      "emplacement": "ENTREE(D)",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FO",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "53",
+      "qte_parfum_existante": 53,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "5-8",
+      "plage_horaire_diffusion": "9h-15h",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Astree SPA",
+      "model_diffuseur": "Astree",
+      "emplacement": "SPA",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "FO",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "140",
+      "qte_parfum_existante": 140,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5-8",
+      "plage_horaire_diffusion": "11h50-20",
+      "motif_arret": "days off"
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 540,
+      "parfum": "FO",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "7h-18h",
+      "emplacement": "SPA"
+    },
+    {
+      "ml": 150,
+      "parfum": "FO",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "5/10",
+      "plage_horaire_fonctionnement": "11h50->20",
+      "emplacement": "SPA"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Visite les diffuseurs",
+    "probleme_rencontree_code": null,
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": null
+  },
+  "raw_payload": {
+    "source_image": "page_104.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Halfan Dick",
+      "address": "Lac2",
+      "date_raw": "17.04.25",
+      "time_raw": "15h00",
+      "technician_name": "Bilel",
+      "client_maintenance_number": "015469",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee St.Cen",
+        "model_diffuseur": "Zee300",
+        "emplacement": "St.Cen",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "341",
+        "qte_parfum_existante": 341,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5-8",
+        "plage_horaire_diffusion": "9h-15h",
+        "motif_arret": "décalage horaire"
+      },
+      {
+        "model_diffuseur_raw": "Astree S.A D",
+        "model_diffuseur": "Astree",
+        "emplacement": "ENTREE(D)",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "53",
+        "qte_parfum_existante": 53,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "5-8",
+        "plage_horaire_diffusion": "9h-15h",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Astree SPA",
+        "model_diffuseur": "Astree",
+        "emplacement": "SPA",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "FO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "140",
+        "qte_parfum_existante": 140,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5-8",
+        "plage_horaire_diffusion": "11h50-20",
+        "motif_arret": "days off"
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 540,
+        "parfum": "FO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "7h-18h",
+        "emplacement": "SPA"
+      },
+      {
+        "ml": 150,
+        "parfum": "FO",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "5/10",
+        "plage_horaire_fonctionnement": "11h50->20",
+        "emplacement": "SPA"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Visite les diffuseurs",
+      "probleme_rencontree_code": null,
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": null
+    }
+  }
+}

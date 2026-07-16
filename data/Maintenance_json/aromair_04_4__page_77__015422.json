@@ -1,0 +1,173 @@
+{
+  "fiche_id": "Aromair_04_4:page_77:015422",
+  "source_file": "data\\raw_json\\Aromair_04\\Aromair_04_4.json",
+  "page_key": "page_77",
+  "source_image": "page_77.jpg",
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROM AIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "AF Collection Soukra",
+    "address": "Soukra",
+    "date_raw": "12.04.25",
+    "time_raw": "11h50",
+    "technician_name": "Ahmed",
+    "client_maintenance_number": "015422",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2025-04-12",
+    "service_time": "11:50:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": null,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Astree RDC",
+      "model_diffuseur": "Astree",
+      "emplacement": "RDC",
+      "reference_diffuseur_raw": "CPM",
+      "reference_diffuseur": "CPM",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "130",
+      "qte_parfum_existante": 130,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5/10",
+      "plage_horaire_diffusion": "10-17",
+      "motif_arret": "Temps d'arrêt"
+    },
+    {
+      "model_diffuseur_raw": "Astree",
+      "model_diffuseur": "Astree",
+      "emplacement": "\"-1\"",
+      "reference_diffuseur_raw": "BT",
+      "reference_diffuseur": "BT",
+      "nom_parfum": "RG",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "211",
+      "qte_parfum_existante": 211,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "A",
+      "frequence_diffusion_existante": "5/6",
+      "plage_horaire_diffusion": "10-17",
+      "motif_arret": "Bouton off"
+    }
+  ],
+  "recharge_bouteille_effectuee": [],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "Visite diffuseur + 1 bouton off",
+    "probleme_rencontree_code": "Visite diffuseur + 1 bouton off",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": true,
+    "parfum_bien_diffuse": true
+  },
+  "signature_cachet": {
+    "text": "AF collection\nN°12, Rue Corboui Manar 1\nMF: 117070 Y/M/000\nTel: 98 744 235"
+  },
+  "raw_payload": {
+    "source_image": "page_77.jpg",
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROM AIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "AF Collection Soukra",
+      "address": "Soukra",
+      "date_raw": "12.04.25",
+      "time_raw": "11h50",
+      "technician_name": "Ahmed",
+      "client_maintenance_number": "015422",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": null,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Astree RDC",
+        "model_diffuseur": "Astree",
+        "emplacement": "RDC",
+        "reference_diffuseur_raw": "CPM",
+        "reference_diffuseur": "CPM",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "130",
+        "qte_parfum_existante": 130,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/10",
+        "plage_horaire_diffusion": "10-17",
+        "motif_arret": "Temps d'arrêt"
+      },
+      {
+        "model_diffuseur_raw": "Astree",
+        "model_diffuseur": "Astree",
+        "emplacement": "\"-1\"",
+        "reference_diffuseur_raw": "BT",
+        "reference_diffuseur": "BT",
+        "nom_parfum": "RG",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "211",
+        "qte_parfum_existante": 211,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "A",
+        "frequence_diffusion_existante": "5/6",
+        "plage_horaire_diffusion": "10-17",
+        "motif_arret": "Bouton off"
+      }
+    ],
+    "recharge_bouteille_effectuee": [],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "Visite diffuseur + 1 bouton off",
+      "probleme_rencontree_code": "Visite diffuseur + 1 bouton off",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": true,
+      "parfum_bien_diffuse": true
+    },
+    "signature_cachet": {
+      "text": "AF collection\nN°12, Rue Corboui Manar 1\nMF: 117070 Y/M/000\nTel: 98 744 235"
+    }
+  }
+}

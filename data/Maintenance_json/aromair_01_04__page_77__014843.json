@@ -1,0 +1,210 @@
+{
+  "fiche_id": "Aromair_01_04:page_77:014843",
+  "source_file": "data\\raw_json\\Aromair_01\\Aromair_01_04.json",
+  "page_key": "page_77",
+  "source_image": null,
+  "document_type": "client_maintenance_form",
+  "company_info": {
+    "version": "15.03.22",
+    "name": "AROMAIR",
+    "slogan": "THE ART OF THE SCENTS",
+    "address": {
+      "residence": "Résidence OMRANE",
+      "street": "Avenue Fattouma Bourguiba",
+      "city_postal_code": "La Soukra - 2036 ARIANA"
+    }
+  },
+  "maintenance_details": {
+    "client": "Boutiqua souKRA",
+    "address": "Sousse",
+    "date_raw": "25/01/24",
+    "time_raw": "14H",
+    "technician_name": null,
+    "client_maintenance_number": "014843",
+    "sav_numbers": [
+      "99 289 544",
+      "99 289 543"
+    ],
+    "service_date": "2024-01-25",
+    "service_time": "14:00:00"
+  },
+  "service_type": {
+    "demo": null,
+    "livraison": true,
+    "visite": true,
+    "reparation": null,
+    "echange": null
+  },
+  "controle_diffuseur_recharge": [
+    {
+      "model_diffuseur_raw": "Zee 600",
+      "model_diffuseur": "Zee600",
+      "emplacement": "Milk",
+      "reference_diffuseur_raw": "B",
+      "reference_diffuseur": null,
+      "nom_parfum": "FE3",
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "B",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "4/10",
+      "plage_horaire_diffusion": "9H/22H",
+      "motif_arret": null
+    },
+    {
+      "model_diffuseur_raw": "Zeephir",
+      "model_diffuseur": null,
+      "emplacement": "WC",
+      "reference_diffuseur_raw": "B",
+      "reference_diffuseur": null,
+      "nom_parfum": "FE3",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "qte_parfum_existante_raw": "O",
+      "qte_parfum_existante": 0,
+      "qualite_diffusion": "D",
+      "fuite": "N",
+      "en_marche_arret": "M",
+      "frequence_diffusion_existante": "4/10",
+      "plage_horaire_diffusion": "10/19H",
+      "motif_arret": null
+    }
+  ],
+  "recharge_bouteille_effectuee": [
+    {
+      "ml": 600,
+      "parfum": null,
+      "reference_bouteille_raw": "V",
+      "reference_bouteille": "Vrag (V)",
+      "frequence_diffusion": "6/10",
+      "plage_horaire_fonctionnement": "9-21",
+      "emplacement": "Salle"
+    },
+    {
+      "ml": 300,
+      "parfum": "FE3",
+      "reference_bouteille_raw": "S",
+      "reference_bouteille": "Simple (S)",
+      "frequence_diffusion": "4/10",
+      "plage_horaire_fonctionnement": "10-22",
+      "emplacement": "WC"
+    }
+  ],
+  "probleme_recommandation": {
+    "probleme_rencontree_raw": "LIV 600 ML Zeephir\n300 ML Zeephir WC",
+    "probleme_rencontree_code": "LIV",
+    "solution_proposee": null
+  },
+  "enquete_satisfaction_client": {
+    "satisfied_service": null,
+    "parfum_bien_diffuse": null
+  },
+  "signature_cachet": {
+    "text": "SARL BOUTIQUE SOUKRA\nCentre Commercial Sousse\nTél: 73 342 890 / 99 289 544\nMF: 1332734/M/000"
+  },
+  "raw_payload": {
+    "document_type": "client_maintenance_form",
+    "company_info": {
+      "version": "15.03.22",
+      "name": "AROMAIR",
+      "slogan": "THE ART OF THE SCENTS",
+      "address": {
+        "residence": "Résidence OMRANE",
+        "street": "Avenue Fattouma Bourguiba",
+        "city_postal_code": "La Soukra - 2036 ARIANA"
+      }
+    },
+    "maintenance_details": {
+      "client": "Boutiqua souKRA",
+      "address": "Sousse",
+      "date_raw": "25/01/24",
+      "time_raw": "14H",
+      "technician_name": null,
+      "client_maintenance_number": "014843",
+      "sav_numbers": [
+        "99 289 544",
+        "99 289 543"
+      ]
+    },
+    "service_type": {
+      "demo": null,
+      "livraison": true,
+      "visite": true,
+      "reparation": null,
+      "echange": null
+    },
+    "controle_diffuseur_recharge": [
+      {
+        "model_diffuseur_raw": "Zee 600",
+        "model_diffuseur": "Zee600",
+        "emplacement": "Milk",
+        "reference_diffuseur_raw": "B",
+        "reference_diffuseur": null,
+        "nom_parfum": "FE3",
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "B",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "4/10",
+        "plage_horaire_diffusion": "9H/22H",
+        "motif_arret": null
+      },
+      {
+        "model_diffuseur_raw": "Zeephir",
+        "model_diffuseur": null,
+        "emplacement": "WC",
+        "reference_diffuseur_raw": "B",
+        "reference_diffuseur": null,
+        "nom_parfum": "FE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "qte_parfum_existante_raw": "O",
+        "qte_parfum_existante": 0,
+        "qualite_diffusion": "D",
+        "fuite": "N",
+        "en_marche_arret": "M",
+        "frequence_diffusion_existante": "4/10",
+        "plage_horaire_diffusion": "10/19H",
+        "motif_arret": null
+      }
+    ],
+    "recharge_bouteille_effectuee": [
+      {
+        "ml": 600,
+        "parfum": null,
+        "reference_bouteille_raw": "V",
+        "reference_bouteille": "Vrag (V)",
+        "frequence_diffusion": "6/10",
+        "plage_horaire_fonctionnement": "9-21",
+        "emplacement": "Salle"
+      },
+      {
+        "ml": 300,
+        "parfum": "FE3",
+        "reference_bouteille_raw": "S",
+        "reference_bouteille": "Simple (S)",
+        "frequence_diffusion": "4/10",
+        "plage_horaire_fonctionnement": "10-22",
+        "emplacement": "WC"
+      }
+    ],
+    "probleme_recommandation": {
+      "probleme_rencontree_raw": "LIV 600 ML Zeephir\n300 ML Zeephir WC",
+      "probleme_rencontree_code": "LIV",
+      "solution_proposee": null
+    },
+    "enquete_satisfaction_client": {
+      "satisfied_service": null,
+      "parfum_bien_diffuse": null
+    },
+    "signature_cachet": {
+      "text": "SARL BOUTIQUE SOUKRA\nCentre Commercial Sousse\nTél: 73 342 890 / 99 289 544\nMF: 1332734/M/000"
+    }
+  }
+}
