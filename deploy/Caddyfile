@@ -2,6 +2,6 @@
 	email {$AURALYS_ACME_EMAIL}
 }
 
-{$AURALYS_DOMAIN} {
+{$AURALYS_DOMAIN::80} {
 	reverse_proxy web:80
 }
