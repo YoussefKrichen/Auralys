@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import tempfile
 import uuid
 from pathlib import Path
@@ -21,9 +22,11 @@ from schemas.agent_schema import (
     AgentChatRequest,
     AgentChatResponse,
     AgentFeedbackRequest,
+    AgentIntent,
 )
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 class ReviewDecisionRequest(BaseModel):
@@ -115,7 +118,24 @@ def agent_chat(
 ) -> AgentChatResponse:
     request.user_id = current_user["id"]
     request.role = current_user["role"]
-    return container.build_agent_orchestrator().handle_chat(request)
+    try:
+        return container.build_agent_orchestrator().handle_chat(request)
+    except Exception:
+        # A skill bug or an unreachable dependency should never surface as a
+        # raw HTTP 500 in the chat UI -- log it for debugging and answer with
+        # a normal chat message instead, so the conversation can continue.
+        logger.exception("agent_chat failed for message=%r", request.message)
+        return AgentChatResponse(
+            conversation_id=request.conversation_id,
+            intent=AgentIntent.GENERAL_QUESTION,
+            answer=(
+                "Desole, je rencontre un probleme technique pour repondre a cette demande. "
+                "Merci de reessayer, ou de reformuler votre question."
+            ),
+            requires_approval=False,
+            confidence=0.0,
+            justification="Erreur technique interceptee au niveau de l'API.",
+        )
 
 
 @router.post("/agent/feedback")

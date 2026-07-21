@@ -14,7 +14,16 @@ class MaintenanceDiagnosisSkill(Skill):
 
     def run(self, request: AgentChatRequest) -> SkillResult:
         client_name = request.context.get("client_name") or IntentRouter.extract_client_name(request.message)
-        client = self.operations_data_tool.get_client_by_name(client_name) if client_name else None
+        client = None
+        if client_name:
+            try:
+                client = self.operations_data_tool.get_client_by_name(client_name)
+            except ValueError:
+                # Not every maintenance question names a real client (e.g. a
+                # general procedure question) -- fall back to the client-less
+                # path below (RAG similar-cases only) instead of failing the
+                # whole request over an extraction miss.
+                client = None
         similar_cases = self.rag_tool.search_similar_cases(request.message, limit=3)["hits"]
         diffusers = self.operations_data_tool.get_client_diffusers(client["client_id"])["diffusers"] if client else []
         last_intervention = self.operations_data_tool.get_last_intervention(client["client_id"])["intervention"] if client else None

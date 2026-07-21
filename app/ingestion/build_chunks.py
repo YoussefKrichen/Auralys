@@ -2,10 +2,37 @@ from __future__ import annotations
 
 from typing import Iterable
 import re
+import unicodedata
 
 from app.config import settings
 from schemas.chunk_schema import ChunkSchema, ChunkType
 from schemas.fiche_schema import FicheSchema, PROBLEM_CODE_LABELS, _is_plausible_diffuser_model
+
+# Phrases that mark a knowledge-base question as asking "what do I do" rather
+# than "what is the fact/threshold" -- French SAV procedure questions lean on
+# a small, stable set of these ("que faire", "comment reagir", ...), so a
+# keyword check is precise enough without needing an LLM classification call.
+_ACTION_QUESTION_MARKERS = (
+    "que faire",
+    "comment reagir",
+    "comment proceder",
+    "comment faire",
+    "faut-il faire",
+    "faut il faire",
+    "precautions",
+)
+
+
+def _normalize_for_classification(text: str) -> str:
+    ascii_text = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode("ascii")
+    return ascii_text.lower()
+
+
+def _classify_knowledge_question(question: str) -> ChunkType:
+    normalized = _normalize_for_classification(question)
+    if any(marker in normalized for marker in _ACTION_QUESTION_MARKERS):
+        return ChunkType.action
+    return ChunkType.information
 
 
 def _visit_date(fiche: FicheSchema) -> str:
@@ -64,7 +91,49 @@ def _base_metadata(fiche: FicheSchema) -> dict:
     return metadata
 
 
+def _build_knowledge_chunks(fiche: FicheSchema) -> list[ChunkSchema]:
+    """Knowledge-base Q&A entries get one classified chunk instead of the
+    generic overview+issue pair: `searchable_text()` and the issue/solution
+    framing both repeat the same question/answer, so building both here
+    doubled the embeddings for zero new information. Classifying by
+    question type (information vs action) also fits the content better than
+    labelling every entry "issue", which implies a problem being fixed."""
+    question = fiche.probleme_recommandation.probleme_rencontree_raw
+    answer = fiche.probleme_recommandation.solution_proposee
+    if not question and not answer:
+        return []
+    chunk_type = _classify_knowledge_question(question or "")
+    content = f"Question : {question or 'inconnue'}."
+    if answer:
+        content += f" Reponse : {answer}."
+    base_metadata = _base_metadata(fiche)
+    chunks: list[ChunkSchema] = []
+    for index, segment in enumerate(_split_text_by_token_budget(content), start=0):
+        chunks.append(
+            ChunkSchema(
+                chunk_id=f"{fiche.fiche_id}:{chunk_type.value}:{index}",
+                fiche_id=fiche.fiche_id,
+                source_file=fiche.source_file,
+                page_key=fiche.page_key,
+                chunk_type=chunk_type,
+                ordinal=index,
+                content=segment,
+                metadata={
+                    **base_metadata,
+                    "question_type": chunk_type.value,
+                    "problem_code": None,
+                    "issue": question,
+                    "solution": answer,
+                },
+            )
+        )
+    return chunks
+
+
 def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
+    if fiche.document_type == "knowledge_base_entry":
+        return _build_knowledge_chunks(fiche)
+
     chunks: list[ChunkSchema] = []
     base_metadata = _base_metadata(fiche)
     for index, content in enumerate(_split_text_by_token_budget(fiche.searchable_text()), start=0):

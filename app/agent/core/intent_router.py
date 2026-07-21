@@ -96,7 +96,6 @@ class IntentRouter:
         patterns = [
             r"client\s*[:\-]\s*([^,;\n]+)",
             r"chez\s+([^,;\n]+)",
-            r"pour\s+([^,;\n]+)",
         ]
         for pattern in patterns:
             match = re.search(pattern, message, re.IGNORECASE)

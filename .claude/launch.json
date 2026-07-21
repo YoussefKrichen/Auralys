@@ -4,7 +4,7 @@
     {
       "name": "backend",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["app/main.py"],
+      "runtimeArgs": ["-m", "app.main"],
       "port": 8000
     },
     {

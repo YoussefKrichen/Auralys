@@ -11,6 +11,8 @@ class ChunkType(str, Enum):
     diffuser = "diffuser"
     recharge = "recharge"
     issue = "issue"
+    information = "information"
+    action = "action"
 
 
 class ChunkSchema(BaseModel):

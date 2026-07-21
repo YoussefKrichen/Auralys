@@ -74,8 +74,9 @@ def parse_service_time(raw_value: str | None):
 
 
 def build_fiche_id(source_file: Path, page_key: str, maintenance_number: str | None) -> str:
-    suffix = maintenance_number or page_key
-    return f"{source_file.stem}:{page_key}:{suffix}"
+    if maintenance_number:
+        return f"{source_file.stem}:{page_key}:{maintenance_number}"
+    return f"{source_file.stem}:{page_key}"
 
 
 def normalize_page(source_file: Path, page_key: str, payload: dict[str, Any]) -> FicheSchema:

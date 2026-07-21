@@ -460,7 +460,14 @@ async function submitRagQuery(message) {
     await resizePromptInput();
     await scrollChatFeedToEnd();
   } catch (error) {
-    ragError.value = String(error.message || error);
+    // The backend now catches its own errors and answers normally, so
+    // reaching here means the request never got a response at all (network
+    // down, timeout, CORS...). Log the real detail for debugging, but never
+    // show a raw technical string (e.g. "HTTP 500", "Failed to fetch") in
+    // the chat -- it reads as a broken app rather than a message to react to.
+    console.error("agent/chat request failed:", error);
+    ragError.value =
+      "Desole, je n'arrive pas a repondre pour le moment. Verifiez votre connexion et reessayez.";
     resolveChatTurn(pendingEntryId, "", ragError.value);
   } finally {
     ragLoading.value = false;

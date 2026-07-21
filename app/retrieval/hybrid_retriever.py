@@ -131,7 +131,7 @@ def _score_hit(
     prior = 0.0
     if document_type == "client_maintenance_form":
         prior += 0.10
-    if chunk_type in {"diffuser", "issue", "recharge"}:
+    if chunk_type in {"diffuser", "issue", "recharge", "action", "information"}:
         prior += 0.08
     if chunk_type == "overview":
         prior -= 0.06

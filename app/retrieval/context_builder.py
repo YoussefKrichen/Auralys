@@ -28,7 +28,7 @@ def _select_context_hits(result: RetrievalResult, limit: int) -> list:
     overview_hits = []
     for hit in result.hits:
         chunk_type = str(hit.metadata.get("chunk_type") or "").strip().lower()
-        if chunk_type in {"diffuser", "issue", "recharge"}:
+        if chunk_type in {"diffuser", "issue", "recharge", "action", "information"}:
             specific_hits.append(hit)
         else:
             overview_hits.append(hit)

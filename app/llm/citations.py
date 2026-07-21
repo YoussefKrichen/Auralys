@@ -64,7 +64,12 @@ def build_sources_prompt_block(sources: list[Citation]) -> str:
         "Sources disponibles (cite leur numero entre crochets juste apres une "
         "affirmation qui s'appuie dessus, ex: ... [2]. Ne cite jamais un numero "
         "absent de cette liste, et n'ajoute aucun crochet si aucune source ne "
-        "couvre l'affirmation) :"
+        "couvre l'affirmation. N'utilise ces sources que si la question porte "
+        "reellement sur le client, le cas ou l'historique concerne -- ne les "
+        "cite jamais juste pour illustrer une reponse generale. Le descriptif "
+        "ci-dessous (client, numero de fiche...) sert uniquement a toi pour "
+        "identifier la source : ne recopie jamais un numero de fiche dans ta "
+        "reponse, seul le marqueur [n] doit y apparaitre) :"
     ]
     for source in sources:
         descriptor_parts = []
