@@ -4,6 +4,7 @@ import { buildApiUrl, fetchJson, getApiBase, postJson } from "../lib/api";
 import { useBackendStatus } from "../lib/backendStatus";
 import { formatMessage } from "../lib/formatMessage";
 import { STORAGE_KEYS } from "../lib/storageKeys";
+import CeoKpis from "./CeoKpis.vue";
 
 const props = defineProps({
   user: {
@@ -40,6 +41,9 @@ const savingDecision = ref(false);
 const decisionError = ref("");
 const conversations = ref([]);
 const memories = ref([]);
+const flagDrafts = ref({});
+const correctionDecisionPending = ref(null);
+const correctionDecisionError = ref("");
 const selectedConversationKey = ref("");
 const conversationMessages = ref([]);
 const loadingConversations = ref(false);
@@ -121,6 +125,9 @@ const suggestionChips = [
 ];
 
 const pendingReviews = computed(() => reviewRows.value.filter((row) => row.review_status === "pending"));
+const pendingCorrections = computed(() =>
+  memories.value.filter((row) => row.memory_type === "KNOWLEDGE_CORRECTION" && row.status === "PENDING"),
+);
 const activeReview = computed(() => {
   if (!reviewRows.value.length) return null;
   if (selectedHistoryId.value !== null) {
@@ -279,6 +286,68 @@ function selectReview(row) {
   decisionError.value = "";
 }
 
+function getFlagDraft(historyId) {
+  const key = String(historyId);
+  if (!flagDrafts.value[key]) {
+    flagDrafts.value[key] = { open: false, text: "", submitting: false, error: "", done: false };
+  }
+  return flagDrafts.value[key];
+}
+
+function toggleFlagDraft(historyId) {
+  const draft = getFlagDraft(historyId);
+  draft.open = !draft.open;
+  draft.error = "";
+}
+
+async function submitFlagDraft(historyId) {
+  const draft = getFlagDraft(historyId);
+  const text = draft.text.trim();
+  if (!text) return;
+  draft.submitting = true;
+  draft.error = "";
+  try {
+    await postJson(
+      `/admin/reviews/${historyId}/decision`,
+      {
+        decision: "correct",
+        reviewed_by: props.user?.username || props.user?.display_name || "ceo",
+        corrected_answer: text,
+      },
+      {},
+      apiBase.value,
+    );
+    draft.done = true;
+    draft.open = false;
+    await loadMemories();
+  } catch (error) {
+    draft.error = String(error.message || error);
+  } finally {
+    draft.submitting = false;
+  }
+}
+
+async function submitMemoryDecision(memoryId, decision) {
+  correctionDecisionPending.value = memoryId;
+  correctionDecisionError.value = "";
+  try {
+    await postJson(
+      `/admin/memories/${memoryId}/decision`,
+      {
+        decision,
+        reviewed_by: props.user?.username || props.user?.display_name || "ceo",
+      },
+      {},
+      apiBase.value,
+    );
+    await loadMemories();
+  } catch (error) {
+    correctionDecisionError.value = String(error.message || error);
+  } finally {
+    correctionDecisionPending.value = null;
+  }
+}
+
 async function selectConversation(row) {
   selectedConversationKey.value = row.conversation_key;
   await loadMessages(row.conversation_key);
@@ -307,10 +376,68 @@ function formatMessageLabel(row) {
   return row.sender === "assistant" ? "Auralys" : row.sender;
 }
 
+const MEMORY_TYPE_LABELS = {
+  BUSINESS_RULE: "Regle metier",
+  KNOWLEDGE_CORRECTION: "Correction",
+  FEEDBACK_MEMORY: "Retour utilisateur",
+  USER_PREFERENCE: "Preference utilisateur",
+};
+
+function formatMemoryType(value) {
+  return MEMORY_TYPE_LABELS[value] || formatIntentLabel(value);
+}
+
+const MEMORY_STATUS_LABELS = {
+  PENDING: "En attente",
+  ACTIVE: "Active",
+  REJECTED: "Rejetee",
+};
+
+function formatMemoryStatus(value) {
+  return MEMORY_STATUS_LABELS[value] || value;
+}
+
+const INTENT_LABELS = {
+  ASK_CLIENT_HISTORY: "Historique client",
+  ASK_NEXT_SAV_DESTINATION: "Prochaine intervention SAV",
+  ASK_ROUTE_OPTIMIZATION: "Optimisation de trajet",
+  ASK_ALERTS: "Alertes",
+  ASK_MAINTENANCE_PROBLEM: "Panne / diagnostic",
+  ASK_DAILY_REPORT: "Rapport quotidien",
+  ASK_STOCK_STATUS: "Stock",
+  SUBMIT_MAINTENANCE_FICHE: "Fiche de maintenance",
+  GENERAL_QUESTION: "Question generale",
+  semantic: "Question generale",
+  hybrid: "Question generale",
+  postgres: "Recherche client",
+  qdrant: "Question generale",
+};
+
+function formatIntentLabel(value) {
+  const key = String(value || "").trim();
+  if (!key) return "";
+  if (INTENT_LABELS[key]) return INTENT_LABELS[key];
+  // Fallback for anything not in the map: turn SOME_CONSTANT into "Some constant".
+  const words = key.toLowerCase().replace(/_/g, " ");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
 function formatHistoryLabel(row) {
   const filters = row?.filters || {};
-  return filters.client || row.intent || row.route || `Interaction ${row.history_id}`;
+  if (filters.client) return filters.client;
+  if (row.intent) return formatIntentLabel(row.intent);
+  if (row.route) return formatIntentLabel(row.route);
+  return `Echange ${row.history_id}`;
 }
+
+const STATUS_LABELS = {
+  pending: "En attente",
+  approved: "Approuve",
+  corrected: "Corrige",
+  rejected: "Rejete",
+  urgent: "Urgent",
+  review: "A revoir",
+};
 
 function formatHistoryStatus(row) {
   if (row?.review_status && row.review_status !== "pending") return row.review_status;
@@ -319,12 +446,16 @@ function formatHistoryStatus(row) {
   return "pending";
 }
 
+function formatHistoryStatusLabel(row) {
+  return STATUS_LABELS[formatHistoryStatus(row)] || formatHistoryStatus(row);
+}
+
 function formatResponseQuality(row) {
   if (!row) return "Aucune analyse disponible.";
   if (row.llm_error) return row.llm_error;
   if (row.reasoning_summary) return row.reasoning_summary;
   if (row.sav_admin_analysis?.summary) return row.sav_admin_analysis.summary;
-  return "Aucun resume de raisonnement enregistre pour cette reponse.";
+  return "Auralys n'a pas enregistre d'analyse detaillee pour cette reponse.";
 }
 
 async function submitDecision(decision) {
@@ -387,6 +518,7 @@ function mapStoredDiscussionMessage(row) {
     role: row.sender === "assistant" ? "assistant" : "user",
     text,
     status: "done",
+    historyId: row.history_id ?? null,
   };
 }
 
@@ -434,12 +566,13 @@ async function beginCeoDiscussionTurn(message, imageAttachment = null) {
   return pending.id;
 }
 
-function resolveCeoDiscussionTurn(entryId, answer, fallbackError = "", citations = []) {
+function resolveCeoDiscussionTurn(entryId, answer, fallbackError = "", citations = [], historyId = null) {
   const target = ceoChatFeed.value.find((item) => item.id === entryId);
   if (!target) return;
   target.text = answer || fallbackError || "No response available.";
   target.status = answer ? "done" : "error";
   target.citations = answer ? citations || [] : [];
+  target.historyId = answer ? historyId ?? null : null;
 }
 
 function sendSuggestion(text) {
@@ -503,7 +636,7 @@ async function submitCeoDiscussion(message) {
       apiBase.value,
     );
     ceoDiscussionResponse.value = payload;
-    resolveCeoDiscussionTurn(pendingEntryId, payload.answer, "", payload.citations);
+    resolveCeoDiscussionTurn(pendingEntryId, payload.answer, "", payload.citations, payload.history_id);
     void speakAnswer(ceoDiscussionResponse.value);
     if (payload.conversation_id) {
       ceoConversationId.value = String(payload.conversation_id);
@@ -1115,15 +1248,59 @@ onBeforeUnmount(() => {
             <strong>{{ conversations.length || 0 }}</strong>
             <span>Chats</span>
           </article>
+          <article class="ceo-inline-metric">
+            <strong>{{ pendingCorrections.length || 0 }}</strong>
+            <span>Corrections</span>
+          </article>
           <span class="brand-state" :class="backendStatus">{{ statusLabel }}</span>
         </div>
+      </section>
+
+      <section v-if="pendingCorrections.length" class="panel ceo-corrections-panel">
+        <div class="assistant-panel-header">
+          <div class="assistant-panel-copy">
+            <div>
+              <h2>Corrections en attente</h2>
+              <p>Ces corrections ne s'appliquent qu'apres confirmation.</p>
+            </div>
+          </div>
+          <span class="queue-status">{{ pendingCorrections.length }}</span>
+        </div>
+        <div class="admin-memory-list">
+          <article v-for="row in pendingCorrections" :key="row.id" class="admin-memory-card">
+            <div class="queue-card-head">
+              <strong>{{ row.original_query || formatIntentLabel(row.topic) || formatMemoryType(row.memory_type) }}</strong>
+              <span class="queue-status">{{ formatMemoryStatus(row.status) }}</span>
+            </div>
+            <p>{{ row.content }}</p>
+            <div class="correction-actions">
+              <button
+                class="correction-action-button confirm"
+                type="button"
+                :disabled="correctionDecisionPending === row.id"
+                @click="submitMemoryDecision(row.id, 'approve')"
+              >
+                Confirmer
+              </button>
+              <button
+                class="correction-action-button discard"
+                type="button"
+                :disabled="correctionDecisionPending === row.id"
+                @click="submitMemoryDecision(row.id, 'reject')"
+              >
+                Ignorer
+              </button>
+            </div>
+          </article>
+        </div>
+        <div v-if="correctionDecisionError" class="message error-message">{{ correctionDecisionError }}</div>
       </section>
 
       <section class="panel executive-queue-panel">
         <div class="assistant-panel-header">
           <div class="assistant-panel-copy">
             <div>
-              <h2>Validation queue</h2>
+              <h2>A verifier</h2>
             </div>
           </div>
           <span class="queue-status">{{ reviewRows.length }}</span>
@@ -1138,90 +1315,85 @@ onBeforeUnmount(() => {
           >
             <div class="queue-card-head">
               <strong>{{ formatHistoryLabel(item) }}</strong>
-              <span class="queue-status">{{ formatHistoryStatus(item) }}</span>
+              <span class="queue-status">{{ formatHistoryStatusLabel(item) }}</span>
             </div>
             <p>{{ item.original_query }}</p>
             <small>{{ formatHistoryDate(item.created_at) }}</small>
           </article>
         </div>
         <div v-else class="message muted-message">
-          {{ loadingReviews ? "Loading queue..." : "No pending review." }}
+          {{ loadingReviews ? "Chargement..." : "Rien a verifier pour le moment." }}
         </div>
       </section>
 
       <aside class="panel executive-detail-panel">
         <div class="insight-panel-head">
           <div>
-            <h2>Decision</h2>
+            <h2>Votre avis</h2>
           </div>
         </div>
 
         <div v-if="activeReview" class="executive-detail-stack">
           <div class="insight-block">
-            <h3>Request summary</h3>
-            <ul class="simple-list">
-              <li><strong>SAV question:</strong> {{ activeReview.original_query }}</li>
-              <li><strong>Route:</strong> {{ activeReview.route || "-" }}</li>
-              <li><strong>Source:</strong> {{ activeReview.response_source || "-" }}</li>
-              <li><strong>Evidence count:</strong> {{ activeReview.hits?.length || 0 }}</li>
-              <li><strong>System note:</strong> {{ formatResponseQuality(activeReview) }}</li>
-            </ul>
+            <h3>Question posee</h3>
+            <p>{{ activeReview.original_query }}</p>
+            <p class="muted-note">{{ formatResponseQuality(activeReview) }}</p>
           </div>
 
           <div class="insight-block">
-            <h3>Suggested answer</h3>
+            <h3>Reponse donnee par Auralys</h3>
             <p>{{ activeReview.answer }}</p>
           </div>
 
           <label class="composer-field">
-            <span>Comment</span>
-            <textarea v-model="reviewNotes" placeholder="Explain the decision briefly"></textarea>
+            <span>Votre commentaire (facultatif)</span>
+            <textarea v-model="reviewNotes" placeholder="Expliquez brievement votre choix"></textarea>
           </label>
           <label class="composer-field">
-            <span>Corrected answer</span>
-            <textarea v-model="correctedAnswer" placeholder="Write the preferred answer if a correction is needed"></textarea>
+            <span>La bonne reponse, si celle-ci est a corriger</span>
+            <textarea v-model="correctedAnswer" placeholder="Ecrivez la reponse qu'Auralys aurait du donner"></textarea>
           </label>
           <label class="composer-field">
-            <span>Knowledge action</span>
-            <input v-model="knowledgeAction" type="text" placeholder="add to KB, follow up with client" />
+            <span>Suivi complementaire (facultatif)</span>
+            <input v-model="knowledgeAction" type="text" placeholder="ex: relancer le client, mettre a jour une fiche..." />
           </label>
           <div v-if="decisionError" class="message error-message">{{ decisionError }}</div>
 
           <div class="decision-grid">
             <article class="decision-card approve">
               <div class="decision-head">
-                <h3>Approve</h3>
+                <h3>C'est bon</h3>
                 <span class="decision-indicator" aria-hidden="true"></span>
               </div>
-              <p>The answer is clear and safe to keep.</p>
-              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('approve')">Approve</button>
+              <p>La reponse est correcte, rien a changer.</p>
+              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('approve')">Valider</button>
             </article>
             <article class="decision-card correct">
               <div class="decision-head">
-                <h3>Correct</h3>
+                <h3>A corriger</h3>
                 <span class="decision-indicator" aria-hidden="true"></span>
               </div>
-              <p>The answer is useful but needs revision.</p>
-              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('correct')">Correct</button>
+              <p>La reponse est utile mais doit etre corrigee.</p>
+              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('correct')">Corriger</button>
             </article>
             <article class="decision-card reject">
               <div class="decision-head">
-                <h3>Reject</h3>
+                <h3>A rejeter</h3>
                 <span class="decision-indicator" aria-hidden="true"></span>
               </div>
-              <p>The answer should not be reused as is.</p>
-              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('reject')">Reject</button>
+              <p>La reponse ne doit pas etre reutilisee telle quelle.</p>
+              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('reject')">Rejeter</button>
             </article>
           </div>
         </div>
 
-        <div v-else class="message muted-message">Select a review to inspect it.</div>
+        <div v-else class="message muted-message">Choisissez une reponse a examiner dans la liste.</div>
       </aside>
 
       <section class="panel executive-data-panel ceo-history-panel">
         <div class="section-title">
           <div>
-            <h2>History</h2>
+            <h2>Historique</h2>
           </div>
         </div>
 
@@ -1246,7 +1418,7 @@ onBeforeUnmount(() => {
               </button>
             </div>
             <div v-else class="message muted-message">
-              {{ loadingConversations ? "Loading conversations..." : "No conversation stored yet." }}
+              {{ loadingConversations ? "Chargement..." : "Aucune conversation enregistree." }}
             </div>
           </article>
 
@@ -1263,31 +1435,65 @@ onBeforeUnmount(() => {
                 </div>
                 <p>{{ row.content }}</p>
                 <small>{{ formatHistoryDate(row.created_at) }}</small>
+                <div v-if="row.sender === 'assistant' && row.history_id" class="message-action-row">
+                  <button
+                    class="message-action-button"
+                    type="button"
+                    :class="{ active: getFlagDraft(row.history_id).open }"
+                    aria-label="Signaler cette reponse"
+                    title="Signaler / corriger cette reponse"
+                    @click="toggleFlagDraft(row.history_id)"
+                  >
+                    <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 3v18" />
+                      <path d="M5 4h11l-2.5 4L16 12H5" />
+                    </svg>
+                  </button>
+                  <small v-if="getFlagDraft(row.history_id).done" class="flag-done-label">Correction envoyee</small>
+                </div>
+                <div v-if="row.sender === 'assistant' && row.history_id && getFlagDraft(row.history_id).open" class="flag-panel">
+                  <textarea
+                    v-model="getFlagDraft(row.history_id).text"
+                    placeholder="Quelle est la bonne reponse ?"
+                    rows="2"
+                  ></textarea>
+                  <div class="correction-actions">
+                    <button
+                      class="correction-action-button confirm"
+                      type="button"
+                      :disabled="getFlagDraft(row.history_id).submitting || !getFlagDraft(row.history_id).text.trim()"
+                      @click="submitFlagDraft(row.history_id)"
+                    >
+                      Envoyer la correction
+                    </button>
+                  </div>
+                  <div v-if="getFlagDraft(row.history_id).error" class="message error-message">{{ getFlagDraft(row.history_id).error }}</div>
+                </div>
               </div>
             </div>
             <div v-else class="message muted-message">
-              {{ loadingMessages ? "Loading messages..." : "Select a conversation to inspect its messages." }}
+              {{ loadingMessages ? "Chargement..." : "Choisissez une conversation pour voir ses messages." }}
             </div>
           </article>
         </div>
 
         <article class="insight-block admin-data-block">
           <div class="admin-data-head">
-            <h3>Memories</h3>
+            <h3>Ce qu'Auralys a appris</h3>
             <span class="queue-status">{{ memories.length }}</span>
           </div>
           <div v-if="memories.length" class="admin-memory-list">
             <div v-for="row in memories" :key="row.id" class="admin-memory-card">
               <div class="queue-card-head">
-                <strong>{{ row.memory_type }}</strong>
-                <span class="queue-status">{{ row.status }}</span>
+                <strong>{{ formatMemoryType(row.memory_type) }}</strong>
+                <span class="queue-status">{{ formatMemoryStatus(row.status) }}</span>
               </div>
               <p>{{ row.content }}</p>
-              <small>{{ row.scope || "global" }} · {{ row.confidence ?? "-" }}</small>
+              <small>{{ row.scope === "global" ? "Regle generale" : row.scope }}</small>
             </div>
           </div>
           <div v-else class="message muted-message">
-            {{ loadingMemories ? "Loading memories..." : "No active memory is stored yet." }}
+            {{ loadingMemories ? "Chargement..." : "Rien n'a encore ete appris." }}
           </div>
         </article>
       </section>
@@ -1409,6 +1615,39 @@ onBeforeUnmount(() => {
                     <path d="M7 13V4H4v9h3zm0 0-4 7a2 2 0 0 0 3.6-1.4l.9-3.6H18a2 2 0 0 0 2-2.3l-1.2-6A2 2 0 0 0 16.8 4H7" />
                   </svg>
                 </button>
+                <button
+                  v-if="entry.historyId"
+                  class="message-action-button"
+                  type="button"
+                  :class="{ active: getFlagDraft(entry.historyId).open }"
+                  aria-label="Signaler cette reponse"
+                  title="Signaler / corriger cette reponse"
+                  @click="toggleFlagDraft(entry.historyId)"
+                >
+                  <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 3v18" />
+                    <path d="M5 4h11l-2.5 4L16 12H5" />
+                  </svg>
+                </button>
+                <small v-if="entry.historyId && getFlagDraft(entry.historyId).done" class="flag-done-label">Correction envoyee</small>
+              </div>
+              <div v-if="entry.historyId && getFlagDraft(entry.historyId).open" class="flag-panel">
+                <textarea
+                  v-model="getFlagDraft(entry.historyId).text"
+                  placeholder="Quelle est la bonne reponse ?"
+                  rows="2"
+                ></textarea>
+                <div class="correction-actions">
+                  <button
+                    class="text-button"
+                    type="button"
+                    :disabled="getFlagDraft(entry.historyId).submitting || !getFlagDraft(entry.historyId).text.trim()"
+                    @click="submitFlagDraft(entry.historyId)"
+                  >
+                    Envoyer la correction
+                  </button>
+                </div>
+                <div v-if="getFlagDraft(entry.historyId).error" class="message error-message">{{ getFlagDraft(entry.historyId).error }}</div>
               </div>
             </article>
           </div>
@@ -1542,5 +1781,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
+
+    <CeoKpis v-else-if="props.activeSection === 'ceo-kpis'" />
   </main>
 </template>

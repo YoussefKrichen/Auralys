@@ -22,6 +22,7 @@ const navigationByRole = {
   sav: [],
   ceo: [
     { key: "ceo-workspace", label: "Queue", detail: "" },
+    { key: "ceo-kpis", label: "KPIs", detail: "Statistiques interventions" },
     { key: "ceo-discussion", label: "Discussion", detail: "Chat with Auralys" },
   ],
 };
