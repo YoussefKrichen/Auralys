@@ -107,7 +107,17 @@ const FALLBACK_KPIS = {
 
 const kpis = ref(FALLBACK_KPIS);
 
-const heroStats = computed(() => {
+// Option B: one headline number carries the hero, the rest reads as a
+// slim strip underneath instead of six equal-weight cards.
+const heroHeadline = computed(() => {
+  const t = kpis.value.totals;
+  return {
+    value: t.interventions.toLocaleString("fr-FR"),
+    label: `interventions realisees sur la periode, ${t.clients.toLocaleString("fr-FR")} clients actifs`,
+  };
+});
+
+const heroStrip = computed(() => {
   const t = kpis.value.totals;
   const busiestMonth = kpis.value.monthly_trend.reduce(
     (best, row) => (row.count > (best?.count ?? -1) ? row : best),
@@ -116,12 +126,11 @@ const heroStats = computed(() => {
   const topDiffuseur = kpis.value.diffuseurs_by_clients[0];
   const topVille = kpis.value.villes_top[0];
   return [
-    { label: "Interventions totales", value: t.interventions.toLocaleString("fr-FR"), detail: "toutes natures confondues" },
-    { label: "Clients actifs", value: t.clients.toLocaleString("fr-FR"), detail: `mediane : ${t.median_interventions_per_client} interventions / client` },
-    { label: "Volume total livre", value: t.volume_livre.toLocaleString("fr-FR"), detail: "unites de parfum, tous modeles" },
-    { label: "Ville la plus desservie", value: topVille?.name ?? "-", detail: `${topVille?.count ?? 0} interventions` },
-    { label: "Mois le plus charge", value: busiestMonth?.label ?? "-", detail: `${busiestMonth?.count ?? 0} interventions` },
-    { label: "Diffuseur le plus utilise", value: topDiffuseur?.model ?? "-", detail: `${topDiffuseur?.clients ?? 0} clients equipes` },
+    { label: "Clients actifs", value: t.clients.toLocaleString("fr-FR"), detail: `mediane : ${t.median_interventions_per_client} / client` },
+    { label: "Volume livre", value: t.volume_livre.toLocaleString("fr-FR"), detail: "unites de parfum" },
+    { label: "Ville la + desservie", value: topVille?.name ?? "-", detail: `${topVille?.count ?? 0} interventions` },
+    { label: "Mois le + charge", value: busiestMonth?.label ?? "-", detail: `${busiestMonth?.count ?? 0} interventions` },
+    { label: "Diffuseur le + utilise", value: topDiffuseur?.model ?? "-", detail: `${topDiffuseur?.clients ?? 0} clients equipes` },
   ];
 });
 
@@ -204,18 +213,24 @@ onMounted(() => {
     <section class="panel executive-overview-hero">
       <div class="executive-overview-head">
         <div class="executive-overview-copy">
-          <span class="kpi-overline">Auralys - Statistiques interventions</span>
-          <h2>Performance {{ kpis.period.start }} &rarr; {{ kpis.period.end }}</h2>
+          <h2>Aromair, en chiffres <span class="kpi-title-credit">avec Auralys</span></h2>
           <p>Vue d'ensemble des interventions, clients et diffuseurs sur la periode couverte par les donnees.</p>
         </div>
-        <span class="meta-chip">{{ loading ? "Actualisation..." : "A jour" }}</span>
+        <div class="kpi-hero-chips">
+          <span class="meta-chip">{{ kpis.period.start }} &rarr; {{ kpis.period.end }}</span>
+          <span class="meta-chip">{{ loading ? "Actualisation..." : "A jour" }}</span>
+        </div>
       </div>
-      <div class="executive-overview-grid">
-        <article v-for="stat in heroStats" :key="stat.label" class="panel executive-overview-card">
+      <div class="kpi-hero-number-row">
+        <span class="kpi-hero-number">{{ heroHeadline.value }}</span>
+        <span class="kpi-hero-number-label">{{ heroHeadline.label }}</span>
+      </div>
+      <div class="kpi-hero-strip">
+        <div v-for="stat in heroStrip" :key="stat.label" class="kpi-hero-strip-item">
           <span>{{ stat.label }}</span>
           <strong>{{ stat.value }}</strong>
           <small>{{ stat.detail }}</small>
-        </article>
+        </div>
       </div>
     </section>
 

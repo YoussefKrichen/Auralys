@@ -693,39 +693,65 @@ p {
   font-size: 1rem;
 }
 
-.executive-overview-grid {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+.kpi-hero-number-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 4px 0 14px;
 }
 
-.executive-overview-card {
-  min-height: 128px;
-  padding: 18px 16px;
-  border-color: rgba(28, 35, 45, 0.08);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(248, 246, 242, 0.96));
-  box-shadow: 0 10px 22px rgba(11, 28, 52, 0.06);
+.kpi-hero-number {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent-strong);
+  font-variant-numeric: tabular-nums;
 }
 
-.executive-overview-card span {
+.kpi-hero-number-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.kpi-hero-strip {
+  display: flex;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  flex-wrap: wrap;
+}
+
+.kpi-hero-strip-item {
+  flex: 1;
+  min-width: 140px;
+  padding: 0 18px;
+  border-left: 1px solid var(--line);
+}
+
+.kpi-hero-strip-item:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.kpi-hero-strip-item span {
   display: block;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   color: var(--muted);
   font-weight: 600;
 }
 
-.executive-overview-card strong {
+.kpi-hero-strip-item strong {
   display: block;
-  margin-top: 10px;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  letter-spacing: -0.03em;
+  margin-top: 6px;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 
-.executive-overview-card small {
+.kpi-hero-strip-item small {
   display: block;
-  margin-top: 4px;
-  font-size: 0.74rem;
+  margin-top: 2px;
+  font-size: 0.72rem;
   color: var(--muted);
 }
 
@@ -2143,10 +2169,6 @@ p {
     align-items: flex-start;
   }
 
-  .executive-overview-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .prompt-stage {
     border-radius: 28px;
   }
@@ -2607,10 +2629,6 @@ p {
 }
 
 @media (max-width: 1180px) {
-  .executive-overview-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .app-shell-auth,
   .sav-dashboard,
   .ceo-dashboard,
@@ -2690,12 +2708,21 @@ p {
   cursor: default;
 }
 
-.kpi-overline {
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-strong);
+.kpi-title-credit {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.86rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--muted);
+}
+
+.kpi-hero-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: none;
 }
 
 .kpi-panel {
