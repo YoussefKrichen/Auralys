@@ -144,33 +144,16 @@ const activeConversation = computed(() => {
   return conversations.value[0];
 });
 
-const ceoDiscussionStatus = computed(() => {
-  if (ceoDiscussionLoading.value) return "Auralys is preparing a response.";
-  if (voiceListening.value && voiceTranscriptPreview.value.trim()) return voiceTranscriptPreview.value;
-  if (voiceListening.value) return "Speak normally. Auralys will send the prompt after a short silence.";
-  if (voiceError.value) return voiceError.value;
-  if (ceoDiscussionError.value) return ceoDiscussionError.value;
-  if (ceoDiscussionResponse.value?.answer) return "Last answer received successfully.";
-  return "Use this space to discuss priorities, ask for summaries, or prepare decisions.";
-});
-
-const listeningStatus = computed(() => {
-  if (voiceListening.value && voiceTranscriptPreview.value.trim()) return "Streaming";
-  if (voiceListening.value) return "Listening live";
-  if (voiceError.value) return voiceError.value;
-  return "Ready";
-});
-
 const canRequestMicrophone = computed(() => canRecordWithBrowser());
 const canReplayLatestAnswer = computed(() => {
   const text = (ceoDiscussionResponse.value?.spoken_text || ceoDiscussionResponse.value?.answer || "").trim();
   return Boolean(voicePlaybackSupported.value && text);
 });
 const workspaceStatusLine = computed(() => {
-  if (backendStatus.value !== "online") return "Backend offline";
-  if (reviewSummary.value.pending) return `${reviewSummary.value.pending} reviews need attention`;
-  if (reviewSummary.value.with_alert) return `${reviewSummary.value.with_alert} alerts detected`;
-  return "No urgent review";
+  if (backendStatus.value !== "online") return "Serveur hors ligne";
+  if (reviewSummary.value.pending) return `${reviewSummary.value.pending} revision(s) a traiter`;
+  if (reviewSummary.value.with_alert) return `${reviewSummary.value.with_alert} alerte(s) detectee(s)`;
+  return "Aucune revision urgente";
 });
 
 function readStoredBoolean(key, fallbackValue) {
@@ -569,7 +552,7 @@ async function beginCeoDiscussionTurn(message, imageAttachment = null) {
 function resolveCeoDiscussionTurn(entryId, answer, fallbackError = "", citations = [], historyId = null) {
   const target = ceoChatFeed.value.find((item) => item.id === entryId);
   if (!target) return;
-  target.text = answer || fallbackError || "No response available.";
+  target.text = answer || fallbackError || "Aucune reponse disponible.";
   target.status = answer ? "done" : "error";
   target.citations = answer ? citations || [] : [];
   target.historyId = answer ? historyId ?? null : null;
@@ -716,7 +699,7 @@ function readFileAsDataUrl(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(String(reader.result || ""));
-    reader.onerror = () => reject(reader.error || new Error("Unable to read image file."));
+    reader.onerror = () => reject(reader.error || new Error("Impossible de lire le fichier image."));
     reader.readAsDataURL(file);
   });
 }
@@ -1552,7 +1535,7 @@ onBeforeUnmount(() => {
         <div ref="ceoChatViewport" class="chat-feed-stage">
           <div v-if="ceoChatFeed.length" class="chat-feed-list">
             <div class="chat-day-divider">
-              <span>Today</span>
+              <span>Aujourd'hui</span>
             </div>
             <article
               v-for="entry in ceoChatFeed"
@@ -1761,9 +1744,9 @@ onBeforeUnmount(() => {
             <span class="status-pill" :class="{ live: voiceListening, warn: !voiceListening && voiceError }">
               <span class="status-pill-dot" aria-hidden="true"></span>
               <small v-if="voiceTranscriptPreview">{{ voiceTranscriptPreview }}</small>
-              <small v-else-if="voiceListening">Listening...</small>
+              <small v-else-if="voiceListening">Ecoute en cours...</small>
               <small v-else-if="voiceError">{{ voiceError }}</small>
-              <small v-else>{{ ceoDiscussionLoading ? "Thinking..." : "" }}</small>
+              <small v-else>{{ ceoDiscussionLoading ? "Reflexion en cours..." : "" }}</small>
             </span>
           </div>
         </section>

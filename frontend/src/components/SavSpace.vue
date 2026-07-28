@@ -72,7 +72,6 @@ const clientDirectory = ref([]);
 const historyRows = ref([]);
 const historyLimit = ref(24);
 const currentConversationId = ref(localStorage.getItem(STORAGE_KEYS.savConversationId) || "");
-const agentPlan = ref(null);
 const chatFeed = ref([]);
 const chatFeedViewport = ref(null);
 const promptInput = ref(null);
@@ -109,110 +108,11 @@ const emptyStateHint = computed(() => {
   return variants[new Date().getDate() % variants.length];
 });
 
-const ragMetrics = computed(() => {
-  if (!ragResponse.value) return [];
-  const timings = ragResponse.value.timings || {};
-  return [
-    { label: "Source", value: ragResponse.value.response_source || "-" },
-    { label: "Route", value: ragResponse.value.route || "-" },
-    { label: "Preuves", value: String((ragResponse.value.hits || ragResponse.value.sources || []).length) },
-    { label: "Latence", value: timings.total_ms ? `${formatNumber(timings.total_ms)} ms` : "-" },
-    { label: "Conversation", value: ragResponse.value.conversation_id ? "active" : "-" },
-  ];
-});
-
-const latestInsightConfidence = computed(() => {
-  const sourceCount = (ragResponse.value?.hits || ragResponse.value?.sources || []).length;
-  if (!sourceCount) return 68;
-  return Math.min(97, 74 + sourceCount * 4);
-});
-
-const latestInsightSources = computed(() => {
-  const sourceNames = ragResponse.value?.sources || [];
-  if (sourceNames.length) {
-    return sourceNames.slice(0, 3).map((source, index) => ({
-      title: source,
-      subtitle: "Agent source",
-      confidence: Math.max(82, 96 - index * 4),
-    }));
-  }
-  const hits = ragResponse.value?.hits || [];
-  return hits.slice(0, 3).map((hit, index) => ({
-    title: hit.title || hit.source_title || hit.document_title || hit.source || `Source ${index + 1}`,
-    subtitle: hit.document_type || hit.chunk_type || hit.client_name || "Knowledge source",
-    confidence: Math.max(82, 96 - index * 4),
-  }));
-});
-
-const savWorkspaceCards = computed(() => [
-  {
-    label: "Service",
-    value: statusLabel.value,
-    detail: ragStatus.value?.llm_model || "Connexion en cours",
-  },
-  {
-    label: "Clients",
-    value: formatCompactNumber(referenceCounts.value.clients),
-    detail: "Fiches disponibles",
-  },
-  {
-    label: "Historique",
-    value: formatCompactNumber(historySummary.value.rows),
-    detail: `${historySummary.value.conversations} conversation${historySummary.value.conversations > 1 ? "s" : ""}`,
-  },
-  {
-    label: "Micro",
-    value: voiceSupported.value || voiceUploadSupported.value ? "Disponible" : "Indisponible",
-    detail: voiceStatusDetail.value,
-  },
-]);
-
-const displayedAgentActions = computed(() => {
-  if (ragLoading.value && agentPlan.value?.actions?.length) {
-    return agentPlan.value.actions;
-  }
-  return (ragResponse.value?.proposed_actions || []).map((action) => action.action_type);
-});
-
-const displayedAgentTools = computed(() => {
-  if (ragLoading.value && agentPlan.value?.tools?.length) {
-    return agentPlan.value.tools;
-  }
-  return ragResponse.value?.agent_tools || [];
-});
-
-const listeningStatus = computed(() => {
-  if (voiceListening.value && voiceTranscriptPreview.value.trim()) {
-    return "Streaming";
-  }
-  if (voiceListening.value) {
-    return "Listening live";
-  }
-  if (voiceError.value) {
-    return voiceError.value;
-  }
-  return "Ready";
-});
-
 const canRequestMicrophone = computed(() => canRecordWithBrowser());
 const canReplayLatestAnswer = computed(() => {
   const text = (ragResponse.value?.spoken_text || ragResponse.value?.answer || "").trim();
   return Boolean(voicePlaybackSupported.value && text);
 });
-const voiceStatusChips = computed(() => [
-  {
-    label: "Input",
-    value: voiceSupported.value ? "Live mic" : voiceUploadSupported.value ? "Upload only" : "Unavailable",
-  },
-  {
-    label: "Mode",
-    value: voiceMode.value === "recording" ? "Recorded capture" : "None",
-  },
-  {
-    label: "Playback",
-    value: voicePlaybackSupported.value ? "Enabled" : "Unavailable",
-  },
-]);
 
 function readStoredBoolean(key, fallbackValue) {
   if (typeof window === "undefined") return fallbackValue;
@@ -324,7 +224,7 @@ async function beginChatTurn(message, imageAttachment = null) {
 function resolveChatTurn(entryId, answer, fallbackError = "", citations = []) {
   const target = chatFeed.value.find((item) => item.id === entryId);
   if (!target) return;
-  target.text = answer || fallbackError || "No response available.";
+  target.text = answer || fallbackError || "Aucune reponse disponible.";
   target.status = answer ? "done" : "error";
   target.citations = answer ? citations || [] : [];
 }
@@ -373,56 +273,6 @@ async function sendMessageFeedback(entry, rating) {
   }
 }
 
-function buildAgentPreview(query) {
-  const normalized = query.toLowerCase();
-  if (normalized.includes("client") || normalized.includes("historique")) {
-    return {
-      message: "Agent is checking client history before answering.",
-      tools: ["Operations data", "RAG tool"],
-      actions: ["SEARCH_CLIENT_HISTORY"],
-    };
-  }
-  if (normalized.includes("planning") || normalized.includes("destination") || normalized.includes("route")) {
-    return {
-      message: "Agent is preparing a SAV planning answer.",
-      tools: ["Operations data", "Maps tool"],
-      actions: ["RECOMMEND_ROUTE", "UPDATE_SAV_PLANNING"],
-    };
-  }
-  if (normalized.includes("alerte") || normalized.includes("stock")) {
-    return {
-      message: "Agent is reviewing alerts and stock signals.",
-      tools: ["Operations data"],
-      actions: ["CREATE_LOW_RISK_ALERT"],
-    };
-  }
-  return {
-    message: "Agent is grounding the answer before replying.",
-    tools: ["RAG tool"],
-    actions: ["SEARCH_KNOWLEDGE"],
-  };
-}
-
-function normalizeAgentResponse(payload) {
-  const intent = payload.intent || "GENERAL_QUESTION";
-  const toolsByIntent = {
-    ASK_CLIENT_HISTORY: ["Operations data", "RAG tool"],
-    ASK_NEXT_SAV_DESTINATION: ["Operations data", "Maps tool"],
-    ASK_ALERTS: ["Operations data"],
-    ASK_MAINTENANCE_PROBLEM: ["Operations data", "RAG tool"],
-    ASK_DAILY_REPORT: ["Operations data"],
-    ASK_STOCK_STATUS: ["Operations data"],
-    GENERAL_QUESTION: ["RAG tool"],
-  };
-  return {
-    ...payload,
-    route: intent,
-    response_source: "agent",
-    agent_tools: toolsByIntent[intent] || ["RAG tool"],
-    timings: payload.timings || {},
-  };
-}
-
 async function submitRagQuery(message) {
   const imageAttachment = consumeSelectedImageAttachment();
   const submittedPrompt = buildSubmittedPrompt(message, imageAttachment);
@@ -430,7 +280,6 @@ async function submitRagQuery(message) {
   const pendingEntryId = await beginChatTurn(submittedPrompt, imageAttachment);
   ragLoading.value = true;
   ragError.value = "";
-  agentPlan.value = buildAgentPreview(submittedPrompt);
   try {
     const location = await refreshCurrentLocation();
     const payload = await postJson(
@@ -449,7 +298,7 @@ async function submitRagQuery(message) {
       {},
       apiBase.value,
     );
-    ragResponse.value = normalizeAgentResponse(payload);
+    ragResponse.value = payload;
     resolveChatTurn(pendingEntryId, ragResponse.value.answer, "", ragResponse.value.citations);
     void speakAnswer(ragResponse.value);
     if (payload.conversation_id) {
@@ -471,7 +320,6 @@ async function submitRagQuery(message) {
     resolveChatTurn(pendingEntryId, "", ragError.value);
   } finally {
     ragLoading.value = false;
-    agentPlan.value = null;
   }
 }
 
@@ -531,7 +379,7 @@ function readFileAsDataUrl(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(String(reader.result || ""));
-    reader.onerror = () => reject(reader.error || new Error("Unable to read image file."));
+    reader.onerror = () => reject(reader.error || new Error("Impossible de lire le fichier image."));
     reader.readAsDataURL(file);
   });
 }
@@ -685,7 +533,7 @@ async function handleVoiceAnswerPayload(payload) {
   chatFeed.value.push({
     id: `assistant-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     role: "assistant",
-    text: payload.answer || "No response available.",
+    text: payload.answer || "Aucune reponse disponible.",
     status: "done",
     feedback: null,
   });
@@ -1097,16 +945,6 @@ async function refreshWorkspace() {
   }
 }
 
-function formatNumber(value) {
-  if (value === undefined || value === null || Number.isNaN(Number(value))) return "-";
-  return String(Math.round(Number(value)));
-}
-
-function formatCompactNumber(value) {
-  if (value === undefined || value === null || Number.isNaN(Number(value))) return "-";
-  return new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(Number(value));
-}
-
 watch(currentConversationId, (value) => {
   saveConversationState();
   emit("conversation-change", value || "");
@@ -1203,7 +1041,7 @@ onBeforeUnmount(() => {
       <div ref="chatFeedViewport" class="chat-feed-stage">
         <div v-if="chatFeed.length" class="chat-feed-list">
           <div class="chat-day-divider">
-            <span>Today</span>
+            <span>Aujourd'hui</span>
           </div>
           <article
             v-for="entry in chatFeed"
@@ -1211,7 +1049,7 @@ onBeforeUnmount(() => {
             class="chat-feed-entry"
             :class="[`role-${entry.role}`, `status-${entry.status}`]"
           >
-            <span class="chat-feed-role">{{ entry.role === "user" ? "PROMPT" : "AURALYS" }}</span>
+            <span class="chat-feed-role">{{ entry.role === "user" ? "SAV" : "AURALYS" }}</span>
             <div class="chat-feed-text" v-html="formatMessage(entry.text)"></div>
             <div v-if="entry.imageAttachment" class="chat-image-card">
               <img :src="entry.imageAttachment.dataUrl" :alt="entry.imageAttachment.name" class="chat-image-preview" >
@@ -1379,7 +1217,7 @@ onBeforeUnmount(() => {
           <span class="status-pill" :class="{ live: voiceListening, warn: !voiceListening && voiceError }">
             <span class="status-pill-dot" aria-hidden="true"></span>
             <small v-if="voiceTranscriptPreview">{{ voiceTranscriptPreview }}</small>
-            <small v-else-if="voiceListening">Listening...</small>
+            <small v-else-if="voiceListening">Ecoute en cours...</small>
             <small v-else-if="voiceError">{{ voiceError }}</small>
           </span>
         </div>

@@ -48,7 +48,7 @@ const primaryNavigation = computed(() => {
     return [
       {
         key: "__new__",
-        label: "New chat",
+        label: "Nouvelle discussion",
         detail: "",
         active: !selectedSavConversationKey.value,
       },
@@ -254,7 +254,7 @@ function sanitizeConversationTitle(value) {
             type="button"
             @click="toggleSavHistoryExpanded"
           >
-            {{ savHistoryExpanded ? "See less" : "See more" }}
+            {{ savHistoryExpanded ? "Voir moins" : "Voir plus" }}
           </button>
         </nav>
 
@@ -264,7 +264,7 @@ function sanitizeConversationTitle(value) {
             <span>{{ currentSession.username }}</span>
           </div>
           <button class="ghost-button sidebar-switch-button" type="button" @click="handleLogout">
-            Switch Space
+            Changer d'espace
           </button>
         </div>
       </aside>
