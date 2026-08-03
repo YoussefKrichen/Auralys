@@ -17,6 +17,7 @@ def build_agent_response(
     reasoning_signals: dict | None = None,
     reasoning_summary: str | None = None,
     citations: list[Citation] | None = None,
+    history_id: int | None = None,
 ) -> AgentChatResponse:
     sources: list[str] = []
     for source in skill_result.sources:
@@ -36,6 +37,7 @@ def build_agent_response(
         justification=skill_result.justification,
         reasoning_signals=reasoning_signals or {},
         reasoning_summary=reasoning_summary,
+        history_id=history_id,
     )
 
 

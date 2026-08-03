@@ -147,6 +147,11 @@ def _score_hit(
         + prior
     )
     final_score = max(0.0, min(1.0, final_score))
+    # A CEO-approved correction must outrank any conflicting knowledge_base chunk on the
+    # same topic. Everything else is clamped to [0, 1], so pushing corrections above that
+    # ceiling guarantees the ordering regardless of the competing hit's own score composition.
+    if metadata.get("is_correction"):
+        final_score += 1.0
     return final_score, {
         "retriever": retriever,
         "raw_score": round(raw_score, 4),

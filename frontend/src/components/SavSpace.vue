@@ -20,7 +20,7 @@ const emit = defineEmits(["logout", "conversation-change"]);
 
 const apiBase = ref(getApiBase());
 const VOICE_AUTOPLAY_STORAGE_KEY = STORAGE_KEYS.voiceAutoplay;
-const { backendStatus, statusLabel, checkBackend } = useBackendStatus(apiBase);
+const { backendStatus, checkBackend } = useBackendStatus(apiBase);
 const ragQuery = ref("");
 const ragLoading = ref(false);
 const ragResponse = ref(null);
@@ -1034,7 +1034,6 @@ onBeforeUnmount(() => {
               </svg>
             </button>
           </div>
-          <span class="brand-state" :class="backendStatus">{{ statusLabel }}</span>
         </div>
       </div>
 

@@ -23,7 +23,7 @@ def test_agent_store_conversation_action_and_memory_round_trip():
     store = AgentStore(database=default_database)
     unique_key = f"test:{uuid.uuid4()}"
 
-    conversation_id, conversation_key = store.save_conversation(
+    conversation_id, conversation_key, history_id = store.save_conversation(
         user_id=1,
         role="sav",
         message="Message de test",
@@ -33,6 +33,7 @@ def test_agent_store_conversation_action_and_memory_round_trip():
     )
     assert conversation_key == unique_key
     assert isinstance(conversation_id, int)
+    assert isinstance(history_id, int)
 
     action = ProposedAction(
         id=None,
@@ -63,7 +64,7 @@ def test_history_service_conversations_and_messages_round_trip():
     history_service = HistoryService(database=default_database)
     unique_key = f"test:{uuid.uuid4()}"
 
-    _, conversation_key = store.save_conversation(
+    _, conversation_key, _ = store.save_conversation(
         user_id=2,
         role="ceo",
         message="Question historique",

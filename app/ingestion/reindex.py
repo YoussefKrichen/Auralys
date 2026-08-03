@@ -13,6 +13,7 @@ from app.embeddings.index_qdrant import (
     resolve_embedding_source_dir,
 )
 from app.ingestion.build_chunks import build_chunks
+from app.ingestion.gold_fiche_adapter import load_gold_fiches
 from app.ingestion.normalize import fiches_to_rows, load_fiches_from_directory
 from schemas.chunk_schema import ChunkSchema
 from schemas.fiche_schema import FicheSchema
@@ -29,7 +30,7 @@ def reindex_all(
     source_dir = resolve_embedding_source_dir(raw_data_dir)
     database = database or default_database
 
-    fiches = load_fiches_from_directory(source_dir)
+    fiches = load_fiches_from_directory(source_dir) + load_gold_fiches()
     chunks = build_chunks(fiches)
 
     postgres_stats = _write_postgres(fiches, chunks, database)

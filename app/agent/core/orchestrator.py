@@ -8,6 +8,7 @@ from app.agent.core.response_builder import build_agent_response
 from app.agent.core.session_manager import SessionManager
 from app.agent.policies.action_policy import apply_policy, check_action_policy
 from app.agent.skills.alert_management import AlertManagementSkill
+from app.agent.skills.analytics import AnalyticsSkill
 from app.agent.skills.ceo_reporting import CEOReportingSkill
 from app.agent.skills.client_history import ClientHistorySkill
 from app.agent.skills.general_question import GeneralQuestionSkill
@@ -48,6 +49,7 @@ class AgentOrchestrator:
         ceo_reporting_skill: CEOReportingSkill,
         general_question_skill: GeneralQuestionSkill,
         maintenance_fiche_intake_skill: MaintenanceFicheIntakeSkill,
+        analytics_skill: AnalyticsSkill,
     ) -> None:
         self.intent_router = intent_router
         self.session_manager = session_manager
@@ -64,6 +66,7 @@ class AgentOrchestrator:
             AgentIntent.ASK_STOCK_STATUS: alert_management_skill,
             AgentIntent.GENERAL_QUESTION: general_question_skill,
             AgentIntent.SUBMIT_MAINTENANCE_FICHE: maintenance_fiche_intake_skill,
+            AgentIntent.ASK_DATA_ANALYTICS: analytics_skill,
         }
 
     def handle_chat(self, request: AgentChatRequest) -> AgentChatResponse:
@@ -83,13 +86,14 @@ class AgentOrchestrator:
         )
         skill_result = skill_result.model_copy(update={"answer": synthesized["answer"]})
         conversation_id = None
+        history_id = None
         conversation_key = (
             request.conversation_id
             or str(request.context.get("conversation_id") or "").strip()
             or None
         )
         try:
-            conversation_id, conversation_key = self.session_manager.save_conversation(
+            conversation_id, conversation_key, history_id = self.session_manager.save_conversation(
                 user_id=enriched_request.user_id,
                 role=enriched_request.role,
                 message=enriched_request.message,
@@ -102,6 +106,7 @@ class AgentOrchestrator:
             logger.exception("Failed to persist conversation for conversation_key=%r", conversation_key)
             conversation_id = None
             conversation_key = None
+            history_id = None
         persisted_actions = []
         if conversation_id is not None:
             for action in checked_actions:
@@ -126,6 +131,7 @@ class AgentOrchestrator:
             reasoning_signals=synthesized["reasoning_signals"],
             reasoning_summary=synthesized["reasoning_summary"],
             citations=synthesized["citations"],
+            history_id=history_id,
         )
 
     def _augment_request_with_images(self, request: AgentChatRequest) -> AgentChatRequest:
@@ -191,6 +197,15 @@ class AgentOrchestrator:
             if citable_sources
             else ""
         )
+        business_rules = self.memory_tool.get_active_business_rules()
+        business_rules_block = (
+            "Corrections et regles validees par la direction (a respecter en priorite, "
+            "elles remplacent toute information contraire) :\n"
+            + "\n".join(f"- {rule}" for rule in business_rules)
+            + "\n\n"
+            if business_rules
+            else ""
+        )
         prompt = (
             f"Tu es {settings.agent_name}, l'assistante interne d'Aromair.\n"
             "Tu rediges la reponse finale d'un agent interne apres execution d'outils metier.\n"
@@ -200,6 +215,7 @@ class AgentOrchestrator:
             "explicitement. Pour une question generale ou une question sur ton identite/role, reponds sans exemple "
             "tire des sources, meme si des sources sont disponibles.\n"
             f"Ne fabrique pas de faits absents. Si l'information manque, dis-le clairement.{citation_rule}\n\n"
+            f"{business_rules_block}"
             f"{build_internal_reasoning_protocol(mode='agent')}\n\n"
             f"Message utilisateur:\n{request.message}\n\n"
             f"Intent detectee:\n{intent.value}\n\n"

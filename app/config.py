@@ -1,12 +1,35 @@
 from __future__ import annotations
 
+import logging
 import os
+import secrets
 from dataclasses import dataclass
 
 from dotenv import load_dotenv
 
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
+
+
+def _resolve_session_secret() -> str:
+    configured = os.getenv("SESSION_SECRET")
+    if configured:
+        return configured
+    logger.warning(
+        "SESSION_SECRET is not set - generating a random secret for this process only. "
+        "Existing sessions will be invalidated on every restart and tokens won't validate "
+        "across multiple worker processes. Set SESSION_SECRET in the environment for a stable deployment."
+    )
+    return secrets.token_urlsafe(32)
+
+
+def _resolve_allow_demo_login() -> bool:
+    return os.getenv("AURALYS_ALLOW_DEMO_LOGIN", "false").strip().lower() in ("1", "true", "yes")
+
+
+_SESSION_SECRET = _resolve_session_secret()
 
 
 @dataclass(frozen=True)
@@ -163,8 +186,11 @@ class Settings:
     embedding_backend: str = os.getenv("EMBEDDING_BACKEND", "gemini").strip().lower()
     embedding_model_name: str = os.getenv("EMBEDDING_MODEL_NAME", "gemini-embedding-001")
     embedding_dimension: int = int(os.getenv("EMBEDDING_DIMENSION", "768"))
-    session_secret: str = os.getenv("SESSION_SECRET", "dev-insecure-session-secret-change-me")
+    session_secret: str = _SESSION_SECRET
     session_ttl_seconds: int = int(os.getenv("SESSION_TTL_SECONDS", str(60 * 60 * 12)))
+    # Off by default: the "ceo"/"sav" static demo credentials must be explicitly
+    # enabled, never enabled by omission. See app/auth/local_auth_service.py.
+    allow_demo_login: bool = _resolve_allow_demo_login()
     google_oauth_client_id: str | None = os.getenv("GOOGLE_OAUTH_CLIENT_ID") or None
     google_oauth_client_secret: str | None = os.getenv("GOOGLE_OAUTH_CLIENT_SECRET") or None
     facebook_oauth_client_id: str | None = os.getenv("FACEBOOK_OAUTH_CLIENT_ID") or None
@@ -188,6 +214,7 @@ class Settings:
     chunk_target_tokens: int = int(os.getenv("CHUNK_TARGET_TOKENS", "600"))
     raw_data_dir: str = os.getenv("RAW_DATA_DIR", "data/raw_json")
     processed_data_dir: str = os.getenv("PROCESSED_DATA_DIR", "data")
+    gold_data_csv_path: str = os.getenv("GOLD_DATA_CSV_PATH", "data/gold/data_2025_2026_concat.csv")
     processed_maintenance_dir: str = os.getenv(
         "PROCESSED_MAINTENANCE_DIR",
         "data/processed/maintenance",

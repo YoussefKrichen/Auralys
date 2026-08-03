@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import date
 import hashlib
 from typing import Any
 
 from app.agent.store import AgentStore
 from app.agent.tools.base import LoggedTool
+from app.agent.tools.emplacement_normalizer import canonical_emplacement
+from app.agent.tools.gold_data_source import GoldVisit, load_gold_visits
+from app.agent.tools.text_normalize import client_id as compute_client_id
 from app.config import settings
-from app.ingestion.normalize import load_fiches_from_directory
 
 
 @dataclass
@@ -29,6 +30,85 @@ class OperationsDataTool(LoggedTool):
             {"name": lookup},
             lambda: self._lookup_client(lookup),
         )
+
+    def find_client_mentioned_in_text(self, text: str) -> dict[str, Any] | None:
+        """Reverse lookup: does any known client's name appear inside free-form text?
+
+        IntentRouter.extract_client_name only matches "client: X"/"chez X" patterns, and
+        _lookup_client only matches when the query is a substring of the client name (the
+        opposite direction). A natural question like "combien de diffuseurs a le client X"
+        fits neither, so this scans the client index for the longest name that appears
+        inside the message.
+        """
+        return self._run_logged(
+            "find_client_mentioned_in_text",
+            {"text": text},
+            lambda: self._find_client_in_text(text),
+        )
+
+    def count_client_diffusers(self, client_id: str) -> dict[str, Any]:
+        def _build() -> dict[str, Any]:
+            history = self._collect_client_history(client_id)
+            groups: dict[tuple[str, ...], dict[str, Any]] = {}
+            for visit in history:
+                for diffuser in visit.get("diffusers", []):
+                    if not diffuser.get("emplacement") and not diffuser.get("model"):
+                        continue
+                    key = canonical_emplacement(diffuser.get("emplacement"))
+                    group = groups.setdefault(key, {"raw_labels": {}, "models": set()})
+                    raw_label = diffuser.get("emplacement") or "Emplacement non precise"
+                    group["raw_labels"][raw_label] = group["raw_labels"].get(raw_label, 0) + 1
+                    if diffuser.get("model"):
+                        group["models"].add(diffuser["model"])
+            locations = []
+            for group in groups.values():
+                best_label = max(group["raw_labels"].items(), key=lambda kv: (kv[1], len(kv[0])))[0]
+                locations.append({"emplacement": best_label, "models": sorted(group["models"])})
+            return {
+                "client_id": client_id,
+                "diffuser_count": len(locations),
+                "locations": locations,
+                "raw_visit_count": len(history),
+                "history": history[:10],
+            }
+
+        return self._run_logged("count_client_diffusers", {"client_id": client_id}, _build)
+
+    def list_recent_clients(self, limit: int = 10) -> dict[str, Any]:
+        def _build() -> dict[str, Any]:
+            activity: dict[str, dict[str, Any]] = {}
+            for visit in load_gold_visits(settings.gold_data_csv_path):
+                if not visit.client:
+                    continue
+                client_id = self._client_id(visit.client)
+                entry = activity.setdefault(
+                    client_id,
+                    {
+                        "client_id": client_id,
+                        "client_name": visit.client,
+                        "address": visit.address,
+                        "last_service_date": None,
+                        "visit_count": 0,
+                    },
+                )
+                entry["visit_count"] += 1
+                service_date = visit.service_date
+                if service_date is not None:
+                    current = entry["last_service_date"]
+                    if current is None or service_date > current:
+                        entry["last_service_date"] = service_date
+
+            dated = [row for row in activity.values() if row["last_service_date"] is not None]
+            dated.sort(key=lambda row: row["last_service_date"], reverse=True)
+            top = dated[: max(limit, 1)]
+            return {
+                "clients": [
+                    {**row, "last_service_date": row["last_service_date"].isoformat()}
+                    for row in top
+                ]
+            }
+
+        return self._run_logged("list_recent_clients", {"limit": limit}, _build)
 
     def get_client_history(self, client_id: str) -> dict[str, Any]:
         return self._run_logged(
@@ -173,27 +253,32 @@ class OperationsDataTool(LoggedTool):
             return partial_matches[0].__dict__
         raise ValueError(f"Client not found for lookup: {name}")
 
+    def _find_client_in_text(self, text: str) -> dict[str, Any] | None:
+        normalized_text = text.casefold()
+        best: ClientRecord | None = None
+        for record in self._build_client_index():
+            name = record.client_name.strip()
+            if len(name) < 3:
+                continue
+            if name.casefold() in normalized_text:
+                if best is None or len(name) > len(best.client_name):
+                    best = record
+        return best.__dict__ if best else None
+
     def _collect_today_interventions(self) -> list[dict[str, Any]]:
-        fiches = [fiche for fiche in load_fiches_from_directory(settings.processed_data_dir) if fiche.document_type == "client_maintenance_form"]
-        dated = [fiche for fiche in fiches if fiche.maintenance_details.service_date is not None]
+        visits = load_gold_visits(settings.gold_data_csv_path)
+        dated = [visit for visit in visits if visit.service_date is not None]
         if not dated:
             return []
-        target_date = max((fiche.maintenance_details.service_date for fiche in dated if fiche.maintenance_details.service_date is not None), default=date.today())
-        interventions = []
-        for fiche in dated:
-            if fiche.maintenance_details.service_date != target_date:
-                continue
-            interventions.append(self._fiche_to_intervention(fiche))
-        return interventions
+        target_date = max(visit.service_date for visit in dated)
+        return [self._visit_to_intervention(visit) for visit in dated if visit.service_date == target_date]
 
     def _collect_client_history(self, client_id: str) -> list[dict[str, Any]]:
         records = []
-        for fiche in load_fiches_from_directory(settings.processed_data_dir):
-            if fiche.document_type != "client_maintenance_form":
+        for visit in load_gold_visits(settings.gold_data_csv_path):
+            if self._client_id(visit.client or "") != client_id:
                 continue
-            if self._client_id(fiche.client or "") != client_id:
-                continue
-            records.append(self._fiche_to_intervention(fiche))
+            records.append(self._visit_to_intervention(visit))
         records.sort(
             key=lambda item: (item.get("service_date") or "", item.get("maintenance_number") or ""),
             reverse=True,
@@ -202,43 +287,43 @@ class OperationsDataTool(LoggedTool):
 
     def _build_client_index(self) -> list[ClientRecord]:
         seen: dict[str, ClientRecord] = {}
-        for fiche in load_fiches_from_directory(settings.processed_data_dir):
-            if fiche.document_type != "client_maintenance_form" or not fiche.client:
+        for visit in load_gold_visits(settings.gold_data_csv_path):
+            if not visit.client:
                 continue
-            client_id = self._client_id(fiche.client)
+            client_id = self._client_id(visit.client)
             seen.setdefault(
                 client_id,
                 ClientRecord(
                     client_id=client_id,
-                    client_name=fiche.client,
-                    address=fiche.maintenance_details.address,
+                    client_name=visit.client,
+                    address=visit.address,
                 ),
             )
         return list(seen.values())
 
-    def _fiche_to_intervention(self, fiche) -> dict[str, Any]:
-        client_name = fiche.client or "Client inconnu"
+    def _visit_to_intervention(self, visit: GoldVisit) -> dict[str, Any]:
+        client_name = visit.client or "Client inconnu"
         client_id = self._client_id(client_name)
         diffusers = [
             {
-                "model": diffuser.model_diffuseur,
-                "emplacement": diffuser.emplacement,
-                "quantity_ml": diffuser.qte_parfum_existante,
-                "quality": diffuser.qualite_diffusion,
+                "model": diffuser.get("model"),
+                "emplacement": diffuser.get("emplacement"),
+                "quantity_ml": diffuser.get("quantity_ml"),
+                "quality": None,
             }
-            for diffuser in fiche.controle_diffuseur_recharge
+            for diffuser in visit.diffusers
         ]
-        issue = fiche.probleme_recommandation.probleme_rencontree_raw
+        issue = visit.issue
         status = "EN_RETARD" if issue else "PLANIFIE"
         return {
             "client_id": client_id,
             "client_name": client_name,
-            "address": fiche.maintenance_details.address,
-            "maintenance_number": fiche.maintenance_number,
-            "service_date": fiche.maintenance_details.service_date.isoformat() if fiche.maintenance_details.service_date else None,
-            "service_time": fiche.maintenance_details.service_time.isoformat() if fiche.maintenance_details.service_time else None,
+            "address": visit.address,
+            "maintenance_number": visit.maintenance_number,
+            "service_date": visit.service_date.isoformat() if visit.service_date else None,
+            "service_time": None,
             "issue": issue,
-            "recommendation": fiche.probleme_recommandation.solution_proposee,
+            "recommendation": None,
             "status": status,
             "urgency": "HIGH" if issue else "MEDIUM",
             "diffusers": diffusers,
@@ -247,7 +332,7 @@ class OperationsDataTool(LoggedTool):
 
     @staticmethod
     def _client_id(client_name: str) -> str:
-        return client_name.strip().casefold().replace(" ", "-")
+        return compute_client_id(client_name)
 
     @staticmethod
     def _stable_coordinates(seed: str) -> dict[str, float]:

@@ -470,6 +470,11 @@ def load_fiches_from_directory(directory: str | Path) -> list[FicheSchema]:
     for file_path in candidates:
         if file_path.name.startswith("~$") or file_path.name.startswith("."):
             continue  # editor lock/temp files (e.g. Word leaves ~$name.docx while open)
+        if "Maintenance_json" in file_path.parts:
+            # Superseded by the gold CSV (app/agent/tools/gold_data_source.py) --
+            # see app/ingestion/gold_fiche_adapter.py for the replacement source
+            # of client_maintenance_form content.
+            continue
         try:
             fiches.extend(load_fiches_from_file(file_path))
         except ValueError:

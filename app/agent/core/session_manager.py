@@ -16,7 +16,7 @@ class SessionManager:
         answer: str,
         intent: str,
         conversation_key: str | None = None,
-    ) -> tuple[int, str]:
+    ) -> tuple[int, str, int]:
         return self.store.save_conversation(
             user_id=user_id,
             role=role,

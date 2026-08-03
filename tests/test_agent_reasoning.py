@@ -20,7 +20,8 @@ class _FakeStore:
 
 
 class _FakeMemoryTool:
-    pass
+    def get_active_business_rules(self) -> list[str]:
+        return []
 
 
 class _FakeLLMService:
@@ -70,6 +71,7 @@ def test_agent_chat_returns_structured_reasoning_metadata():
         ceo_reporting_skill=skill,
         general_question_skill=skill,
         maintenance_fiche_intake_skill=skill,
+        analytics_skill=skill,
     )
 
     response = orchestrator.handle_chat(
@@ -142,6 +144,7 @@ def test_agent_chat_returns_citations_actually_used_by_the_final_answer():
         ceo_reporting_skill=skill,
         general_question_skill=skill,
         maintenance_fiche_intake_skill=skill,
+        analytics_skill=skill,
     )
 
     response = orchestrator.handle_chat(

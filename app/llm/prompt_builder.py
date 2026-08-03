@@ -6,10 +6,23 @@ from schemas.commercial_schema import SavAdminAnalysis
 from schemas.retrieval_schema import BuiltContext
 
 
-def build_answer_prompt(query: str, context: BuiltContext, analysis: SavAdminAnalysis) -> str:
+def build_answer_prompt(
+    query: str,
+    context: BuiltContext,
+    analysis: SavAdminAnalysis,
+    business_rules: list[str] | None = None,
+) -> str:
     matched_products = ", ".join(analysis.matched_products) or "aucun produit identifie pour le moment"
     missing_information = ", ".join(analysis.missing_information) or "aucune"
     next_steps = "\n".join(f"- {step}" for step in analysis.recommended_next_steps)
+    business_rules_block = (
+        "Corrections et regles validees par la direction (a respecter en priorite, "
+        "elles remplacent toute information contraire) :\n"
+        + "\n".join(f"- {rule}" for rule in business_rules)
+        + "\n\n"
+        if business_rules
+        else ""
+    )
     return (
         f"Nom de l'assistante : {settings.agent_name}\n"
         f"Entreprise : {settings.company_name}\n"
@@ -29,6 +42,7 @@ def build_answer_prompt(query: str, context: BuiltContext, analysis: SavAdminAna
         "Tu utilises uniquement le contexte fourni pour les affirmations factuelles sur les produits, les interventions et les services.\n"
         "Si l'information disponible est incomplete, tu le dis clairement et tu poses les questions les plus utiles.\n"
         "Tes reponses doivent aider le SAV a choisir la bonne action et aider l'administration a verifier les points critiques, tout en preservant la qualite de service et la valeur business.\n\n"
+        f"{business_rules_block}"
         f"{build_internal_reasoning_protocol(mode='rag')}\n\n"
         "Regles de reponse :\n"
         "1. Redige une seule reponse finale coherente, complete et directement exploitable.\n"

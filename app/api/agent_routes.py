@@ -17,6 +17,7 @@ from app.auth.oauth_service import OAuthService
 from app.auth.session_token import create_session_token
 from app.bootstrap import AppContainer
 from app.config import settings
+from app.ingestion.fiche_writer import commit_ceo_correction
 from schemas.agent_schema import (
     AgentActionDecisionRequest,
     AgentChatRequest,
@@ -35,6 +36,11 @@ class ReviewDecisionRequest(BaseModel):
     review_notes: str | None = None
     corrected_answer: str | None = None
     knowledge_action: str | None = None
+
+
+class MemoryDecisionRequest(BaseModel):
+    decision: str
+    reviewed_by: str | None = None
 
 
 class SpeakRequest(BaseModel):
@@ -207,6 +213,12 @@ def list_conversation_messages(
     container: AppContainer = Depends(get_container),
     current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, Any]:
+    if current_user["role"] != "ceo":
+        conversation = container.database.fetch_conversation_by_key(conversation_key)
+        if conversation is None or conversation.get("user_id") != current_user["id"]:
+            # 404, not 403: don't confirm to a caller that a conversation_key they
+            # don't own actually exists.
+            raise HTTPException(status_code=404, detail="Conversation not found.")
     rows = container.build_history_service().list_messages(conversation_key=conversation_key, limit=limit)
     return {"rows": rows}
 
@@ -218,7 +230,10 @@ def list_history(
     container: AppContainer = Depends(get_container),
     current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, Any]:
-    rows = container.build_history_service().list_history(conversation_id=conversation_id, limit=limit)
+    scoped_user_id = None if current_user["role"] == "ceo" else current_user["id"]
+    rows = container.build_history_service().list_history(
+        conversation_id=conversation_id, limit=limit, user_id=scoped_user_id
+    )
     return {"rows": rows}
 
 
@@ -262,6 +277,33 @@ def list_active_memories(
     current_user: dict[str, Any] = Depends(require_ceo),
 ) -> dict[str, Any]:
     return {"rows": container.build_agent_orchestrator().get_active_memory()}
+
+
+@router.post("/admin/memories/{memory_id}/decision")
+def submit_memory_decision(
+    memory_id: int,
+    request: MemoryDecisionRequest,
+    container: AppContainer = Depends(get_container),
+    current_user: dict[str, Any] = Depends(require_ceo),
+) -> dict[str, Any]:
+    normalized_decision = request.decision.strip().lower()
+    if normalized_decision not in ("approve", "reject"):
+        raise HTTPException(status_code=400, detail="Unsupported memory decision.")
+    memory_tool = container.build_memory_tool()
+    reviewed_by = request.reviewed_by or current_user.get("username")
+    if normalized_decision == "approve":
+        row = memory_tool.approve_memory(memory_id, reviewed_by=reviewed_by)
+    else:
+        row = memory_tool.reject_memory(memory_id, reviewed_by=reviewed_by)
+    if row is None:
+        raise HTTPException(status_code=404, detail="Memory not found.")
+    qdrant_stats: dict[str, Any] = {}
+    if normalized_decision == "approve" and row.get("memory_type") == "KNOWLEDGE_CORRECTION":
+        try:
+            qdrant_stats = commit_ceo_correction(row)
+        except Exception:
+            logger.exception("Failed to index approved correction memory_id=%s", memory_id)
+    return {"row": row, "qdrant": qdrant_stats}
 
 
 @router.get("/rag/status")

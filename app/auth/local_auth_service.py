@@ -4,10 +4,13 @@ from typing import Any
 
 import bcrypt
 
+from app.config import settings
 from app.db import Database, default_database
 
 # Fixed demo credentials, checked before the database so login keeps working
-# even when Postgres is unreachable. Not meant for production use.
+# even when Postgres is unreachable. Gated behind settings.allow_demo_login
+# (off by default) -- must never be reachable unless explicitly opted into via
+# AURALYS_ALLOW_DEMO_LOGIN=true.
 _STATIC_CREDENTIALS: dict[str, dict[str, Any]] = {
     "ceo": {"id": -1, "password": "ceo123", "role": "ceo", "display_name": "CEO"},
     "sav": {"id": -2, "password": "sav123", "role": "sav", "display_name": "SAV"},
@@ -56,7 +59,7 @@ class LocalAuthService:
         if not normalized_username or not password:
             return None
 
-        static_user = _STATIC_CREDENTIALS.get(normalized_username)
+        static_user = _STATIC_CREDENTIALS.get(normalized_username) if settings.allow_demo_login else None
         if static_user and password == static_user["password"]:
             return {
                 "id": static_user["id"],

@@ -61,7 +61,7 @@ class AgentStore:
         answer: str,
         intent: str,
         conversation_key: str | None = None,
-    ) -> tuple[int, str]:
+    ) -> tuple[int, str, int]:
         self.ensure_schema()
         resolved_conversation_key = conversation_key or f"agent:{user_id}:{role}:{uuid.uuid4()}"
         with self.database.connection() as connection:
@@ -75,6 +75,20 @@ class AgentStore:
                     "source": "agent_orchestrator",
                     "intent": intent,
                     "title": _build_conversation_title(message),
+                },
+            )
+            # A discussion_history row is required so this turn can be reviewed/corrected
+            # by the CEO (review_cases + the learning-layer memory bridge key off history_id).
+            history_id = self.database.insert_discussion_history(
+                connection,
+                {
+                    "conversation_id": resolved_conversation_key,
+                    "input_type": "text",
+                    "original_query": message,
+                    "route": intent,
+                    "intent": intent,
+                    "answer": answer,
+                    "response_source": "agent_orchestrator",
                 },
             )
             self.database.insert_message(
@@ -92,8 +106,9 @@ class AgentStore:
                 content=answer,
                 message_type="text",
                 metadata={"intent": intent, "source": "agent_orchestrator"},
+                history_id=history_id,
             )
-        return conversation_id, resolved_conversation_key
+        return conversation_id, resolved_conversation_key, history_id
 
     def resolve_conversation_id(self, conversation_key: str) -> int | None:
         self.ensure_schema()
@@ -183,6 +198,8 @@ class AgentStore:
                     "status": row["status"],
                     "validated_by": metadata.get("validated_by"),
                     "importance": metadata.get("importance"),
+                    "topic": metadata.get("topic"),
+                    "original_query": metadata.get("original_query"),
                     "confidence": row["confidence"],
                     "tags": row.get("tags") or [],
                     "created_at": row["created_at"],
@@ -191,12 +208,22 @@ class AgentStore:
             )
         return normalized_rows
 
-    def get_active_business_rules(self) -> list[str]:
-        return [
-            row["content"]
+    def get_active_business_rules(self, limit: int = 20) -> list[str]:
+        relevant_types = {"BUSINESS_RULE", "KNOWLEDGE_CORRECTION"}
+        rows = [
+            row
             for row in self.get_active_memory()
-            if row["memory_type"].upper() == "BUSINESS_RULE"
+            if row["status"] == "ACTIVE" and row["memory_type"].upper() in relevant_types
         ]
+        return [row["content"] for row in rows[:limit]]
+
+    def approve_memory(self, memory_id: int, *, reviewed_by: str | None = None) -> dict[str, Any] | None:
+        self.ensure_schema()
+        return self.database.set_memory_status(memory_id, status="ACTIVE", reviewed_by=reviewed_by)
+
+    def reject_memory(self, memory_id: int, *, reviewed_by: str | None = None) -> dict[str, Any] | None:
+        self.ensure_schema()
+        return self.database.set_memory_status(memory_id, status="REJECTED", reviewed_by=reviewed_by)
 
     def get_user_preferences(self, user_id: int) -> dict[str, Any]:
         preferences: dict[str, Any] = {}

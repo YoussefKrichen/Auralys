@@ -1,0 +1,322 @@
+﻿fiche_no,client_matched,adresse_matched,date_heure,technicien,source,model_matched,emplacement,parfum_extracted,qte_restante,qte_livree
+17504,Club NA,Gammarth,01/06/2026,Houssem,Controle,Zee300,Comptoir,Fig,0,0
+17504,Club NA,Gammarth,01/06/2026,Houssem,Controle,Aromair150,WCH,Peace,70,0
+17504,Club NA,Gammarth,01/06/2026,Houssem,Controle,Aromair150,WCF,Peace,70,0
+17504,Club NA,Gammarth,01/06/2026,Houssem,Recharge,Zee300,Comptoir,Fig,0,300
+17504,Club NA,Gammarth,01/06/2026,Houssem,Recharge,Aromair150,WCH,Peace,0,300
+17504,Club NA,Gammarth,01/06/2026,Houssem,Recharge,Aromair150,WCF,Peace,0,300
+17511,Restaurent Gourmet,Charguia,02/06/2026,Houssem,Controle,Aromair150,Entrée,F.N,0,0
+17511,Restaurent Gourmet,Charguia,02/06/2026,Houssem,Recharge,Aromair150,Entrée,F.N,0,300
+17508,Obioskin,Menzah9,01/06/2026,Houssem,Controle,Astree,Entrée,FE3,20,0
+17508,Obioskin,Menzah9,01/06/2026,Houssem,Recharge,Astree,Entrée,FE3,0,300
+17514,Labo Mejri,Ezzahra,02/06/2026,Houssem,Controle,Aromair150,Entrée,Rose d'or,0,0
+17514,Labo Mejri,Ezzahra,02/06/2026,Houssem,Recharge,Aromair150,Entrée,Rose d'or,0,300
+17518,AF Collection ,Soukra,02/06/2026,Houssem,Controle,Astree,RDC,RG,20,0
+17518,AF Collection ,Soukra,02/06/2026,Houssem,Controle,Astree,+1,RG,0,0
+17518,AF Collection ,Soukra,02/06/2026,Houssem,Recharge,Astree,RDC,RG,0,300
+17510,Arena Gym ,Soukra,01/06/2026,Houssem,Controle,Aromair100,Entrée,Ondee P.,223,0
+17503,Le Golfe,Gammarth,01/06/2026,Houssem,Controle,Aromair100,WCH,Fig,0,0
+17503,Le Golfe,Gammarth,01/06/2026,Houssem,Controle,Aromair100,WCF,Fig,0,0
+17503,Le Golfe,Gammarth,01/06/2026,Houssem,Recharge,Aromair100,WCH,Fig,0,150
+17503,Le Golfe,Gammarth,01/06/2026,Houssem,Recharge,Aromair100,WCF,Fig,0,150
+17509,Tony Nasr,GP9,01/06/2026,Houssem,Controle,Aromair100,Entrée,FC,0,0
+17509,Tony Nasr,GP9,01/06/2026,Houssem,Recharge,Aromair100,Entrée,FC,0,300
+17512,Little Asia ,GP9,02/06/2026,Houssem,Controle,Aromair100,Entrée,Sakura,70,0
+17512,Little Asia ,GP9,02/06/2026,Houssem,Recharge,Aromair100,Entrée,Sakura,0,300
+17519,Hotel Manera ,Sidi Bou Said,03/06/2026,Houssem,Controle,Tour,Reception,F.N,37,0
+17519,Hotel Manera ,Sidi Bou Said,03/06/2026,Houssem,Controle,Zee300,-1,F.N,200,0
+17519,Hotel Manera ,Sidi Bou Said,03/06/2026,Houssem,Controle,Zee300,+1,F.N,80,0
+17519,Hotel Manera ,Sidi Bou Said,03/06/2026,Houssem,Recharge,Tour,Reception,F.N,0,270
+17519,Hotel Manera ,Sidi Bou Said,03/06/2026,Houssem,Recharge,Zee300,-1,F.N,0,100
+17519,Hotel Manera ,Sidi Bou Said,03/06/2026,Houssem,Recharge,Zee300,+1,F.N,0,220
+17515,Glow Co ,Boumhal,02/06/2026,Houssem,Controle,Zee300,Entrée,F.N,21,0
+17515,Glow Co ,Boumhal,02/06/2026,Houssem,Recharge,Zee300,Entrée,F.N,0,0
+17520,Be Babel ,Marsa,03/06/2026,Houssem,Controle,Zee300,Entrée,T. Royal,0,0
+17505,Movenpick ,Lac1,01/06/2026,Houssem,Controle,Zee600,2 Piles,F.N,0,0
+17505,Movenpick ,Lac1,01/06/2026,Houssem,Controle,Astree,SPA G,130,0,
+17505,Movenpick ,Lac1,01/06/2026,Houssem,Controle,Astree,SPA D,0,0,
+17505,Movenpick ,Lac1,01/06/2026,Houssem,Recharge,Zee600,2 Piles,F.N,0,600
+17505,Movenpick ,Lac1,01/06/2026,Houssem,Recharge,Astree,SPA G,0,200,
+17505,Movenpick ,Lac1,01/06/2026,Houssem,Recharge,Astree,SPA D,0,300,
+17502,Spectra ,Lac3,02/06/2026,Houssem,Recharge,Iceburg,+A,RG,0,300
+17513,Pharmacie Neffousi ,Gammarth,02/06/2026,Houssem,Controle,Aromair100,Entrée,Fez,150,0
+17513,Pharmacie Neffousi ,Gammarth,02/06/2026,Houssem,Recharge,Note: Changement,null,null,0,0
+17517,Power Space,Mourouj1,02/06/2026,Houssem,Controle,Note: Décalage horaire,null,null,0,0
+17507,Asteel Flash,Soukra,01/06/2026,Houssem,Controle,Aromair500,B1+1,Ondee P.,30,0
+17507,Asteel Flash,Soukra,01/06/2026,Houssem,Controle,Aromair100,B3+1,Ondee P.,100,0
+17507,Asteel Flash,Soukra,01/06/2026,Houssem,Recharge,Aromair100,B1+1,Ondee P.,0,300
+17507,Asteel Flash,Soukra,01/06/2026,Houssem,Recharge,Aromair100,B3+1,Ondee P.,0,300
+17516,Centre Maram ,Ezzahra,02/06/2026,Houssem,Controle,Aromair150,RDC,null,270,0
+17516,Centre Maram ,Ezzahra,02/06/2026,Houssem,Controle,Aromair150,S. Atte+1,null,295,0
+17516,Centre Maram ,Ezzahra,02/06/2026,Houssem,Controle,Aromair150,S. Atte,null,240,0
+17506,Maison Mr Zied,Lac1,01/06/2026,Houssem,Controle,Astree,Entrée,P. Puda,180,0
+17506,Maison Mr Zied,Lac1,01/06/2026,Houssem,Recharge,Note: Remplissage,null,null,0,120
+17521,Residence Diamant,Jardins Carthage,03/06/2026,Houssem,Controle,Aromair150,Entrée,TH,100,0
+17521,Residence Diamant,Jardins Carthage,03/06/2026,Houssem,Recharge,Aromair150,Entrée,TH,0,300
+17530,Orna Farho ,Lac1 ,04/06/2026,Houssem,Controle,Astree,Entrée,F.C,246,0
+17530,Orna Farho ,Lac1 ,04/06/2026,Houssem,Controle,Astree,au fond,F.C,0,0
+17530,Orna Farho ,Lac1 ,04/06/2026,Houssem,Recharge,Astree,au fond,F.C,0,300
+17522,Gerard Darel ,Lac1,03/06/2026,Houssem,Controle,Aromair100,entrée,F.C,0,0
+17529,Gerard Darel ,Lac1,04/06/2026,Houssem,Recharge,Aromair100,entrée,F.C,0,300
+17523,Retaurant Safran,Lac1,03/06/2026,Houssem,Controle,Zee600,Entrée,null,0,0
+17532,Royals Electroniques,Lac1,04/06/2026,Houssem,Controle,Note: Livraison 180ml Desir Dubai,null,null,0,0
+17524,Business Hotel ,Tunis,03/06/2026,Houssem,Controle,Zephyr,Reception,Bris. d,0,0
+17524,Business Hotel ,Tunis,03/06/2026,Houssem,Recharge,Zephyr,Reception,Bris. d,0,300
+17527,Lefties,Soukra,03/06/2026,Houssem,Controle,Zee300,Entree F,Lim,300,0
+17527,Lefties,Soukra,03/06/2026,Houssem,Controle,Zee300,Entree H,Lim,275,0
+17527,Lefties,Soukra,03/06/2026,Houssem,Recharge,Zee300,Entree F,Lim,0,300
+17527,Lefties,Soukra,03/06/2026,Houssem,Recharge,Zee300,Entree H,Lim,0,300
+17531,Mascotte ,Jardins Carthage,04/06/2026,Houssem,Controle,Zee300,RDC,T.H,80,0
+17531,Mascotte ,Jardins Carthage,04/06/2026,Houssem,Controle,Aromair150,+1,Peace,175,0
+17531,Mascotte ,Jardins Carthage,04/06/2026,Houssem,Recharge,Zee300,RDC,T.H,0,220
+17531,Mascotte ,Jardins Carthage,04/06/2026,Houssem,Recharge,Aromair150,+1,Peace,0,125
+17526,AF Collection ,Soukra,03/06/2026,Houssem,Recharge,Astree,+1,R.G,0,300
+17542,Clevory ,Charguia,05/06/2026,Houssem,Controle,Aromair100,entrée,F.C,0,0
+17539,Tavolino,Place Pasteur,05/06/2026,Houssem,Controle,Zee300,Entree,Neroli,0,0
+17539,Tavolino,Place Pasteur,05/06/2026,Houssem,Recharge,Zee300,Entree,Neroli,0,600
+17538,Vision Store ,Menzah4,05/06/2026,Houssem,Controle,Aromair100,entrée,F.D,140,0
+17534,Fnac,Marsa,04/06/2026,Houssem,Controle,Zee600,Entrée,illusion,0,0
+17534,Fnac,Marsa,04/06/2026,Houssem,Recharge,Zee600,Entree,design,0,600
+17543,Restaurant Erable,Lac2,05/06/2026,Houssem,Controle,Zee300,Entrée,Jasmin E,230,0
+17543,Restaurant Erable,Lac2,05/06/2026,Houssem,Recharge,Zee300,Entrée,Jasmin,0,300
+17525,Casa Store ,Soukra,03/06/2026,Houssem,Controle,Astree,Entree,R.G,80,0
+17535,Darty,Marsa,04/06/2026,Houssem,Controle,Zee600,Entree,design,0,0
+17535,Darty,Marsa,04/06/2026,Houssem,Recharge,Zee600,Entree,design,0,600
+17528,BFI Siege1,Lac1,04/06/2026,Houssem,Controle,Aromair150,RDC,Jasmin,225,0
+17528,BFI Siege1,Lac1,04/06/2026,Houssem,Controle,Aromair150,+1,Jasmin,140,0
+17528,BFI Siege1,Lac1,04/06/2026,Houssem,Controle,Aromair150,+2,Jasmin,155,0
+17528,BFI Siege1,Lac1,04/06/2026,Houssem,Controle,Aromair150,+3,Jasmin,130,0
+17541,Origin Elle,Ennasr,05/06/2026,Houssem,Recharge,Aromair150,Entrée,FE2,0,300
+17618,Paris Tunis Dress,GP9,10/06/2026,Houssem,Controle,Astree,Entree,R.D,260,0
+17619,Clinique Kaynos,Lac2,10/06/2026,Houssem,Controle,Astree,1,FE3,0,0
+17619,Clinique Kaynos,Lac2,10/06/2026,Houssem,Controle,Astree,RDC,FE2,62,0
+17548,Villa Misk,Sidi Bou Said,06/06/2026,Houssem,Controle,Astree,Entree,Melange,120,0
+17544,Cabinet Dr Mariem Ben Amor,Lac2,05/06/2026,Houssem,Recharge,Aromair150,S. Atte,F.C,0,300
+17621,Tony Nasr,GP9,10/06/2026,Houssem,Controle,Aromair100,Entree,T.H,0,0
+17601,Saveurs de Carthage,Jardins Carthage,08/06/2026,Houssem,Controle,Zephyr,Entree,melange,0,0
+17604,Table espace,Lac1,08/06/2026,Houssem,Controle,Astree,Entree,B.the,240,0
+17540,Oxford Librairie,Ennasr,05/06/2026,Houssem,Recharge,Zee300,Entree,F.N,0,300
+17540,Oxford Librairie,Ennasr,05/06/2026,Houssem,Recharge,Aromair150,+1,F.N,0,300
+17540,Oxford Librairie,Ennasr,05/06/2026,Houssem,Recharge,Aromair150,+2,F.N,0,300
+17624,Energy Car,Menzah6,10/06/2026,Houssem,Controle,Astree,Entree,T.H,95,0
+17608,Cipolin,Jardins Carthage,08/06/2026,Houssem,Recharge,Zee300,Salon,T.H,0,600
+17608,Cipolin,Jardins Carthage,08/06/2026,Houssem,Recharge,Stock,Stock,T.H,0,300
+17547,Maison d'hote Neyra,Sidi Bou Said,06/06/2026,Houssem,Recharge,Iceberg,Entree,Jasmin,0,300
+17609,Tony Nasr,GP9,09/06/2026,Houssem,Controle,Aromair100,Entree,Rose d'or,140,0
+17549,Cipolin,Jardins Carthage,08/06/2026,Houssem,Recharge,Aromair150,Entree,T.H,0,300
+17603,Oriflame,Lac3,08/06/2026,Houssem,Controle,Astree,Entree,F.C,55,0
+17607,Cabinet Dr Louati,Lac2,08/06/2026,Houssem,Controle,Zee300,Entree,Fologne,0,0
+17607,Cabinet Dr Louati,Lac2,08/06/2026,Houssem,Recharge,Zee300,Entree,F.N,0,200
+17536,Asteel Flash,Soukra,05/06/2026,Houssem,Controle,Zephyr,RDC,Ondee P.,70,0
+17536,Asteel Flash,Soukra,05/06/2026,Houssem,Recharge,Zephyr,RDC,Ondee P.,0,300
+17605,Renault Trucks,La Goulette,08/06/2026,Houssem,Controle,Astree,Reception,R.G,286,0
+17605,Renault Trucks,La Goulette,08/06/2026,Houssem,Controle,Astree,au fond,R.G,220,0
+17610,Sodeco,Aouina,09/06/2026,Houssem,Controle,Zee300,Entree,B.the,4,0
+17602,Spectra,Lac3,08/06/2026,Houssem,Recharge,Astree,Entree,F.the,0,220
+17602,Spectra,Lac3,08/06/2026,Houssem,Recharge,Zee300,A,R.G,0,300
+17633,Hotel Carlton,Tunis,11/06/2026,Houssem,Recharge,Aromair100,S. Admin,mel,0,300
+17620,Hotel Corail,Lac2,10/06/2026,Houssem,Controle,Tour,Reception,F.N,250,0
+17546,Floralies,Soukra,26/06/2026,Houssem,Controle,Iceburg,RDC,B.the,125,0
+17546,Floralies,Soukra,26/06/2026,Houssem,Controle,Iceburg,+1,B.the,0,0
+17546,Floralies,Soukra,26/06/2026,Houssem,Recharge,Iceburg,+1,B.the,0,300
+17612,Hotel Carlton,Tunis,09/06/2026,Houssem,Controle,Aromair100,Reception,mel,190,0
+17612,Hotel Carlton,Tunis,09/06/2026,Houssem,Controle,Aromair100,S. Reunion,mel,0,0
+17551,Pharmacie Sadri,Lac2,09/06/2026,Houssem,Controle,Zee300,Entree,R.G,150,0
+17551,Pharmacie Sadri,Lac2,09/06/2026,Houssem,Recharge,Zee300,Entree,R.G,0,300
+17626,Poliform,Soukra,10/06/2026,Houssem,Controle,Aromair100,Entree,mel,0,0
+17613,Agence Doze,CUN,09/06/2026,Houssem,Controle,Astree,Entree,Rose d'or,185,0
+17550,Hotel Dar El Marsa,Sidi Bou Said,11/06/2026,Houssem,Recharge,Zee300,Entree,null,0,500
+17622,Sodeco,Aouina,10/06/2026,Houssem,Recharge,Zee300,Entree,F.the,0,300
+17623,Carre Douceur,Lac1,10/06/2026,Houssem,Controle,Astree,Entree,FE2,0,0
+17632,Timsoft Group,Lac1,11/06/2026,Houssem,Recharge,Aromair150,+1,B.the,0,300
+17632,Timsoft Group,Lac1,11/06/2026,Houssem,Recharge,Aromair150,+2,B.the,0,300
+17632,Timsoft Group,Lac1,11/06/2026,Houssem,Recharge,Aromair150,+1fond,B.the,0,300
+17632,Timsoft Group,Lac1,11/06/2026,Houssem,Recharge,Aromair150,+2fond,B.the,0,300
+17606,Clevory,Charguia,08/06/2021,Houssem,Recharge,Aromair100,Entree,Cash,0,300
+17631,Tavolino,Lac2,11/06/2026,Houssem,Recharge,Iceberg,Entree,T.H,0,300
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Controle,Aromair100,WCH,Jasmin,0,0
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Controle,Aromair100,WCF,Jasmin,0,0
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Controle,Zee600,Entree 1,F.N,0,0
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Controle,Zee600,Entree 2,F.N,0,0
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Controle,Zee600,Entree 3,F.N,0,0
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Recharge,Aromair100,WCH,Jasmin,0,300
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Recharge,Aromair100,WCF,Jasmin,0,300
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Recharge,Zee600,Entree 1,F.N,0,500
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Recharge,Zee600,Entree 2,F.N,0,500
+17614,Hygiene 716 Lac2,Lac2,09/06/2026,Houssem,Recharge,Zee600,Entree 3,F.N,0,500
+17625,Cabinet Dr Haifa Chebbi,Bardo,10/06/2026,Houssem,Controle,Astree,Entree,R.G,0,0
+17625,Cabinet Dr Haifa Chebbi,Bardo,10/06/2026,Houssem,Recharge,Astree,Entree,R.G,0,300
+17615,Ridotti,Soukra,09/06/2026,Houssem,Controle,Astree,Entree,SI,243,0
+17573,Turquoise ,CUN,18/06/2026,Houssem,Controle,Zee300,Entrée,F.D,0,0
+17573,Turquoise ,CUN,18/06/2026,Houssem,Recharge,Zee300,Entrée,F.D,0,300
+17561,Jazz Tour Khalaf,Sousse,13/06/2026,Houssem,Controle,Note: division diffuseur AR150 Blanc,null,null,0,0
+17561,Jazz Tour Khalaf,Sousse,13/06/2026,Houssem,Recharge,Note: recuperation diffuseur AR150 Noir,null,null,0,0
+17583,Hotel Laico,Tunis,20/06/2026,Houssem,Controle,Astree,S. Presidentiel,Neroli,90,0
+17557,Kantaoui Bey ,Sousse,13/06/2026,Houssem,Controle,Note: livraison 4 bouteilles Ondee,null,null,0,0
+17555,Arco Cerame ,Sfax,13/06/2026,Houssem,Controle,Astree,entrée,Cashmer,0,0
+17555,Arco Cerame ,Sfax,13/06/2026,Houssem,Recharge,Astree,entrée,Cashmer,0,300
+17569,Ambiance d'Autrefois,Soukra,15/06/2026,Houssem,Controle,Note: Récupération Diffuseur Astree,null,null,0,0
+17556,Alia Megdiche ,Sfax,13/06/2026,Houssem,Controle,Aromair100,entrée,P. Jasmin,111,0
+17556,Alia Megdiche ,Sfax,13/06/2026,Houssem,Recharge,Aromair100,entrée,Rose d'or,0,300
+17630,Love Yourself,Lac2,11/06/2026,Houssem,Recharge,Aromair100,RDC,R.V,0,300
+17630,Love Yourself,Lac2,11/06/2026,Houssem,Recharge,Aromair100,+1,R.V,0,300
+17616,Hotel Concorde ,Lac1,11/06/2026,Houssem,Controle,Astree,RDC SPA,Neroli,10,0
+17616,Hotel Concorde ,Lac1,11/06/2026,Houssem,Controle,Astree,+1 SPA,Neroli,30,0
+17616,Hotel Concorde ,Lac1,11/06/2026,Houssem,Recharge,Astree,RDC SPA,F.J,0,300
+17616,Hotel Concorde ,Lac1,11/06/2026,Houssem,Recharge,Astree,+1 SPA,F.J,0,300
+17567,Casa Store ,Soukra,15/06/2026,Houssem,Controle,Astree,Entree,Melange,40,0
+17567,Casa Store ,Soukra,15/06/2026,Houssem,Recharge,Astree,entree,mel,0,300
+17566,Soquibat ,Lac1,16/06/2026,Houssem,Controle,Astree,Cashier,P.B,260,0
+17566,Soquibat ,Lac1,16/06/2026,Houssem,Controle,Note: probleme pompe diffuseur,null,null,0,0
+17560,Dr Skander Ben Gueder,Sousse,17/06/2026,Houssem,Controle,Aromair150,SALLE d'attente,FC,60,0
+17560,Dr Skander Ben Gueder,Sousse,17/06/2026,Houssem,Controle,Aromair150,Cabinet,FC,45,0
+17560,Dr Skander Ben Gueder,Sousse,17/06/2026,Houssem,Recharge,Aromair150,SALLE d'attente,FC,0,300
+17560,Dr Skander Ben Gueder,Sousse,17/06/2026,Houssem,Recharge,Aromair150,Cabinet,FC,0,300
+17562,Moustache,Menzah5,15/06/2026,Houssem,Controle,Central,comptoir,R.G,136,0
+17562,Moustache,Menzah5,15/06/2026,Houssem,Recharge,Central,comptoir,R.G,0,170
+17636,Moustache,Menzah5,17/06/2026,Houssem,Controle,Iceberg,entree,Mel,40,0
+17636,Moustache,Menzah5,17/06/2026,Houssem,Recharge,Iceberg,entree,mel,0,300
+17554,Siceram ,Sfax,13/06/2026,Houssem,Controle,Astree,entrée,Cashmer,124,0
+17554,Siceram ,Sfax,13/06/2026,Houssem,Controle,Astree,au fond CPN,Cashmer,0,0
+17554,Siceram ,Sfax,13/06/2026,Houssem,Recharge,Astree,entrée,Cashmer,0,300
+17554,Siceram ,Sfax,13/06/2026,Houssem,Recharge,Astree,au fond,Cashmer,0,300
+17637,Dr Skander Ben Gueder,Sousse,17/06/2026,Houssem,Controle,Zee300,entree,B.The,0,0
+17637,Dr Skander Ben Gueder,Sousse,17/06/2026,Houssem,Recharge,Zee300,entree,B.the,0,500
+17558,Sodeco ,GP9,13/06/2026,Houssem,Controle,Zee300,entree,FM,0,0
+17558,Sodeco ,GP9,13/06/2026,Houssem,Recharge,Zee300,entree,FM,0,300
+17638,Hotel Concorde ,Lac1,17/06/2026,Houssem,Controle,Zee300,RDC,C. Sauvage,154,0
+17638,Hotel Concorde ,Lac1,17/06/2026,Houssem,Controle,Centrale,+2,T.B,0,0
+17638,Hotel Concorde ,Lac1,17/06/2026,Houssem,Controle,Aromair100,+2 au fond,Rose.n,200,0
+17638,Hotel Concorde ,Lac1,17/06/2026,Houssem,Recharge,Zee300,RDC,C. Sauvage,0,150
+17638,Hotel Concorde ,Lac1,17/06/2026,Houssem,Recharge,Centrale,+2,illusion,0,300
+17638,Hotel Concorde ,Lac1,17/06/2026,Houssem,Recharge,Aromair100,+2 au fond,Rose.n,0,100
+17629,Hotel Corail,Lac2,11/06/2026,Houssem,Recharge,Zee300,Reception,R.D,0,280
+17629,Hotel Corail,Lac2,11/06/2026,Houssem,Controle,Note: Recuperation Diffuseur Tour,null,null,0,0
+17639,Maison Mr Ansi Cipalin,Jardins Carthage,17/06/2026,Houssem,Controle,Astree,+2,A. Solaire,0,0
+17639,Maison Mr Ansi Cipalin,Jardins Carthage,17/06/2026,Houssem,Recharge,Astree,+2,A. Solaire,0,300
+17643,Strass ,Menzah5,23/06/2026,Houssem,Controle,Aromair100,entrée,R.G,150,0
+17644,Cabinet Dr Louati ,Menzah6,23/06/2026,Houssem,Controle,Zee300,S. attente,T.H,120,0
+17644,Cabinet Dr Louati ,Menzah6,23/06/2026,Houssem,Controle,Aromair150,au fond,F.tec,190,0
+17652,Azalée,Soukra,24/06/2026,Houssem,Controle,Iceburg,entrée,B.G,95,0
+17652,Azalée,Soukra,24/06/2026,Houssem,Controle,Aromair150,+1,R.G,90,0
+17585,Restaurent Gourmet,Charguia,22/06/2026,Houssem,Controle,Zee300,Salon,R.G,260,0
+17585,Restaurent Gourmet,Charguia,22/06/2026,Houssem,Recharge,Zee300,Salon,R.G,0,180
+17651,Ella Jewerly,Mall Tunis 2,24/06/2026,Houssem,Controle,Aromair150,Au fond,Rose n,105,0
+17586,Hotel Manera ,Sidi Bou Said,22/06/2026,Houssem,Controle,Zee300,Resto,P. Jasmin,0,0
+17586,Hotel Manera ,Sidi Bou Said,22/06/2026,Houssem,Controle,Aromair150,WCF,T.H,170,0
+17586,Hotel Manera ,Sidi Bou Said,22/06/2026,Houssem,Recharge,Zee300,Resto,P. Jasmin,0,300
+17586,Hotel Manera ,Sidi Bou Said,22/06/2026,Houssem,Recharge,Aromair150,WCF,T.H,0,130
+17595,Retaurant Safran,Lac1,23/06/2026,Houssem,Controle,Zee600,Entrée,mel,0,0
+17595,Retaurant Safran,Lac1,23/06/2026,Houssem,Recharge,Zee600,Entrée,mel,0,900
+17658,Floralies ,Lac1,25/06/2026,Houssem,Controle,Aromair600,entree,B.T,0,0
+17658,Floralies ,Lac1,25/06/2026,Houssem,Recharge,Aromair600,entree,B.T,0,600
+17590,JL Invest ,Lac2,22/06/2026,Houssem,Controle,Astree,Entree,R.G,,0
+17590,JL Invest ,Lac2,22/06/2026,Houssem,Controle,Astree,S. Reunion,RG,210,0
+17590,JL Invest ,Lac2,22/06/2026,Houssem,Controle,Iceburg,bureau d,R.G,0,0
+17590,JL Invest ,Lac2,22/06/2026,Houssem,Recharge,Note: probleme pompe diffuseur,null,null,0,0
+17655,Le Sportif ,Soukra,25/06/2026,Houssem,Controle,Zee600,Entree,null,,0
+17655,Le Sportif ,Soukra,25/06/2026,Houssem,Controle,Note: Prise defectueuse,null,null,0,0
+17593,Zinnia,Soukra,22/06/2026,Houssem,Recharge,Iceburg,Entrée,Fig,0,300
+17654,Geliamo,Marsa,25/06/2026,Houssem,Controle,Aromair150,entree,Desigal,0,0
+17654,Geliamo,Marsa,25/06/2026,Houssem,Recharge,Aromair150,entree,Desigal,0,200
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Controle,Zee600,RDC,F.C,0,0
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Controle,Aromair100,WC,F.C,0,0
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Controle,Zee600,+1,F.C,0,0
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Controle,Zee300,S. Jeny,F.C,0,0
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Recharge,Zee600,RDC,F.C,0,300
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Recharge,Aromair100,WC,F.C,0,300
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Recharge,Zee600,+1,F.C,0,300
+17678,Boumiza Square ,Sousse,27/06/2026,Houssem,Recharge,Zee300,S. Jeny,T.C,0,300
+17653,Mme Jemmeli,Marsa,25/06/2026,Houssem,Controle,Zee300,SALON,Rose d'or,0,0
+17653,Mme Jemmeli,Marsa,25/06/2026,Houssem,Recharge,Zee300,SALON,Rose d'or,0,300
+17596,La centrale Tunisie,Lac1,23/06/2026,Houssem,Controle,Astree,Entrée G,mel,0,0
+17596,La centrale Tunisie,Lac1,23/06/2026,Houssem,Controle,Astree,Entrée D,mel,30,0
+17596,La centrale Tunisie,Lac1,23/06/2026,Houssem,Recharge,Astree,Entrée G,mel,0,100
+17596,La centrale Tunisie,Lac1,23/06/2026,Houssem,Recharge,Astree,Entrée D,mel,0,100
+17592,Volkswagen SAV ,Charguia,22/06/2026,Houssem,Controle,Zee300,Reception,R.G,20,0
+17592,Volkswagen SAV ,Charguia,22/06/2026,Houssem,Recharge,Zee300,Reception,R.G,0,300
+17677,Parapharmacie La Grande,Sousse,27/06/2026,Houssem,Recharge,Zee300,Entree,Lin,0,300
+17676,Med Chakroun ,Hammam Sousse,27/06/2026,Houssem,Controle,Zee300,entree,T.H,239,0
+17676,Med Chakroun ,Hammam Sousse,27/06/2026,Houssem,Recharge,Zee300,entree,T.H,0,300
+17675,Boumiza Prod,Sousse,26/06/2026,Houssem,Recharge,Aromair150,Entree,B.the,0,300
+17674,Mall of Sousse ,Sousse,27/06/2026,Houssem,Controle,Zee300,C. Mosquée,OB,95,0
+17674,Mall of Sousse ,Sousse,27/06/2026,Houssem,Controle,Zee600,WC F.C.,OB,160,0
+17674,Mall of Sousse ,Sousse,27/06/2026,Houssem,Controle,Zee600,WC H.C.,OB,0,0
+17674,Mall of Sousse ,Sousse,27/06/2026,Houssem,Controle,Aromair150,Mosquée,Rose d'or,30,0
+17674,Mall of Sousse ,Sousse,27/06/2026,Houssem,Controle,Astree,Admin,T.H,58,0
+17679,Maison Mme Dridi ,Soukra,23/06/2026,Houssem,Controle,Astree,salon,R.G,0,0
+17679,Maison Mme Dridi ,Soukra,23/06/2026,Houssem,Recharge,Astree,salon,R.G,0,300
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,entree,Lin,115,0
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,WC H.C.B,Lin,0,0
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,WCF.C.B,Lin,0,0
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,Couloir Bank,Lin,100,0
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,K. Low,Lin,0,0
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,WC F. Low,Lin,0,0
+17673,Dar Said ,Sidi Bou Said,27/06/2026,Houssem,Controle,Zephyr,WC H. Low,Lin,190,0
+17680,Hotel Manera ,Sidi Bou Said,23/06/2026,Houssem,Controle,Note: livraison 4 Spray F.N.,null,null,0,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Zee300,RDC.DG,R.U,0,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Zee300,RDC. BD,R.U,84,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Zee300,Boutique,R.U,0,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Aromair100,+1 DG,R.N,116,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Aromair100,+2 B.G,R.N,0,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Aromair100,+3 B.G,R.N,0,0
+17681,Ooredoo ,Lac2,20/06/2026,Houssem,Controle,Aromair100,+1 B.D,R.N,0,0
+17646,Geliamo,Marsa,24/06/2026,Houssem,Controle,Aromair150,Entrée,Desigal,0,0
+17682,Ooredoo ,Lac2,23/06/2026,Houssem,Controle,Central,+2 B.D,Rose.n,155,0
+17682,Ooredoo ,Lac2,23/06/2026,Houssem,Controle,Zee300,P. directer,OB,0,0
+17682,Ooredoo ,Lac2,23/06/2026,Houssem,Controle,Central,+1 B.D,R.N,0,0
+17684,Jouaillerie Fakhfakh ,Lac1,21/06/2026,Houssem,Controle,Astree,entree,AG,0,0
+17684,Jouaillerie Fakhfakh ,Lac1,21/06/2026,Houssem,Controle,Iceburg,1ere,melange,238,0
+17683,Beauty Shop,Lac2,21/06/2026,Houssem,Controle,Zee300,au fond,Linge Frais,0,0
+17683,Beauty Shop,Lac2,21/06/2026,Houssem,Recharge,Zee300,au fond,Linge Frais,0,300
+17686,Mariotte ,CUN,25/06/2026,Houssem,Controle,Note: livraison 20 spray R.G.,null,null,0,0
+17672,City Loft ,Soukra,26/06/2026,Houssem,Controle,Aromair100,Au fond,Rose n,57,0
+17672,City Loft ,Soukra,26/06/2026,Houssem,Controle,Aromair100,1er étage,RG,0,0
+17580,Café Sophia,CUN,20/06/2026,Houssem,Controle,Astree,Entrée,F.The,0,0
+17580,Café Sophia,CUN,20/06/2026,Houssem,Controle,Astree,CPN,F.The,0,0
+17580,Café Sophia,CUN,20/06/2026,Houssem,Recharge,Astree,Entree,F.The,0,300
+17647,ID & Partners ,Millenium Marsa,24/06/2026,Houssem,Controle,Iceburg,entrée,Cashmer,115,0
+17685,Magro ,Charguia,23/06/2026,Houssem,Controle,Aromair100,RDC,Cashmer,0,0
+17685,Magro ,Charguia,23/06/2026,Houssem,Controle,Aromair100,etage,Cashmer,17,0
+17685,Magro ,Charguia,23/06/2026,Houssem,Controle,Aromair150,directer,Cashmer,0,0
+17685,Magro ,Charguia,23/06/2026,Houssem,Controle,Aromair100,couloird,Cashmer,0,0
+17685,Magro ,Charguia,23/06/2026,Houssem,Controle,Aromair150,fond d,Cashmer,0,0
+17685,Magro ,Charguia,23/06/2026,Houssem,Controle,Aromair150,directer CPN,RG,0,0
+17687,Mascotte ,Jardins Carthage,23/06/2026,Houssem,Controle,Zee300,afond,Lin,25,0
+17687,Mascotte ,Jardins Carthage,23/06/2026,Houssem,Recharge,Zee300,afond,Lin,0,300
+17599,Oishi,Soukra,23/06/2026,Houssem,Controle,Astree,Entree,illusion,0,0
+17599,Oishi,Soukra,23/06/2026,Houssem,Recharge,Astree,Entrée,illusion,0,150
+17689,City Loft ,Soukra,29/06/2026,Houssem,Recharge,Aromair100,+1,R.G,0,200
+17688,Azalée,Soukra,25/06/2026,Houssem,Controle,Astree,Entrée,Fig,16,0
+17688,Azalée,Soukra,25/06/2026,Houssem,Recharge,Astree,Entrée,Fig,0,300
+17690,Boutique 123,Sfax,30/06/2026,Houssem,Controle,Aromair600,Entrée,R.G,0,0
+17690,Boutique 123,Sfax,30/06/2026,Houssem,Recharge,Aromair600,Entrée,R.G,0,600
+17696,Camomile ,Soukra,30/06/2026,Houssem,Controle,Astree,Entrée,R.G,0,0
+17667,Mosquee Socubat,Borj Louzir,21/06/2026,Houssem,Controle,Aromair100,All,F.The,0,0
+17667,Mosquee Socubat,Borj Louzir,21/06/2026,Houssem,Recharge,Aromair100,All,F.The,0,300
+17649,Assurance STAR ,Lac3,24/06/2026,Houssem,Controle,Aromair150,Hotel,R.G,0,0
+17664,Barista's ,Jardins Carthage,26/06/2026,Houssem,Recharge,Aromair100,WC,onde parfume,0,300
+17584,Armatis,Ghazela,22/06/2026,Houssem,Controle,Aromair150,Entree,T.H,210,0
+17584,Armatis,Ghazela,22/06/2026,Houssem,Controle,Astree,Direction,T.H,195,0
+17584,Armatis,Ghazela,22/06/2026,Houssem,Recharge,Aromair150,Entrée,T.H,0,90
+17584,Armatis,Ghazela,22/06/2026,Houssem,Recharge,Aromair150,Direction,T.H,0,300
+17695,Boutique LARA ,Menzah7,30/06/2026,Houssem,Controle,Astree,Entrée,mel,0,0
+17695,Boutique LARA ,Menzah7,30/06/2026,Houssem,Controle,Astree,CPN,mel,0,0
+17695,Boutique LARA ,Menzah7,30/06/2026,Houssem,Controle,Astree,Entree,mel,190,0
+17694,Centre Maram ,Ezzahra,30/06/2026,Houssem,Controle,Astree,Entrée,mel,0,0
+17694,Centre Maram ,Ezzahra,30/06/2026,Houssem,Recharge,Astree,Entrée,mel,0,300
+17693,Distry Cars,Sfax,30/06/2026,Houssem,Controle,Astree,Entrée,Rose n,62,0
+17693,Distry Cars,Sfax,30/06/2026,Houssem,Recharge,Astree,Entrée,Rose n,0,300
+17578,Villa Didon ,Carthage,21/06/2026,Houssem,Controle,Zee600,Entree,mel,50,0
+17578,Villa Didon ,Carthage,21/06/2026,Houssem,Recharge,Zee600,Entree,mel,0,850
+17650,Delice Danone ,Lac3,24/06/2026,Houssem,Controle,Zee300,entrée,null,95,0
+17650,Delice Danone ,Lac3,24/06/2026,Houssem,Controle,Aromair150,S. Reunion,null,260,0
+17600,716,CUN,23/06/2026,Houssem,Recharge,Astree,au fond,Perle,0,300
+17600,716,CUN,23/06/2026,Houssem,Recharge,Aromair150,WC,Rose n,0,300
+17692,Boumiza Square ,Sousse,30/06/2026,Houssem,Controle,Zee300,RDC,Cuir S,70,0
+17692,Boumiza Square ,Sousse,30/06/2026,Houssem,Controle,Centrale,+2WC,T.B,65,0
+17692,Boumiza Square ,Sousse,30/06/2026,Houssem,Controle,Centrale,+3WC,T.B,126,0
+17648,Barista's ,Jardins Carthage,24/06/2026,Houssem,Controle,Note: Recuperation Diffuseur AR100 Blanc,null,null,0,0
+17589,Hotel Corail,Lac2,22/06/2026,Houssem,Controle,Note: livraison Diffuseur Zee300 + Bouteille Vide,null,null,0,0
+17671,City Desk ,Soukra,26/06/2026,Houssem,Recharge,Aromair150,entrée,mel,0,300
+320,,,,,,,,,,

@@ -7,6 +7,7 @@ from app.agent.core.intent_router import IntentRouter
 from app.agent.core.orchestrator import AgentOrchestrator
 from app.agent.core.session_manager import SessionManager
 from app.agent.skills.alert_management import AlertManagementSkill
+from app.agent.skills.analytics import AnalyticsSkill
 from app.agent.skills.ceo_reporting import CEOReportingSkill
 from app.agent.skills.client_history import ClientHistorySkill
 from app.agent.skills.general_question import GeneralQuestionSkill
@@ -120,6 +121,7 @@ class AppContainer:
             ceo_reporting_skill=CEOReportingSkill(operations_data_tool=operations_data_tool),
             general_question_skill=GeneralQuestionSkill(rag_tool=rag_tool),
             maintenance_fiche_intake_skill=MaintenanceFicheIntakeSkill(fiche_extraction_tool=fiche_extraction_tool),
+            analytics_skill=AnalyticsSkill(operations_data_tool=operations_data_tool),
         )
 
     def build_answer_service(self) -> AnswerService:
@@ -127,6 +129,7 @@ class AppContainer:
             retriever=self.build_hybrid_retriever(),
             llm_service=self.build_llm_service(),
             opportunity_logger=self.build_opportunity_logger(),
+            memory_tool=self.build_memory_tool(),
         )
 
     def build_question_pipeline(self) -> QuestionPipeline:

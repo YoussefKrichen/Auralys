@@ -57,3 +57,9 @@ class MemoryTool:
     def get_active_memory(self) -> list[dict[str, Any]]:
         return self.store.get_active_memory()
 
+    def approve_memory(self, memory_id: int, reviewed_by: str | None = None) -> dict[str, Any] | None:
+        return self.store.approve_memory(memory_id, reviewed_by=reviewed_by)
+
+    def reject_memory(self, memory_id: int, reviewed_by: str | None = None) -> dict[str, Any] | None:
+        return self.store.reject_memory(memory_id, reviewed_by=reviewed_by)
+

@@ -52,8 +52,37 @@ class ReviewService:
             self.database.upsert_review_case(connection, payload)
         for row in self.list_reviews(limit=200, status="all"):
             if row["history_id"] == history_id:
+                if normalized_decision == "correct" and payload["corrected_answer"]:
+                    self._create_correction_memory(history_id=history_id, review_row=row, corrected_answer=payload["corrected_answer"])
                 return row
         raise ValueError("Reviewed history entry not found.")
+
+    def _create_correction_memory(
+        self,
+        *,
+        history_id: int,
+        review_row: dict[str, Any],
+        corrected_answer: str,
+    ) -> int:
+        topic = review_row.get("intent") or review_row.get("route") or "general"
+        metadata = {
+            "legacy_source": f"review:{history_id}",
+            "original_query": review_row.get("original_query"),
+            "original_answer": review_row.get("answer"),
+            "topic": topic,
+            "importance": 3,
+        }
+        with self.database.connection() as connection:
+            return self.database.insert_memory(
+                connection,
+                scope="global",
+                memory_type="KNOWLEDGE_CORRECTION",
+                content=corrected_answer,
+                source_conversation_id=None,
+                status="PENDING",
+                confidence=0.6,
+                metadata=metadata,
+            )
 
     def summarize_reviews(self, limit: int = 200) -> dict[str, Any]:
         rows = self.list_reviews(limit=limit, status="all")

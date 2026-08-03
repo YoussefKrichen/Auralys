@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import threading
 from contextlib import contextmanager
 from typing import Any, Iterator
 
@@ -121,6 +122,8 @@ CORE_SCHEMA_STATEMENTS: list[str] = [
     """,
     "CREATE INDEX IF NOT EXISTS idx_discussion_history_conversation_id ON discussion_history (conversation_id, created_at DESC)",
     "CREATE INDEX IF NOT EXISTS idx_discussion_history_created_at ON discussion_history (created_at DESC)",
+    "ALTER TABLE messages ADD COLUMN IF NOT EXISTS history_id BIGINT REFERENCES discussion_history(history_id) ON DELETE SET NULL",
+    "CREATE INDEX IF NOT EXISTS idx_messages_history_id ON messages (history_id)",
     """
     CREATE TABLE IF NOT EXISTS review_cases (
         history_id BIGINT PRIMARY KEY REFERENCES discussion_history(history_id) ON DELETE CASCADE,
@@ -136,6 +139,20 @@ CORE_SCHEMA_STATEMENTS: list[str] = [
     )
     """,
     "CREATE INDEX IF NOT EXISTS idx_review_cases_status_updated_at ON review_cases (review_status, updated_at DESC)",
+    """
+    CREATE TABLE IF NOT EXISTS gold_visits (
+        maintenance_number TEXT PRIMARY KEY,
+        client TEXT,
+        client_id TEXT,
+        address TEXT,
+        service_date DATE,
+        issue TEXT,
+        diffusers JSONB NOT NULL DEFAULT '[]'::jsonb,
+        loaded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS idx_gold_visits_client_id ON gold_visits (client_id)",
+    "CREATE INDEX IF NOT EXISTS idx_gold_visits_service_date ON gold_visits (service_date)",
     """
     CREATE TABLE IF NOT EXISTS users (
         id BIGSERIAL PRIMARY KEY,
@@ -189,6 +206,8 @@ _DISCUSSION_HISTORY_JSON_COLUMNS = {
 class PostgresDatabase:
     def __init__(self, dsn: str | None = None) -> None:
         self.dsn = dsn or settings.postgres_dsn
+        self._schema_ready = False
+        self._schema_lock = threading.Lock()
 
     @contextmanager
     def connection(self) -> Iterator[psycopg.Connection]:
@@ -203,10 +222,21 @@ class PostgresDatabase:
             connection.close()
 
     def init_schema(self) -> None:
-        with self.connection() as connection:
-            with connection.cursor() as cursor:
-                for statement in CORE_SCHEMA_STATEMENTS:
-                    cursor.execute(statement)
+        # ensure_schema() is called on nearly every request across services, and
+        # ALTER TABLE ... ADD COLUMN IF NOT EXISTS still takes an AccessExclusiveLock
+        # even when the column already exists -- running it on every concurrent
+        # request reliably deadlocks under the frontend's parallel polling. Run the
+        # DDL once per process instead of once per request.
+        if self._schema_ready:
+            return
+        with self._schema_lock:
+            if self._schema_ready:
+                return
+            with self.connection() as connection:
+                with connection.cursor() as cursor:
+                    for statement in CORE_SCHEMA_STATEMENTS:
+                        cursor.execute(statement)
+            self._schema_ready = True
 
     def upsert_fiche(self, connection: psycopg.Connection, fiche_row: dict[str, Any]) -> None:
         with connection.cursor() as cursor:
@@ -306,6 +336,52 @@ class PostgresDatabase:
                 )
             return cursor.rowcount
 
+    def upsert_gold_visit(self, connection: psycopg.Connection, visit_row: dict[str, Any]) -> None:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                INSERT INTO gold_visits (
+                    maintenance_number, client, client_id, address, service_date, issue, diffusers, loaded_at
+                )
+                VALUES (%s, %s, %s, %s, %s, %s, %s::jsonb, NOW())
+                ON CONFLICT (maintenance_number) DO UPDATE SET
+                    client = EXCLUDED.client,
+                    client_id = EXCLUDED.client_id,
+                    address = EXCLUDED.address,
+                    service_date = EXCLUDED.service_date,
+                    issue = EXCLUDED.issue,
+                    diffusers = EXCLUDED.diffusers,
+                    loaded_at = NOW()
+                """,
+                (
+                    visit_row["maintenance_number"],
+                    visit_row.get("client"),
+                    visit_row.get("client_id"),
+                    visit_row.get("address"),
+                    visit_row.get("service_date"),
+                    visit_row.get("issue"),
+                    json.dumps(visit_row.get("diffusers") or []),
+                ),
+            )
+
+    def delete_orphan_gold_visits(
+        self,
+        connection: psycopg.Connection,
+        keep_maintenance_numbers: list[str],
+    ) -> int:
+        """Remove gold_visits rows whose maintenance_number no longer appears in
+        the CSV -- without this, a row dropped from a later export lingers in
+        Postgres forever, since upsert only ever adds/updates the current set."""
+        with connection.cursor() as cursor:
+            if not keep_maintenance_numbers:
+                cursor.execute("DELETE FROM gold_visits")
+            else:
+                cursor.execute(
+                    "DELETE FROM gold_visits WHERE NOT (maintenance_number = ANY(%s))",
+                    (keep_maintenance_numbers,),
+                )
+            return cursor.rowcount
+
     def upsert_conversation(
         self,
         connection: psycopg.Connection,
@@ -344,14 +420,15 @@ class PostgresDatabase:
         transcript: str | None = None,
         audio_path: str | None = None,
         metadata: dict[str, Any] | None = None,
+        history_id: int | None = None,
     ) -> int:
         with connection.cursor() as cursor:
             cursor.execute(
                 """
                 INSERT INTO messages (
-                    conversation_id, sender, message_type, content, transcript, audio_path, metadata
+                    conversation_id, sender, message_type, content, transcript, audio_path, metadata, history_id
                 )
-                VALUES (%s, %s, %s, %s, %s, %s, %s::jsonb)
+                VALUES (%s, %s, %s, %s, %s, %s, %s::jsonb, %s)
                 RETURNING id
                 """,
                 (
@@ -362,6 +439,7 @@ class PostgresDatabase:
                     transcript,
                     audio_path,
                     json.dumps(metadata or {}),
+                    history_id,
                 ),
             )
             row = cursor.fetchone()
@@ -376,6 +454,13 @@ class PostgresDatabase:
                 )
                 row = cursor.fetchone()
         return int(row[0]) if row else None
+
+    def fetch_conversation_by_key(self, conversation_key: str) -> dict[str, Any] | None:
+        sql = "SELECT id, conversation_key, user_id, role FROM conversations WHERE conversation_key = %s"
+        with self.connection() as connection:
+            with connection.cursor(row_factory=dict_row) as cursor:
+                cursor.execute(sql, (conversation_key,))
+                return cursor.fetchone()
 
     def fetch_conversations(
         self,
@@ -415,7 +500,7 @@ class PostgresDatabase:
     def fetch_messages(self, *, conversation_key: str, limit: int = 200) -> list[dict[str, Any]]:
         sql = """
             SELECT m.id, m.conversation_id, m.sender, m.message_type, m.content,
-                   m.transcript, m.audio_path, m.metadata, m.created_at
+                   m.transcript, m.audio_path, m.metadata, m.created_at, m.history_id
             FROM messages m
             JOIN conversations c ON c.id = m.conversation_id
             WHERE c.conversation_key = %s
@@ -452,13 +537,25 @@ class PostgresDatabase:
         self,
         conversation_id: str | None = None,
         limit: int = 100,
+        *,
+        user_id: int | None = None,
     ) -> list[dict[str, Any]]:
-        sql = "SELECT * FROM discussion_history"
+        clauses: list[str] = []
         params: list[Any] = []
+        # user_id scoping requires a join, since discussion_history.conversation_id
+        # is a free-text key, not a foreign key to conversations.id.
+        join = ""
+        if user_id is not None:
+            join = "JOIN conversations c ON c.conversation_key = dh.conversation_id"
+            clauses.append("c.user_id = %s")
+            params.append(user_id)
         if conversation_id:
-            sql += " WHERE conversation_id = %s"
+            clauses.append("dh.conversation_id = %s")
             params.append(conversation_id)
-        sql += " ORDER BY created_at DESC LIMIT %s"
+        sql = f"SELECT dh.* FROM discussion_history dh {join}"
+        if clauses:
+            sql += " WHERE " + " AND ".join(clauses)
+        sql += " ORDER BY dh.created_at DESC LIMIT %s"
         params.append(max(limit, 1))
         with self.connection() as connection:
             with connection.cursor(row_factory=dict_row) as cursor:
@@ -554,6 +651,31 @@ class PostgresDatabase:
             with connection.cursor(row_factory=dict_row) as cursor:
                 cursor.execute(sql, (max(limit, 1),))
                 return cursor.fetchall()
+
+    def fetch_memory(self, memory_id: int) -> dict[str, Any] | None:
+        sql = (
+            "SELECT id, scope, memory_type, content, source_conversation_id, source_message_id, "
+            "status, confidence, tags, metadata, created_at, updated_at "
+            "FROM memories WHERE id = %s"
+        )
+        with self.connection() as connection:
+            with connection.cursor(row_factory=dict_row) as cursor:
+                cursor.execute(sql, (memory_id,))
+                return cursor.fetchone()
+
+    def set_memory_status(self, memory_id: int, *, status: str, reviewed_by: str | None) -> dict[str, Any] | None:
+        sql = """
+            UPDATE memories
+            SET status = %s,
+                metadata = metadata || %s::jsonb,
+                updated_at = NOW()
+            WHERE id = %s
+        """
+        metadata_patch = json.dumps({"validated_by": reviewed_by})
+        with self.connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(sql, (status, metadata_patch, memory_id))
+        return self.fetch_memory(memory_id)
 
     def insert_user(
         self,

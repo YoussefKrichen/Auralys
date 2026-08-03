@@ -6,6 +6,7 @@ from functools import lru_cache
 
 from app.config import settings
 from app.ingestion.build_chunks import build_chunks
+from app.ingestion.gold_fiche_adapter import load_gold_fiches
 from app.ingestion.normalize import load_fiches_from_directory
 from schemas.chunk_schema import ChunkSchema
 from schemas.retrieval_schema import RetrievalFilters, RetrievalHit
@@ -60,7 +61,7 @@ class LocalRetriever:
 
 @lru_cache(maxsize=1)
 def _load_cached_chunks() -> tuple[ChunkSchema, ...]:
-    fiches = load_fiches_from_directory(settings.processed_data_dir)
+    fiches = load_fiches_from_directory(settings.processed_data_dir) + load_gold_fiches()
     return tuple(build_chunks(fiches))
 
 

@@ -14,6 +14,7 @@ class AgentIntent(str, Enum):
     ASK_MAINTENANCE_PROBLEM = "ASK_MAINTENANCE_PROBLEM"
     ASK_DAILY_REPORT = "ASK_DAILY_REPORT"
     ASK_STOCK_STATUS = "ASK_STOCK_STATUS"
+    ASK_DATA_ANALYTICS = "ASK_DATA_ANALYTICS"
     SUBMIT_MAINTENANCE_FICHE = "SUBMIT_MAINTENANCE_FICHE"
     GENERAL_QUESTION = "GENERAL_QUESTION"
 
@@ -101,3 +102,4 @@ class AgentChatResponse(BaseModel):
     justification: str | None = None
     reasoning_signals: dict[str, Any] = Field(default_factory=dict)
     reasoning_summary: str | None = None
+    history_id: int | None = None

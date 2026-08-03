@@ -3,6 +3,7 @@ from __future__ import annotations
 import time
 import re
 
+from app.agent.tools.memory import MemoryTool
 from app.commercial.analyzer import analyze_commercial_opportunity
 from app.commercial.opportunity_logger import OpportunityLogger
 from app.config import settings
@@ -23,10 +24,12 @@ class AnswerService:
         retriever: HybridRetriever | None = None,
         llm_service: LLMService | None = None,
         opportunity_logger: OpportunityLogger | None = None,
+        memory_tool: MemoryTool | None = None,
     ) -> None:
         self.retriever = retriever or HybridRetriever()
         self.llm_service = llm_service or LLMService()
         self.opportunity_logger = opportunity_logger or OpportunityLogger()
+        self.memory_tool = memory_tool or MemoryTool()
 
     def answer(self, query: str) -> dict:
         routed_query = route_query(query)
@@ -101,7 +104,8 @@ class AnswerService:
     def answer_from_retrieval(self, retrieval_result: RetrievalResult) -> dict:
         built_context = build_context(retrieval_result)
         sav_admin_analysis = analyze_commercial_opportunity(retrieval_result.query, retrieval_result)
-        prompt = build_answer_prompt(retrieval_result.query, built_context, sav_admin_analysis)
+        business_rules = self.memory_tool.get_active_business_rules()
+        prompt = build_answer_prompt(retrieval_result.query, built_context, sav_admin_analysis, business_rules)
         llm_started = time.perf_counter()
         llm_result = self.llm_service.answer_details(
             prompt,

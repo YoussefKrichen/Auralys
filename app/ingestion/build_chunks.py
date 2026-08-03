@@ -4,6 +4,8 @@ from typing import Iterable
 import re
 import unicodedata
 
+import tiktoken
+
 from app.config import settings
 from schemas.chunk_schema import ChunkSchema, ChunkType
 from schemas.fiche_schema import FicheSchema, PROBLEM_CODE_LABELS, _is_plausible_diffuser_model
@@ -313,5 +315,14 @@ def _split_large_paragraph(paragraph: str, budget: int) -> list[str]:
     return chunks
 
 
+_TOKENIZER = tiktoken.get_encoding("cl100k_base")
+
+
 def _estimate_token_count(text: str) -> int:
-    return max(len(re.findall(r"\S+", text)), 1)
+    """Real subword count (not a whitespace word count): French text with
+    accents and compound words routinely runs 1.3-1.7x more tokens than
+    words, so a naive split under-budgets chunks against
+    settings.chunk_target_tokens. cl100k_base isn't Gemini's exact
+    tokenizer, but it's a well-vetted BPE encoding that runs locally with
+    no network call at ingestion time -- close enough to size chunks by."""
+    return max(len(_TOKENIZER.encode(text)), 1)

@@ -20,7 +20,7 @@ defineEmits(["logout"]);
 
 const apiBase = ref(getApiBase());
 const VOICE_AUTOPLAY_STORAGE_KEY = STORAGE_KEYS.voiceAutoplay;
-const { backendStatus, statusLabel, checkBackend } = useBackendStatus(apiBase);
+const { backendStatus, checkBackend } = useBackendStatus(apiBase);
 const reviewRows = ref([]);
 const reviewSummary = ref({
   total: 0,
@@ -46,6 +46,8 @@ const correctionDecisionPending = ref(null);
 const correctionDecisionError = ref("");
 const selectedConversationKey = ref("");
 const conversationMessages = ref([]);
+const conversationSearch = ref("");
+const memoryStatusFilter = ref("ALL");
 const loadingConversations = ref(false);
 const loadingMessages = ref(false);
 const loadingMemories = ref(false);
@@ -142,6 +144,41 @@ const activeConversation = computed(() => {
     return conversations.value.find((row) => row.conversation_key === selectedConversationKey.value) || conversations.value[0];
   }
   return conversations.value[0];
+});
+
+const filteredConversations = computed(() => {
+  const query = conversationSearch.value.trim().toLowerCase();
+  if (!query) return conversations.value;
+  return conversations.value.filter((row) => {
+    const haystack = `${formatConversationLabel(row)} ${formatConversationMeta(row)}`.toLowerCase();
+    return haystack.includes(query);
+  });
+});
+
+const MEMORY_STATUS_FILTERS = [
+  { value: "ALL", label: "Tout" },
+  { value: "ACTIVE", label: "Active" },
+  { value: "PENDING", label: "En attente" },
+  { value: "REJECTED", label: "Rejetee" },
+];
+
+const filteredMemories = computed(() => {
+  if (memoryStatusFilter.value === "ALL") return memories.value;
+  return memories.value.filter((row) => row.status === memoryStatusFilter.value);
+});
+
+const messageGroups = computed(() => {
+  const groups = [];
+  let lastDay = null;
+  for (const row of conversationMessages.value) {
+    const day = row.created_at ? new Date(row.created_at).toDateString() : null;
+    if (day !== lastDay) {
+      groups.push({ kind: "divider", key: `divider-${row.id}`, label: formatMessageDayLabel(row.created_at) });
+      lastDay = day;
+    }
+    groups.push({ kind: "message", key: `message-${row.id}`, row });
+  }
+  return groups;
 });
 
 const canRequestMicrophone = computed(() => canRecordWithBrowser());
@@ -344,14 +381,28 @@ function formatHistoryDate(value) {
   }).format(new Date(value));
 }
 
+function formatMessageDayLabel(value) {
+  if (!value) return "-";
+  return new Intl.DateTimeFormat("fr-FR", { dateStyle: "full" }).format(new Date(value));
+}
+
 function formatConversationLabel(row) {
   if (!row) return "-";
+  const title = String(row.title || "").trim();
+  if (title && title !== "Untitled") return title;
   return row.role || row.channel || row.conversation_key;
 }
 
 function formatConversationMeta(row) {
   if (!row) return "-";
   return row.user_id ? `user ${row.user_id}` : row.channel || "-";
+}
+
+function conversationInitials(row) {
+  const words = formatConversationLabel(row).trim().split(/\s+/).filter(Boolean);
+  const first = words[0]?.[0] || "?";
+  const second = words[1]?.[0] || "";
+  return (first + second).toUpperCase();
 }
 
 function formatMessageLabel(row) {
@@ -1193,7 +1244,7 @@ onMounted(async () => {
     await loadSavedCeoDiscussion(ceoConversationId.value);
   }
   await resizeCeoPromptInput();
-  refreshTimer = window.setInterval(refreshCeoData, 10000);
+  refreshTimer = window.setInterval(refreshCeoData, 60000);
 });
 
 onBeforeUnmount(() => {
@@ -1235,7 +1286,6 @@ onBeforeUnmount(() => {
             <strong>{{ pendingCorrections.length || 0 }}</strong>
             <span>Corrections</span>
           </article>
-          <span class="brand-state" :class="backendStatus">{{ statusLabel }}</span>
         </div>
       </section>
 
@@ -1384,24 +1434,33 @@ onBeforeUnmount(() => {
           <article class="insight-block admin-data-block">
             <div class="admin-data-head">
               <h3>Conversations</h3>
-              <span class="queue-status">{{ conversations.length }}</span>
+              <span class="queue-status">{{ filteredConversations.length }}</span>
             </div>
-            <div v-if="conversations.length" class="admin-list">
+            <label class="search-field">
+              <span>Rechercher</span>
+              <input v-model="conversationSearch" type="text" placeholder="Filtrer par sujet ou canal..." />
+            </label>
+            <div v-if="filteredConversations.length" class="admin-list">
               <button
-                v-for="row in conversations"
+                v-for="row in filteredConversations"
                 :key="row.id"
                 type="button"
                 class="admin-row-button"
                 :class="{ active: activeConversation?.conversation_key === row.conversation_key }"
                 @click="selectConversation(row)"
               >
-                <strong>{{ formatConversationLabel(row) }}</strong>
-                <small>{{ row.conversation_key }}</small>
-                <small>{{ formatConversationMeta(row) }} · {{ formatHistoryDate(row.last_message_at) }}</small>
+                <span class="admin-row-head">
+                  <span class="admin-avatar">{{ conversationInitials(row) }}</span>
+                  <span class="admin-row-body">
+                    <strong>{{ formatConversationLabel(row) }}</strong>
+                    <small>{{ formatConversationMeta(row) }} · {{ formatHistoryDate(row.last_message_at) }}</small>
+                  </span>
+                </span>
               </button>
             </div>
-            <div v-else class="message muted-message">
-              {{ loadingConversations ? "Chargement..." : "Aucune conversation enregistree." }}
+            <div v-else class="admin-empty-state">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+              <p>{{ loadingConversations ? "Chargement..." : (conversationSearch ? "Aucune conversation ne correspond a ce filtre." : "Aucune conversation enregistree.") }}</p>
             </div>
           </article>
 
@@ -1411,51 +1470,64 @@ onBeforeUnmount(() => {
               <span class="queue-status">{{ conversationMessages.length }}</span>
             </div>
             <div v-if="conversationMessages.length" class="admin-message-list">
-              <div v-for="row in conversationMessages" :key="row.id" class="admin-message-card">
-                <div class="queue-card-head">
-                  <strong>{{ formatMessageLabel(row) }}</strong>
-                  <span class="queue-status">{{ row.message_type }}</span>
-                </div>
-                <p>{{ row.content }}</p>
-                <small>{{ formatHistoryDate(row.created_at) }}</small>
-                <div v-if="row.sender === 'assistant' && row.history_id" class="message-action-row">
-                  <button
-                    class="message-action-button"
-                    type="button"
-                    :class="{ active: getFlagDraft(row.history_id).open }"
-                    aria-label="Signaler cette reponse"
-                    title="Signaler / corriger cette reponse"
-                    @click="toggleFlagDraft(row.history_id)"
-                  >
-                    <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 3v18" />
-                      <path d="M5 4h11l-2.5 4L16 12H5" />
-                    </svg>
-                  </button>
-                  <small v-if="getFlagDraft(row.history_id).done" class="flag-done-label">Correction envoyee</small>
-                </div>
-                <div v-if="row.sender === 'assistant' && row.history_id && getFlagDraft(row.history_id).open" class="flag-panel">
-                  <textarea
-                    v-model="getFlagDraft(row.history_id).text"
-                    placeholder="Quelle est la bonne reponse ?"
-                    rows="2"
-                  ></textarea>
-                  <div class="correction-actions">
-                    <button
-                      class="correction-action-button confirm"
-                      type="button"
-                      :disabled="getFlagDraft(row.history_id).submitting || !getFlagDraft(row.history_id).text.trim()"
-                      @click="submitFlagDraft(row.history_id)"
-                    >
-                      Envoyer la correction
-                    </button>
+              <template v-for="entry in messageGroups" :key="entry.key">
+                <div v-if="entry.kind === 'divider'" class="admin-date-divider">{{ entry.label }}</div>
+                <div
+                  v-else
+                  class="admin-message-card"
+                  :class="entry.row.sender === 'assistant' ? 'from-assistant' : 'from-user'"
+                >
+                  <div class="queue-card-head">
+                    <span class="admin-row-head">
+                      <span class="admin-avatar" :class="{ assistant: entry.row.sender === 'assistant' }">
+                        {{ entry.row.sender === "assistant" ? "A" : "U" }}
+                      </span>
+                      <strong>{{ formatMessageLabel(entry.row) }}</strong>
+                    </span>
+                    <span class="queue-status">{{ entry.row.message_type }}</span>
                   </div>
-                  <div v-if="getFlagDraft(row.history_id).error" class="message error-message">{{ getFlagDraft(row.history_id).error }}</div>
+                  <p>{{ entry.row.content }}</p>
+                  <small>{{ formatHistoryDate(entry.row.created_at) }}</small>
+                  <div v-if="entry.row.sender === 'assistant' && entry.row.history_id" class="message-action-row">
+                    <button
+                      class="message-action-button"
+                      type="button"
+                      :class="{ active: getFlagDraft(entry.row.history_id).open }"
+                      aria-label="Signaler cette reponse"
+                      title="Signaler / corriger cette reponse"
+                      @click="toggleFlagDraft(entry.row.history_id)"
+                    >
+                      <svg class="message-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 3v18" />
+                        <path d="M5 4h11l-2.5 4L16 12H5" />
+                      </svg>
+                    </button>
+                    <small v-if="getFlagDraft(entry.row.history_id).done" class="flag-done-label">Correction envoyee</small>
+                  </div>
+                  <div v-if="entry.row.sender === 'assistant' && entry.row.history_id && getFlagDraft(entry.row.history_id).open" class="flag-panel">
+                    <textarea
+                      v-model="getFlagDraft(entry.row.history_id).text"
+                      placeholder="Quelle est la bonne reponse ?"
+                      rows="2"
+                    ></textarea>
+                    <div class="correction-actions">
+                      <button
+                        class="correction-action-button confirm"
+                        type="button"
+                        :disabled="getFlagDraft(entry.row.history_id).submitting || !getFlagDraft(entry.row.history_id).text.trim()"
+                        @click="submitFlagDraft(entry.row.history_id)"
+                      >
+                        Envoyer la correction
+                      </button>
+                    </div>
+                    <div v-if="getFlagDraft(entry.row.history_id).error" class="message error-message">{{ getFlagDraft(entry.row.history_id).error }}</div>
+                  </div>
                 </div>
-              </div>
+              </template>
             </div>
-            <div v-else class="message muted-message">
-              {{ loadingMessages ? "Chargement..." : "Choisissez une conversation pour voir ses messages." }}
+            <div v-else class="admin-empty-state">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+              <p>{{ loadingMessages ? "Chargement..." : "Choisissez une conversation pour voir ses messages." }}</p>
             </div>
           </article>
         </div>
@@ -1463,10 +1535,22 @@ onBeforeUnmount(() => {
         <article class="insight-block admin-data-block">
           <div class="admin-data-head">
             <h3>Ce qu'Auralys a appris</h3>
-            <span class="queue-status">{{ memories.length }}</span>
+            <span class="queue-status">{{ filteredMemories.length }}</span>
           </div>
-          <div v-if="memories.length" class="admin-memory-list">
-            <div v-for="row in memories" :key="row.id" class="admin-memory-card">
+          <div class="memory-filter-row">
+            <button
+              v-for="filterOption in MEMORY_STATUS_FILTERS"
+              :key="filterOption.value"
+              type="button"
+              class="memory-filter-chip"
+              :class="{ active: memoryStatusFilter === filterOption.value }"
+              @click="memoryStatusFilter = filterOption.value"
+            >
+              {{ filterOption.label }}
+            </button>
+          </div>
+          <div v-if="filteredMemories.length" class="admin-memory-list">
+            <div v-for="row in filteredMemories" :key="row.id" class="admin-memory-card">
               <div class="queue-card-head">
                 <strong>{{ formatMemoryType(row.memory_type) }}</strong>
                 <span class="queue-status">{{ formatMemoryStatus(row.status) }}</span>
@@ -1475,8 +1559,9 @@ onBeforeUnmount(() => {
               <small>{{ row.scope === "global" ? "Regle generale" : row.scope }}</small>
             </div>
           </div>
-          <div v-else class="message muted-message">
-            {{ loadingMemories ? "Chargement..." : "Rien n'a encore ete appris." }}
+          <div v-else class="admin-empty-state">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+            <p>{{ loadingMemories ? "Chargement..." : (memoryStatusFilter === "ALL" ? "Rien n'a encore ete appris." : "Rien pour ce filtre.") }}</p>
           </div>
         </article>
       </section>
@@ -1528,7 +1613,6 @@ onBeforeUnmount(() => {
                 </svg>
               </button>
             </div>
-            <span class="brand-state" :class="backendStatus">{{ statusLabel }}</span>
           </div>
         </div>
 

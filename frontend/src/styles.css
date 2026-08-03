@@ -12,6 +12,11 @@
   --accent: #123b8f;
   --accent-strong: #0d2f74;
   --accent-soft: #d8e5ff;
+  /* Secondary "brass" accent for the Historique panel — pulled from the
+     warm radial already present in the body background gradient, so it
+     reads as an extension of the existing palette rather than a new one. */
+  --secondary: #a9752f;
+  --secondary-soft: #f4ead9;
   --navy: #071d54;
   --navy-deep: #04153d;
   --success: #1c8d66;
@@ -2473,6 +2478,121 @@ p {
 .admin-memory-card p {
   margin: 10px 0;
   line-height: 1.55;
+}
+
+.admin-row-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.admin-avatar {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+}
+
+.admin-avatar.assistant {
+  background: var(--secondary);
+}
+
+.admin-row-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.admin-empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 26px 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.admin-empty-state svg {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.admin-empty-state p {
+  margin: 0;
+  font-size: 0.86rem;
+  max-width: 32ch;
+  line-height: 1.4;
+}
+
+.admin-date-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 2px 0;
+}
+
+.admin-date-divider::before,
+.admin-date-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.admin-message-card.from-user {
+  margin-left: 32px;
+  background: var(--accent-soft);
+  border-color: rgba(18, 59, 143, 0.22);
+}
+
+.admin-message-card.from-assistant {
+  margin-right: 32px;
+}
+
+.memory-filter-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.memory-filter-chip {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+}
+
+.memory-filter-chip:hover {
+  transform: translateY(-1px);
+}
+
+.memory-filter-chip.active {
+  border-color: var(--secondary);
+  color: var(--secondary);
+  background: var(--secondary-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-filter-chip,
+  .admin-row-button {
+    transition: none;
+  }
 }
 
 .composer-field,

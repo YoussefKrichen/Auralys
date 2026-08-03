@@ -44,6 +44,7 @@ class HistoryService:
                     ),
                 },
             )
+            history_id = self.database.insert_discussion_history(connection, payload)
             self.database.insert_message(
                 connection,
                 conversation_id=conversation_pk,
@@ -69,17 +70,19 @@ class HistoryService:
                     "route": str(response.route),
                     "hits": response.hits,
                 },
+                history_id=history_id,
             )
-            history_id = self.database.insert_discussion_history(connection, payload)
         return history_id, resolved_conversation_id
 
     def list_history(
         self,
         conversation_id: str | None = None,
         limit: int = 100,
+        *,
+        user_id: int | None = None,
     ) -> list[dict[str, Any]]:
         self.ensure_schema()
-        return self.database.fetch_discussion_history(conversation_id=conversation_id, limit=limit)
+        return self.database.fetch_discussion_history(conversation_id=conversation_id, limit=limit, user_id=user_id)
 
     def list_conversations(
         self,

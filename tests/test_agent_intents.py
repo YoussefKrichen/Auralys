@@ -26,6 +26,22 @@ def test_intent_router_detects_client_history_question():
     assert intent == AgentIntent.ASK_CLIENT_HISTORY
 
 
+def test_intent_router_detects_diffuser_count_question_over_client_history():
+    router = IntentRouter()
+
+    intent = router.detect_intent("Combien de diffuseurs a le client Asteel Flash ?")
+
+    assert intent == AgentIntent.ASK_DATA_ANALYTICS
+
+
+def test_intent_router_detects_recent_clients_question():
+    router = IntentRouter()
+
+    intent = router.detect_intent("Quelle est la liste des derniers clients servis ?")
+
+    assert intent == AgentIntent.ASK_DATA_ANALYTICS
+
+
 def test_intent_router_falls_back_to_general_question():
     router = IntentRouter()
 

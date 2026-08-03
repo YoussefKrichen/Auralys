@@ -21,6 +21,9 @@ class IntentRouter:
         prompt = (
             "Tu es un routeur d'intention pour un assistant interne SAV/administration.\n"
             "Choisis exactement une intention dans cette liste et retourne uniquement son nom, sans phrase additionnelle:\n"
+            "- ASK_DATA_ANALYTICS : compter, lister ou agreger des donnees operationnelles (nombre de diffuseurs "
+            "d'un client, liste des derniers clients servis, statistiques, comptages) plutot que consulter "
+            "l'historique narratif d'un client\n"
             "- ASK_CLIENT_HISTORY : historique client, interventions precedentes, reclamations, contexte client\n"
             "- ASK_NEXT_SAV_DESTINATION : prochaine destination SAV a privilegier maintenant, une seule destination\n"
             "- ASK_ROUTE_OPTIMIZATION : optimiser l'ordre de tout un planning/tournee de plusieurs visites, eviter les "
@@ -61,6 +64,26 @@ class IntentRouter:
             ),
         ):
             return AgentIntent.SUBMIT_MAINTENANCE_FICHE
+        if self._matches(
+            normalized,
+            (
+                "combien de diffuseur",
+                "nombre de diffuseur",
+                "combien de client",
+                "nombre de client",
+                "liste des client",
+                "liste de client",
+                "derniers client",
+                "dernier client",
+                "client recemment",
+                "clients recemment",
+                "recemment servis",
+                "client servis",
+                "clients servis",
+                "statistique",
+            ),
+        ):
+            return AgentIntent.ASK_DATA_ANALYTICS
         if self._matches(normalized, ("historique", "client", "reclamation", "intervention precedente")):
             return AgentIntent.ASK_CLIENT_HISTORY
         if self._matches(
