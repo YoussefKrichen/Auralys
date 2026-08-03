@@ -6,6 +6,15 @@ from app.db import Database, default_database
 
 
 class ReviewService:
+    """Reviews whole agent responses (review_cases, keyed by history_id).
+
+    Distinct from the memory-decision flow (MemoryTool.approve_memory /
+    reject_memory, app/api/agent_routes.py::submit_memory_decision), which
+    reviews one proposed memories-table row instead -- see the comment above
+    ReviewDecisionRequest/MemoryDecisionRequest in app/api/agent_routes.py
+    for why the two vocabularies differ.
+    """
+
     def __init__(self, database: Database | None = None) -> None:
         self.database = database or default_database
 

@@ -8,9 +8,8 @@ const loadError = ref("");
 
 // Static snapshot computed offline from data/gold/data_2025_2026_concat.csv
 // (3 351 interventions, 500 clients, 2 janv. 2025 -> 30 juin 2026, genere le 2026-07-27).
-// Used as the initial render and as a fallback while no backend endpoint exists yet.
-// TODO(backend): expose GET /kpis in app/api/agent_routes.py returning this same
-// shape from live data, then loadKpis() below will pick it up automatically.
+// Used only as the initial render, before GET /kpis (app/api/agent_routes.py)
+// resolves, and as a last-resort fallback if that call fails.
 const FALLBACK_KPIS = {
   period: { start: "2 janv. 2025", end: "30 juin 2026" },
   totals: {
@@ -192,8 +191,11 @@ async function loadKpis() {
     if (payload && payload.totals) {
       kpis.value = payload;
     }
-  } catch {
-    // No /kpis backend endpoint yet - keep the bundled static snapshot.
+  } catch (error) {
+    // Surface the failure instead of silently passing off the stale bundled
+    // snapshot as current data - a CEO reading this page should know when
+    // it's not live.
+    loadError.value = error?.message || "Impossible de charger les KPIs en direct.";
     kpis.value = FALLBACK_KPIS;
   } finally {
     loading.value = false;
@@ -218,9 +220,14 @@ onMounted(() => {
         </div>
         <div class="kpi-hero-chips">
           <span class="meta-chip">{{ kpis.period.start }} &rarr; {{ kpis.period.end }}</span>
-          <span class="meta-chip">{{ loading ? "Actualisation..." : "A jour" }}</span>
+          <span class="meta-chip" :class="{ 'meta-chip-warning': loadError }">
+            {{ loading ? "Actualisation..." : loadError ? "Donnees figees (hors ligne)" : "A jour" }}
+          </span>
         </div>
       </div>
+      <p v-if="loadError" class="kpi-note kpi-load-error">
+        Echec du chargement des KPIs en direct ({{ loadError }}) - affichage de l'instantane statique inclus dans la page.
+      </p>
       <div class="kpi-hero-number-row">
         <span class="kpi-hero-number">{{ heroHeadline.value }}</span>
         <span class="kpi-hero-number-label">{{ heroHeadline.label }}</span>
@@ -451,9 +458,8 @@ onMounted(() => {
     </div>
 
     <p class="kpi-footnote">
-      Source : data/gold/data_2025_2026_concat.csv. Page en squelette : les chiffres ci-dessus sont un instantane
-      statique inclus dans le composant ; des qu'un endpoint GET /kpis existera cote backend, cette page basculera
-      automatiquement sur les donnees en direct.
+      Source : data/gold/data_2025_2026_concat.csv, recalcule a chaque chargement par GET /kpis.
+      {{ loadError ? "L'appel a echoue pour ce chargement : les chiffres affiches sont l'instantane statique inclus dans la page, pas les donnees actuelles." : "" }}
     </p>
   </section>
 </template>

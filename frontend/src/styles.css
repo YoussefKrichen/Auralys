@@ -2875,6 +2875,19 @@ p {
   line-height: 1.5;
 }
 
+.meta-chip-warning {
+  border-color: rgba(214, 158, 46, 0.45);
+  background: rgba(214, 158, 46, 0.12);
+  color: var(--warning);
+}
+
+.kpi-load-error {
+  margin: 10px 0 0;
+  padding: 0;
+  border-top: none;
+  color: var(--warning);
+}
+
 .kpi-footnote {
   grid-column: 1 / -1;
   margin: 6px 0 0;

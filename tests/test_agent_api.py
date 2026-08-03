@@ -102,6 +102,37 @@ def test_ceo_only_route_accepts_ceo_role():
     assert response.json()["rows"][0]["action_type"] == "UPDATE_SAV_PLANNING"
 
 
+def test_memory_decision_rejects_unsupported_value():
+    client = TestClient(create_app(_FakeContainer()))
+
+    response = client.post(
+        "/admin/memories/1/decision",
+        json={"decision": "correct"},  # only valid for /admin/reviews, not /admin/memories
+        headers=_auth_headers("ceo"),
+    )
+
+    assert response.status_code == 422
+
+
+def test_kpis_endpoint_requires_ceo_role():
+    client = TestClient(create_app(_FakeContainer()))
+
+    response = client.get("/kpis", headers=_auth_headers("sav"))
+
+    assert response.status_code == 403
+
+
+def test_kpis_endpoint_returns_live_totals_for_ceo():
+    client = TestClient(create_app(_FakeContainer()))
+
+    response = client.get("/kpis", headers=_auth_headers("ceo"))
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["totals"]["interventions"] > 0
+    assert payload["totals"]["clients"] > 0
+
+
 def test_missing_browser_pages_return_404():
     client = TestClient(create_app(_FakeContainer()))
 

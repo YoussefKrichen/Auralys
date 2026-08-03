@@ -5,13 +5,14 @@ import logging
 import tempfile
 import uuid
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, UploadFile
 from fastapi.responses import FileResponse, RedirectResponse
 from pydantic import BaseModel
 from starlette.background import BackgroundTask
 
+from app.agent.tools.kpi_aggregator import compute_kpis
 from app.auth.dependencies import get_current_user, require_ceo
 from app.auth.oauth_service import OAuthService
 from app.auth.session_token import create_session_token
@@ -30,8 +31,18 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
+# Two distinct, deliberately separate CEO decision flows that happen to look
+# alike -- easy to conflate when extending either one:
+#   - ReviewDecisionRequest / /admin/reviews: judges a whole agent response
+#     (a discussion_history row). "correct" produces a PENDING
+#     KNOWLEDGE_CORRECTION memory as a side effect (see
+#     ReviewService._create_correction_memory).
+#   - MemoryDecisionRequest / /admin/memories: judges one proposed memory
+#     already in the memories table (often that same KNOWLEDGE_CORRECTION).
+#     There is no "correct" here -- you can't correct a correction, only
+#     activate or drop it.
 class ReviewDecisionRequest(BaseModel):
-    decision: str
+    decision: Literal["approve", "correct", "reject"]
     reviewed_by: str | None = None
     review_notes: str | None = None
     corrected_answer: str | None = None
@@ -39,7 +50,7 @@ class ReviewDecisionRequest(BaseModel):
 
 
 class MemoryDecisionRequest(BaseModel):
-    decision: str
+    decision: Literal["approve", "reject"]
     reviewed_by: str | None = None
 
 
@@ -286,19 +297,16 @@ def submit_memory_decision(
     container: AppContainer = Depends(get_container),
     current_user: dict[str, Any] = Depends(require_ceo),
 ) -> dict[str, Any]:
-    normalized_decision = request.decision.strip().lower()
-    if normalized_decision not in ("approve", "reject"):
-        raise HTTPException(status_code=400, detail="Unsupported memory decision.")
     memory_tool = container.build_memory_tool()
     reviewed_by = request.reviewed_by or current_user.get("username")
-    if normalized_decision == "approve":
+    if request.decision == "approve":
         row = memory_tool.approve_memory(memory_id, reviewed_by=reviewed_by)
     else:
         row = memory_tool.reject_memory(memory_id, reviewed_by=reviewed_by)
     if row is None:
         raise HTTPException(status_code=404, detail="Memory not found.")
     qdrant_stats: dict[str, Any] = {}
-    if normalized_decision == "approve" and row.get("memory_type") == "KNOWLEDGE_CORRECTION":
+    if request.decision == "approve" and row.get("memory_type") == "KNOWLEDGE_CORRECTION":
         try:
             qdrant_stats = commit_ceo_correction(row)
         except Exception:
@@ -326,6 +334,14 @@ def reference_values() -> dict[str, Any]:
     from app.ingestion.export_unique_values import collect_unique_values
 
     return collect_unique_values()
+
+
+@router.get("/kpis")
+def kpis(current_user: dict[str, Any] = Depends(require_ceo)) -> dict[str, Any]:
+    try:
+        return compute_kpis(settings.gold_data_csv_path)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=503, detail="Gold data source is unavailable.") from exc
 
 
 # --- audio: transcription / speech synthesis -------------------------------------

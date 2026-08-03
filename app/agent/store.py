@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import threading
 import uuid
 from typing import Any
 
@@ -44,13 +45,30 @@ CREATE TABLE IF NOT EXISTS agent_tool_logs (
 
 
 class AgentStore:
+    # Class-level (not instance-level) because bootstrap.py builds a fresh
+    # AgentStore per tool/service rather than sharing a singleton, so an
+    # instance flag wouldn't be seen across those instances. Mirrors
+    # PostgresDatabase.init_schema()'s _schema_ready guard: CREATE TABLE IF
+    # NOT EXISTS still takes an AccessExclusiveLock even when it's a no-op,
+    # and ensure_schema() runs on nearly every AgentStore call, so leaving it
+    # unguarded deadlocks under concurrent requests the same way.
+    _agent_schema_ready = False
+    _agent_schema_lock = threading.Lock()
+
     def __init__(self, database: Database | None = None) -> None:
         self.database = database or default_database
 
     def ensure_schema(self) -> None:
-        with self.database.connection() as connection:
-            with connection.cursor() as cursor:
-                cursor.execute(AGENT_SCHEMA_SQL)
+        self.database.init_schema()
+        if AgentStore._agent_schema_ready:
+            return
+        with AgentStore._agent_schema_lock:
+            if AgentStore._agent_schema_ready:
+                return
+            with self.database.connection() as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(AGENT_SCHEMA_SQL)
+            AgentStore._agent_schema_ready = True
 
     def save_conversation(
         self,
