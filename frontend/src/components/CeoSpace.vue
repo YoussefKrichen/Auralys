@@ -574,6 +574,31 @@ async function loadSavedCeoDiscussion(conversationKey) {
   }
 }
 
+// Switches the active thread shown in the Discussion tab to a past
+// conversation picked from the sidebar list -- previously that list
+// (in the separate "File d'attente" > Historique panel) was read-only and
+// had no link back to this tab, so a past discussion could never actually
+// be reopened here.
+async function openConversationInDiscussion(row) {
+  if (ceoDiscussionLoading.value || row.conversation_key === ceoConversationId.value) return;
+  await stopAnswerPlayback();
+  ceoConversationId.value = row.conversation_key;
+  saveCeoConversationState();
+  ceoDiscussionResponse.value = null;
+  ceoDiscussionError.value = "";
+  await loadSavedCeoDiscussion(row.conversation_key);
+}
+
+function startNewCeoDiscussion() {
+  if (ceoDiscussionLoading.value) return;
+  void stopAnswerPlayback();
+  ceoConversationId.value = "";
+  saveCeoConversationState();
+  ceoChatFeed.value = [];
+  ceoDiscussionResponse.value = null;
+  ceoDiscussionError.value = "";
+}
+
 function createPendingCeoEntry() {
   return {
     id: `ceo-assistant-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -1590,6 +1615,37 @@ onBeforeUnmount(() => {
     </section>
 
     <section v-else-if="props.activeSection === 'ceo-discussion'" id="ceo-discussion" class="ceo-workspace-shell">
+      <aside class="panel ceo-discussion-history-panel">
+        <div class="section-title">
+          <div>
+            <h2>Discussions</h2>
+          </div>
+          <button type="button" class="ghost-button" @click="startNewCeoDiscussion">+ Nouvelle</button>
+        </div>
+        <div v-if="conversations.length" class="admin-list">
+          <button
+            v-for="row in conversations"
+            :key="row.id"
+            type="button"
+            class="admin-row-button"
+            :class="{ active: row.conversation_key === ceoConversationId }"
+            @click="openConversationInDiscussion(row)"
+          >
+            <span class="admin-row-head">
+              <span class="admin-avatar">{{ conversationInitials(row) }}</span>
+              <span class="admin-row-body">
+                <strong>{{ formatConversationLabel(row) }}</strong>
+                <small>{{ formatConversationMeta(row) }} · {{ formatHistoryDate(row.last_message_at) }}</small>
+              </span>
+            </span>
+          </button>
+        </div>
+        <div v-else class="admin-empty-state">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+          <p>{{ loadingConversations ? "Chargement..." : "Aucune conversation enregistree." }}</p>
+        </div>
+      </aside>
+
       <section class="panel chat-panel executive-discussion-panel experience-chat-panel">
         <div class="assistant-panel-header">
           <div class="assistant-panel-copy">

@@ -784,6 +784,20 @@ p {
   grid-column: 1 / -1;
 }
 
+/* Inside #ceo-discussion specifically, the chat panel shares its row with
+   the conversation-history sidebar instead of spanning the full width. */
+#ceo-discussion .executive-discussion-panel {
+  grid-column: span 1;
+}
+
+.ceo-discussion-history-panel {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+
 .metric-strip {
   grid-column: 1 / -1;
   display: grid;
