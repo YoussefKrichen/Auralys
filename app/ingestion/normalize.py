@@ -140,7 +140,11 @@ def normalize_diffuser_catalog_entry(
         source_file=str(source_file),
         page_key=page_key,
         document_type="diffuser_catalog_entry",
-        maintenance_details=MaintenanceDetails(client=product_name),
+        # No `client` here on purpose: a catalog product is not a client
+        # (see FicheSchema.product_name, sourced from raw_payload["produit"]
+        # below instead). Bug found 2026-08-05: this used to write the
+        # product name into `client`, so e.g. "Aromair100" showed up as a
+        # client name in the fiches table and in chunk metadata.
         controle_diffuseur_recharge=[
             DiffuserControl(
                 model_diffuseur=product_name,

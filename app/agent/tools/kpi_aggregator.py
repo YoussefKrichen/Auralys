@@ -1,12 +1,16 @@
 from __future__ import annotations
 
+import calendar
 import csv
 import re
 import statistics
+import unicodedata
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
+
+REPORT_PERIODS = ("day", "week", "month", "year")
 
 _NULLISH = {"", "n/a", "na", "-", "none", "null"}
 _SOURCE_BUCKETS = ("Controle", "Recharge", "Visite", "Livraison")
@@ -54,9 +58,164 @@ def _format_date_fr(value: date) -> str:
     return f"{value.day} {_MONTH_LONG_FR[value.month]} {value.year % 100:02d}"
 
 
-def compute_kpis(csv_path: str | Path) -> dict[str, Any]:
+def resolve_period_range(period: str, anchor: date) -> tuple[date, date]:
+    """Turn a period keyword + anchor date into an inclusive (start, end) range.
+
+    "week" follows the ISO convention (Monday->Sunday) since that's the
+    convention already used for service planning elsewhere in the app.
+    """
+    if period == "day":
+        return anchor, anchor
+    if period == "week":
+        start = anchor - timedelta(days=anchor.weekday())
+        return start, start + timedelta(days=6)
+    if period == "month":
+        start = anchor.replace(day=1)
+        last_day = calendar.monthrange(anchor.year, anchor.month)[1]
+        return start, anchor.replace(day=last_day)
+    if period == "year":
+        return date(anchor.year, 1, 1), date(anchor.year, 12, 31)
+    raise ValueError(f"Unsupported report period: {period!r}. Expected one of {REPORT_PERIODS}.")
+
+
+def format_period_label(period: str, start: date, end: date) -> str:
+    if period == "day":
+        return _format_date_fr(start)
+    if period == "week":
+        return f"Semaine du {_format_date_fr(start)} au {_format_date_fr(end)}"
+    if period == "month":
+        return f"{_MONTH_LONG_FR[start.month].capitalize()} {start.year}"
+    if period == "year":
+        return str(start.year)
+    raise ValueError(f"Unsupported report period: {period!r}. Expected one of {REPORT_PERIODS}.")
+
+
+_MONTH_NAME_TO_NUM = {
+    # French
+    "janvier": 1, "fevrier": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6,
+    "juillet": 7, "aout": 8, "septembre": 9, "octobre": 10, "novembre": 11, "decembre": 12,
+    # English -- the CEO chat sees both languages in practice.
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12,
+}
+_WEEK_KEYWORDS = ("semaine", "week")
+_MONTH_KEYWORDS = ("mois", "month")
+_YEAR_KEYWORDS = ("annee", "year")
+_DAY_KEYWORDS = ("jour", "day", "aujourd'hui", "today")
+_LAST_KEYWORDS = ("dernier", "derniere", "last")
+
+_YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+_EXPLICIT_DATE_RE = re.compile(r"\b(\d{1,2})[/-](\d{1,2})[/-]((?:19|20)\d{2})\b")
+
+
+def parse_period_from_text(text: str, *, today: date) -> tuple[str, date] | None:
+    """Best-effort extraction of a (period, anchor) pair from a free-form report request.
+
+    Handles the phrasing the CEO chat actually sees: an explicit dd/mm/yyyy date, a
+    month name (FR or EN) with an optional year, a bare year, or a period keyword
+    ("semaine"/"week", optionally with "dernier"/"last"). Returns None when the
+    message doesn't reference any period at all, so the caller can fall back to
+    its own default instead of guessing.
+    """
+    normalized = _normalize_report_text(text)
+    period_keyword = _detect_period_keyword(normalized)
+    is_last = _contains_any(normalized, _LAST_KEYWORDS)
+
+    explicit_date = _EXPLICIT_DATE_RE.search(normalized)
+    if explicit_date:
+        day, month, year = (int(part) for part in explicit_date.groups())
+        try:
+            anchor = date(year, month, day)
+        except ValueError:
+            anchor = None
+        if anchor is not None:
+            return period_keyword or "day", anchor
+
+    month_num = _find_month_name(normalized)
+    year_match = _YEAR_RE.search(normalized)
+
+    if month_num is not None:
+        year = int(year_match.group()) if year_match else today.year
+        period = period_keyword or "month"
+        if period == "week" and is_last:
+            anchor = date(year, month_num, calendar.monthrange(year, month_num)[1])
+        elif period == "year":
+            anchor = date(year, 1, 1)
+        else:
+            anchor = date(year, month_num, 1)
+        return period, anchor
+
+    if year_match:
+        year = int(year_match.group())
+        period = period_keyword or "year"
+        anchor = date(year, 1, 1) if period == "year" else date(year, today.month, 1)
+        return period, anchor
+
+    if period_keyword is not None:
+        return period_keyword, today
+
+    return None
+
+
+def _detect_period_keyword(normalized: str) -> str | None:
+    if _contains_any(normalized, _WEEK_KEYWORDS):
+        return "week"
+    if _contains_any(normalized, _MONTH_KEYWORDS):
+        return "month"
+    if _contains_any(normalized, _YEAR_KEYWORDS):
+        return "year"
+    if _contains_any(normalized, _DAY_KEYWORDS):
+        return "day"
+    return None
+
+
+def _find_month_name(normalized: str) -> int | None:
+    for name, num in _MONTH_NAME_TO_NUM.items():
+        if re.search(rf"\b{name}\b", normalized):
+            return num
+    return None
+
+
+def _contains_any(text: str, keywords: tuple[str, ...]) -> bool:
+    # Word-boundary match, not plain substring -- "jour" is a substring of
+    # "bonjour" and would otherwise misfire on an ordinary greeting.
+    return any(re.search(rf"\b{re.escape(keyword)}\b", text) for keyword in keywords)
+
+
+def _normalize_report_text(value: str) -> str:
+    lowered = value.strip().lower()
+    ascii_text = unicodedata.normalize("NFKD", lowered).encode("ascii", "ignore").decode("ascii")
+    return " ".join(ascii_text.split())
+
+
+def compute_kpis(
+    csv_path: str | Path,
+    *,
+    start: date | None = None,
+    end: date | None = None,
+) -> dict[str, Any]:
+    """Aggregate the gold intervention CSV into CEO-facing KPIs.
+
+    Passing start/end restricts the aggregation to a single reporting period
+    (see resolve_period_range) instead of the full history -- rows with no
+    parseable service_date are excluded when a range is given, since there's
+    no way to tell which period they'd belong to.
+    """
     with open(csv_path, newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
+
+    def _row_date_precheck(row: dict[str, Any]) -> date | None:
+        cleaned = _clean_text(row.get("service_date"))
+        return date.fromisoformat(cleaned) if cleaned else None
+
+    if start is not None or end is not None:
+        rows = [
+            row
+            for row in rows
+            if (row_date := _row_date_precheck(row)) is not None
+            and (start is None or row_date >= start)
+            and (end is None or row_date <= end)
+        ]
 
     total_interventions = len(rows)
 

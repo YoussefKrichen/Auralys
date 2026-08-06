@@ -106,6 +106,45 @@ const FALLBACK_KPIS = {
 
 const kpis = ref(FALLBACK_KPIS);
 
+// --- Period reports (GET /reports, CEO-only) --------------------------------
+// Reuses the same `kpis` ref and every computed/rendering path below: a
+// report response has the exact same shape as GET /kpis, just filtered to
+// one day/week/month/year instead of the full history.
+const REPORT_PERIODS = [
+  { value: "day", label: "Jour" },
+  { value: "week", label: "Semaine" },
+  { value: "month", label: "Mois" },
+  { value: "year", label: "Annee" },
+];
+const reportPeriod = ref("month");
+const reportDate = ref(new Date().toISOString().slice(0, 10));
+const reportMeta = ref(null); // { period, label, range_start, range_end } once a report is loaded
+const reportLoading = ref(false);
+const reportError = ref("");
+
+async function generateReport() {
+  reportLoading.value = true;
+  reportError.value = "";
+  try {
+    const query = `/reports?period=${encodeURIComponent(reportPeriod.value)}&on=${encodeURIComponent(reportDate.value)}`;
+    const payload = await fetchJson(query, {}, apiBase.value);
+    if (payload && payload.totals) {
+      kpis.value = payload;
+      reportMeta.value = payload.report || null;
+    }
+  } catch (error) {
+    reportError.value = error?.message || "Impossible de generer le rapport.";
+  } finally {
+    reportLoading.value = false;
+  }
+}
+
+async function backToOverview() {
+  reportMeta.value = null;
+  reportError.value = "";
+  await loadKpis();
+}
+
 // Option B: one headline number carries the hero, the rest reads as a
 // slim strip underneath instead of six equal-weight cards.
 const heroHeadline = computed(() => {
@@ -167,19 +206,25 @@ const donutGradient = computed(() => {
   return `conic-gradient(${stops.join(", ")})`;
 });
 
+// Built from whichever years actually appear in kpis.year_rhythm -- a
+// period report (day/week/month) will often only cover one year, so this
+// can't hardcode y2025/y2026 the way the all-time dashboard used to.
 const yearRhythmRows = computed(() => {
-  const { y2025, y2026 } = kpis.value.year_rhythm;
-  const maxTotal = Math.max(y2025.total, y2026.total);
-  const maxPerMonth = Math.max(y2025.per_month, y2026.per_month);
+  const years = Object.keys(kpis.value.year_rhythm || {}).sort();
+  const stats = years.map((key) => ({ year: key.replace(/^y/, ""), ...kpis.value.year_rhythm[key] }));
+  const maxTotal = Math.max(1, ...stats.map((row) => row.total));
+  const maxPerMonth = Math.max(1, ...stats.map((row) => row.per_month));
   return {
-    totals: [
-      { label: `2025 (${y2025.months_covered} mois)`, value: y2025.total, pct: (y2025.total / maxTotal) * 100 },
-      { label: `2026 (${y2026.months_covered} mois)`, value: y2026.total, pct: (y2026.total / maxTotal) * 100 },
-    ],
-    perMonth: [
-      { label: "2025 / mois", value: y2025.per_month, pct: (y2025.per_month / maxPerMonth) * 100 },
-      { label: "2026 / mois", value: y2026.per_month, pct: (y2026.per_month / maxPerMonth) * 100 },
-    ],
+    totals: stats.map((row) => ({
+      label: `${row.year} (${row.months_covered} mois)`,
+      value: row.total,
+      pct: (row.total / maxTotal) * 100,
+    })),
+    perMonth: stats.map((row) => ({
+      label: `${row.year} / mois`,
+      value: row.per_month,
+      pct: (row.per_month / maxPerMonth) * 100,
+    })),
   };
 });
 
@@ -219,14 +264,41 @@ onMounted(() => {
           <p>Vue d'ensemble des interventions, clients et diffuseurs sur la periode couverte par les donnees.</p>
         </div>
         <div class="kpi-hero-chips">
-          <span class="meta-chip">{{ kpis.period.start }} &rarr; {{ kpis.period.end }}</span>
+          <span v-if="reportMeta" class="meta-chip meta-chip-report">Rapport : {{ reportMeta.label }}</span>
+          <span v-else class="meta-chip">{{ kpis.period.start }} &rarr; {{ kpis.period.end }}</span>
           <span class="meta-chip" :class="{ 'meta-chip-warning': loadError }">
-            {{ loading ? "Actualisation..." : loadError ? "Donnees figees (hors ligne)" : "A jour" }}
+            {{ loading || reportLoading ? "Actualisation..." : loadError ? "Donnees figees (hors ligne)" : "A jour" }}
           </span>
         </div>
       </div>
       <p v-if="loadError" class="kpi-note kpi-load-error">
         Echec du chargement des KPIs en direct ({{ loadError }}) - affichage de l'instantane statique inclus dans la page.
+      </p>
+
+      <div class="kpi-report-bar">
+        <div class="kpi-report-periods" role="group" aria-label="Periode du rapport">
+          <button
+            v-for="option in REPORT_PERIODS"
+            :key="option.value"
+            type="button"
+            class="kpi-report-period-btn"
+            :class="{ active: reportPeriod === option.value }"
+            @click="reportPeriod = option.value"
+          >
+            {{ option.label }}
+          </button>
+        </div>
+        <input v-model="reportDate" type="date" class="kpi-report-date" aria-label="Date de reference du rapport" />
+        <button type="button" class="kpi-report-generate-btn" :disabled="reportLoading" @click="generateReport">
+          {{ reportLoading ? "Generation..." : "Generer le rapport" }}
+        </button>
+        <button v-if="reportMeta" type="button" class="kpi-report-reset-btn" @click="backToOverview">
+          &larr; Vue globale
+        </button>
+      </div>
+      <p v-if="reportError" class="kpi-note kpi-load-error">{{ reportError }}</p>
+      <p v-else-if="reportMeta" class="kpi-note">
+        Rapport reserve au CEO, genere pour la periode du {{ reportMeta.range_start }} au {{ reportMeta.range_end }}.
       </p>
       <div class="kpi-hero-number-row">
         <span class="kpi-hero-number">{{ heroHeadline.value }}</span>

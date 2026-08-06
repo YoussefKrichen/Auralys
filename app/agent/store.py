@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import threading
 import uuid
+from datetime import date
 from typing import Any
 
 from app.db import Database, default_database
@@ -40,6 +41,17 @@ CREATE TABLE IF NOT EXISTS agent_tool_logs (
     success BOOLEAN,
     error_message TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Bridges the two chat turns of "generate me a report" -> "PDF or Excel?" ->
+-- "pdf": holds the period/anchor the user asked for while Auralys waits on
+-- the format choice. One row per conversation since only one report request
+-- can be pending at a time; a new request just overwrites the old one.
+CREATE TABLE IF NOT EXISTS agent_pending_reports (
+    conversation_key TEXT PRIMARY KEY,
+    period VARCHAR(20) NOT NULL,
+    anchor_date DATE NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 """
 
@@ -81,7 +93,7 @@ class AgentStore:
         conversation_key: str | None = None,
     ) -> tuple[int, str, int]:
         self.ensure_schema()
-        resolved_conversation_key = conversation_key or f"agent:{user_id}:{role}:{uuid.uuid4()}"
+        resolved_conversation_key = conversation_key or self.new_conversation_key(user_id, role)
         with self.database.connection() as connection:
             conversation_id = self.database.upsert_conversation(
                 connection,
@@ -131,6 +143,21 @@ class AgentStore:
     def resolve_conversation_id(self, conversation_key: str) -> int | None:
         self.ensure_schema()
         return self.database.fetch_conversation_id_by_key(conversation_key)
+
+    @staticmethod
+    def new_conversation_key(user_id: int, role: str) -> str:
+        return f"agent:{user_id}:{role}:{uuid.uuid4()}"
+
+    def fetch_recent_messages(self, conversation_key: str, *, limit: int = 8) -> list[dict[str, Any]]:
+        """Last `limit` messages for this conversation, oldest first.
+
+        Distinct from Database.fetch_messages (ASC + LIMIT, used for the
+        full-history view): that combination returns the *oldest* messages
+        of a long conversation, not the most recent ones.
+        """
+        self.ensure_schema()
+        rows = self.database.fetch_recent_messages(conversation_key=conversation_key, limit=limit)
+        return list(reversed(rows))
 
     def save_feedback(
         self,
@@ -350,6 +377,44 @@ class AgentStore:
         if row is None:
             raise ValueError("Action not found.")
         return self._row_to_action_dict(row)
+
+    def save_pending_report(self, conversation_key: str, *, period: str, anchor_date: date) -> None:
+        self.ensure_schema()
+        with self.database.connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    """
+                    INSERT INTO agent_pending_reports (conversation_key, period, anchor_date)
+                    VALUES (%s, %s, %s)
+                    ON CONFLICT (conversation_key) DO UPDATE
+                    SET period = EXCLUDED.period,
+                        anchor_date = EXCLUDED.anchor_date,
+                        created_at = NOW()
+                    """,
+                    (conversation_key, period, anchor_date),
+                )
+
+    def get_pending_report(self, conversation_key: str) -> dict[str, Any] | None:
+        self.ensure_schema()
+        with self.database.connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    "SELECT period, anchor_date FROM agent_pending_reports WHERE conversation_key = %s",
+                    (conversation_key,),
+                )
+                row = cursor.fetchone()
+        if row is None:
+            return None
+        return {"period": row[0], "anchor_date": row[1]}
+
+    def clear_pending_report(self, conversation_key: str) -> None:
+        self.ensure_schema()
+        with self.database.connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    "DELETE FROM agent_pending_reports WHERE conversation_key = %s",
+                    (conversation_key,),
+                )
 
     def save_tool_log(
         self,

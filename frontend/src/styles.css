@@ -158,7 +158,6 @@ p {
 .assistant-panel-copy,
 .dashboard-topbar-tools,
 .queue-card-head,
-.decision-head,
 .insight-confidence-row,
 .social-login-button {
   display: flex;
@@ -223,7 +222,6 @@ p {
 .queue-card p,
 .queue-card small,
 .playbook-card li,
-.decision-card p,
 .login-copy p,
 .login-aside-copy p,
 .search-field span,
@@ -797,8 +795,7 @@ p {
 .metric-pill,
 .voice-chip,
 .queue-card,
-.playbook-card,
-.decision-card {
+.playbook-card {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.98);
   border-radius: var(--radius-md);
@@ -830,7 +827,6 @@ p {
 .executive-detail-stack,
 .source-list,
 .playbook-grid,
-.decision-grid,
 .review-grid {
   display: grid;
   gap: 14px;
@@ -1033,6 +1029,29 @@ p {
   background: var(--surface-soft);
   font-family: "Courier New", monospace;
   font-size: 0.92em;
+}
+
+.chat-download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.86rem;
+  text-decoration: none;
+  transition: background 140ms ease;
+}
+
+.chat-download-link::before {
+  content: "\2193";
+}
+
+.chat-download-link:hover {
+  background: var(--accent-strong);
 }
 
 .chat-citations {
@@ -1390,7 +1409,6 @@ p {
 }
 
 .ceo-minimal-workspace .queue-card,
-.ceo-minimal-workspace .decision-card,
 .ceo-minimal-workspace .admin-row-button,
 .ceo-minimal-workspace .admin-message-card,
 .ceo-minimal-workspace .admin-memory-card,
@@ -1405,7 +1423,6 @@ p {
 }
 
 .ceo-minimal-workspace .queue-card,
-.ceo-minimal-workspace .decision-card,
 .ceo-minimal-workspace .admin-row-button,
 .ceo-minimal-workspace .admin-message-card,
 .ceo-minimal-workspace .admin-memory-card,
@@ -1515,16 +1532,6 @@ p {
   background: transparent;
   color: #0b1d2c;
   border-color: rgba(13, 37, 56, 0.24);
-}
-
-.ceo-minimal-workspace .decision-card.approve,
-.ceo-minimal-workspace .decision-card.correct,
-.ceo-minimal-workspace .decision-card.reject {
-  color: #111111;
-}
-
-.ceo-minimal-workspace .decision-indicator {
-  display: none;
 }
 
 .agent-trace {
@@ -2306,8 +2313,7 @@ p {
 }
 
 .queue-card,
-.playbook-card,
-.decision-card {
+.playbook-card {
   padding: 16px;
 }
 
@@ -2348,8 +2354,7 @@ p {
   border-color: var(--urgent);
 }
 
-.queue-card.knowledge,
-.decision-card.approve {
+.queue-card.knowledge {
   border-color: rgba(31, 122, 69, 0.28);
 }
 
@@ -2632,28 +2637,64 @@ p {
   color: rgba(104, 116, 135, 0.64);
 }
 
-.playbook-grid,
-.decision-grid {
+.playbook-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.decision-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: currentColor;
+.decision-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.decision-card.approve {
+.decision-button {
+  flex: 1;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.decision-button.approve {
   color: var(--success);
+  background: var(--success-soft);
+  border: 1px solid var(--success-line);
 }
 
-.decision-card.correct {
+.decision-button.correct {
   color: var(--warning);
+  background: var(--warning-soft);
+  border: 1px solid var(--warning-line);
 }
 
-.decision-card.reject {
+.decision-button.reject {
   color: var(--danger);
+  background: var(--danger-soft);
+  border: 1px solid var(--danger-line);
+}
+
+.decision-button.approve:hover:not(:disabled) {
+  background: var(--success);
+  color: #fff;
+}
+
+.decision-button.correct:hover:not(:disabled) {
+  background: var(--warning);
+  color: #fff;
+}
+
+.decision-button.reject:hover:not(:disabled) {
+  background: var(--danger);
+  color: #fff;
+}
+
+.decision-button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .primary-action-centered {
@@ -2793,10 +2834,13 @@ p {
 
   .metric-strip,
   .playbook-grid,
-  .decision-grid,
   .social-login-row,
   .admin-data-grid {
     grid-template-columns: 1fr;
+  }
+
+  .decision-actions {
+    flex-direction: column;
   }
 
   .chat-bubble {
@@ -2886,6 +2930,109 @@ p {
   padding: 0;
   border-top: none;
   color: var(--warning);
+}
+
+.meta-chip-report {
+  border-color: rgba(18, 59, 143, 0.35);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.kpi-report-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+
+.kpi-report-periods {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.kpi-report-period-btn {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.kpi-report-period-btn:hover {
+  color: var(--accent-strong);
+}
+
+.kpi-report-period-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.kpi-report-date {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.kpi-report-generate-btn {
+  min-height: 32px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.kpi-report-generate-btn:hover {
+  background: var(--accent-strong);
+}
+
+.kpi-report-generate-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.kpi-report-reset-btn {
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kpi-report-reset-btn:hover {
+  border-color: var(--line-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kpi-report-period-btn,
+  .kpi-report-generate-btn {
+    transition: none;
+  }
 }
 
 .kpi-footnote {

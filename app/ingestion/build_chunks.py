@@ -56,7 +56,7 @@ def _entity_context(fiche: FicheSchema) -> str:
     if fiche.document_type == "client_maintenance_form":
         return f"chez {_visit_context(fiche)}"
     if fiche.document_type == "diffuser_catalog_entry":
-        return f"pour {fiche.client or 'produit inconnu'}"
+        return f"pour {fiche.product_name or 'produit inconnu'}"
     return f"pour {fiche.client or 'source inconnue'}"
 
 
@@ -223,7 +223,7 @@ def build_chunks_for_fiche(fiche: FicheSchema) -> list[ChunkSchema]:
             if solution:
                 content += f" Reponse : {solution}."
         else:
-            content = f"Fiche produit {fiche.client or 'produit inconnu'}."
+            content = f"Fiche produit {fiche.product_name or 'produit inconnu'}."
             content += f" Details : {issue or 'aucun'}."
             if solution:
                 content += f" Recommandation : {solution}."

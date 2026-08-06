@@ -224,6 +224,18 @@ class FicheSchema(BaseModel):
         return self.maintenance_details.client
 
     @property
+    def product_name(self) -> str | None:
+        """The catalog product this fiche describes (e.g. "Aromair100").
+
+        Distinct from `client` on purpose: a diffuser_catalog_entry fiche
+        represents a product, not a client, and must never surface as one in
+        chunk metadata or in a client_name index. See build_chunks.py for
+        where this matters."""
+        if self.document_type != "diffuser_catalog_entry":
+            return None
+        return self.raw_payload.get("produit")
+
+    @property
     def maintenance_number(self) -> str | None:
         return self.maintenance_details.client_maintenance_number
 
@@ -232,7 +244,7 @@ class FicheSchema(BaseModel):
             ideal_for = self.raw_payload.get("ideal_pour") or []
             advantages = self.raw_payload.get("avantages") or []
             lines = [
-                f"Product: {self.raw_payload.get('produit') or self.client or 'unknown'}",
+                f"Product: {self.product_name or 'unknown'}",
                 f"Coverage: {self.raw_payload.get('couverture') or 'unknown'}",
                 f"Ideal for: {', '.join(ideal_for) if ideal_for else 'unknown'}",
                 f"Advantages: {', '.join(advantages) if advantages else 'unknown'}",

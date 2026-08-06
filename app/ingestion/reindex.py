@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import time
 from typing import Any
 
 from qdrant_client.models import PointStruct
@@ -85,22 +86,68 @@ def _write_postgres(
     }
 
 
+_QDRANT_UPSERT_BATCH_SIZE = 200
+_EMBED_MAX_ATTEMPTS = 4
+_EMBED_RETRY_BASE_SECONDS = 5.0
+
+
+def _embed_with_retry(content: str, *, dimension: int) -> list[float]:
+    """Retry a single embedding call across transient Gemini failures.
+
+    Observed live on 2026-08-05: reindexing ~4800 chunks hit a 503
+    UNAVAILABLE from Gemini twice in a row, at a different chunk each time
+    (not a fixed quota wall). EmbeddingService.embed_text has no retry of
+    its own, and worse, permanently sets `_gemini_disabled = True` on its
+    instance after the *first* failure -- so reusing one EmbeddingService
+    across the whole loop means one flaky call poisons every chunk after
+    it. Building a fresh instance per attempt avoids that trap without
+    touching the service's fail-fast behavior, which is the right default
+    for the interactive query path.
+    """
+    last_error: Exception | None = None
+    for attempt in range(_EMBED_MAX_ATTEMPTS):
+        service = EmbeddingService(backend="gemini", dimension=dimension, allow_fallback=False)
+        try:
+            return service.embed_text(content, task_type="RETRIEVAL_DOCUMENT")
+        except RuntimeError as exc:
+            last_error = exc
+            if attempt < _EMBED_MAX_ATTEMPTS - 1:
+                time.sleep(_EMBED_RETRY_BASE_SECONDS * (2**attempt))
+    assert last_error is not None
+    raise last_error
+
+
 def _write_qdrant(chunks: list[ChunkSchema]) -> dict[str, Any]:
+    """Embed and upload in batches, not one request for every chunk.
+
+    Bug found 2026-08-05: with ~4800 chunks x 768-dim vectors, a single
+    upsert() call for the whole set is a large enough HTTP request that it
+    reliably hit a write timeout -- and since recreate_collection() had
+    already dropped the old collection first, that failure left Qdrant
+    completely empty rather than merely stale.
+    """
     embedding_service = EmbeddingService(backend="gemini", allow_fallback=False)
     client = get_qdrant_client()
     recreate_collection(client, embedding_service.dimension)
-    points = []
+    batch: list[PointStruct] = []
+    total_written = 0
     for offset, chunk in enumerate(chunks, start=1):
-        points.append(
+        batch.append(
             PointStruct(
                 id=offset,
-                vector=embedding_service.embed_text(chunk.content, task_type="RETRIEVAL_DOCUMENT"),
+                vector=_embed_with_retry(chunk.content, dimension=embedding_service.dimension),
                 payload=chunk.qdrant_payload(),
             )
         )
-    client.upsert(collection_name=settings.qdrant_collection, points=points)
+        if len(batch) >= _QDRANT_UPSERT_BATCH_SIZE:
+            client.upsert(collection_name=settings.qdrant_collection, points=batch)
+            total_written += len(batch)
+            batch = []
+    if batch:
+        client.upsert(collection_name=settings.qdrant_collection, points=batch)
+        total_written += len(batch)
     return {
-        "qdrant_points": len(points),
+        "qdrant_points": total_written,
         "embedding_backend": embedding_service.backend,
         "embedding_model": embedding_service.model_name,
     }

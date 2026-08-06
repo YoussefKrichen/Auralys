@@ -54,7 +54,7 @@ def export_processed_fiches(
 
 def _build_output_filename(fiche: FicheSchema) -> str:
     if fiche.document_type == "diffuser_catalog_entry":
-        product_name = fiche.raw_payload.get("produit") or fiche.client or fiche.page_key
+        product_name = fiche.product_name or fiche.page_key
         return f"{_slugify(product_name)}.json"
     source_stem = Path(fiche.source_file).stem
     suffix = fiche.maintenance_number or fiche.page_key
@@ -99,7 +99,7 @@ def _serialize_processed_fiche(fiche: FicheSchema) -> dict[str, object]:
             "source_file": fiche.source_file,
             "page_key": fiche.page_key,
             "document_type": fiche.document_type,
-            "produit": fiche.raw_payload.get("produit") or fiche.client,
+            "produit": fiche.product_name,
             "couverture": fiche.raw_payload.get("couverture"),
             "ideal_pour": fiche.raw_payload.get("ideal_pour", []),
             "avantages": fiche.raw_payload.get("avantages", []),

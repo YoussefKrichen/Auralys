@@ -31,6 +31,15 @@ from schemas.agent_schema import AgentActionStatus, AgentChatRequest, AgentChatR
 
 logger = logging.getLogger(__name__)
 
+_REPORT_FORMAT_HINTS = ("pdf", "excel", "xlsx", "xls")
+_HISTORY_MESSAGE_LIMIT = 8
+_HISTORY_MESSAGE_MAX_CHARS = 400
+
+
+def _mentions_report_format(message: str) -> bool:
+    lowered = message.lower()
+    return any(hint in lowered for hint in _REPORT_FORMAT_HINTS)
+
 
 class AgentOrchestrator:
     def __init__(
@@ -70,28 +79,51 @@ class AgentOrchestrator:
         }
 
     def handle_chat(self, request: AgentChatRequest) -> AgentChatResponse:
+        # Resolved once, up front, and stamped onto the request so every
+        # downstream step (intent routing, skill state like pending_report,
+        # history lookup, persistence) agrees on the same key -- including
+        # for the very first message of a brand new conversation, where the
+        # client hasn't been given a key yet. Previously this key was only
+        # generated *after* the skill ran, so a skill's own conversation_key
+        # fallback (computed before persistence) could diverge from the key
+        # actually persisted, orphaning any per-conversation state it saved.
+        conversation_key = self._resolve_conversation_key(request)
+        request = self._stamp_conversation_key(request, conversation_key)
         enriched_request = self._augment_request_with_images(request)
-        intent = self.intent_router.detect_intent(enriched_request.message)
+        intent = self._resolve_intent(enriched_request, conversation_key)
         skill = self.skills[intent]
         skill_result = skill.run(enriched_request)
         checked_actions = []
         for action in skill_result.proposed_actions:
             policy = check_action_policy(action.action_type, enriched_request.role)
             checked_actions.append(apply_policy(action, policy))
-        synthesized = self._synthesize_agent_answer(
-            request=enriched_request,
-            intent=intent,
-            skill_result=skill_result,
-            checked_actions=checked_actions,
-        )
+        if skill_result.skip_llm_polish:
+            # The skill's answer embeds something that must survive verbatim
+            # (a download link) -- still build reasoning signals, just skip
+            # the LLM rewrite pass that could paraphrase the link away.
+            synthesized = {
+                "answer": skill_result.answer,
+                "citations": [],
+                "reasoning_signals": build_agent_reasoning_signals(
+                    request=enriched_request,
+                    intent=intent,
+                    skill_result=skill_result,
+                    checked_actions=checked_actions,
+                    response_source="skill_deterministic",
+                ),
+            }
+            synthesized["reasoning_summary"] = build_agent_reasoning_summary(synthesized["reasoning_signals"])
+        else:
+            synthesized = self._synthesize_agent_answer(
+                request=enriched_request,
+                intent=intent,
+                skill_result=skill_result,
+                checked_actions=checked_actions,
+                conversation_key=conversation_key,
+            )
         skill_result = skill_result.model_copy(update={"answer": synthesized["answer"]})
         conversation_id = None
         history_id = None
-        conversation_key = (
-            request.conversation_id
-            or str(request.context.get("conversation_id") or "").strip()
-            or None
-        )
         try:
             conversation_id, conversation_key, history_id = self.session_manager.save_conversation(
                 user_id=enriched_request.user_id,
@@ -102,10 +134,13 @@ class AgentOrchestrator:
                 conversation_key=conversation_key,
             )
         except Exception:
-            # Agent persistence is optional at runtime; keep answering even if storage is unavailable.
+            # Agent persistence is optional at runtime; keep answering even if
+            # storage is unavailable -- but keep the resolved conversation_key
+            # (don't null it out) so the client still carries it into the next
+            # turn instead of minting a fresh one and re-orphaning any skill
+            # state (e.g. pending_report) already saved under this key.
             logger.exception("Failed to persist conversation for conversation_key=%r", conversation_key)
             conversation_id = None
-            conversation_key = None
             history_id = None
         persisted_actions = []
         if conversation_id is not None:
@@ -133,6 +168,44 @@ class AgentOrchestrator:
             citations=synthesized["citations"],
             history_id=history_id,
         )
+
+    @staticmethod
+    def _resolve_conversation_key(request: AgentChatRequest) -> str:
+        existing = (
+            request.conversation_id
+            or str(request.context.get("conversation_id") or "").strip()
+            or None
+        )
+        return existing or AgentStore.new_conversation_key(request.user_id, request.role)
+
+    @staticmethod
+    def _stamp_conversation_key(request: AgentChatRequest, conversation_key: str) -> AgentChatRequest:
+        if request.conversation_id == conversation_key and request.context.get("conversation_id") == conversation_key:
+            return request
+        enriched_context = dict(request.context)
+        enriched_context["conversation_id"] = conversation_key
+        return request.model_copy(update={"conversation_id": conversation_key, "context": enriched_context})
+
+    def _resolve_intent(self, request: AgentChatRequest, conversation_key: str) -> AgentIntent:
+        """Route to ASK_DAILY_REPORT directly when this message looks like a
+        reply to "PDF or Excel?" for a report the user already asked for.
+
+        A bare "pdf"/"excel" reply has no report-related keywords in it, so
+        the LLM/keyword intent router (see IntentRouter) has no reliable way
+        to classify it -- it would most likely land on GENERAL_QUESTION,
+        silently breaking the two-turn report flow. Checking for a pending
+        report tied to this conversation sidesteps that instead of relying
+        on the router to guess correctly.
+        """
+        if _mentions_report_format(request.message):
+            try:
+                if self.store.get_pending_report(conversation_key) is not None:
+                    return AgentIntent.ASK_DAILY_REPORT
+            except Exception:
+                logger.exception(
+                    "Failed to check pending report state for conversation_key=%r", conversation_key
+                )
+        return self.intent_router.detect_intent(request.message)
 
     def _augment_request_with_images(self, request: AgentChatRequest) -> AgentChatRequest:
         if not request.images:
@@ -174,6 +247,31 @@ class AgentOrchestrator:
             lines.append(line)
         return "\n".join(lines)
 
+    def _build_recent_history_block(self, conversation_key: str | None) -> str:
+        """Prior turns of this conversation, oldest first, for the synthesis
+        prompt -- the current turn isn't persisted yet at this point, so
+        nothing here duplicates the "Message utilisateur" section below it.
+        """
+        if not conversation_key:
+            return ""
+        try:
+            rows = self.store.fetch_recent_messages(conversation_key, limit=_HISTORY_MESSAGE_LIMIT)
+        except Exception:
+            logger.exception("Failed to fetch recent messages for conversation_key=%r", conversation_key)
+            return ""
+        lines = []
+        for row in rows:
+            speaker = "Auralys" if row.get("sender") == "assistant" else "Utilisateur"
+            content = str(row.get("content") or "").strip()
+            if not content:
+                continue
+            if len(content) > _HISTORY_MESSAGE_MAX_CHARS:
+                content = content[:_HISTORY_MESSAGE_MAX_CHARS] + "..."
+            lines.append(f"- {speaker}: {content}")
+        if not lines:
+            return ""
+        return "Historique recent de cette conversation (du plus ancien au plus recent) :\n" + "\n".join(lines) + "\n\n"
+
     def _synthesize_agent_answer(
         self,
         *,
@@ -181,7 +279,9 @@ class AgentOrchestrator:
         intent: AgentIntent,
         skill_result,
         checked_actions,
+        conversation_key: str | None = None,
     ) -> dict[str, str | dict]:
+        history_block = self._build_recent_history_block(conversation_key)
         action_lines = "\n".join(
             f"- {action.action_type} | allowed={action.allowed} | approval={action.requires_approval} | reason={action.reason or 'none'}"
             for action in checked_actions
@@ -214,9 +314,13 @@ class AgentOrchestrator:
             "Ne mentionne un client, une intervention ou un historique precis que si le message utilisateur le demande "
             "explicitement. Pour une question generale ou une question sur ton identite/role, reponds sans exemple "
             "tire des sources, meme si des sources sont disponibles.\n"
+            "Utilise l'historique recent ci-dessous uniquement pour comprendre une reference implicite du message "
+            "actuel (ex: \"ça\", \"cette periode\", \"fais-le\"). Ne resume pas cet historique et n'y reponds pas a "
+            "nouveau.\n"
             f"Ne fabrique pas de faits absents. Si l'information manque, dis-le clairement.{citation_rule}\n\n"
             f"{business_rules_block}"
             f"{build_internal_reasoning_protocol(mode='agent')}\n\n"
+            f"{history_block}"
             f"Message utilisateur:\n{request.message}\n\n"
             f"Intent detectee:\n{intent.value}\n\n"
             f"Brouillon du skill:\n{skill_result.answer}\n\n"

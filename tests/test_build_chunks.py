@@ -145,3 +145,31 @@ def test_catalog_entry_uses_product_framing_not_intervention_framing():
     assert diffuser.content.startswith("Diffuseur 1 pour Aromair100")
 
     assert issue.content.startswith("Fiche produit Aromair100")
+
+
+def test_catalog_entry_is_never_recorded_as_a_client():
+    # Regression guard: normalize_diffuser_catalog_entry used to write the
+    # product name into MaintenanceDetails.client, so a diffuser model
+    # (e.g. "Aromair100") showed up as a client name in fiches.client and in
+    # every chunk's client/client_name metadata -- confirmed live in
+    # Postgres (fiches.client = 'Aromair100' for a catalog entry) before
+    # this fix. `client` must stay None for a product; `product_name` is
+    # the correct field for it.
+    fiche = normalize_diffuser_catalog_entry(
+        source_file=Path("data/processed/diffuser_catalog_entry/aromair100.json"),
+        page_key="1",
+        payload={"produit": "Aromair100", "couverture": "jusqu'a 100 m2"},
+    )
+
+    assert fiche.client is None
+    assert fiche.product_name == "Aromair100"
+
+    chunks = build_chunks_for_fiche(fiche)
+    diffuser = next(chunk for chunk in chunks if chunk.chunk_type == ChunkType.diffuser)
+    overview = next(chunk for chunk in chunks if chunk.chunk_type == ChunkType.overview)
+
+    assert diffuser.metadata["client"] is None
+    assert diffuser.metadata["client_name"] is None
+    assert diffuser.metadata["model_diffuseur"] == "Aromair100"
+    assert overview.content.startswith("Product: Aromair100")
+    assert "Client:" not in overview.content

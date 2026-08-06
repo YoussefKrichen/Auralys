@@ -1,6 +1,6 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { buildApiUrl, fetchJson, getApiBase, postJson } from "../lib/api";
+import { buildApiUrl, downloadWithAuth, fetchJson, getApiBase, postJson } from "../lib/api";
 import { useBackendStatus } from "../lib/backendStatus";
 import { formatMessage } from "../lib/formatMessage";
 import { STORAGE_KEYS } from "../lib/storageKeys";
@@ -620,6 +620,25 @@ async function copyMessageText(text) {
     await navigator.clipboard.writeText(text || "");
   } catch {
     // Clipboard access can be denied by the browser; ignore silently.
+  }
+}
+
+const chatDownloadError = ref("");
+
+// A plain <a href> to /reports/download/... would 401 (no auth header on a
+// bare navigation) -- formatMessage.js marks those links so this delegated
+// handler can intercept the click and fetch them with credentials instead.
+async function handleChatFeedClick(event) {
+  const link = event.target.closest("a.chat-download-link");
+  if (!link) return;
+  event.preventDefault();
+  chatDownloadError.value = "";
+  const href = link.getAttribute("href") || "";
+  const filename = href.split("/").pop();
+  try {
+    await downloadWithAuth(href, filename, apiBase.value);
+  } catch (error) {
+    chatDownloadError.value = error?.message || "Impossible de telecharger le rapport.";
   }
 }
 
@@ -1392,31 +1411,34 @@ onBeforeUnmount(() => {
           </label>
           <div v-if="decisionError" class="message error-message">{{ decisionError }}</div>
 
-          <div class="decision-grid">
-            <article class="decision-card approve">
-              <div class="decision-head">
-                <h3>C'est bon</h3>
-                <span class="decision-indicator" aria-hidden="true"></span>
-              </div>
-              <p>La reponse est correcte, rien a changer.</p>
-              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('approve')">Valider</button>
-            </article>
-            <article class="decision-card correct">
-              <div class="decision-head">
-                <h3>A corriger</h3>
-                <span class="decision-indicator" aria-hidden="true"></span>
-              </div>
-              <p>La reponse est utile mais doit etre corrigee.</p>
-              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('correct')">Corriger</button>
-            </article>
-            <article class="decision-card reject">
-              <div class="decision-head">
-                <h3>A rejeter</h3>
-                <span class="decision-indicator" aria-hidden="true"></span>
-              </div>
-              <p>La reponse ne doit pas etre reutilisee telle quelle.</p>
-              <button class="text-button" :disabled="!activeReview || savingDecision" @click="submitDecision('reject')">Rejeter</button>
-            </article>
+          <div class="decision-actions">
+            <button
+              type="button"
+              class="decision-button approve"
+              :disabled="!activeReview || savingDecision"
+              title="La reponse est correcte, rien a changer."
+              @click="submitDecision('approve')"
+            >
+              Valider
+            </button>
+            <button
+              type="button"
+              class="decision-button correct"
+              :disabled="!activeReview || savingDecision"
+              title="La reponse est utile mais doit etre corrigee."
+              @click="submitDecision('correct')"
+            >
+              Corriger
+            </button>
+            <button
+              type="button"
+              class="decision-button reject"
+              :disabled="!activeReview || savingDecision"
+              title="La reponse ne doit pas etre reutilisee telle quelle."
+              @click="submitDecision('reject')"
+            >
+              Rejeter
+            </button>
           </div>
         </div>
 
@@ -1617,7 +1639,8 @@ onBeforeUnmount(() => {
         </div>
 
         <div ref="ceoChatViewport" class="chat-feed-stage">
-          <div v-if="ceoChatFeed.length" class="chat-feed-list">
+          <p v-if="chatDownloadError" class="message error-message">{{ chatDownloadError }}</p>
+          <div v-if="ceoChatFeed.length" class="chat-feed-list" @click="handleChatFeedClick">
             <div class="chat-day-divider">
               <span>Aujourd'hui</span>
             </div>

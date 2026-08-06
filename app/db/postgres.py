@@ -512,6 +512,21 @@ class PostgresDatabase:
                 cursor.execute(sql, (conversation_key, max(limit, 1)))
                 return cursor.fetchall()
 
+    def fetch_recent_messages(self, *, conversation_key: str, limit: int = 8) -> list[dict[str, Any]]:
+        sql = """
+            SELECT m.id, m.conversation_id, m.sender, m.message_type, m.content,
+                   m.transcript, m.audio_path, m.metadata, m.created_at, m.history_id
+            FROM messages m
+            JOIN conversations c ON c.id = m.conversation_id
+            WHERE c.conversation_key = %s
+            ORDER BY m.created_at DESC, m.id DESC
+            LIMIT %s
+        """
+        with self.connection() as connection:
+            with connection.cursor(row_factory=dict_row) as cursor:
+                cursor.execute(sql, (conversation_key, max(limit, 1)))
+                return cursor.fetchall()
+
     def insert_discussion_history(self, connection: psycopg.Connection, payload: dict[str, Any]) -> int:
         columns = [column for column in _DISCUSSION_HISTORY_COLUMNS if column in payload]
         values: list[Any] = []

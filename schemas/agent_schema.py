@@ -87,6 +87,11 @@ class SkillResult(BaseModel):
     confidence: float = 0.5
     justification: str | None = None
     payload: dict[str, Any] = Field(default_factory=dict)
+    # When True, the orchestrator skips its usual LLM rewrite of `answer` and
+    # returns it verbatim. Needed for answers that embed something that must
+    # survive byte-for-byte -- e.g. a generated report's download link, which
+    # an LLM paraphrase could silently drop or mangle.
+    skip_llm_polish: bool = False
 
 
 class AgentChatResponse(BaseModel):

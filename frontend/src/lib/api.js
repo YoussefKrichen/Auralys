@@ -62,6 +62,26 @@ export async function fetchJson(path, init = {}, base) {
   return response.json();
 }
 
+// A plain <a href> to a protected route can't carry the auth header, so it
+// 401s on click. Used for report-download links rendered in chat (see
+// formatMessage.js's chat-download-link marker): fetch with the header,
+// then hand the browser a blob URL to save instead.
+export async function downloadWithAuth(path, filename, base) {
+  const response = await fetch(buildApiUrl(path, base), { headers: getAuthHeaders() });
+  if (!response.ok) {
+    throw new Error(`Echec du telechargement (HTTP ${response.status}).`);
+  }
+  const blob = await response.blob();
+  const objectUrl = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = objectUrl;
+  link.download = filename || "rapport";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(objectUrl);
+}
+
 export function postJson(path, body, init = {}, base) {
   return fetchJson(
     path,

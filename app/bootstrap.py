@@ -118,7 +118,7 @@ class AppContainer:
             ),
             alert_management_skill=AlertManagementSkill(operations_data_tool=operations_data_tool),
             maintenance_diagnosis_skill=MaintenanceDiagnosisSkill(operations_data_tool=operations_data_tool, rag_tool=rag_tool),
-            ceo_reporting_skill=CEOReportingSkill(operations_data_tool=operations_data_tool),
+            ceo_reporting_skill=CEOReportingSkill(operations_data_tool=operations_data_tool, store=store),
             general_question_skill=GeneralQuestionSkill(rag_tool=rag_tool),
             maintenance_fiche_intake_skill=MaintenanceFicheIntakeSkill(fiche_extraction_tool=fiche_extraction_tool),
             analytics_skill=AnalyticsSkill(operations_data_tool=operations_data_tool),

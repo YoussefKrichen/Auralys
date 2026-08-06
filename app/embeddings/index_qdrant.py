@@ -15,7 +15,10 @@ from schemas.chunk_schema import ChunkSchema
 
 
 def get_qdrant_client(url: str | None = None) -> QdrantClient:
-    return QdrantClient(url=url or settings.qdrant_url, check_compatibility=False)
+    # Default httpx timeout is too short once a single request carries many
+    # 768-dim vectors -- see reindex.py's batched upsert, which this timeout
+    # backs up as a second line of defense against a slow batch.
+    return QdrantClient(url=url or settings.qdrant_url, check_compatibility=False, timeout=60)
 
 
 def recreate_collection(client: QdrantClient, vector_size: int) -> None:
